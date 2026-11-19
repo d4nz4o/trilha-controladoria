@@ -1,0 +1,38 @@
+[
+  {
+    "Empresa":3600,
+    "Nome":"VDMG"
+  },
+  {
+    "Empresa":4029,
+    "Nome":"Metrô BH"
+  },
+  {
+    "Empresa":4032,
+    "Nome":"TIC Trens"
+  },
+  {
+    "Empresa":4034,
+    "Nome":"Trivia Trens"
+  },
+  {
+    "Empresa":6018,
+    "Nome":"Engetrens"
+  },
+  {
+    "Empresa":6019,
+    "Nome":"Ductu Trens"
+  },
+  {
+    "Empresa":6022,
+    "Nome":"Solidum"
+  },
+  {
+    "Empresa":6023,
+    "Nome":"BRTrens"
+  },
+  {
+    "Empresa":6024,
+    "Nome":"Expertisea"
+  }
+]

@@ -1,0 +1,269 @@
+﻿Classificação Nv1;Classificação Nv2;Classificação Nv3;Ordem Nv1;Ordem Nv2;Ordem Nv3
+Ativo circulante;Adiantamentos;Adiantamentos a fornecedores;10;60;10
+Ativo circulante;Outros créditos;Outros adiantamentos;10;80;30
+Ativo circulante;Caixa e equivalentes de caixa;Aplicações financeiras;10;10;30
+Ativo circulante;Caixa e equivalentes de caixa;Conta bancária para movimento;10;10;10
+Ativo circulante;Caixa e equivalentes de caixa;Caixa geral e fundo fixo;10;10;20
+Ativo circulante;Contas a receber;(-) PCLD;10;20;60
+Ativo circulante;Contas a receber;CR órgãos públicos;10;20;20
+Ativo circulante;Contas a receber;CR operacional;10;20;10
+Ativo circulante;Contas a receber;CR aluguéis;10;20;30
+Ativo circulante;Contas a receber;CR venda de imobilizado;10;20;50
+Ativo circulante;Despesas antecipadas;Aluguéis a apropriar;10;50;30
+Ativo circulante;Despesas antecipadas;Benefícios a apropriar;10;50;20
+Ativo circulante;Despesas antecipadas;Outras despesas a apropriar;10;50;40
+Ativo circulante;Estoques;(-) Peças e acessórios;10;30;20
+Ativo circulante;Estoques;(-) Materiais de manutenção;10;30;40
+Ativo circulante;Estoques;(-) Materiais diversos;10;30;90
+Ativo circulante;Estoques;Combustíveis e lubrificantes;10;30;50
+Ativo circulante;Estoques;Materiais de consumo;10;30;60
+Ativo circulante;Estoques;Materiais de manutenção;10;30;30
+Ativo circulante;Estoques;Materiais para obras;10;30;70
+Ativo circulante;Estoques;Materiais de expediente e informática;10;30;80
+Ativo circulante;Estoques;Peças e acessórios;10;30;10
+Ativo circulante;Outros créditos;Adiantamentos a funcionários;10;80;10
+Ativo circulante;Outros créditos;Cauções em garantia;10;80;20
+Ativo circulante;Outros créditos;Outras contas a receber;10;80;50
+Ativo circulante;Contas a receber;CR publicidade;10;20;40
+Ativo circulante;Outros créditos;Reembolso de despesas;10;80;40
+Ativo circulante;Outros créditos;Transferência entre circulante e não circulante;10;80;70
+Ativo circulante;Partes relacionadas;Comporte;10;70;10
+Ativo circulante;Partes relacionadas;Engetrens;10;70;30
+Ativo circulante;Partes relacionadas;TIC Trens;10;70;40
+Ativo circulante;Partes relacionadas;Transferência entre circulante e não circulante;10;70;140
+Ativo circulante;Partes relacionadas;BR Mobilidade;10;70;100
+Ativo circulante;Partes relacionadas;Patrimony;10;70;80
+Ativo circulante;Partes relacionadas;Adiantamento entre relacionados;10;70;120
+Ativo circulante;Partes relacionadas;Empréstimos com relacionados;10;70;130
+Ativo circulante;Partes relacionadas;Ductu Trens;10;70;50
+Ativo circulante;Partes relacionadas;Brasil Rail Transit;10;70;110
+Ativo circulante;Partes relacionadas;Trivia Trens;10;70;60
+Ativo circulante;Partes relacionadas;Acionistas PF;10;70;90
+Ativo circulante;Partes relacionadas;BRTrens;10;70;70
+Ativo circulante;Partes relacionadas;Viação Piracicabana;10;70;20
+Ativo circulante;Despesas antecipadas;Seguros a apropriar;10;50;10
+Ativo circulante;Tributos a recuperar;COFINS a recuperar;10;40;20
+Ativo circulante;Tributos a recuperar;IRPJ a recuperar;10;40;30
+Ativo circulante;Tributos a recuperar;CSLL a recuperar;10;40;40
+Ativo circulante;Tributos a recuperar;IRRF a recuperar;10;40;50
+Ativo circulante;Tributos a recuperar;Outros tributos a recuperar;10;40;60
+Ativo circulante;Tributos a recuperar;PIS a recuperar;10;40;10
+Ativo não circulante;Ativo financeiro;(-) Ativo financeiro;20;60;20
+Ativo não circulante;Ativo financeiro;Adiantamentos de ativo financeiro;20;60;30
+Ativo não circulante;Ativo financeiro;Contrapartida de aquisição;20;60;40
+Ativo não circulante;Ativo financeiro;Obras com recursos do poder público;20;60;10
+Ativo não circulante;Caixa restrito;Caixa restrito;20;20;10
+Ativo não circulante;Títulos e valores imobiliários;Debêntures;20;10;20
+Ativo não circulante;Depósitos judiciais;Bloqueios e penhoras judiciais;20;40;20
+Ativo não circulante;Depósitos judiciais;Depósitos judiciais trabalhistas;20;40;10
+Ativo não circulante;Despesas antecipadas;Outras despesas a apropriar;20;50;20
+Ativo não circulante;Direito de uso;(-) Direito de uso de imóveis;20;80;20
+Ativo não circulante;Direito de uso;Direito de uso de imóveis;20;80;10
+Ativo não circulante;Imobilizado;Contrapartida de aquisição;20;90;200
+Ativo não circulante;Imobilizado;Instalações;20;90;10
+Ativo não circulante;Imobilizado;Veículos;20;90;30
+Ativo não circulante;Imobilizado;Trens;20;90;50
+Ativo não circulante;Imobilizado;Máquinas e equipamentos;20;90;70
+Ativo não circulante;Imobilizado;Sistemas de bilhetes e passagens;20;90;90
+Ativo não circulante;Imobilizado;Equipamentos de informática;20;90;110
+Ativo não circulante;Imobilizado;Móveis e utensílios;20;90;130
+Ativo não circulante;Imobilizado;Benfeitorias em bens de terceiros;20;90;150
+Ativo não circulante;Imobilizado;Ativos com P&D (Lei 11.196/05);20;90;190
+Ativo não circulante;Imobilizado;Adiantamento de imobilizado;20;90;180
+Ativo não circulante;Imobilizado;Imobilizado em andamento;20;90;170
+Ativo não circulante;Imobilizado;(-) Instalações;20;90;20
+Ativo não circulante;Imobilizado;(-) Veículos;20;90;40
+Ativo não circulante;Imobilizado;(-) Trens;20;90;60
+Ativo não circulante;Imobilizado;(-) Máquinas e equipamentos;20;90;80
+Ativo não circulante;Imobilizado;(-) Sistemas de bilhetes e passagens;20;90;100
+Ativo não circulante;Imobilizado;(-) Equipamentos de informática;20;90;120
+Ativo não circulante;Imobilizado;(-) Móveis e utensílios;20;90;140
+Ativo não circulante;Imobilizado;(-) Benfeitorias em bens de terceiros;20;90;160
+Ativo não circulante;Intangível;(-) Direito de concessão;20;70;40
+Ativo não circulante;Intangível;(-) Softwares;20;70;20
+Ativo não circulante;Intangível;Intangível em andamento;20;70;50
+Ativo não circulante;Intangível;Direito de concessão;20;70;30
+Ativo não circulante;Intangível;Softwares;20;70;10
+Ativo não circulante;Investimentos;Participações em controladas (MEP);20;100;10
+Ativo não circulante;Outros créditos;Cauções contratuais;20;120;20
+Ativo não circulante;Outros créditos;Operações a receber;20;120;10
+Ativo não circulante;Outros créditos;Outras contas a receber;20;120;30
+Ativo não circulante;Outros créditos;Transferência entre circulante e não circulante;20;120;40
+Ativo não circulante;Partes relacionadas;Empréstimos com relacionados;20;110;10
+Ativo não circulante;Partes relacionadas;Transferência entre circulante e não circulante;20;110;20
+Ativo não circulante;Despesas antecipadas;Seguros a apropriar;20;50;10
+Ativo não circulante;Títulos e valores imobiliários;SWAP;20;10;30
+Ativo não circulante;Títulos e valores imobiliários;Fundos de investimento;20;10;10
+Ativo não circulante;Tributos diferidos;IRPJ diferidos - prejuízo fiscal e base negativa;20;30;10
+Ativo não circulante;Tributos diferidos;IRPJ diferidos - diferenças temporárias;20;30;20
+Ativo não circulante;Tributos diferidos;CSLL diferidos - prejuízo fiscal e base negativa;20;30;30
+Ativo não circulante;Tributos diferidos;CSLL diferidos - diferenças temporárias;20;30;40
+Passivo circulante;Passivo de arrendamento;Arrendamento mercantil;30;20;10
+Passivo circulante;Debêntures;Debêntures;30;50;10
+Passivo circulante;Fornecedores;Contas a pagar diversas;30;10;30
+Passivo circulante;Fornecedores;Fornecedores estrangeiros;30;10;20
+Passivo circulante;Fornecedores;Fornecedores nacionais;30;10;10
+Passivo circulante;Fornecedores;Provisão de fornecedores;30;10;40
+Passivo circulante;Fornecedores;Transferência entre circulante e não circulante;30;10;60
+Passivo circulante;Fornecedores;Transitória MIRO/MIGO;30;10;50
+Passivo circulante;Obrigações trabalhistas;Consignações e descontos em folha;30;40;80
+Passivo circulante;Obrigações trabalhistas;Contribuições sindicais e assistenciais;30;40;50
+Passivo circulante;Obrigações trabalhistas;INSS a recolher;30;40;60
+Passivo circulante;Obrigações trabalhistas;FGTS a recolher;30;40;70
+Passivo circulante;Obrigações trabalhistas;PLR a pagar;30;40;40
+Passivo circulante;Obrigações trabalhistas;Pensão alimentícia a pagar;30;40;90
+Passivo circulante;Obrigações trabalhistas;Provisão de 13º salário e encargos;30;40;20
+Passivo circulante;Obrigações trabalhistas;Provisão de férias e encargos;30;40;30
+Passivo circulante;Obrigações trabalhistas;Salários e pró-labore a pagar;30;40;10
+Passivo circulante;Obrigações tributárias;ICMS a recolher;30;30;30
+Passivo circulante;Obrigações tributárias;IRPJ a recolher;30;30;40
+Passivo circulante;Obrigações tributárias;CSLL a recolher;30;30;50
+Passivo circulante;Obrigações tributárias;Outros tributos a recolher;30;30;80
+Passivo circulante;Obrigações tributárias;Parcelamentos fiscais;30;30;60
+Passivo circulante;Obrigações tributárias;PIS a recolher;30;30;10
+Passivo circulante;Obrigações tributárias;COFINS a recolher;30;30;20
+Passivo circulante;Obrigações tributárias;Tributos de terceiros a recolher;30;30;70
+Passivo circulante;Outras obrigações;Outros;30;70;40
+Passivo circulante;Outras obrigações;SWAP;30;70;20
+Passivo circulante;Outras obrigações;Contas a pagar diversas;30;70;30
+Passivo circulante;Outras obrigações;Adiantamento de clientes;30;70;10
+Passivo circulante;Partes relacionadas;Acionistas PF;30;60;50
+Passivo circulante;Partes relacionadas;Comporte;30;60;20
+Passivo circulante;Partes relacionadas;Engetrens;30;60;30
+Passivo circulante;Partes relacionadas;Ductu Trens;30;60;70
+Passivo circulante;Partes relacionadas;BRTrens;30;60;100
+Passivo circulante;Partes relacionadas;CRRC;30;60;80
+Passivo circulante;Partes relacionadas;Expertisea;30;60;90
+Passivo circulante;Partes relacionadas;Brasil Rail Transit;30;60;60
+Passivo circulante;Partes relacionadas;TIC Trens;30;60;40
+Passivo circulante;Partes relacionadas;Trivia Trens;30;60;50
+Passivo circulante;Partes relacionadas;Transferência entre circulante e não circulante;30;60;110
+Passivo circulante;Partes relacionadas;Viação Piracicabana;30;60;10
+Passivo não circulante;Passivo de arrendamento;Arrendamento mercantil;40;20;10
+Passivo não circulante;Debêntures;Debêntures;40;40;10
+Passivo não circulante;Fornecedores;Contas a pagar diversas;40;10;20
+Passivo não circulante;Fornecedores;Fornecedores nacionais;40;10;10
+Passivo não circulante;Obrigações tributárias;Créditos tributários não homologados;40;30;10
+Passivo não circulante;Obrigações tributárias;Parcelamentos fiscais;40;30;20
+Passivo não circulante;Outras obrigações;SWAP;40;70;20
+Passivo não circulante;Outras obrigações;Contas a pagar diversas;40;70;10
+Passivo não circulante;Partes relacionadas;Transferência entre circulante e não circulante;40;50;10
+Passivo não circulante;Provisões para contingências;Cíveis;40;60;20
+Passivo não circulante;Provisões para contingências;Trabalhistas;40;60;10
+Patrimônio líquido;AFAC;Comporte;50;20;10
+Patrimônio líquido;AFAC;VDMG;50;20;20
+Patrimônio líquido;Capital social;(-) Capital a integralizar;50;10;20
+Patrimônio líquido;Capital social;(-) Outras reservas;50;10;30
+Patrimônio líquido;Capital social;Capital subscrito;50;10;10
+Patrimônio líquido;Lucros / prejuízos acumulados;Lucros acumulados;50;50;10
+Patrimônio líquido;Lucros / prejuízos acumulados;Prejuízos acumulados;50;50;20
+Patrimônio líquido;Reserva legal;Reserva legal;50;40;10
+Patrimônio líquido;Reserva de lucros;Reserva de incentivos fiscais;50;30;10
+Patrimônio líquido;Reserva de lucros;Reserva de lucros a realizar;50;30;20
+Patrimônio líquido;Resultado do período;Resultado do período;50;60;10
+Receita líquida;Receita tarifária;Receita tarifária;60;10;10
+Receita líquida;Receita mitigação;Receita mitigação;60;20;10
+Receita líquida;Receita operacional;Receita operacional;60;30;20
+Receita líquida;Receita de construção;Receita de construção;60;40;10
+Receita líquida;Receita operacional;Receita serviços prestados;60;30;10
+Receita líquida;(-) Tributos;COFINS;60;50;20
+Receita líquida;(-) Tributos;ISSQN;60;50;30
+Receita líquida;(-) Tributos;CPRB;60;50;40
+Receita líquida;(-) Deduções;Taxa de fiscalização;60;60;20
+Receita líquida;(-) Deduções;Bilhetagem;60;60;10
+Receita líquida;(-) Tributos;PIS;60;50;10
+Custos;Mão de obra;Benefícios;70;10;10
+Custos;Mão de obra;Encargos;70;10;20
+Custos;Mão de obra;PLR;70;10;30
+Custos;Mão de obra;Provisões;70;10;40
+Custos;Mão de obra;Rescisões;70;10;50
+Custos;Mão de obra;Salários;70;10;60
+Custos;Mão de obra;Treinamentos;70;10;70
+Custos;Serviços;Conservação e Limpeza;70;20;10
+Custos;Serviços;Consultoria;70;20;20
+Custos;Serviços;Jurídico;70;20;30
+Custos;Serviços;Manutenção Veículos;70;20;40
+Custos;Serviços;Segurança;70;20;50
+Custos;Serviços;Transporte;70;20;60
+Custos;Serviços;Outros serviços;70;20;70
+Custos;Materiais;Bens de pequeno valor;70;30;10
+Custos;Materiais;Combustíveis e lubrificantes;70;30;20
+Custos;Materiais;Conservação e limpeza;70;30;30
+Custos;Materiais;EPIs e segurança;70;30;40
+Custos;Materiais;Materiais de informática;70;30;50
+Custos;Materiais;Materiais diversos;70;30;60
+Custos;Materiais;Materiais veículos;70;30;70
+Custos;Materiais;Material de escritório;70;30;80
+Custos;Materiais;Provisão de obsolescência;70;30;100
+Custos;Materiais;Uniformes;70;30;90
+Custos;Energia;Energia;70;40;10
+Custos;Impostos e taxas;Impostos e taxas;70;50;10
+Custos;Depreciação e amortização;Amortização;70;60;10
+Custos;Depreciação e amortização;Depreciação;70;60;20
+Custos;Gastos gerais;Aluguel e condomínio;70;70;10
+Custos;Gastos gerais;Aluguéis diversos;70;70;20
+Custos;Gastos gerais;Contas de consumo;70;70;30
+Custos;Gastos gerais;Jurídico;70;70;40
+Custos;Gastos gerais;Outros gastos;70;70;50
+Custos;Custos de construção;Custos de construção;70;70;100
+Despesas;Mão de obra;Benefícios;80;10;10
+Despesas;Mão de obra;Encargos;80;10;20
+Despesas;Mão de obra;PLR;80;10;30
+Despesas;Mão de obra;Provisões;80;10;40
+Despesas;Mão de obra;Rescisões;80;10;50
+Despesas;Mão de obra;Salários;80;10;60
+Despesas;Mão de obra;Treinamentos;80;10;70
+Despesas;Serviços;Administrativo;80;20;10
+Despesas;Serviços;Conservação e Limpeza;80;20;20
+Despesas;Serviços;Consultoria;80;20;30
+Despesas;Serviços;Jurídico;80;20;40
+Despesas;Serviços;Materiais Veículos;80;20;50
+Despesas;Serviços;Segurança;80;20;60
+Despesas;Serviços;Tecnologia da Informação;80;20;70
+Despesas;Serviços;Transporte;80;20;80
+Despesas;Serviços;Outros serviços;80;20;90
+Despesas;Materiais;Bens de pequeno valor;80;30;10
+Despesas;Materiais;Combustíveis e lubrificantes;80;30;20
+Despesas;Materiais;Conservação e limpeza;80;30;30
+Despesas;Materiais;EPIs e segurança;80;30;40
+Despesas;Materiais;Materiais de informática;80;30;50
+Despesas;Materiais;Materiais diversos;80;30;60
+Despesas;Materiais;Materiais veículos;80;30;70
+Despesas;Materiais;Material de escritório;80;30;80
+Despesas;Materiais;Uniformes;80;30;90
+Despesas;Seguros;Seguros;80;40;10
+Despesas;Impostos e taxas;Impostos e taxas;80;50;10
+Despesas;Depreciação e amortização;Amortização;80;60;10
+Despesas;Depreciação e amortização;Depreciação;80;60;20
+Despesas;Gastos gerais;Aluguel e condomínio;80;70;10
+Despesas;Gastos gerais;Aluguéis diversos;80;70;20
+Despesas;Gastos gerais;Comunicação / eventos;80;70;30
+Despesas;Gastos gerais;Contas de consumo;80;70;40
+Despesas;Gastos gerais;Jurídico;80;70;50
+Despesas;Gastos gerais;Outros gastos;80;70;60
+Outras despesas / receitas;Receita acessória;Aluguel;90;10;10
+Outras despesas / receitas;Outras despesas / receitas;COFINS;90;20;20
+Outras despesas / receitas;Outras despesas / receitas;ICMS;90;20;30
+Outras despesas / receitas;Outras despesas / receitas;PIS;90;20;10
+Outras despesas / receitas;Receita acessória;Publicidade;90;10;20
+Outras despesas / receitas;Outras despesas / receitas;Sinistro;90;20;40
+Outras despesas / receitas;Outras despesas / receitas;Venda de imobilizado;90;20;50
+Outras despesas / receitas;Outras despesas / receitas;Venda de sucata;90;20;60
+Outras despesas / receitas;Outras despesas / receitas;Permissão de uso;90;20;70
+Outras despesas / receitas;Outras despesas / receitas;Aluguel;90;20;80
+Outras despesas / receitas;Outras despesas / receitas;Publicidade;90;20;90
+Outras despesas / receitas;Outras despesas / receitas;Outros;90;20;100
+Receitas financeiras;Receitas financeiras;Aplicações financeiras;100;10;10
+Receitas financeiras;Receitas financeiras;Juros;100;10;20
+Receitas financeiras;Receitas financeiras;Variação cambial;100;10;30
+Receitas financeiras;Receitas financeiras;Variação monetária;100;10;40
+Receitas financeiras;Receitas financeiras;Outros;100;10;50
+Despesas financeiras;Despesas financeiras;Juros e multas;110;10;10
+Despesas financeiras;Despesas financeiras;Juros sobre financiamento;110;10;20
+Despesas financeiras;Despesas financeiras;Pis/Cofins;110;10;30
+Despesas financeiras;Despesas financeiras;Taxas;110;10;40
+Despesas financeiras;Despesas financeiras;Variação cambial;110;10;50
+Despesas financeiras;Despesas financeiras;Variação monetária;110;10;60
+Despesas financeiras;Despesas financeiras;Outros;110;10;70
+IR / CSLL;IRPJ / CSLL corrente;IRPJ / CSLL corrente;120;10;10
+IR / CSLL;IRPJ / CSLL diferido;IRPJ / CSLL diferido;120;20;10

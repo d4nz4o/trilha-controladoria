@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+/* ==========================================
+   BARRA SUPERIOR — mesmo padrão das Demonstrações (pages/demonstracoes/commons.css › .barra-topo)
+   Esquerda: logo · Centro: abas · Direita: ação, busca e perfil
+   As cores ficam em variáveis próprias (--bt-*) para não interferir no resto da Controladoria.
+   ========================================== */
+
+.barra-topo {
+  --bt-surface: #ffffff;
+  --bt-surface-2: #f4f7fb;
+  --bt-ink: #15385e;
+  --bt-ink-2: #46607c;
+  --bt-ink-3: #7a8fa6;
+  --bt-line: #dce5ef;
+  --bt-rail: #2573c0;
+  --bt-rail-dark: #1b5a9a;
+  --bt-logo-blue: #3a93dd;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bt-surface);
+  border-top: 3px solid var(--bt-logo-blue);
+  border-bottom: 1px solid var(--bt-line);
+  box-shadow: 0 8px 24px -18px rgba(21, 56, 94, 0.35);
+  view-transition-name: topbar;
+}
+
+.barra-topo,
+.barra-topo * { font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; }
+
+.barra-topo-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 8px clamp(12px, 2.4vw, 32px);
+}
+
+/* ---------- Esquerda: logo ---------- */
+.barra-esquerda { display: flex; align-items: center; gap: 14px; justify-self: start; min-width: 0; }
+
+.marca-logo { display: block; line-height: 0; }
+.marca-logo img { display: block; width: auto; height: 40px; }
+
+/* ---------- Centro: abas ---------- */
+.abas { display: inline-flex; gap: 4px; padding: 4px; background: var(--bt-surface-2); border: 1px solid var(--bt-line); border-radius: 12px; }
+.abas a { padding: 6px 12px; text-align: center; border-radius: 8px; color: var(--bt-ink-2); font-size: 0.85rem; font-weight: 500; text-decoration: none; white-space: nowrap; }
+.abas a:hover { background: var(--bt-surface-2); color: var(--bt-ink); }
+.abas a[aria-current="page"] { background: var(--bt-rail); color: #ffffff; font-weight: 600; }
+
+/* ---------- Direita: ação, busca e perfil ---------- */
+.barra-direita { display: flex; align-items: center; gap: 10px; justify-self: end; min-width: 0; }
+
+.btn-action-highlight {
+  padding: 7px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--bt-rail);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .15s ease;
+}
+.btn-action-highlight:hover { background: var(--bt-rail-dark); }
+.btn-action-highlight.hidden { display: none; }
+
+.search-input {
+  width: 200px;
+  padding: 7px 12px;
+  border: 1px solid var(--bt-line);
+  border-radius: 8px;
+  background: var(--bt-surface-2);
+  color: var(--bt-ink);
+  font-size: 0.85rem;
+  font-weight: 500;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.search-input::placeholder { color: var(--bt-ink-3); }
+.search-input:focus { border-color: var(--bt-rail); box-shadow: 0 0 0 3px rgba(37, 115, 192, 0.18); background: #ffffff; }
+
+@media (max-width: 1100px) {
+  .search-input { width: 140px; }
+}
+@media (max-width: 860px) {
+  .barra-topo-inner { grid-template-columns: 1fr auto; }
+  .abas { grid-column: 1 / -1; grid-row: 2; justify-self: center; }
+}
+
+/* ---------- Perfil (avatar + menu) ---------- */
+.user-profile-avatar { 
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--bt-rail);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--bt-line);
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.user-profile-avatar:hover {
+  transform: scale(1.05);
+  border-color: var(--bt-logo-blue);
+}
+
+.user-profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Container de perfil com posição relativa para o dropdown */
+.user-profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Menu Dropdown de Perfil */
+.user-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 240px;
+  max-width: 300px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-cards);
+  box-shadow: var(--shadow-lg);
+  padding: 0.75rem 0;
+  animation: fadeIn 0.15s ease-in-out;
+}
+
+.user-dropdown-menu.active {
+  display: block;
+  z-index: 104;
+}
+
+/* Cabeçalho do Dropdown com dados da conta */
+.dropdown-header {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropdown-header strong {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-header span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: var(--border-light);
+  margin: 0.5rem 0;
+}
+
+/* Botão de Logout dentro do Dropdown */
+.dropdown-item {
+  width: 100%;
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.15s ease;
+}
+
+.dropdown-item.btn-logout {
+  color: #dc2626; /* Vermelho destacado para encerramento de sessão */
+  font-size: 0.8rem;
+}
+
+.dropdown-item.btn-logout:hover {
+  background-color: #fef2f2;
+}
+
