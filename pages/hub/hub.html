@@ -2,6 +2,19 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <!-- Publicado (vercel.json): a página recebe <base> com o endereço real. Com ele, referências internas
+       do SVG (#id) apontariam para outro documento quando aberta por /hub: passam a apontar para esta. -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var doc = location.href.split('#')[0];
+      if (document.baseURI === doc) return;
+      document.querySelectorAll('use').forEach(function (u) { var h = u.getAttribute('href'); if (h && h[0] === '#') u.setAttribute('href', doc + h); });
+      document.querySelectorAll('[fill^="url(#"],[stroke^="url(#"],[filter^="url(#"],[clip-path^="url(#"],[mask^="url(#"]').forEach(function (el) {
+        ['fill', 'stroke', 'filter', 'clip-path', 'mask'].forEach(function (a) { var x = el.getAttribute(a); if (x && x.indexOf('url(#') === 0) el.setAttribute(a, 'url(' + doc + x.slice(4)); });
+      });
+    });
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trilha Participações | Portal da Controladoria</title>
   <link rel="icon" type="image/png" href="../../assets/icons/favicon-trilha.png">
