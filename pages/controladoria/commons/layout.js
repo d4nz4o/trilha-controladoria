@@ -40,17 +40,7 @@ function renderizarTopbar() {
       <div class="barra-direita">
         <button type="button" id="btn-acao-contextual" class="btn-action-highlight" onclick="executarAcaoAba()">${atual.acao}</button>
         <input type="search" id="campoBusca" class="search-input" placeholder="Buscar…" aria-label="Buscar" oninput="filtrarBusca(this.value)">
-        <div class="user-profile-container" id="userProfileContainer">
-          <div class="user-profile-avatar" id="userProfileAvatar" onclick="alternarMenuUsuario(event)"><span id="userAvatarText">?</span></div>
-          <div class="user-dropdown-menu" id="userDropdownMenu">
-            <div class="dropdown-header">
-              <strong id="dropdownUserName">Usuário</strong>
-              <span id="dropdownUserEmail">email@triviatrens.com.br</span>
-            </div>
-            <div class="dropdown-divider"></div>
-            <button class="dropdown-item btn-logout" onclick="fazerLogout()">Desconectar</button>
-          </div>
-        </div>
+        ${htmlPerfilUsuario()}
       </div>
     </div>`;
 }
