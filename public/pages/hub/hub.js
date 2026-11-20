@@ -46,7 +46,9 @@
   function ir(nome, historico = true) {
     if (nome === alvo) return;
     alvo = nome;
-    if (historico) history.pushState({ vista: nome }, '', nome === 'raiz' ? location.pathname + location.search : '#' + nome);
+    // Endereço completo a partir do caminho atual: um '#vista' relativo seria resolvido pelo <base> da publicação
+    // (/pages/hub/hub.html), trocando /hub pelo endereço longo e desligando os gradientes do trem
+    if (historico) history.pushState({ vista: nome }, '', location.pathname + location.search + (nome === 'raiz' ? '' : '#' + nome));
     if (reduzMovimento) { desenhar(nome); return; }
     const minha = ++senha;
     conteudo.classList.add('trocando');
