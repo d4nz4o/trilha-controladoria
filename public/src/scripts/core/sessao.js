@@ -40,6 +40,13 @@
   };
   const LOCAL = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
 
+  // No site publicado: se a página foi aberta pelo endereço longo (ex.: retorno do login), a barra passa para a rota
+  // curta, sem recarregar e mantendo #/parâmetros. Só com o <base> da publicação, que mantém os caminhos relativos.
+  if (!LOCAL && document.querySelector('base[href]')) {
+    const curtaDaPagina = ROTAS_CURTAS[location.pathname.replace(/^\//, '').replace(/\.html$/, '')];
+    if (curtaDaPagina) history.replaceState(history.state, '', curtaDaPagina + location.search + location.hash);
+  }
+
   // No site publicado, todo link interno para uma página com rota curta abre pela rota curta
   if (!LOCAL) {
     const encurtar = evento => {
