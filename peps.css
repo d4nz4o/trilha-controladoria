@@ -1,0 +1,4 @@
+/* Aba PEPs (árvore de projetos) */
+
+#pt tr.expansivel { cursor: pointer; }
+.pep-vazio { visibility: hidden; }

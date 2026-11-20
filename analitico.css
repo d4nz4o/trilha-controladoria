@@ -1,0 +1,23 @@
+/* Aba Analítico (inventário por bem) */
+
+#h1 th { cursor: pointer; user-select: none; }
+#h1 th:hover { color: var(--rail); }
+#t1 tr { cursor: pointer; }
+.tb-ativos td.d { max-width: 280px; overflow: hidden; text-overflow: ellipsis; }
+#t1 td:nth-child(5) { max-width: 230px; overflow: hidden; text-overflow: ellipsis; }
+
+/* Paginação */
+.pg { display: flex; justify-content: space-between; align-items: center; }
+.pg div { display: flex; align-items: center; gap: 8px; }
+.pg .btn-action { padding: 4px 12px; }
+
+/* Ficha do bem */
+dialog { max-width: 540px; width: 92%; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius); color: var(--ink); box-shadow: 0 24px 60px -20px rgba(21, 56, 94, .45); }
+dialog::backdrop { background: rgba(21, 56, 94, .4); }
+dialog h2 { font-size: 1.15rem; color: var(--ink); }
+.fx { position: absolute; top: 12px; right: 14px; width: 32px; height: 32px; padding: 0 0 3px; border: 0; border-radius: 8px; background: var(--surface-2); display: grid; place-items: center; font-size: 1.4rem; line-height: 1; color: var(--ink-2); cursor: pointer; }
+.fx:hover { background: var(--rail-soft); color: var(--rail-dark); }
+dl { display: grid; grid-template-columns: auto 1fr; gap: 0 24px; margin: 14px 0 0; }
+dt, dd { padding: 7px 0; border-bottom: 1px solid var(--line); }
+dt { color: var(--ink-3); }
+dd { margin: 0; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }

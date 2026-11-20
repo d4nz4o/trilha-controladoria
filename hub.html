@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Publicado (vercel.json): a página recebe <base> com o endereço real. Com ele, referências internas
+       do SVG (#id) apontariam para outro documento quando aberta por /hub: passam a apontar para esta. -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var doc = location.href.split('#')[0];
+      if (document.baseURI === doc) return;
+      document.querySelectorAll('use').forEach(function (u) { var h = u.getAttribute('href'); if (h && h[0] === '#') u.setAttribute('href', doc + h); });
+      document.querySelectorAll('[fill^="url(#"],[stroke^="url(#"],[filter^="url(#"],[clip-path^="url(#"],[mask^="url(#"]').forEach(function (el) {
+        ['fill', 'stroke', 'filter', 'clip-path', 'mask'].forEach(function (a) { var x = el.getAttribute(a); if (x && x.indexOf('url(#') === 0) el.setAttribute(a, 'url(' + doc + x.slice(4)); });
+      });
+    });
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha Participações | Portal da Controladoria</title>
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon-trilha.png">
+  <link rel="stylesheet" href="hub.css">
+  <!-- Sessão (login, domínio corporativo e ociosidade) + fonte de dados. Ver /src/scripts/core e /src/scripts/services -->
+  <script src="../../src/scripts/core/sessao.js"></script>
+  <script src="../../src/scripts/services/fonte-dados.js"></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="../../src/scripts/core/supabase.js"></script>
+  <script defer src="../../src/scripts/core/dados.js"></script>
+  <script defer src="../../src/scripts/core/usuario.js"></script>
+  <script defer src="../../src/scripts/core/inatividade.js"></script>
+  <script defer src="../../src/scripts/core/main.js"></script>
+</head>
+<body>
+
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="t-far"><rect x="0" y="29" width="56" height="201" fill="#cfe1f2"/><rect x="11" y="15" width="34" height="14" fill="#cfe1f2"/><rect x="56" y="45" width="40" height="185" fill="#cfe1f2"/><rect x="96" y="76" width="59" height="154" fill="#cfe1f2"/><rect x="108" y="62" width="35" height="14" fill="#cfe1f2"/><rect x="155" y="139" width="38" height="91" fill="#cfe1f2"/><rect x="193" y="120" width="40" height="110" fill="#cfe1f2"/><rect x="212" y="86" width="2" height="34" fill="#cfe1f2"/><rect x="233" y="143" width="63" height="87" fill="#cfe1f2"/><rect x="264" y="109" width="2" height="34" fill="#cfe1f2"/><rect x="296" y="70" width="50" height="160" fill="#cfe1f2"/><rect x="346" y="77" width="39" height="153" fill="#cfe1f2"/><rect x="385" y="26" width="39" height="204" fill="#cfe1f2"/><rect x="424" y="41" width="71" height="189" fill="#cfe1f2"/><rect x="438" y="27" width="43" height="14" fill="#cfe1f2"/><rect x="495" y="135" width="70" height="95" fill="#cfe1f2"/><rect x="565" y="127" width="79" height="103" fill="#cfe1f2"/><rect x="581" y="113" width="47" height="14" fill="#cfe1f2"/><rect x="644" y="103" width="48" height="127" fill="#cfe1f2"/><rect x="667" y="69" width="2" height="34" fill="#cfe1f2"/><rect x="692" y="142" width="81" height="88" fill="#cfe1f2"/><rect x="773" y="63" width="67" height="167" fill="#cfe1f2"/><rect x="840" y="76" width="65" height="154" fill="#cfe1f2"/><rect x="905" y="49" width="51" height="181" fill="#cfe1f2"/><rect x="915" y="35" width="31" height="14" fill="#cfe1f2"/><rect x="956" y="77" width="41" height="153" fill="#cfe1f2"/><rect x="997" y="38" width="67" height="192" fill="#cfe1f2"/><rect x="1010" y="24" width="40" height="14" fill="#cfe1f2"/><rect x="1064" y="25" width="74" height="205" fill="#cfe1f2"/><rect x="1079" y="11" width="44" height="14" fill="#cfe1f2"/><rect x="1138" y="54" width="46" height="176" fill="#cfe1f2"/><rect x="1184" y="97" width="67" height="133" fill="#cfe1f2"/><rect x="1197" y="83" width="40" height="14" fill="#cfe1f2"/><rect x="1251" y="79" width="84" height="151" fill="#cfe1f2"/><rect x="1335" y="107" width="56" height="123" fill="#cfe1f2"/><rect x="1391" y="48" width="73" height="182" fill="#cfe1f2"/><rect x="1464" y="90" width="53" height="140" fill="#cfe1f2"/><rect x="1490" y="56" width="2" height="34" fill="#cfe1f2"/><rect x="1517" y="61" width="83" height="169" fill="#cfe1f2"/><rect x="1534" y="47" width="50" height="14" fill="#cfe1f2"/></g>
+    <g id="t-mid"><rect x="0" y="59" width="40" height="91" fill="#b4cfe8"/><rect x="40" y="76" width="70" height="74" fill="#b4cfe8"/><rect x="110" y="47" width="60" height="103" fill="#b4cfe8"/><rect x="122" y="33" width="36" height="14" fill="#b4cfe8"/><rect x="170" y="111" width="30" height="39" fill="#b4cfe8"/><rect x="200" y="58" width="67" height="92" fill="#b4cfe8"/><rect x="213" y="44" width="40" height="14" fill="#b4cfe8"/><rect x="267" y="83" width="44" height="67" fill="#b4cfe8"/><rect x="311" y="60" width="57" height="90" fill="#b4cfe8"/><rect x="338" y="26" width="2" height="34" fill="#b4cfe8"/><rect x="368" y="43" width="51" height="107" fill="#b4cfe8"/><rect x="392" y="9" width="2" height="34" fill="#b4cfe8"/><rect x="419" y="110" width="53" height="40" fill="#b4cfe8"/><rect x="430" y="96" width="32" height="14" fill="#b4cfe8"/><rect x="472" y="110" width="37" height="40" fill="#b4cfe8"/><rect x="509" y="69" width="65" height="81" fill="#b4cfe8"/><rect x="522" y="55" width="39" height="14" fill="#b4cfe8"/><rect x="540" y="35" width="2" height="34" fill="#b4cfe8"/><rect x="574" y="52" width="32" height="98" fill="#b4cfe8"/><rect x="606" y="103" width="45" height="47" fill="#b4cfe8"/><rect x="651" y="38" width="43" height="112" fill="#b4cfe8"/><rect x="694" y="97" width="34" height="53" fill="#b4cfe8"/><rect x="728" y="63" width="65" height="87" fill="#b4cfe8"/><rect x="741" y="49" width="39" height="14" fill="#b4cfe8"/><rect x="793" y="60" width="64" height="90" fill="#b4cfe8"/><rect x="806" y="46" width="38" height="14" fill="#b4cfe8"/><rect x="857" y="63" width="62" height="87" fill="#b4cfe8"/><rect x="869" y="49" width="37" height="14" fill="#b4cfe8"/><rect x="919" y="109" width="47" height="41" fill="#b4cfe8"/><rect x="966" y="49" width="40" height="101" fill="#b4cfe8"/><rect x="985" y="15" width="2" height="34" fill="#b4cfe8"/><rect x="1006" y="42" width="34" height="108" fill="#b4cfe8"/><rect x="1040" y="84" width="63" height="66" fill="#b4cfe8"/><rect x="1103" y="98" width="69" height="52" fill="#b4cfe8"/><rect x="1117" y="84" width="41" height="14" fill="#b4cfe8"/><rect x="1136" y="64" width="2" height="34" fill="#b4cfe8"/><rect x="1172" y="70" width="52" height="80" fill="#b4cfe8"/><rect x="1182" y="56" width="31" height="14" fill="#b4cfe8"/><rect x="1224" y="81" width="49" height="69" fill="#b4cfe8"/><rect x="1248" y="47" width="2" height="34" fill="#b4cfe8"/><rect x="1273" y="90" width="34" height="60" fill="#b4cfe8"/><rect x="1307" y="92" width="53" height="58" fill="#b4cfe8"/><rect x="1360" y="60" width="45" height="90" fill="#b4cfe8"/><rect x="1405" y="37" width="40" height="113" fill="#b4cfe8"/><rect x="1424" y="3" width="2" height="34" fill="#b4cfe8"/><rect x="1445" y="50" width="52" height="100" fill="#b4cfe8"/><rect x="1497" y="92" width="45" height="58" fill="#b4cfe8"/><rect x="1542" y="60" width="58" height="90" fill="#b4cfe8"/><rect x="700" y="60" width="310" height="8" fill="#86abd0"/><rect x="700" y="52" width="310" height="3" fill="#86abd0"/><rect x="708" y="52" width="4" height="98" fill="#86abd0"/><rect x="996" y="52" width="4" height="98" fill="#86abd0"/><path d="M700 60 L650 150 M1010 60 L1060 150" stroke="#86abd0" stroke-width="5" fill="none"/></g>
+    <g id="t-poste"><path d="M-300 40 Q-100 100 100 40" stroke="#4d6a88" stroke-width="1.4" fill="none" vector-effect="non-scaling-stroke"/><line x1="-220" y1="59.2" x2="-220" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="-140" y1="68.8" x2="-140" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="-60" y1="68.8" x2="-60" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="20" y1="59.2" x2="20" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><path d="M100 40 Q300 100 500 40" stroke="#4d6a88" stroke-width="1.4" fill="none" vector-effect="non-scaling-stroke"/><line x1="180" y1="59.2" x2="180" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="260" y1="68.8" x2="260" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="340" y1="68.8" x2="340" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="420" y1="59.2" x2="420" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><path d="M500 40 Q700 100 900 40" stroke="#4d6a88" stroke-width="1.4" fill="none" vector-effect="non-scaling-stroke"/><line x1="580" y1="59.2" x2="580" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="660" y1="68.8" x2="660" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="740" y1="68.8" x2="740" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="820" y1="59.2" x2="820" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><path d="M900 40 Q1100 100 1300 40" stroke="#4d6a88" stroke-width="1.4" fill="none" vector-effect="non-scaling-stroke"/><line x1="980" y1="59.2" x2="980" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="1060" y1="68.8" x2="1060" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="1140" y1="68.8" x2="1140" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="1220" y1="59.2" x2="1220" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><path d="M1300 40 Q1500 100 1700 40" stroke="#4d6a88" stroke-width="1.4" fill="none" vector-effect="non-scaling-stroke"/><line x1="1380" y1="59.2" x2="1380" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="1460" y1="68.8" x2="1460" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="1540" y1="68.8" x2="1540" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="1620" y1="59.2" x2="1620" y2="96" stroke="#4d6a88" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="-400" y1="96" x2="2000" y2="96" stroke="#4d6a88" stroke-width="1.8" vector-effect="non-scaling-stroke"/><rect x="97" y="36" width="6" height="204" fill="#6c88a5"/><rect x="91" y="232" width="18" height="8" fill="#6c88a5"/><rect x="86" y="36" width="28" height="4" fill="#6c88a5"/><rect x="99" y="40" width="2" height="9" fill="#9fb6cc"/><rect x="497" y="36" width="6" height="204" fill="#6c88a5"/><rect x="491" y="232" width="18" height="8" fill="#6c88a5"/><rect x="486" y="36" width="28" height="4" fill="#6c88a5"/><rect x="499" y="40" width="2" height="9" fill="#9fb6cc"/><rect x="897" y="36" width="6" height="204" fill="#6c88a5"/><rect x="891" y="232" width="18" height="8" fill="#6c88a5"/><rect x="886" y="36" width="28" height="4" fill="#6c88a5"/><rect x="899" y="40" width="2" height="9" fill="#9fb6cc"/><rect x="1297" y="36" width="6" height="204" fill="#6c88a5"/><rect x="1291" y="232" width="18" height="8" fill="#6c88a5"/><rect x="1286" y="36" width="28" height="4" fill="#6c88a5"/><rect x="1299" y="40" width="2" height="9" fill="#9fb6cc"/></g>
+    <g id="t-via"><rect x="0" y="4" width="1600" height="36" fill="#1a416b"/><rect x="8" y="4" width="24" height="9" fill="#0b2036"/><rect x="48" y="4" width="24" height="9" fill="#0b2036"/><rect x="88" y="4" width="24" height="9" fill="#0b2036"/><rect x="128" y="4" width="24" height="9" fill="#0b2036"/><rect x="168" y="4" width="24" height="9" fill="#0b2036"/><rect x="208" y="4" width="24" height="9" fill="#0b2036"/><rect x="248" y="4" width="24" height="9" fill="#0b2036"/><rect x="288" y="4" width="24" height="9" fill="#0b2036"/><rect x="328" y="4" width="24" height="9" fill="#0b2036"/><rect x="368" y="4" width="24" height="9" fill="#0b2036"/><rect x="408" y="4" width="24" height="9" fill="#0b2036"/><rect x="448" y="4" width="24" height="9" fill="#0b2036"/><rect x="488" y="4" width="24" height="9" fill="#0b2036"/><rect x="528" y="4" width="24" height="9" fill="#0b2036"/><rect x="568" y="4" width="24" height="9" fill="#0b2036"/><rect x="608" y="4" width="24" height="9" fill="#0b2036"/><rect x="648" y="4" width="24" height="9" fill="#0b2036"/><rect x="688" y="4" width="24" height="9" fill="#0b2036"/><rect x="728" y="4" width="24" height="9" fill="#0b2036"/><rect x="768" y="4" width="24" height="9" fill="#0b2036"/><rect x="808" y="4" width="24" height="9" fill="#0b2036"/><rect x="848" y="4" width="24" height="9" fill="#0b2036"/><rect x="888" y="4" width="24" height="9" fill="#0b2036"/><rect x="928" y="4" width="24" height="9" fill="#0b2036"/><rect x="968" y="4" width="24" height="9" fill="#0b2036"/><rect x="1008" y="4" width="24" height="9" fill="#0b2036"/><rect x="1048" y="4" width="24" height="9" fill="#0b2036"/><rect x="1088" y="4" width="24" height="9" fill="#0b2036"/><rect x="1128" y="4" width="24" height="9" fill="#0b2036"/><rect x="1168" y="4" width="24" height="9" fill="#0b2036"/><rect x="1208" y="4" width="24" height="9" fill="#0b2036"/><rect x="1248" y="4" width="24" height="9" fill="#0b2036"/><rect x="1288" y="4" width="24" height="9" fill="#0b2036"/><rect x="1328" y="4" width="24" height="9" fill="#0b2036"/><rect x="1368" y="4" width="24" height="9" fill="#0b2036"/><rect x="1408" y="4" width="24" height="9" fill="#0b2036"/><rect x="1448" y="4" width="24" height="9" fill="#0b2036"/><rect x="1488" y="4" width="24" height="9" fill="#0b2036"/><rect x="1528" y="4" width="24" height="9" fill="#0b2036"/><rect x="1568" y="4" width="24" height="9" fill="#0b2036"/><rect x="487" y="33" width="3" height="2" fill="#2d6296"/><rect x="757" y="34" width="5" height="2" fill="#2d6296"/><rect x="1281" y="33" width="2" height="2" fill="#2d6296"/><rect x="1240" y="15" width="5" height="2" fill="#2d6296"/><rect x="531" y="32" width="3" height="2" fill="#2d6296"/><rect x="392" y="30" width="5" height="2" fill="#2d6296"/><rect x="813" y="35" width="3" height="2" fill="#2d6296"/><rect x="474" y="35" width="3" height="2" fill="#2d6296"/><rect x="1071" y="27" width="2" height="2" fill="#2d6296"/><rect x="1375" y="17" width="3" height="2" fill="#2d6296"/><rect x="1552" y="33" width="2" height="2" fill="#2d6296"/><rect x="616" y="15" width="4" height="2" fill="#2d6296"/><rect x="968" y="34" width="5" height="2" fill="#2d6296"/><rect x="1462" y="28" width="5" height="2" fill="#2d6296"/><rect x="1491" y="33" width="5" height="2" fill="#2d6296"/><rect x="274" y="26" width="2" height="2" fill="#2d6296"/><rect x="73" y="19" width="5" height="2" fill="#2d6296"/><rect x="444" y="23" width="5" height="2" fill="#2d6296"/><rect x="1595" y="35" width="4" height="2" fill="#2d6296"/><rect x="862" y="31" width="5" height="2" fill="#2d6296"/><rect x="1175" y="26" width="5" height="2" fill="#2d6296"/><rect x="1196" y="22" width="4" height="2" fill="#2d6296"/><rect x="1396" y="15" width="4" height="2" fill="#2d6296"/><rect x="1240" y="36" width="3" height="2" fill="#2d6296"/><rect x="1430" y="25" width="2" height="2" fill="#2d6296"/><rect x="1461" y="35" width="3" height="2" fill="#2d6296"/><rect x="1296" y="33" width="4" height="2" fill="#2d6296"/><rect x="583" y="18" width="2" height="2" fill="#2d6296"/><rect x="987" y="35" width="5" height="2" fill="#2d6296"/><rect x="181" y="26" width="2" height="2" fill="#2d6296"/><rect x="840" y="19" width="2" height="2" fill="#2d6296"/><rect x="601" y="28" width="5" height="2" fill="#2d6296"/><rect x="243" y="16" width="2" height="2" fill="#2d6296"/><rect x="773" y="33" width="4" height="2" fill="#2d6296"/><rect x="1128" y="23" width="3" height="2" fill="#2d6296"/><rect x="73" y="24" width="2" height="2" fill="#2d6296"/><rect x="157" y="18" width="2" height="2" fill="#2d6296"/><rect x="404" y="28" width="4" height="2" fill="#2d6296"/><rect x="1250" y="23" width="3" height="2" fill="#2d6296"/><rect x="1412" y="16" width="4" height="2" fill="#2d6296"/><rect x="642" y="26" width="3" height="2" fill="#2d6296"/><rect x="773" y="27" width="5" height="2" fill="#2d6296"/><rect x="1065" y="27" width="2" height="2" fill="#2d6296"/><rect x="1270" y="31" width="4" height="2" fill="#2d6296"/><rect x="883" y="35" width="3" height="2" fill="#2d6296"/><rect x="616" y="28" width="4" height="2" fill="#2d6296"/><rect x="1067" y="24" width="4" height="2" fill="#2d6296"/><rect x="23" y="28" width="4" height="2" fill="#2d6296"/><rect x="41" y="27" width="3" height="2" fill="#2d6296"/><rect x="123" y="35" width="4" height="2" fill="#2d6296"/><rect x="954" y="26" width="4" height="2" fill="#2d6296"/><rect x="1246" y="23" width="5" height="2" fill="#2d6296"/><rect x="45" y="33" width="2" height="2" fill="#2d6296"/><rect x="1384" y="15" width="4" height="2" fill="#2d6296"/><rect x="514" y="35" width="5" height="2" fill="#2d6296"/><rect x="611" y="33" width="4" height="2" fill="#2d6296"/><rect x="363" y="26" width="3" height="2" fill="#2d6296"/><rect x="640" y="26" width="4" height="2" fill="#2d6296"/><rect x="615" y="27" width="2" height="2" fill="#2d6296"/><rect x="1581" y="15" width="3" height="2" fill="#2d6296"/><rect x="634" y="31" width="3" height="2" fill="#2d6296"/><rect x="1338" y="23" width="3" height="2" fill="#2d6296"/><rect x="671" y="20" width="5" height="2" fill="#2d6296"/><rect x="1330" y="18" width="2" height="2" fill="#2d6296"/><rect x="1230" y="25" width="4" height="2" fill="#2d6296"/><rect x="1382" y="22" width="5" height="2" fill="#2d6296"/><rect x="346" y="17" width="4" height="2" fill="#2d6296"/><rect x="1519" y="35" width="3" height="2" fill="#2d6296"/><rect x="1164" y="29" width="4" height="2" fill="#2d6296"/><rect x="460" y="18" width="2" height="2" fill="#2d6296"/><rect x="1084" y="21" width="4" height="2" fill="#2d6296"/><rect x="1177" y="20" width="4" height="2" fill="#2d6296"/><rect x="696" y="35" width="2" height="2" fill="#2d6296"/><rect x="1268" y="26" width="3" height="2" fill="#2d6296"/><rect x="862" y="24" width="4" height="2" fill="#2d6296"/><rect x="951" y="26" width="5" height="2" fill="#2d6296"/><rect x="594" y="28" width="5" height="2" fill="#2d6296"/><rect x="72" y="28" width="3" height="2" fill="#2d6296"/><rect x="408" y="15" width="5" height="2" fill="#2d6296"/><rect x="1275" y="31" width="5" height="2" fill="#2d6296"/><rect x="1144" y="22" width="2" height="2" fill="#2d6296"/><rect x="1526" y="29" width="4" height="2" fill="#2d6296"/><rect x="1113" y="25" width="3" height="2" fill="#2d6296"/><rect x="139" y="33" width="4" height="2" fill="#2d6296"/><rect x="245" y="22" width="2" height="2" fill="#2d6296"/><rect x="71" y="31" width="3" height="2" fill="#2d6296"/><rect x="880" y="33" width="2" height="2" fill="#2d6296"/><rect x="26" y="30" width="2" height="2" fill="#2d6296"/><rect x="351" y="31" width="4" height="2" fill="#2d6296"/><rect x="489" y="36" width="2" height="2" fill="#2d6296"/><rect x="1075" y="32" width="5" height="2" fill="#2d6296"/><rect x="109" y="34" width="2" height="2" fill="#2d6296"/><rect x="699" y="19" width="4" height="2" fill="#2d6296"/><rect x="1107" y="30" width="2" height="2" fill="#2d6296"/><rect x="720" y="22" width="3" height="2" fill="#2d6296"/><rect x="250" y="32" width="2" height="2" fill="#2d6296"/><rect x="350" y="22" width="4" height="2" fill="#2d6296"/><rect x="263" y="15" width="5" height="2" fill="#2d6296"/><rect x="1287" y="33" width="5" height="2" fill="#2d6296"/><rect x="102" y="23" width="3" height="2" fill="#2d6296"/><rect x="550" y="34" width="5" height="2" fill="#2d6296"/><rect x="104" y="30" width="4" height="2" fill="#2d6296"/><rect x="1590" y="15" width="2" height="2" fill="#2d6296"/><rect x="1587" y="19" width="2" height="2" fill="#2d6296"/><rect x="255" y="16" width="2" height="2" fill="#2d6296"/><rect x="988" y="16" width="2" height="2" fill="#2d6296"/><rect x="1055" y="31" width="5" height="2" fill="#2d6296"/><rect x="646" y="20" width="4" height="2" fill="#2d6296"/><rect x="146" y="26" width="5" height="2" fill="#2d6296"/><rect x="1324" y="27" width="4" height="2" fill="#2d6296"/><rect x="0" y="0" width="1600" height="4" fill="#a9bfd4"/><rect x="0" y="3" width="1600" height="1.5" fill="#6f8aa6"/></g>
+  </defs>
+</svg>
+
+  <div class="capa">
+
+    <!-- Céu: brilho do sol e nuvens -->
+    <div class="ceu" aria-hidden="true">
+      <div class="sol parallax-sol"></div>
+      <div class="nuvens parallax-nuvens">
+        <span class="nuvem" style="--topo: 17%; --larg: 170px; --dur: 150s; --atraso: -20s"></span>
+        <span class="nuvem" style="--topo: 31%; --larg: 120px; --dur: 190s; --atraso: -95s"></span>
+        <span class="nuvem" style="--topo: 9%;  --larg: 140px; --dur: 230s; --atraso: -150s"></span>
+      </div>
+    </div>
+
+    <!-- Marca e saída -->
+    <header class="capa-topo topo entra" style="--i: 0">
+      <img src="../../assets/images/logo-trilha.png" alt="Trilha Participações" width="182" height="68">
+      <a class="sair" href="../../index.html" data-sai data-logout>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></svg>
+        Sair
+      </a>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="capa-conteudo" id="conteudo">
+      <p class="capa-selo selo entra" style="--i: 1"><span class="selo-ponto"></span><span id="saudacao">Olá</span></p>
+      <!-- A saudação fica fixa; só o que está em #vista troca ao navegar pelo hub -->
+      <div id="vista">
+      <h1 class="capa-titulo entra" style="--i: 2">Portal da</h1>
+      <h1 class="capa-titulo entra" style="--i: 2"><span class="destaque">controladoria</span></h1>
+      <nav class="cartoes" aria-label="Módulos">
+        <a class="cartao entra" style="--i: 3" href="hub.html#demonstracoes" data-vista="demonstracoes">
+          <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v16M6 20h12M5 8h14"/><path d="M5 8l-3 6a3 3 0 0 0 6 0zM19 8l-3 6a3 3 0 0 0 6 0z"/></svg></span>
+          <span class="cartao-texto">
+            <strong>Demonstrações contábeis</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 4" href="hub.html#controle-ativos" data-vista="controle-ativos">
+          <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg></span>
+          <span class="cartao-texto">
+            <strong>Controle de ativos</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 5" href="hub.html#controladoria" data-vista="controladoria">
+          <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg></span>
+          <span class="cartao-texto">
+            <strong>Painel da controladoria</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao cartao-off entra" style="--i: 6" aria-disabled="true">
+          <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v4h-7zM13 10h7v10h-7zM4 13h7v7H4z"/></svg></span>
+          <span class="cartao-texto">
+            <strong>Dashboards</strong>
+          </span>
+        </a>
+
+        <div class="cartao cartao-off entra" style="--i: 7" aria-disabled="true">
+          <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></span>
+          <span class="cartao-texto">
+            <strong>Consulta avançada</strong>
+          </span>
+        </div>
+      </nav>
+      </div>
+    </main>
+
+    <!-- Cena ferroviária (decorativa) -->
+    <div class="cena" aria-hidden="true">
+      <svg class="camada camada-far" viewBox="0 0 3200 230" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#t-far"/><use href="#t-far" x="1600"/></svg>
+      <svg class="camada camada-mid" viewBox="0 0 3200 150" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#t-mid"/><use href="#t-mid" x="1600"/></svg>
+      <svg class="camada camada-poste" viewBox="0 0 3200 240" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#t-poste"/><use href="#t-poste" x="1600"/></svg>
+      <svg class="camada camada-via" viewBox="0 0 3200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#t-via"/><use href="#t-via" x="1600"/></svg>
+      <div class="trem-wrap">
+        <svg class="trem" viewBox="0 -36 920 166" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="g-corpo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2d6fae"/><stop offset=".45" stop-color="#1b4c7d"/><stop offset="1" stop-color="#0f2e4e"/></linearGradient>
+        <linearGradient id="g-vidro" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9efff"/><stop offset="1" stop-color="#8fbfe6"/></linearGradient>
+        <radialGradient id="g-farol"><stop offset="0" stop-color="#fff3b8" stop-opacity=".95"/><stop offset="1" stop-color="#fff3b8" stop-opacity="0"/></radialGradient>
+        <clipPath id="c-a"><path d="M16 24Q16 12 30 12H270V100H30Q16 100 16 88Z"/></clipPath><clipPath id="c-m"><path d="M296 12H548V100H296Z"/></clipPath><clipPath id="c-b"><path d="M296 12H494C560 12 612 46 628 86V100H296Z"/></clipPath>
+      </defs>
+      <g class="trem-corpo">
+        <g class="pantografo" fill="none" stroke="#0b2036" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="136" y="8" width="64" height="4" rx="1.5" fill="#0b2036" stroke="none"/><rect x="140" y="4" width="8" height="4" fill="#c9d6e2" stroke="none"/><rect x="188" y="4" width="8" height="4" fill="#c9d6e2" stroke="none"/>
+          <path d="M146 5L170 -10M194 5L170 -10" stroke-width="3"/><path d="M170 -10L157 -22M170 -10L183 -22" stroke-width="2.4"/><path d="M150 -23H190" stroke-width="4.5"/><path d="M158 6L172 -4" stroke-width="1" opacity=".7"/>
+        </g>
+        <rect x="64" y="6" width="56" height="7" rx="3" fill="#5c7894"/><rect x="232" y="6" width="30" height="7" rx="3" fill="#5c7894"/><rect x="330" y="6" width="60" height="7" rx="3" fill="#5c7894"/><rect x="450" y="6" width="60" height="7" rx="3" fill="#5c7894"/>
+        <rect x="268" y="16" width="30" height="84" rx="2" fill="#0b2036"/><rect x="272" y="17" width="1.6" height="82" fill="#27445f"/><rect x="277" y="17" width="1.6" height="82" fill="#27445f"/><rect x="282" y="17" width="1.6" height="82" fill="#27445f"/><rect x="287" y="17" width="1.6" height="82" fill="#27445f"/><rect x="292" y="17" width="1.6" height="82" fill="#27445f"/><rect x="548" y="16" width="30" height="84" rx="2" fill="#0b2036"/><rect x="552" y="17" width="1.6" height="82" fill="#27445f"/><rect x="557" y="17" width="1.6" height="82" fill="#27445f"/><rect x="562" y="17" width="1.6" height="82" fill="#27445f"/><rect x="567" y="17" width="1.6" height="82" fill="#27445f"/><rect x="572" y="17" width="1.6" height="82" fill="#27445f"/>
+        <path d="M16 24Q16 12 30 12H270V100H30Q16 100 16 88Z" fill="url(#g-corpo)"/><path d="M296 12H548V100H296Z" fill="url(#g-corpo)"/>
+        <g clip-path="url(#c-a)"><rect x="30" y="26" width="40" height="31" rx="4" fill="url(#g-vidro)" stroke="#0b2036" stroke-width="1.2"/><rect x="33" y="47" width="34" height="7" rx="2" fill="#ffe8a6" opacity=".22"/><path d="M34 29H52L42 54H34Z" fill="#fff" opacity=".13"/><rect x="78" y="26" width="40" height="31" rx="4" fill="url(#g-vidro)" stroke="#0b2036" stroke-width="1.2"/><rect x="81" y="47" width="34" height="7" rx="2" fill="#ffe8a6" opacity=".22"/><path d="M82 29H100L90 54H82Z" fill="#fff" opacity=".13"/><rect x="126" y="22" width="50" height="62" rx="3" fill="#1c4a79" stroke="#0b2036" stroke-width="1.4"/><rect x="130" y="27" width="18" height="42" rx="3" fill="url(#g-vidro)"/><rect x="154" y="27" width="18" height="42" rx="3" fill="url(#g-vidro)"/><rect x="150.2" y="22" width="1.6" height="62" fill="#0b2036"/><rect x="130" y="74" width="42" height="3" rx="1.5" fill="#8fb4d6" opacity=".5"/><rect x="184" y="26" width="40" height="31" rx="4" fill="url(#g-vidro)" stroke="#0b2036" stroke-width="1.2"/><rect x="187" y="47" width="34" height="7" rx="2" fill="#ffe8a6" opacity=".22"/><path d="M188 29H206L196 54H188Z" fill="#fff" opacity=".13"/><rect x="228" y="26" width="34" height="31" rx="4" fill="url(#g-vidro)" stroke="#0b2036" stroke-width="1.2"/><rect x="231" y="47" width="28" height="7" rx="2" fill="#ffe8a6" opacity=".22"/><path d="M232 29H247L238 54H232Z" fill="#fff" opacity=".13"/><rect x="0" y="12" width="300" height="3" fill="#fff" opacity=".22"/><rect x="0" y="66" width="300" height="7" fill="#3a93dd"/><rect x="0" y="74" width="300" height="1.6" fill="#fff" opacity=".7"/><rect x="0" y="80" width="300" height="20" fill="#0b2036" opacity=".4"/></g>
+        <g clip-path="url(#c-m)"><rect x="308" y="26" width="40" height="31" rx="4" fill="url(#g-vidro)" stroke="#0b2036" stroke-width="1.2"/><rect x="311" y="47" width="34" height="7" rx="2" fill="#ffe8a6" opacity=".22"/><path d="M312 29H330L320 54H312Z" fill="#fff" opacity=".13"/><rect x="354" y="26" width="40" height="31" rx="4" fill="url(#g-vidro)" stroke="#0b2036" stroke-width="1.2"/><rect x="357" y="47" width="34" height="7" rx="2" fill="#ffe8a6" opacity=".22"/><path d="M358 29H376L366 54H358Z" fill="#fff" opacity=".13"/><rect x="400" y="22" width="50" height="62" rx="3" fill="#1c4a79" stroke="#0b2036" stroke-width="1.4"/><rect x="404" y="27" width="18" height="42" rx="3" fill="url(#g-vidro)"/><rect x="428" y="27" width="18" height="42" rx="3" fill="url(#g-vidro)"/><rect x="424.2" y="22" width="1.6" height="62" fill="#0b2036"/><rect x="404" y="74" width="42" height="3" rx="1.5" fill="#8fb4d6" opacity=".5"/><rect x="458" y="26" width="40" height="31" rx="4" fill="url(#g-vidro)" stroke="#0b2036" stroke-width="1.2"/><rect x="461" y="47" width="34" height="7" rx="2" fill="#ffe8a6" opacity=".22"/><path d="M462 29H480L470 54H462Z" fill="#fff" opacity=".13"/><rect x="504" y="26" width="36" height="31" rx="4" fill="url(#g-vidro)" stroke="#0b2036" stroke-width="1.2"/><rect x="507" y="47" width="30" height="7" rx="2" fill="#ffe8a6" opacity=".22"/><path d="M508 29H524L515 54H508Z" fill="#fff" opacity=".13"/><rect x="290" y="12" width="270" height="3" fill="#fff" opacity=".22"/><rect x="290" y="66" width="270" height="7" fill="#3a93dd"/><rect x="290" y="74" width="270" height="1.6" fill="#fff" opacity=".7"/><rect x="290" y="80" width="270" height="20" fill="#0b2036" opacity=".4"/></g>
+        <rect x="26" y="98" width="244" height="6" rx="3" fill="#0b2036"/><rect x="298" y="98" width="250" height="6" rx="3" fill="#0b2036"/><rect x="104" y="103" width="52" height="9" rx="2" fill="#162c45"/><rect x="364" y="103" width="52" height="9" rx="2" fill="#162c45"/>
+        <rect x="37" y="103" width="54" height="9" rx="3.5" fill="#0b2036"/><rect x="55" y="108" width="18" height="12" rx="3" fill="#162c45"/><rect x="37" y="103" width="54" height="2" fill="#fff" opacity=".1"/><g class="roda"><circle cx="47" cy="116" r="11" fill="#101a26"/><circle cx="47" cy="116" r="8.3" fill="none" stroke="#5d7a96" stroke-width="1.6"/><rect x="46" y="108" width="2" height="16" fill="#5d7a96"/><rect x="39" y="115" width="16" height="2" fill="#5d7a96"/><circle cx="47" cy="116" r="3.4" fill="#9dbbd7"/></g><g class="roda"><circle cx="81" cy="116" r="11" fill="#101a26"/><circle cx="81" cy="116" r="8.3" fill="none" stroke="#5d7a96" stroke-width="1.6"/><rect x="80" y="108" width="2" height="16" fill="#5d7a96"/><rect x="73" y="115" width="16" height="2" fill="#5d7a96"/><circle cx="81" cy="116" r="3.4" fill="#9dbbd7"/></g><rect x="199" y="103" width="54" height="9" rx="3.5" fill="#0b2036"/><rect x="217" y="108" width="18" height="12" rx="3" fill="#162c45"/><rect x="199" y="103" width="54" height="2" fill="#fff" opacity=".1"/><g class="roda"><circle cx="209" cy="116" r="11" fill="#101a26"/><circle cx="209" cy="116" r="8.3" fill="none" stroke="#5d7a96" stroke-width="1.6"/><rect x="208" y="108" width="2" height="16" fill="#5d7a96"/><rect x="201" y="115" width="16" height="2" fill="#5d7a96"/><circle cx="209" cy="116" r="3.4" fill="#9dbbd7"/></g><g class="roda"><circle cx="243" cy="116" r="11" fill="#101a26"/><circle cx="243" cy="116" r="8.3" fill="none" stroke="#5d7a96" stroke-width="1.6"/><rect x="242" y="108" width="2" height="16" fill="#5d7a96"/><rect x="235" y="115" width="16" height="2" fill="#5d7a96"/><circle cx="243" cy="116" r="3.4" fill="#9dbbd7"/></g><rect x="311" y="103" width="54" height="9" rx="3.5" fill="#0b2036"/><rect x="329" y="108" width="18" height="12" rx="3" fill="#162c45"/><rect x="311" y="103" width="54" height="2" fill="#fff" opacity=".1"/><g class="roda"><circle cx="321" cy="116" r="11" fill="#101a26"/><circle cx="321" cy="116" r="8.3" fill="none" stroke="#5d7a96" stroke-width="1.6"/><rect x="320" y="108" width="2" height="16" fill="#5d7a96"/><rect x="313" y="115" width="16" height="2" fill="#5d7a96"/><circle cx="321" cy="116" r="3.4" fill="#9dbbd7"/></g><g class="roda"><circle cx="355" cy="116" r="11" fill="#101a26"/><circle cx="355" cy="116" r="8.3" fill="none" stroke="#5d7a96" stroke-width="1.6"/><rect x="354" y="108" width="2" height="16" fill="#5d7a96"/><rect x="347" y="115" width="16" height="2" fill="#5d7a96"/><circle cx="355" cy="116" r="3.4" fill="#9dbbd7"/></g><rect x="479" y="103" width="54" height="9" rx="3.5" fill="#0b2036"/><rect x="497" y="108" width="18" height="12" rx="3" fill="#162c45"/><rect x="479" y="103" width="54" height="2" fill="#fff" opacity=".1"/><g class="roda"><circle cx="489" cy="116" r="11" fill="#101a26"/><circle cx="489" cy="116" r="8.3" fill="none" stroke="#5d7a96" stroke-width="1.6"/><rect x="488" y="108" width="2" height="16" fill="#5d7a96"/><rect x="481" y="115" width="16" height="2" fill="#5d7a96"/><circle cx="489" cy="116" r="3.4" fill="#9dbbd7"/></g><g class="roda"><circle cx="523" cy="116" r="11" fill="#101a26"/><circle cx="523" cy="116" r="8.3" fill="none" stroke="#5d7a96" stroke-width="1.6"/><rect x="522" y="108" width="2" height="16" fill="#5d7a96"/><rect x="515" y="115" width="16" height="2" fill="#5d7a96"/><circle cx="523" cy="116" r="3.4" fill="#9dbbd7"/></g>
+        <g transform="translate(280 0)">
+          <rect x="350" y="6" width="62" height="7" rx="3" fill="#5c7894"/><rect x="440" y="6" width="30" height="7" rx="3" fill="#5c7894"/>
+          <path d="M296 12H494C560 12 612 46 628 86V100H296Z" fill="url(#g-corpo)"/>
+          <g clip-path="url(#c-b)">
+            <rect x="308" y="26" width="40" height="31" rx="4" fill="url(#g-vidro)" stroke="#0b2036" stroke-width="1.2"/><rect x="311" y="47" width="34" height="7" rx="2" fill="#ffe8a6" opacity=".22"/><path d="M312 29H330L320 54H312Z" fill="#fff" opacity=".13"/><rect x="356" y="22" width="50" height="62" rx="3" fill="#1c4a79" stroke="#0b2036" stroke-width="1.4"/><rect x="360" y="27" width="18" height="42" rx="3" fill="url(#g-vidro)"/><rect x="384" y="27" width="18" height="42" rx="3" fill="url(#g-vidro)"/><rect x="380.2" y="22" width="1.6" height="62" fill="#0b2036"/><rect x="360" y="74" width="42" height="3" rx="1.5" fill="#8fb4d6" opacity=".5"/><rect x="414" y="26" width="40" height="31" rx="4" fill="url(#g-vidro)" stroke="#0b2036" stroke-width="1.2"/><rect x="417" y="47" width="34" height="7" rx="2" fill="#ffe8a6" opacity=".22"/><path d="M418 29H436L426 54H418Z" fill="#fff" opacity=".13"/><rect x="458" y="26" width="30" height="31" rx="4" fill="url(#g-vidro)" stroke="#0b2036" stroke-width="1.2"/><rect x="461" y="47" width="24" height="7" rx="2" fill="#ffe8a6" opacity=".22"/><path d="M462 29H474L467 54H462Z" fill="#fff" opacity=".13"/>
+            <path d="M506 22C560 26 600 46 616 74L506 74Z" fill="url(#g-vidro)" stroke="#0b2036" stroke-width="2"/>
+            <path d="M520 29C552 33 576 44 590 60L520 60Z" fill="#fff" opacity=".18"/><path d="M572 72L598 52" stroke="#0b2036" stroke-width="1.8" stroke-linecap="round"/>
+            <rect x="526" y="26" width="40" height="6" rx="2" fill="#0b2036"/><rect x="530" y="28" width="26" height="2" rx="1" fill="#ffb400"/><rect x="290" y="12" width="360" height="3" fill="#fff" opacity=".22"/><rect x="290" y="66" width="360" height="7" fill="#3a93dd"/><rect x="290" y="74" width="360" height="1.6" fill="#fff" opacity=".7"/><rect x="290" y="80" width="360" height="20" fill="#0b2036" opacity=".4"/><rect x="596" y="94" width="40" height="6" rx="0" fill="#f5c400"/>
+          </g>
+          <rect x="298" y="98" width="320" height="6" rx="3" fill="#0b2036"/><rect x="338" y="103" width="48" height="9" rx="2" fill="#162c45"/><rect x="420" y="103" width="48" height="9" rx="2" fill="#162c45"/>
+          <path d="M598 100H628L624 112H594Z" fill="#0b2036"/>
+          <rect x="311" y="103" width="54" height="9" rx="3.5" fill="#0b2036"/><rect x="329" y="108" width="18" height="12" rx="3" fill="#162c45"/><rect x="311" y="103" width="54" height="2" fill="#fff" opacity=".1"/><g class="roda"><circle cx="321" cy="116" r="11" fill="#101a26"/><circle cx="321" cy="116" r="8.3" fill="none" stroke="#5d7a96" stroke-width="1.6"/><rect x="320" y="108" width="2" height="16" fill="#5d7a96"/><rect x="313" y="115" width="16" height="2" fill="#5d7a96"/><circle cx="321" cy="116" r="3.4" fill="#9dbbd7"/></g><g class="roda"><circle cx="355" cy="116" r="11" fill="#101a26"/><circle cx="355" cy="116" r="8.3" fill="none" stroke="#5d7a96" stroke-width="1.6"/><rect x="354" y="108" width="2" height="16" fill="#5d7a96"/><rect x="347" y="115" width="16" height="2" fill="#5d7a96"/><circle cx="355" cy="116" r="3.4" fill="#9dbbd7"/></g><rect x="521" y="103" width="54" height="9" rx="3.5" fill="#0b2036"/><rect x="539" y="108" width="18" height="12" rx="3" fill="#162c45"/><rect x="521" y="103" width="54" height="2" fill="#fff" opacity=".1"/><g class="roda"><circle cx="531" cy="116" r="11" fill="#101a26"/><circle cx="531" cy="116" r="8.3" fill="none" stroke="#5d7a96" stroke-width="1.6"/><rect x="530" y="108" width="2" height="16" fill="#5d7a96"/><rect x="523" y="115" width="16" height="2" fill="#5d7a96"/><circle cx="531" cy="116" r="3.4" fill="#9dbbd7"/></g><g class="roda"><circle cx="565" cy="116" r="11" fill="#101a26"/><circle cx="565" cy="116" r="8.3" fill="none" stroke="#5d7a96" stroke-width="1.6"/><rect x="564" y="108" width="2" height="16" fill="#5d7a96"/><rect x="557" y="115" width="16" height="2" fill="#5d7a96"/><circle cx="565" cy="116" r="3.4" fill="#9dbbd7"/></g>
+          <circle class="farol-brilho" cx="622" cy="86" r="26" fill="url(#g-farol)"/>
+          <ellipse cx="620" cy="86" rx="5" ry="4" fill="#fff6c8"/><ellipse cx="622" cy="95" rx="2.6" ry="2" fill="#ff5a4d"/>
+        </g>
+      </g>
+    </svg>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Vista "Demonstrações contábeis": o hub troca o conteúdo da tela para esta, sem mudar de página -->
+  <template id="vista-demonstracoes" data-titulo="Trilha Participações | Demonstrações contábeis">
+      <h1 class="capa-titulo entra" style="--i: 2">Demonstrações</h1>
+      <h1 class="capa-titulo entra" style="--i: 2"><span class="destaque">contábeis</span></h1>
+      <nav class="cartoes" aria-label="Demonstrações">
+                <a class="cartao entra" style="--i: 4" href="../demonstracoes/bp/bp.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 4v16M6 20h12M5 8h14"/><path d="M5 8l-3 6a3 3 0 0 0 6 0zM19 8l-3 6a3 3 0 0 0 6 0z"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Balanço patrimonial</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 5" href="../demonstracoes/dr/dr.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 20h18M6 20v-7M12 20V5M18 20v-10"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Resultado</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 6" href="../demonstracoes/dmpl/dmpl.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 4l9 5-9 5-9-5z"/><path d="M3 14l9 5 9-5"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Mutações do patrimônio líquido</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 7" href="../demonstracoes/dfc/dfc.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M17 8a4 4 0 0 0-4-4h-2a4 4 0 0 0 0 8h2a4 4 0 0 1 0 8h-2a4 4 0 0 1-4-4"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Fluxo de caixa</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 8" href="hub.html" data-vista="raiz">
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5M4 9h11a5 5 0 0 1 5 5v1a5 5 0 0 1-5 5H9"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Retornar</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
+        </a>
+      </nav>
+  </template>
+
+    <!-- Vista "Controle de ativos": um cartão para cada aba do módulo -->
+  <template id="vista-controle-ativos" data-titulo="Trilha Participações | Controle de ativos">
+        <h1 class="capa-titulo entra" style="--i: 2">Controle de</h1>
+        <h1 class="capa-titulo entra" style="--i: 2"><span class="destaque">ativos</span></h1>
+        <nav class="cartoes" aria-label="Controle de ativos">
+        <a class="cartao entra" style="--i: 3" href="../controles/composicao/composicao.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Composição geral</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 4" href="../controles/analitico/analitico.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Analítico</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 5" href="../controles/peps/peps.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 8v8M8 12h8"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>PEPs</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 6" href="../controles/ordens/ordens_inv.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M17 8a4 4 0 0 0-4-4h-2a4 4 0 0 0 0 8h2a4 4 0 0 1 0 8h-2a4 4 0 0 1-4-4"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Ordens de investimento</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 7" href="hub.html" data-vista="raiz">
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5M4 9h11a5 5 0 0 1 5 5v1a5 5 0 0 1-5 5H9"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Retornar</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
+        </a>
+      </nav>
+  </template>
+
+  <!-- Vista "Painel da controladoria": páginas que vieram do projeto new-main (Supabase) -->
+  <template id="vista-controladoria" data-titulo="Trilha Participações | Painel da controladoria">
+        <h1 class="capa-titulo entra" style="--i: 2">Painel da</h1>
+        <h1 class="capa-titulo entra" style="--i: 2"><span class="destaque">controladoria</span></h1>
+        <nav class="cartoes" aria-label="Painel da controladoria">
+        <a class="cartao entra" style="--i: 3" href="../controladoria/tarefas/tarefas.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1"/><rect x="10" y="4" width="5" height="11" rx="1"/><rect x="17" y="4" width="4" height="7" rx="1"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Tarefas</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 4" href="../controladoria/equipe/equipe.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.8.3 5 2.7 5 5.8"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Equipe</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 5" href="../controladoria/ferias/ferias.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Férias</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 6" href="../controladoria/automacoes/automacoes.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 4v4M9 13h.01M15 13h.01M9.5 16.5h5M2 12v3M22 12v3"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Automações</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 7" href="hub.html" data-vista="raiz">
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5M4 9h11a5 5 0 0 1 5 5v1a5 5 0 0 1-5 5H9"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Retornar</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
+        </a>
+      </nav>
+  </template>
+
+  <script src="hub.js"></script>
+</body>
+</html>

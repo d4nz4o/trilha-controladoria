@@ -1,0 +1,5 @@
+{
+  // Live Server: publica a pasta public/ como raiz do site, igual à Vercel.
+  // Assim os caminhos absolutos (/src/..., /pages/...) funcionam. Abra http://127.0.0.1:5500/
+  "liveServer.settings.root": "/public"
+}
