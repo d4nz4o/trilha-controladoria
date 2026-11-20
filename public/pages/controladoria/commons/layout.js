@@ -60,7 +60,8 @@ function prepararNavegacao() {
   if (window.HTMLScriptElement && HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) {
     const s = document.createElement('script');
     s.type = 'speculationrules';
-    s.textContent = JSON.stringify({ prerender: [{ urls: outras.map(p => p.url), eagerness: 'moderate' }] });
+    // No site publicado, pela rota curta (a mesma dos links), para o pré-carregamento ser aproveitado
+    s.textContent = JSON.stringify({ prerender: [{ urls: outras.map(p => Sessao.enderecoCurto(p.url)), eagerness: 'moderate' }] });
     document.head.appendChild(s);
   }
 
@@ -68,7 +69,7 @@ function prepararNavegacao() {
   const baixar = () => {
     const prerender = document.querySelector('script[type="speculationrules"]');
     outras.forEach(p => {
-      const urls = prerender ? p.recursos : [p.url, ...p.recursos];
+      const urls = prerender ? p.recursos : [Sessao.enderecoCurto(p.url), ...p.recursos];
       urls.forEach(u => { const l = document.createElement('link'); l.rel = 'prefetch'; l.href = u; document.head.appendChild(l); });
     });
   };
