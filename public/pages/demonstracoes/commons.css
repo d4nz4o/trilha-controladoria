@@ -590,7 +590,7 @@ tr:hover .btn-comment, .btn-comment:focus-visible { opacity: 1; }
 .chat-empty {
   text-align: center;
   color: var(--ink-3);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   margin: auto;
   background: var(--surface); 
   border: 1px solid var(--line);
