@@ -1,0 +1,91 @@
+{
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/hub",
+      "destination": "/pages/hub/hub",
+      "permanent": false
+    },
+    {
+      "source": "/tarefas",
+      "destination": "/pages/controladoria/tarefas/tarefas",
+      "permanent": false
+    },
+    {
+      "source": "/equipe",
+      "destination": "/pages/controladoria/equipe/equipe",
+      "permanent": false
+    },
+    {
+      "source": "/ferias",
+      "destination": "/pages/controladoria/ferias/ferias",
+      "permanent": false
+    },
+    {
+      "source": "/automacoes",
+      "destination": "/pages/controladoria/automacoes/automacoes",
+      "permanent": false
+    },
+    {
+      "source": "/bp",
+      "destination": "/pages/demonstracoes/bp/bp",
+      "permanent": false
+    },
+    {
+      "source": "/dr",
+      "destination": "/pages/demonstracoes/dr/dr",
+      "permanent": false
+    },
+    {
+      "source": "/dmpl",
+      "destination": "/pages/demonstracoes/dmpl/dmpl",
+      "permanent": false
+    },
+    {
+      "source": "/dfc",
+      "destination": "/pages/demonstracoes/dfc/dfc",
+      "permanent": false
+    },
+    {
+      "source": "/composicao",
+      "destination": "/pages/controles/composicao/composicao",
+      "permanent": false
+    },
+    {
+      "source": "/analitico",
+      "destination": "/pages/controles/analitico/analitico",
+      "permanent": false
+    },
+    {
+      "source": "/peps",
+      "destination": "/pages/controles/peps/peps",
+      "permanent": false
+    },
+    {
+      "source": "/ordens",
+      "destination": "/pages/controles/ordens/ordens_inv",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        }
+      ]
+    }
+  ]
+}

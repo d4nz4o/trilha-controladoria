@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha Participações | Controle de ativos</title>
+  <link rel="icon" type="image/png" href="../../../assets/icons/favicon-trilha.png">
+  <link rel="stylesheet" href="../commons.css">
+  <link rel="stylesheet" href="ordens_inv.css">
+  <!-- Sessão (login, domínio corporativo e ociosidade) + fonte de dados. Ver /src/scripts/core e /src/scripts/services -->
+  <script src="../../../src/scripts/core/sessao.js"></script>
+  <script src="../../../src/scripts/services/fonte-dados.js"></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="../../../src/scripts/core/supabase.js"></script>
+  <script defer src="../../../src/scripts/core/dados.js"></script>
+  <script defer src="../../../src/scripts/core/usuario.js"></script>
+  <script defer src="../../../src/scripts/core/inatividade.js"></script>
+  <script defer src="../../../src/scripts/core/main.js"></script>
+</head>
+<body>
+  <header class="barra-topo">
+    <div class="barra-topo-inner">
+      <a class="marca-logo" href="../../hub/hub.html" aria-label="Trilha Participações, início">
+        <img src="../../../assets/images/logo-trilha.png" alt="Trilha Participações" width="182" height="68">
+      </a>
+      <nav class="abas" aria-label="Controle de ativos">
+        <a href="../../hub/hub.html">Início</a>
+        <a href="../composicao/composicao.html">Composição geral</a>
+        <a href="../analitico/analitico.html">Analítico</a>
+        <a href="../peps/peps.html">PEPs</a>
+        <a haria-current="page">Ordens de investimento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="app">
+    <div class="topbar">
+      <div class="bp-title-group">
+        <h1>Controle de Ativos</h1>
+        <p>Data-base: setembro/2026.</p>
+      </div>
+
+    <!-- Conteúdo (a ser desenvolvido) -->
+    <section class="bp-card-container">
+      <div class="em-construcao" role="status">
+        <span class="em-construcao-icone" aria-hidden="true">
+          <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.3 1.4"/></svg>
+        </span>
+        <h2>Em construção</h2>
+        <p>Esta demonstração ainda está sendo preparada e ficará disponível em breve.</p>
+        <a class="btn-action" href="../../hub/hub.html">Voltar ao início</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="../commons.js"></script>
+  <script type="module" src="ordens_inv.js"></script>
+</body>
+</html>

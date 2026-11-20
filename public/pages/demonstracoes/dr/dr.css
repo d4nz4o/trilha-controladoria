@@ -1,0 +1,4 @@
+/* Complementos da DR. A base visual está em compartilhado/estilos/base.css */
+
+/* Resultado do período: destaque sobre os demais totais (que usam .tr-total do BP) */
+.bp-table .tr-resultado td { height: 40px; font-size: 0.9rem; }
