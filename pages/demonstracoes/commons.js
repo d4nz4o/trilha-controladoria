@@ -833,7 +833,7 @@ async function carregarComentariosRevisao(empresas) {
 }
 
 /* Grava um comentário em nome do colaborador logado. Lança erro com mensagem pronta para a tela. */
-async function gravarComentarioRevisao({ empresas, empId, mesAtual, mesBase, nv1, nv2, nv3, texto }) {
+async function gravarComentarioRevisao({ empresas, empId, mesAtual, nv1, nv2, nv3, texto }) {
   const { pode, colab, aviso } = await estadoComentario();
   if (!pode) throw new Error(aviso);
   const emp = empresas.find(e => e.id === empId);
@@ -842,7 +842,6 @@ async function gravarComentarioRevisao({ empresas, empId, mesAtual, mesBase, nv1
   await FonteDados.inserir('comentarios', {
     id_empresa: Number(codigo),
     mes_atual: mesAtual,
-    mes_base: mesBase || null,
     nivel1: nv1,
     nivel2: (nv2 && nv2 !== '(vazio)') ? nv2 : null,
     nivel3: (nv3 && nv3 !== '(vazio)') ? nv3 : null,
