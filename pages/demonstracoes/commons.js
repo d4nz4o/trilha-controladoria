@@ -855,9 +855,9 @@ function htmlHistoricoComentarios(lista) {
   if (!lista.length) return '<div class="chat-empty">Nenhum comentário registrado para este mês.</div>';
   return lista.map(c => `
     <div class="chat-bubble bubble-mine">
-      <div class="bubble-autor">${esc(c.autor || 'Anônimo')}</div>
+      <div class="bubble-autor">${esc(c.autor)}</div>
       <div class="bubble-texto">${esc(c.texto)}</div>
-      <span class="bubble-data">${esc(c.dataHora || '')}</span>
+      <span class="bubble-data">${esc(c.dataHora)}</span>
     </div>`).join('');
 }
 
@@ -865,8 +865,8 @@ function htmlTooltipComentarios(lista) {
   if (!lista.length) return '';
   return `<div class="btn-comment-tooltip">${lista.map(c => `
     <div class="tt-item">
-      <div class="tt-autor">${esc(c.autor || 'Anônimo')}</div>
+      <div class="tt-autor">${esc(c.autor)}</div>
       <div class="tt-texto">${esc(c.texto)}</div>
-      <div class="tt-data">${esc(c.dataHora || '')}</div>
+      <div class="tt-data">${esc(c.dataHora)}</div>
     </div>`).join('')}</div>`;
 }
