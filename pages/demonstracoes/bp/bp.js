@@ -2,7 +2,7 @@ let dadosGlobais = null;
 let periodos = [];
 let mesSelecionado = "";
 let mesComparacao = "";
-let comentariosRevisao = {};   // chave -> Array de objetos { empresa, mesAtual, mesBase, nv1, nv2, nv3, texto, autor, dataHora }
+let comentariosRevisao = {};   // chave -> Array de objetos { empresa, mesAtual, nv1, nv2, nv3, texto, autor, dataHora }
 let comentarioAtivo = null;
 let elementoFocoAnterior = null;
 let erroCarregarComentarios = false;
@@ -136,7 +136,7 @@ async function salvarComentario() {
 
   try {
     await gravarComentarioRevisao({
-      empresas: EMPRESAS, empId: ativo.empId, mesAtual: mesSelecionado, mesBase: mesComparacao,
+      empresas: EMPRESAS, empId: ativo.empId, mesAtual: mesSelecionado,
       nv1: ativo.nv1, nv2: ativo.nv2, nv3: ativo.nv3, texto
     });
   } catch (erro) {
