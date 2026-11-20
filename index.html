@@ -275,7 +275,9 @@
   // Domínios aceitos: DOMINIOS_CORPORATIVOS / emailCorporativo() em src/scripts/core/supabase.js
   const MSG_DOMINIO = "Acesso negado: use um e-mail corporativo (" +
     DOMINIOS_CORPORATIVOS.map(d => "@" + d).join(", ").replace(/, ([^,]*)$/, " ou $1") + ").";
-  const URL_HUB = new URL("pages/hub/hub.html", window.location.href).href;   // relativo a esta página
+  // Site publicado: rota curta do vercel.json; localmente, o endereço completo (relativo a esta página)
+  const LOCAL = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+  const URL_HUB = LOCAL ? new URL("pages/hub/hub.html", window.location.href).href : window.location.origin + "/hub";
 
   const BOTOES = {
     google:    { btn: 'btnGoogle',    txt: 'btnTextoGg',   padrao: 'Entrar com o Google' },
