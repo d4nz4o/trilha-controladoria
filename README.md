@@ -11,13 +11,14 @@ para os caminhos relativos funcionarem a partir da rota curta; no site publicado
 public/                          tudo o que é publicado no site
 ├─ index.html                    login (Google / Microsoft, só e-mails corporativos do grupo)
 ├─ assets/                       logos e favicon
+├─ src/styles/perfil-usuario.css   estilo do avatar e do menu do usuário (todas as barras)
 ├─ src/scripts/
 │  ├─ core/                      usado por TODAS as páginas protegidas
 │  │  ├─ sessao.js               esconde a página até o login ser confirmado; expõe Sessao (usuário, nome)
 │  │  ├─ supabase.js             conexão (sbClient) e domínios aceitos
 │  │  ├─ main.js                 valida sessão e domínio, libera a página, chama iniciarPagina(user)
 │  │  ├─ inatividade.js          desliga após 2 h sem uso (aviso 60 s antes), sincronizado entre abas
-│  │  ├─ usuario.js              menu do usuário e fazerLogout()
+│  │  ├─ usuario.js              avatar e menu do usuário em toda barra superior, fazerLogout()
 │  │  └─ dados.js                cache da sessão (Cache, swr) e colaborador logado
 │  └─ services/
 │     └─ fonte-dados.js          leitura do Supabase (demonstrações) e dos arquivos do controle de ativos
