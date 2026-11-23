@@ -156,8 +156,10 @@ async function salvarComentario() {
   }
 
   if (btnSalvar) btnSalvar.disabled = false;
-  fecharModal();
-  renderizarTabela();
+  // O popup continua aberto: histórico atualizado com o novo comentário e campo limpo
+  renderizarTabela();   // ícone da célula
+  await atualizarModalAposComentario(ativo.chave);
+  feedback.textContent = 'Comentário registrado.';
 }
 
 document.addEventListener('keydown', (ev) => {
