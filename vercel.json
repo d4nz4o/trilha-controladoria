@@ -9,6 +9,10 @@
       "destination": "/pages/hub/hub"
     },
     {
+      "source": "/hub#",
+      "destination": "/pages/hub/hub#"
+    },
+    {
       "source": "/tarefas",
       "destination": "/pages/controladoria/tarefas/tarefas"
     },
