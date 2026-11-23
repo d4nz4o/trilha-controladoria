@@ -80,9 +80,10 @@ function calcularDelta(atual, comp) {
   const diff = atual - comp;
   if (isNaN(diff)) return { diffStr: "–", percStr: "–", classe: "neutral" };
 
-  const arred = Math.round(diff);
+  // Arredondado em R$ mil, como aparece na tela: abaixo de R$ 500 a variação é exibida como zero (cinza)
+  const arred = Math.round(diff / UNIDADE);
   const diffExibido = diff * sinal;
-  const prefixo = Math.round(diffExibido) > 0 ? "+" : "";
+  const prefixo = Math.round(diffExibido / UNIDADE) > 0 ? "+" : "";
   const diffStr = arred === 0 ? "–" : `${prefixo}${formatarMoeda(diffExibido)}`;
   const classe = arred < 0 ? "positive" : arred > 0 ? "negative" : "neutral";
 
