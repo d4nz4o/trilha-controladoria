@@ -3,4 +3,4 @@ scripts/saida/
 Thumbs.db
 .vercel
 # Fontes das demonstrações (balancetes, classificação): ficam só no computador, não vão para o GitHub
-dados/
+# dados/
