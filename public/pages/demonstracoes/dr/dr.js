@@ -243,8 +243,10 @@ async function salvarComentario() {
     feedback.textContent = 'Comentário salvo, mas não foi possível atualizar o histórico. Atualize a página para conferir.';
     return;
   }
-  fecharModal();
-  renderizarTabela();
+  // O popup continua aberto: histórico atualizado com o novo comentário e campo limpo
+  renderizarTabela();   // ícone da célula
+  await atualizarModalAposComentario(ativo.chave);
+  feedback.textContent = 'Comentário registrado.';
 }
 
 document.addEventListener('keydown', ev => {
