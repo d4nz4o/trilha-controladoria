@@ -862,6 +862,20 @@ function htmlHistoricoComentarios(lista) {
     </div>`).join('');
 }
 
+/* Depois de gravar um comentário: o popup continua aberto, com o histórico atualizado e o campo limpo */
+async function atualizarModalAposComentario(chave) {
+  const historico = document.getElementById('chatHistorico');
+  historico.innerHTML = htmlHistoricoComentarios(comentariosRevisao[chave] || []);
+  const { colab } = await estadoComentario();
+  marcarComentariosEditaveis(colab);   // o comentário novo já vem com editar e excluir
+  historico.scrollTop = historico.scrollHeight;
+  const campo = document.getElementById('txtComentario');
+  campo.value = '';
+  campo.focus();
+  // O aviso "Comentário registrado." some quando a pessoa começa o próximo
+  campo.addEventListener('input', () => { document.getElementById('feedbackComentario').textContent = ''; }, { once: true });
+}
+
 /* Coloca editar (lápis) e excluir (lixeira) no canto dos comentários escritos pelo colaborador logado */
 function marcarComentariosEditaveis(colab) {
   if (!colab) return;
