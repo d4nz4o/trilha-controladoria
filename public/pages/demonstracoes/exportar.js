@@ -18,10 +18,11 @@ const COR = {
   elim: 'FFF3F4F6', linha: 'FFDCE5EF', cinza: 'FF7A8FA6', texto: 'FF15385E', branco: 'FFFFFFFF',
 };
 // Sem cores no formato (cada programa interpreta a paleta de um jeito): a cor vai na fonte de cada célula
+// Negativos entre parênteses, como na tela
 const FMT = {
-  mil: '#,##0;-#,##0;"–"',
-  delta: '+#,##0;-#,##0;"–"',
-  perc: '+0.0%;-0.0%;"–"',
+  mil: '#,##0;(#,##0);"–"',
+  delta: '+#,##0;(#,##0);"–"',
+  perc: '+0.0%;(0.0%);"–"',
 };
 const VERDE = 'FF1E7B3A', VERMELHO = 'FFC62828';
 const preenchimento = argb => ({ type: 'pattern', pattern: 'solid', fgColor: { argb } });
@@ -40,7 +41,8 @@ function carregarBiblioteca() {
 
 /* Texto da tela -> número. "1.234" = 1234 (R$ mil); "-6,9%" = -0,069; "–" = vazio; "✓" = 0 */
 function numeroDaTela(texto) {
-  const t = String(texto || '').replace(/\s+/g, '').replace('−', '-');
+  let t = String(texto || '').replace(/\s+/g, '').replace('−', '-');
+  if (/^\(.*\)$/.test(t)) t = '-' + t.slice(1, -1);   // (1.234) = -1.234
   if (!t || t === '–') return null;
   if (t === '✓') return 0;
   const perc = t.endsWith('%');
@@ -308,17 +310,18 @@ function abaDaTabela(wb, nome, tabela, info) {
 
 /* Indicador da tela -> número com formato próprio ("3,1%", "2,81", "152,6 mi"…) */
 function indicadorParaCelula(texto) {
-  const t = String(texto || '').trim().replace('−', '-');
+  let t = String(texto || '').trim().replace('−', '-');
+  if (/^\(.*\)$/.test(t)) t = '-' + t.slice(1, -1).trim();   // (4,4 mi) = -4,4 mi
   if (!t || t === '–') return { valor: '–', formato: '@' };
   const m = t.match(/^(-?[\d.]+(?:,\d+)?)\s*(%|bi|mi|mil)?$/);
   if (!m) return { valor: t, formato: '@' };
   const n = Number(m[1].replace(/\./g, '').replace(',', '.'));
   switch (m[2]) {
-    case '%': return { valor: n / 100, formato: '0.0%;-0.0%' };
-    case 'bi': return { valor: n * 1e9, formato: '#,##0.0,,," bi";-#,##0.0,,," bi"' };
-    case 'mi': return { valor: n * 1e6, formato: '#,##0.0,," mi";-#,##0.0,," mi"' };
-    case 'mil': return { valor: n * 1e3, formato: '#,##0.0," mil";-#,##0.0," mil"' };
-    default: return { valor: n, formato: m[1].includes(',') ? '0.00;-0.00' : '#,##0;-#,##0' };
+    case '%': return { valor: n / 100, formato: '0.0%;(0.0%)' };
+    case 'bi': return { valor: n * 1e9, formato: '#,##0.0,,," bi";(#,##0.0,,," bi")' };
+    case 'mi': return { valor: n * 1e6, formato: '#,##0.0,," mi";(#,##0.0,," mi")' };
+    case 'mil': return { valor: n * 1e3, formato: '#,##0.0," mil";(#,##0.0," mil")' };
+    default: return { valor: n, formato: m[1].includes(',') ? '0.00;(0.00)' : '#,##0;(#,##0)' };
   }
 }
 

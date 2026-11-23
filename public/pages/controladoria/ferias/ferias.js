@@ -180,38 +180,127 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && modal && modal.classList.contains('active')) modal.classList.remove('active');
 });
 
-async function excluirFerias(idFerias, nomeColab, dataDe, dataAte) {
-  const inicio = dataDe.split('-').reverse().join('/');
-  const fim = dataAte.split('-').reverse().join('/');
+/* ---------- Remoção de um período (férias ou day off) ---------- */
 
-  const confirmou = confirm(
-    `Deseja realmente remover o período de férias de ${nomeColab} (${inicio} até ${fim})?`
-  );
+// Popup de confirmação com o resumo do período; a remoção acontece dentro dele (erros aparecem ali mesmo)
+function excluirFerias(idFerias, nomeColab, dataDe, dataAte) {
+  const registro = (listaFerias || []).find(f => String(f.id_ferias) === String(idFerias)) || {};
+  const dayoff = dataDe === dataAte;
+  const dataLonga = iso => {
+    const [a, m, d] = iso.split('-').map(Number);
+    const data = new Date(a, m - 1, d);
+    return `${data.toLocaleDateString('pt-BR', { weekday: 'short' }).replace('.', '')}, ${String(d).padStart(2, '0')}/${String(m).padStart(2, '0')}/${a}`;
+  };
+  const { corridos, uteis } = typeof contarDias === 'function' ? contarDias(dataDe, dataAte) : { corridos: 0, uteis: 0 };
+  const plural = (n, um, varios) => `${n} ${n === 1 ? um : varios}`;
 
-  if (!confirmou) return;
+  let modal = document.getElementById('modalRemoverFerias');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'modal-overlay';
+    modal.id = 'modalRemoverFerias';
+    modal.addEventListener('click', e => { if (e.target === modal) fecharRemocaoFerias(); });
+    document.body.appendChild(modal);
+  }
+  modal.innerHTML = `
+    <div class="modal-card-container remover-ferias" role="alertdialog" aria-modal="true" aria-labelledby="removerFeriasTitulo" aria-describedby="removerFeriasResumo">
+      <button type="button" class="modal-close-btn" aria-label="Fechar" data-fechar>&times;</button>
+      <div class="modal-header">
+        <span class="modal-coluna-badge badge-remover">Remover período</span>
+        <h2 id="removerFeriasTitulo">Remover ${dayoff ? 'o day off' : 'as férias'} de ${escFerias(nomeColab)}?</h2>
+      </div>
+      <div class="remover-resumo" id="removerFeriasResumo">
+        <div class="remover-pessoa">
+          <span class="legenda-cor" style="background-color:${corDoAvatar(registro.id_colab)};"></span>
+          <strong>${escFerias(nomeColab)}</strong>
+          <span class="remover-tipo">${dayoff ? 'Day off' : 'Férias'}</span>
+        </div>
+        <dl>
+          <div><dt>${dayoff ? 'Data' : 'Período'}</dt><dd>${dayoff ? dataLonga(dataDe) : `${dataLonga(dataDe)} <span class="remover-ate">até</span> ${dataLonga(dataAte)}`}</dd></div>
+          <div><dt>Duração</dt><dd>${plural(corridos, 'dia corrido', 'dias corridos')} · ${plural(uteis, 'dia útil', 'dias úteis')}</dd></div>
+        </dl>
+      </div>
+      <p class="remover-aviso">O período sai do calendário de toda a equipe. Esta ação não pode ser desfeita.</p>
+      <div class="popup-rodape">
+        <span class="popup-feedback" id="removerFeriasFeedback" role="status"></span>
+        <button type="button" class="btn-secondary" data-fechar>Cancelar</button>
+        <button type="button" class="btn-perigo" id="btnConfirmarRemocaoFerias">Remover período</button>
+      </div>
+    </div>`;
+
+  modal.querySelectorAll('[data-fechar]').forEach(b => b.addEventListener('click', fecharRemocaoFerias));
+  modal.querySelector('#btnConfirmarRemocaoFerias').addEventListener('click', () => removerPeriodoFerias(idFerias, dayoff));
+  focoAntesDaRemocao = document.activeElement;
+  modal.classList.add('active');
+  setTimeout(() => modal.querySelector('.btn-secondary').focus(), 50);   // foco em Cancelar, por segurança
+}
+
+let focoAntesDaRemocao = null;
+
+function fecharRemocaoFerias() {
+  const modal = document.getElementById('modalRemoverFerias');
+  if (!modal || modal.dataset.removendo === 'sim') return;
+  modal.classList.remove('active');
+  if (focoAntesDaRemocao && focoAntesDaRemocao.isConnected) focoAntesDaRemocao.focus();
+}
+
+document.addEventListener('keydown', e => {
+  const modal = document.getElementById('modalRemoverFerias');
+  if (e.key === 'Escape' && modal && modal.classList.contains('active')) fecharRemocaoFerias();
+});
+
+async function removerPeriodoFerias(idFerias, dayoff) {
+  const modal = document.getElementById('modalRemoverFerias');
+  const botao = modal.querySelector('#btnConfirmarRemocaoFerias');
+  const feedback = modal.querySelector('#removerFeriasFeedback');
+  const erro = texto => {
+    feedback.textContent = texto;
+    feedback.classList.add('popup-feedback-erro');
+    botao.disabled = false;
+    botao.textContent = 'Tentar novamente';
+    modal.dataset.removendo = '';
+  };
+
+  modal.dataset.removendo = 'sim';
+  botao.disabled = true;
+  botao.textContent = 'Removendo…';
+  feedback.textContent = '';
+  feedback.classList.remove('popup-feedback-erro');
 
   if (sbClient) {
     try {
-      const { error } = await sbClient
-        .from('ferias')
-        .delete()
-        .eq('id_ferias', idFerias);
-
+      const { error } = await sbClient.from('ferias').delete().eq('id_ferias', idFerias);
       if (error) {
         console.error('Erro ao excluir férias:', error.message);
-        alert('Erro ao excluir férias no banco de dados: ' + error.message);
-        return;
+        return erro('Não foi possível remover: ' + error.message);
       }
     } catch (err) {
       console.error('Falha de conexão ao excluir férias:', err);
-      alert('Falha de conexão ao excluir férias.');
-      return;
+      return erro('Falha de conexão. Verifique a internet e tente novamente.');
     }
   } else {
     listaFerias = listaFerias.filter(f => f.id_ferias !== idFerias);
   }
 
-  alert('Férias removidas com sucesso!');
+  modal.dataset.removendo = '';
+  fecharRemocaoFerias();
+  avisoFerias(dayoff ? 'Day off removido.' : 'Período de férias removido.');
   Cache.limpar('ferias');
   await carregarFerias();
+}
+
+// Aviso discreto no canto da tela, que some sozinho
+function avisoFerias(texto) {
+  let aviso = document.getElementById('avisoFerias');
+  if (!aviso) {
+    aviso = document.createElement('div');
+    aviso.id = 'avisoFerias';
+    aviso.className = 'aviso-ferias';
+    aviso.setAttribute('role', 'status');
+    document.body.appendChild(aviso);
+  }
+  aviso.textContent = texto;
+  aviso.classList.add('visivel');
+  clearTimeout(aviso._tempo);
+  aviso._tempo = setTimeout(() => aviso.classList.remove('visivel'), 3000);
 }

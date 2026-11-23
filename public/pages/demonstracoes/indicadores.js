@@ -154,13 +154,19 @@ function indicadoresDR(bloco, linhas, mesAtual, mesAnterior) {
 
 /* ---------- Exibição ---------- */
 
+// Negativos entre parênteses, como nas demonstrações: (30,0%) | (0,85) | (4,4 mi)
 function formatarIndicador(valor, formato) {
   if (!Number.isFinite(valor)) return '–';
-  if (formato === '%') return `${(valor * 100).toFixed(1).replace('.', ',')}%`;
-  if (formato === 'x') return valor.toFixed(2).replace('.', ',');
   const abs = Math.abs(valor);
-  const [div, suf] = abs >= 1e9 ? [1e9, ' bi'] : abs >= 1e6 ? [1e6, ' mi'] : abs >= 1e3 ? [1e3, ' mil'] : [1, ''];
-  return `${(valor / div).toLocaleString('pt-BR', { minimumFractionDigits: div > 1 ? 1 : 0, maximumFractionDigits: div > 1 ? 1 : 0 })}${suf}`;
+  let texto;
+  if (formato === '%') texto = `${(abs * 100).toFixed(1).replace('.', ',')}%`;
+  else if (formato === 'x') texto = abs.toFixed(2).replace('.', ',');
+  else {
+    const [div, suf] = abs >= 1e9 ? [1e9, ' bi'] : abs >= 1e6 ? [1e6, ' mi'] : abs >= 1e3 ? [1e3, ' mil'] : [1, ''];
+    texto = `${(abs / div).toLocaleString('pt-BR', { minimumFractionDigits: div > 1 ? 1 : 0, maximumFractionDigits: div > 1 ? 1 : 0 })}${suf}`;
+  }
+  const zero = !/[1-9]/.test(texto);   // arredondou para zero: sem parênteses
+  return valor < 0 && !zero ? `(${texto})` : texto;
 }
 
 function tendenciaIndicador({ atual, anterior, melhor, formato }) {

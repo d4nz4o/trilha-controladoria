@@ -188,3 +188,29 @@
 .nf-alerta { padding: 10px 12px; border-radius: 6px; border: 1px solid #fde68a; background: #fffbeb; color: #92400e; font-size: 0.82rem; line-height: 1.4; }
 .nf-alerta-erro { border-color: #fecaca; background: #fef2f2; color: #b91c1c; }
 #nfSalvar:disabled { opacity: .65; cursor: wait; }
+
+/* Confirmação de remoção de período */
+.modal-card-container.remover-ferias { max-width: 480px; }
+.badge-remover { background: #fef2f2 !important; color: #b91c1c !important; }
+.remover-resumo { margin: 4px 0 12px; padding: 14px 16px; border: 1px solid var(--border-light); border-radius: 10px; background: var(--bg-subtle, #f6f8fb); }
+.remover-pessoa { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.remover-pessoa strong { font-size: 0.95rem; color: var(--text-primary); }
+.remover-tipo { margin-left: auto; padding: 2px 10px; border-radius: 999px; background: #e8eef5; color: var(--text-secondary); font-size: 0.75rem; font-weight: 600; }
+.remover-resumo dl { margin: 0; display: grid; gap: 6px; }
+.remover-resumo dl div { display: grid; grid-template-columns: 80px 1fr; gap: 8px; font-size: 0.85rem; }
+.remover-resumo dt { color: var(--text-secondary); }
+.remover-resumo dd { margin: 0; color: var(--text-primary); font-weight: 500; }
+.remover-ate { color: var(--text-secondary); font-weight: 400; }
+.remover-aviso { margin: 0 0 14px; font-size: 0.8rem; color: var(--text-secondary); }
+.btn-perigo { padding: 9px 18px; border: 0; border-radius: 8px; background: #dc2626; color: #fff; font: inherit; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: background-color .15s ease; }
+.btn-perigo:hover { background: #b91c1c; }
+.btn-perigo:disabled { opacity: .65; cursor: wait; }
+.btn-perigo:focus-visible { outline: 2px solid #dc2626; outline-offset: 2px; }
+
+/* Aviso discreto após remover */
+.aviso-ferias {
+  position: fixed; left: 50%; bottom: 28px; z-index: 2000; transform: translate(-50%, 12px);
+  padding: 10px 18px; border-radius: 10px; background: #15385e; color: #fff; font-size: 0.85rem; font-weight: 500;
+  box-shadow: 0 10px 28px -8px rgba(21, 56, 94, .45); opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease;
+}
+.aviso-ferias.visivel { opacity: 1; transform: translate(-50%, 0); }

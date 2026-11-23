@@ -32,11 +32,19 @@ function esc(texto) {
 
 /* Valores das demonstrações em R$ mil (os cálculos seguem em reais; só a exibição divide por mil) */
 const UNIDADE = 1000;
+// Negativos entre parênteses, como em relatório contábil: -14.206 -> (14.206)
 function formatarMoeda(val) {
   if (val === null || val === undefined || isNaN(val)) return "–";
   const n = Math.round(val / UNIDADE);
   if (n === 0) return "–";
-  return n.toLocaleString('pt-BR');
+  return n < 0 ? `(${Math.abs(n).toLocaleString('pt-BR')})` : n.toLocaleString('pt-BR');
+}
+
+/* Percentual de variação: positivo com "+", negativo entre parênteses, uma casa: +4,6% | (3,9%) */
+function formatarPercentual(perc) {
+  const texto = Math.abs(perc).toFixed(1).replace('.', ',');
+  if (texto === '0,0') return '0,0%';
+  return perc < 0 ? `(${texto}%)` : `+${texto}%`;
 }
 
 function formatarDataPeriodo(dataStr) {

@@ -42,7 +42,7 @@ function calcularDelta(valAtual, valComp) {
   const perc = (diff / Math.abs(valAtual)) * 100;   // Δ % = Δ $ / mês atual
   const percStr = arred === 0
     ? "0,0%"
-    : `${perc > 0 ? "+" : ""}${perc.toFixed(1).replace('.', ',')}%`;
+    : formatarPercentual(perc);
 
   return { diffStr, percStr, classe };
 }

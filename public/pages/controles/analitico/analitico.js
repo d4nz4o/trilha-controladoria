@@ -1,5 +1,5 @@
 /* Aba Analítico: inventário por bem, com busca, filtros, ordenação, paginação e ficha do bem. */
-import { $, STATUS, carregarJSON, mostrarErro, preparar, preencherSelect, filtrarBens, mostrarKPIs, baixarCSV, f, f0, rs, dt, y, pc, tag } from '../commons.js';
+import { $, STATUS, carregarJSON, mostrarErro, preparar, preencherSelect, filtrarBens, mostrarKPIs, exportarPlanilha, nomeArquivo, f, f0, rs, dt, y, pc, tag } from '../commons.js';
 
 const POR_PAGINA = 100;
 let D, R, F = [], pagina = 0, ordem = 0, sentido = 1;
@@ -77,7 +77,31 @@ $('dg').onclick = e => { // clique fora da ficha fecha
 };
 
 /* ---------- Exportação ---------- */
-$('x').onclick = () => baixarCSV('controle-ativos.csv', COLUNAS.map(c => c[0]).concat('Desativado em'),
-  F.map(x => [x.r[0], x.r[1], x.r[3], D.e[x.r[4]], D.c[x.r[5]] || 'Outros', x.r[13] || '', dt(x.r[2]), x.r[7], x.r[8], x.r[10], x.pct ?? '', x.vida ?? '', x.rest ?? '', x.st, dt(x.r[6])]));
+const textoFiltro = id => $(id).selectedOptions[0]?.textContent.trim() || '';
+
+$('x').onclick = () => {
+  const soma = i => F.reduce((s, x) => s + x.r[i], 0);
+  const busca = $('q').value.trim();
+  exportarPlanilha({
+    pagina: 'Analítico',
+    arquivo: nomeArquivo('Ativos_Analitico', $('fe').value ? textoFiltro('fe') : 'Todas', $('fc').value ? textoFiltro('fc') : '', $('fs').value ? textoFiltro('fs') : ''),
+    filtros: [['Empresa', textoFiltro('fe')], ['Classe', textoFiltro('fc')], ['Status', textoFiltro('fs')], ...(busca ? [['Busca', busca]] : [])],
+    unidade: ['bem', 'bens'],
+    colunas: [
+      { titulo: 'Imobilizado', tipo: 'texto', largura: 13 }, { titulo: 'Sub', tipo: 'texto', largura: 6 },
+      { titulo: 'Denominação', tipo: 'texto', largura: 44 }, { titulo: 'Empresa', tipo: 'texto', largura: 16 },
+      { titulo: 'Classe', tipo: 'texto', largura: 26 }, { titulo: 'Nº patrimonial', tipo: 'texto', largura: 14 },
+      { titulo: 'Incorporação', tipo: 'data', largura: 12 }, { titulo: 'Custo', tipo: 'moeda', largura: 16 },
+      { titulo: 'Depr. acum.', tipo: 'moeda', largura: 16 }, { titulo: 'Valor contábil', tipo: 'moeda', largura: 16 },
+      { titulo: '% depr.', tipo: 'perc', largura: 9 }, { titulo: 'Vida útil (anos)', tipo: 'anos', largura: 11 },
+      { titulo: 'Vida restante (anos)', tipo: 'anos', largura: 12 }, { titulo: 'Status', tipo: 'status', largura: 20 },
+      { titulo: 'Desativado em', tipo: 'data', largura: 12 },
+    ],
+    // Imobilizado e Sub como texto, para o Excel não converter em número
+    linhas: F.map(x => [String(x.r[0]), String(x.r[1]), x.r[3], D.e[x.r[4]], D.c[x.r[5]] || 'Outros', x.r[13] ? String(x.r[13]) : '',
+                        x.r[2], x.r[7], x.r[8], x.r[10], x.pct ?? '', x.vida ?? '', x.rest ?? '', x.st, x.r[6]]),
+    total: F.length > 1 ? ['Total', '', { contar: true, sufixo: ' bens' }, '', '', '', null, soma(7), soma(8), soma(10), '', '', '', '', null] : null,
+  });
+};
 
 filtrar(0);

@@ -70,7 +70,8 @@ function renderizarEquipeSidebar(colaboradores, elementId, permitirClique) {
       <div class="avatar" style="background:${corDoAvatar(c.id_colab)};">${iniciais}</div>
       <div class="member-info">
         <strong>${c.nome_colab}${c.esta_ativo === false ? ' <em class="tag-inativo">inativo</em>' : ''}</strong>
-        <span>${[c.cargo_colab, nomeEquipe(c)].filter(Boolean).join(' · ')}</span>
+        <span>${[c.cargo_colab]}</span>
+        <span>${[nomeEquipe(c)]}</span>
       </div>
     `;
     container.appendChild(div);
@@ -147,10 +148,27 @@ function selecionarColaborador(c, elementoCard) {
 
       <div class="profile-details-grid">
         <div class="detail-item">
+          <label>Situação</label>
+          <p>${c.esta_ativo === false ? '<span class="situacao inativo">Inativo</span>' : '<span class="situacao ativo">Ativo</span>'}</p>
+        </div>
+
+        <div class="detail-item">
+          <label>Equipe</label>
+          <p>${nomeEquipe(c) || 'Não informada'}</p>
+        </div>
+
+        <div class="detail-item">
           <label>Matrícula</label>
           <p>${c.matricula_colab || 'Não informado'}</p>
         </div>
 
+        <div class="detail-item">
+          <label>Tempo de Empresa</label>
+          <p>${tempo_colab || 'Não informado'}</p>
+        </div>
+      </div>
+
+      <div class="profile-details-grid">
         <div class="detail-item">
           <label>Usuário SAP</label>
           <p>${c.sap_colab || 'Não informado'}</p>
@@ -164,21 +182,6 @@ function selecionarColaborador(c, elementoCard) {
         <div class="detail-item">
           <label>WhatsApp</label>
           <p>${wpp_colab || 'Não informado'}</p>
-        </div>
-
-        <div class="detail-item">
-          <label>Tempo de Empresa</label>
-          <p>${tempo_colab || 'Não informado'}</p>
-        </div>
-
-        <div class="detail-item">
-          <label>Equipe</label>
-          <p>${nomeEquipe(c) || 'Não informada'}</p>
-        </div>
-
-        <div class="detail-item">
-          <label>Situação</label>
-          <p>${c.esta_ativo === false ? '<span class="situacao inativo">Inativo</span>' : '<span class="situacao ativo">Ativo</span>'}</p>
         </div>
       </div>        
 

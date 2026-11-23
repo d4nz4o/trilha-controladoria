@@ -1,5 +1,5 @@
 /* Aba Composição geral: depreciação consolidada por classe de ativo. */
-import { $, STATUS, carregarJSON, mostrarErro, preparar, preencherSelect, filtrarBens, mostrarKPIs, baixarCSV, f, f0, rs, y, pc } from '../commons.js';
+import { $, STATUS, carregarJSON, mostrarErro, preparar, preencherSelect, filtrarBens, mostrarKPIs, exportarPlanilha, nomeArquivo, f, f0, rs, y, pc } from '../commons.js';
 
 const CABECALHO = ['Classe', 'Bens', 'Custo', 'Depr. acum.', 'Valor contábil', '% depr.', 'Taxa anual', 'Vida útil (a)', 'Vida restante (a)'];
 let D, R, grupos = [];
@@ -39,8 +39,26 @@ function desenhar() {
   ]);
 }
 
+// Texto da opção escolhida num filtro (ex.: "Metrô BH"); vazio = rótulo "Todas/Todos…"
+const textoFiltro = id => $(id).selectedOptions[0]?.textContent.trim() || '';
+
 function exportar() {
-  baixarCSV('visao-geral-ativos.csv', CABECALHO, grupos.map(([c, a]) => [
-    c, a[0], a[1], a[2], a[3], a[1] ? -a[2] / a[1] : '', a[4] ? a[5] / a[4] : '', a[5] ? a[4] / a[5] : '', a[5] ? a[6] / a[5] : '',
-  ]));
+  const linha = ([c, a]) => [c, a[0], a[1], a[2], a[3], a[1] ? -a[2] / a[1] : '', a[4] ? a[5] / a[4] : '', a[5] ? a[4] / a[5] : '', a[5] ? a[6] / a[5] : ''];
+  // Total: soma os grupos e recalcula os índices sobre as somas
+  const t = grupos.reduce((s, [, a]) => s.map((v, i) => v + a[i]), [0, 0, 0, 0, 0, 0, 0]);
+  exportarPlanilha({
+    pagina: 'Composição geral',
+    arquivo: nomeArquivo('Ativos_Composicao', $('fe').value ? textoFiltro('fe') : 'Todas', $('fs').value ? textoFiltro('fs') : ''),
+    filtros: [['Empresa', textoFiltro('fe')], ['Status', textoFiltro('fs')]],
+    unidade: ['classe', 'classes'],
+    colunas: [
+      { titulo: 'Classe', tipo: 'texto', largura: 34 }, { titulo: 'Bens', tipo: 'inteiro', largura: 9 },
+      { titulo: 'Custo', tipo: 'moeda', largura: 18 }, { titulo: 'Depr. acum.', tipo: 'moeda', largura: 18 },
+      { titulo: 'Valor contábil', tipo: 'moeda', largura: 18 }, { titulo: '% depr.', tipo: 'perc', largura: 10 },
+      { titulo: 'Taxa anual', tipo: 'perc', largura: 11 }, { titulo: 'Vida útil (anos)', tipo: 'anos', largura: 12 },
+      { titulo: 'Vida restante (anos)', tipo: 'anos', largura: 13 },
+    ],
+    linhas: grupos.map(linha),
+    total: grupos.length > 1 ? linha(['Total', t]) : null,
+  });
 }
