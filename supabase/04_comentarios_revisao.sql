@@ -1,7 +1,7 @@
 -- =====================================================================
 -- 04 · Comentários da revisão analítica (BP e DR)
 -- Com a fonte "comentarios" como 'tabela' em fonte-dados.js, o site lê e grava aqui.
--- Cada comentário é um registro novo (histórico); o site não edita nem apaga.
+-- Cada comentário é um registro novo; o autor pode editar o texto e excluir os próprios comentários.
 --
 -- Autor = colaborador (tabela colaboradores), identificado pelo id_colab.
 -- Só comenta quem está cadastrado em colaboradores (por id_auth ou e-mail), e sempre em seu próprio nome.
@@ -40,3 +40,19 @@ create policy "inclusao pelo proprio colaborador" on public.revisoes_comentarios
     and (select public.id_colab_usuario()) is not null
     and id_colab = (select public.id_colab_usuario())
   );
+
+-- Edição do texto pelo próprio autor (ver 08_editar_comentarios.sql)
+drop policy if exists "edicao pelo proprio colaborador" on public.revisoes_comentarios;
+create policy "edicao pelo proprio colaborador" on public.revisoes_comentarios
+  for update to authenticated
+  using (id_colab = (select public.id_colab_usuario()))
+  with check (id_colab = (select public.id_colab_usuario()));
+revoke update on public.revisoes_comentarios from authenticated, anon;
+grant update (mensagem) on public.revisoes_comentarios to authenticated;
+
+-- Exclusão pelo próprio autor (ver 09_excluir_comentarios.sql)
+drop policy if exists "exclusao pelo proprio colaborador" on public.revisoes_comentarios;
+create policy "exclusao pelo proprio colaborador" on public.revisoes_comentarios
+  for delete to authenticated
+  using (id_colab = (select public.id_colab_usuario()));
+grant delete on public.revisoes_comentarios to authenticated;

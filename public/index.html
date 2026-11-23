@@ -370,6 +370,10 @@
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('erro') === 'dominio_invalido') {
       exibirErro(MSG_DOMINIO);
+    } else if (urlParams.get('erro') === 'acesso_nao_liberado') {
+      exibirErro("Seu acesso ao portal ainda não foi liberado pela Controladoria.");
+    } else if (urlParams.get('erro') === 'acesso_inativo') {
+      exibirErro("Seu acesso ao portal está inativo. Procure a Controladoria.");
     } else if (urlParams.get('erro') === 'inatividade') {
       exibirErro("Sua sessão foi encerrada por inatividade. Entre novamente.");
     }
@@ -386,6 +390,12 @@
       if (!session) {
         // Sem sessão: zera o relógio de inatividade para o próximo login começar do zero
         try { localStorage.removeItem('trilha_atividade'); } catch {}
+      }
+
+      // Chegou aqui por um bloqueio (acesso inativo, domínio): encerra a sessão e fica no login, sem redirecionar
+      if (session && ['acesso_nao_liberado', 'acesso_inativo', 'dominio_invalido'].includes(urlParams.get('erro'))) {
+        try { await sbClient.auth.signOut(); } catch {}
+        return;
       }
 
       if (session) {

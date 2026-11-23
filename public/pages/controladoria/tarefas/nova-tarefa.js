@@ -96,7 +96,7 @@ function preencherColunasNovaTarefa() {
 
 function renderizarResponsaveisNovaTarefa() {
   const caixa = document.getElementById('ntResponsaveis');
-  const equipe = listaColaboradores || [];
+  const equipe = colaboradoresAtivos();   // inativos não podem ser responsáveis por tarefas novas
   if (!equipe.length) {
     caixa.innerHTML = '<span class="nt-vazio">Nenhum colaborador encontrado.</span>';
     return;

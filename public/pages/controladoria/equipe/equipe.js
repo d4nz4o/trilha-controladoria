@@ -20,16 +20,23 @@ async function carregarColaboradores() {
   await carregarColaboradoresDados(renderizarEquipeFiltrada);
 }
 
+// Nome da equipe do colaborador (vem de equipes.nome_equipe)
+const nomeEquipe = c => (c.equipes && c.equipes.nome_equipe) || '';
+
 function renderizarEquipeFiltrada() {
   const filtro = (abaAtual === 'equipe') ? buscaAtual : '';
+  const mostrarInativos = document.getElementById('mostrarInativos')?.checked;
 
-  const filtrados = !filtro
-    ? listaColaboradores
-    : listaColaboradores.filter(c => {
-        const nome = (c.nome_colab || '').toLowerCase();
-        const cargo = (c.cargo_colab || '').toLowerCase();
-        return nome.includes(filtro) || cargo.includes(filtro);
-      });
+  const filtrados = listaColaboradores
+    .filter(c => mostrarInativos || c.esta_ativo !== false)
+    .filter(c => {
+      if (!filtro) return true;
+      const nome = (c.nome_colab || '').toLowerCase();
+      const cargo = (c.cargo_colab || '').toLowerCase();
+      return nome.includes(filtro) || cargo.includes(filtro) || nomeEquipe(c).toLowerCase().includes(filtro);
+    })
+    // Ativos primeiro; dentro de cada grupo, a ordem alfabética que já vem do banco
+    .sort((a, b) => (a.esta_ativo === false) - (b.esta_ativo === false));
 
   renderizarEquipeSidebar(filtrados, 'teamListEquipe', true);
 }
@@ -40,7 +47,7 @@ function renderizarEquipeSidebar(colaboradores, elementId, permitirClique) {
   container.innerHTML = '';
 
   if (colaboradores.length === 0) {
-    container.innerHTML = '<small class="empty-msg">Nenum colaborador encontrado.</small>';
+    container.innerHTML = '<small class="empty-msg">Nenhum colaborador encontrado.</small>';
     return;
   }
 
@@ -53,7 +60,7 @@ function renderizarEquipeSidebar(colaboradores, elementId, permitirClique) {
       .join('');
 
     const div = document.createElement('div');
-    div.className = 'member-card';
+    div.className = 'member-card' + (c.esta_ativo === false ? ' inativo' : '');
     if (permitirClique) {
       div.classList.add('clickable');
       div.onclick = () => selecionarColaborador(c, div);
@@ -62,8 +69,8 @@ function renderizarEquipeSidebar(colaboradores, elementId, permitirClique) {
     div.innerHTML = `
       <div class="avatar" style="background:${corDoAvatar(c.id_colab)};">${iniciais}</div>
       <div class="member-info">
-        <strong>${c.nome_colab}</strong>
-        <span>${c.cargo_colab || ''}</span>
+        <strong>${c.nome_colab}${c.esta_ativo === false ? ' <em class="tag-inativo">inativo</em>' : ''}</strong>
+        <span>${[c.cargo_colab, nomeEquipe(c)].filter(Boolean).join(' · ')}</span>
       </div>
     `;
     container.appendChild(div);
@@ -162,6 +169,16 @@ function selecionarColaborador(c, elementoCard) {
         <div class="detail-item">
           <label>Tempo de Empresa</label>
           <p>${tempo_colab || 'Não informado'}</p>
+        </div>
+
+        <div class="detail-item">
+          <label>Equipe</label>
+          <p>${nomeEquipe(c) || 'Não informada'}</p>
+        </div>
+
+        <div class="detail-item">
+          <label>Situação</label>
+          <p>${c.esta_ativo === false ? '<span class="situacao inativo">Inativo</span>' : '<span class="situacao ativo">Ativo</span>'}</p>
         </div>
       </div>        
 

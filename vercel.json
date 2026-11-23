@@ -1,72 +1,60 @@
 {
+  "buildCommand": "node scripts/vercel-rotas-curtas.mjs",
   "outputDirectory": "public",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
+  "rewrites": [
     {
       "source": "/hub",
-      "destination": "/pages/hub/hub",
-      "permanent": false
+      "destination": "/pages/hub/hub"
     },
     {
       "source": "/tarefas",
-      "destination": "/pages/controladoria/tarefas/tarefas",
-      "permanent": false
+      "destination": "/pages/controladoria/tarefas/tarefas"
     },
     {
       "source": "/equipe",
-      "destination": "/pages/controladoria/equipe/equipe",
-      "permanent": false
+      "destination": "/pages/controladoria/equipe/equipe"
     },
     {
       "source": "/ferias",
-      "destination": "/pages/controladoria/ferias/ferias",
-      "permanent": false
+      "destination": "/pages/controladoria/ferias/ferias"
     },
     {
       "source": "/automacoes",
-      "destination": "/pages/controladoria/automacoes/automacoes",
-      "permanent": false
+      "destination": "/pages/controladoria/automacoes/automacoes"
     },
     {
       "source": "/bp",
-      "destination": "/pages/demonstracoes/bp/bp",
-      "permanent": false
+      "destination": "/pages/demonstracoes/bp/bp"
     },
     {
       "source": "/dr",
-      "destination": "/pages/demonstracoes/dr/dr",
-      "permanent": false
+      "destination": "/pages/demonstracoes/dr/dr"
     },
     {
       "source": "/dmpl",
-      "destination": "/pages/demonstracoes/dmpl/dmpl",
-      "permanent": false
+      "destination": "/pages/demonstracoes/dmpl/dmpl"
     },
     {
       "source": "/dfc",
-      "destination": "/pages/demonstracoes/dfc/dfc",
-      "permanent": false
+      "destination": "/pages/demonstracoes/dfc/dfc"
     },
     {
       "source": "/composicao",
-      "destination": "/pages/controles/composicao/composicao",
-      "permanent": false
+      "destination": "/pages/controles/composicao/composicao"
     },
     {
       "source": "/analitico",
-      "destination": "/pages/controles/analitico/analitico",
-      "permanent": false
+      "destination": "/pages/controles/analitico/analitico"
     },
     {
       "source": "/peps",
-      "destination": "/pages/controles/peps/peps",
-      "permanent": false
+      "destination": "/pages/controles/peps/peps"
     },
     {
       "source": "/ordens",
-      "destination": "/pages/controles/ordens/ordens_inv",
-      "permanent": false
+      "destination": "/pages/controles/ordens/ordens_inv"
     }
   ],
   "headers": [

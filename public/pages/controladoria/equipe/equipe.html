@@ -42,6 +42,10 @@
                     <!-- Sidebar Equipe -->
                     <aside class="sidebar">
                         <h2>Equipe</h2>
+                        <label class="filtro-inativos">
+                            <input type="checkbox" id="mostrarInativos" onchange="renderizarEquipeFiltrada()">
+                            Mostrar inativos
+                        </label>
                         <div class="team-list" id="teamListEquipe">
                             <small style="color:var(--text-muted);">Carregando…</small>
                         </div>

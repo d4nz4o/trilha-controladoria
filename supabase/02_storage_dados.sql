@@ -1,12 +1,10 @@
 -- =====================================================================
--- 02 · Bucket privado "dados" (origem 'storage' em fonte-dados.js)
--- Guarda os mesmos arquivos que hoje ficam abertos em /public, mas só
--- usuários corporativos logados conseguem baixá-los.
+-- 02 · Bucket privado "dados": arquivos do Controle de Ativos (lidos por fonte-dados.js)
+-- Só usuários logados com e-mail corporativo conseguem baixá-los. Os arquivos NÃO ficam no site.
 --
--- Depois de rodar, envie os arquivos pelo painel (Storage > dados) mantendo estes caminhos:
---   demonstracoes/balancetes.csv     demonstracoes/classificacao.csv
---   demonstracoes/empresas.csv       demonstracoes/hierarquia.csv
---   controles/ativos.json            controles/peps.json
+-- Depois de rodar, envie pelo painel (Storage › dados) criando a pasta "controles" com:
+--   controles/ativos.json     controles/peps.json
+-- (as cópias de trabalho ficam em dados/controles/, fora do site e do GitHub)
 -- =====================================================================
 
 insert into storage.buckets (id, name, public)

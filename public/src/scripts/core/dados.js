@@ -27,11 +27,21 @@ async function swr(chave, consulta, aoDados) {
 }
 
 // Colaboradores são usados nas páginas Equipe e Férias
+// Colaboradores com o nome da equipe (equipes.nome_equipe). Se o banco ainda não tiver a tabela de equipes
+// (supabase/10_equipes_e_situacao.sql), carrega só os colaboradores.
 async function carregarColaboradoresDados(aoAtualizar) {
   if (!sbClient) return;
   await swr('colaboradores',
-    () => sbClient.from('colaboradores').select('*').order('nome_colab', { ascending: true }),
+    async () => {
+      const comEquipe = await sbClient.from('colaboradores').select('*, equipes(nome_equipe)').order('nome_colab', { ascending: true });
+      return comEquipe.error ? sbClient.from('colaboradores').select('*').order('nome_colab', { ascending: true }) : comEquipe;
+    },
     d => { listaColaboradores = d; if (aoAtualizar) aoAtualizar(); });
+}
+
+// Só os ativos (esta_ativo = false sai das listas de escolha; o cadastro continua no histórico)
+function colaboradoresAtivos() {
+  return (typeof listaColaboradores === 'undefined' ? [] : listaColaboradores).filter(c => c.esta_ativo !== false);
 }
 
 // Colaborador (tabela colaboradores) do usuário logado: pelo id_auth; se não houver, pelo e-mail.

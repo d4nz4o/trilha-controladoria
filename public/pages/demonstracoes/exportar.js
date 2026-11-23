@@ -5,7 +5,8 @@
   - Linhas recolhidas na tela vêm agrupadas e recolhidas no Excel (botões + / − à esquerda).
   - Com "Ocultar linhas sem saldo" ativo, essas linhas ficam de fora.
   - Na visão por empresa, uma segunda aba traz os indicadores com as fórmulas.
-  A biblioteca SheetJS é carregada só no primeiro clique.
+  - Antes de baixar, um popup mostra o que será exportado e pede confirmação (evita download por clique acidental).
+  A biblioteca SheetJS é carregada só quando a exportação é aberta.
 */
 
 const SHEETJS_URL = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
@@ -120,34 +121,112 @@ function abaDosIndicadores(painel, cabecalhoInfo) {
   return ws;
 }
 
-async function exportarExcel() {
+/* Dados da exportação atual (o que está na tela) */
+function descreverExportacao() {
+  const demonstracao = document.querySelector('.bp-title-group h1').textContent.trim();
+  const porEmpresa = modoVisao === MODO_EMPRESA;
+  const empresa = porEmpresa ? empresaSelecionada(EMPRESAS).nome : 'Consolidado';
+  const mes = formatarDataPeriodo(mesSelecionado);
+  const tipoDR = typeof visao !== 'undefined' ? (visao === 'mensal' ? 'valores do mês' : 'acumulado no ano') : '';
+  const sigla = demonstracao.startsWith('Balanço') ? 'BP' : demonstracao.startsWith('Demonstração do Resultado') ? 'DR' : demonstracao;
+  const limpar = t => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\w-]+/g, '');
+  const painel = document.getElementById('painelIndicadores');
+  return {
+    demonstracao, porEmpresa, empresa, mes, tipoDR,
+    visaoTexto: porEmpresa ? 'por empresa' : 'consolidada (contábil)',
+    arquivo: `${sigla}_${limpar(empresa)}_${limpar(mes.replace('/', '-'))}.xlsx`,
+    comIndicadores: porEmpresa && painel && !painel.hidden,
+    semZerados: document.querySelector('.bp-table')?.classList.contains('ocultar-zerados'),
+  };
+}
+
+/* ---------- Confirmação antes de baixar (evita download por clique acidental) ---------- */
+
+function modalExportacao() {
+  let modal = document.getElementById('modalExportar');
+  if (modal) return modal;
+  modal = document.createElement('div');
+  modal.id = 'modalExportar';
+  modal.className = 'modal-overlay';
+  modal.innerHTML = `
+    <div class="modal-card modal-chat modal-exportar" role="dialog" aria-modal="true" aria-labelledby="exportarTitulo" aria-describedby="exportarResumo">
+      <header class="modal-header">
+        <div class="modal-header-info"><h3 id="exportarTitulo">Exportar planilha</h3></div>
+        <button type="button" class="btn-close-modal" data-fechar aria-label="Fechar">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+        </button>
+      </header>
+      <div class="exportar-corpo">
+        <p class="exportar-pergunta">Baixar a visão atual em Excel?</p>
+        <dl class="exportar-resumo" id="exportarResumo"></dl>
+      </div>
+      <footer class="exportar-acoes">
+        <button type="button" class="btn-action" data-fechar>Cancelar</button>
+        <button type="button" class="btn-exportar-confirmar" id="btnConfirmarExportacao">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v7M5 6.5l3 3 3-3M3 11.5v2h10v-2"/></svg>
+          Baixar planilha
+        </button>
+      </footer>
+    </div>`;
+  document.body.appendChild(modal);
+  const fechar = () => fecharConfirmacaoExportacao();
+  modal.addEventListener('click', e => { if (e.target === modal || e.target.closest('[data-fechar]')) fechar(); });
+  modal.querySelector('#btnConfirmarExportacao').addEventListener('click', async () => {
+    fechar();
+    await baixarPlanilha();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) fechar();
+  });
+  return modal;
+}
+
+let focoAntesDaExportacao = null;
+
+function exportarExcel() {
+  const d = descreverExportacao();
+  const modal = modalExportacao();
+  const linha = (rotulo, valor) => `<div><dt>${esc(rotulo)}</dt><dd>${esc(valor)}</dd></div>`;
+  modal.querySelector('#exportarResumo').innerHTML =
+    linha('Demonstração', d.demonstracao) +
+    linha(d.porEmpresa ? 'Empresa' : 'Visão', d.porEmpresa ? d.empresa : 'Consolidada (contábil)') +
+    linha('Mês', d.mes + (d.tipoDR ? ` · ${d.tipoDR}` : '')) +
+    linha('Conteúdo', [d.comIndicadores ? 'tabela + indicadores' : 'tabela', d.semZerados ? 'sem linhas zeradas' : ''].filter(Boolean).join(', ')) +
+    linha('Arquivo', d.arquivo);
+  focoAntesDaExportacao = document.activeElement;
+  modal.classList.add('active');
+  setTimeout(() => modal.querySelector('#btnConfirmarExportacao').focus(), 60);
+  carregarSheetJS().catch(() => {});   // adianta o carregamento enquanto a pessoa confirma
+}
+
+function fecharConfirmacaoExportacao() {
+  const modal = document.getElementById('modalExportar');
+  if (!modal) return;
+  modal.classList.remove('active');
+  if (focoAntesDaExportacao && focoAntesDaExportacao.focus) focoAntesDaExportacao.focus();
+}
+
+/* ---------- Geração do arquivo ---------- */
+
+async function baixarPlanilha() {
   const botao = document.querySelector('.btn-exportar');
   try {
     if (botao) botao.disabled = true;
     await carregarSheetJS();
 
     const tabela = document.querySelector('.bp-table');
-    const demonstracao = document.querySelector('.bp-title-group h1').textContent.trim();
-    const porEmpresa = modoVisao === MODO_EMPRESA;
-    const empresa = porEmpresa ? empresaSelecionada(EMPRESAS).nome : 'Consolidado';
-    const mes = formatarDataPeriodo(mesSelecionado);
-    const tipoDR = typeof visao !== 'undefined' ? (visao === 'mensal' ? 'valores do mês' : 'acumulado no ano') : '';
-
+    const d = descreverExportacao();
     const info = [
-      `${demonstracao} — ${empresa}`,
-      `Mês selecionado: ${mes}${tipoDR ? ` (${tipoDR})` : ''} · Visão: ${porEmpresa ? 'por empresa' : 'consolidada (contábil)'}`,
+      `${d.demonstracao} — ${d.empresa}`,
+      `Mês selecionado: ${d.mes}${d.tipoDR ? ` (${d.tipoDR})` : ''} · Visão: ${d.visaoTexto}`,
       'Valores em milhares de reais (R$ mil)',
       `Exportado em ${new Date().toLocaleString('pt-BR')}`,
     ];
 
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, abaDaTabela(tabela, info), demonstracao.slice(0, 31));
-    const painel = document.getElementById('painelIndicadores');
-    if (porEmpresa && painel && !painel.hidden) XLSX.utils.book_append_sheet(wb, abaDosIndicadores(painel, info), 'Indicadores');
-
-    const sigla = demonstracao.startsWith('Balanço') ? 'BP' : demonstracao.startsWith('Demonstração do Resultado') ? 'DR' : demonstracao;
-    const limpar = t => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\w-]+/g, '');
-    XLSX.writeFile(wb, `${sigla}_${limpar(empresa)}_${limpar(mes.replace('/', '-'))}.xlsx`);
+    XLSX.utils.book_append_sheet(wb, abaDaTabela(tabela, info), d.demonstracao.slice(0, 31));
+    if (d.comIndicadores) XLSX.utils.book_append_sheet(wb, abaDosIndicadores(document.getElementById('painelIndicadores'), info), 'Indicadores');
+    XLSX.writeFile(wb, d.arquivo);
   } catch (erro) {
     console.error('Falha ao exportar:', erro);
     alert(erro.message || 'Não foi possível exportar a planilha.');

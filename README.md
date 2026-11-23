@@ -21,7 +21,7 @@ public/                          tudo o que é publicado no site
 │  │  ├─ usuario.js              avatar e menu do usuário em toda barra superior, fazerLogout()
 │  │  └─ dados.js                cache da sessão (Cache, swr) e colaborador logado
 │  └─ services/
-│     └─ fonte-dados.js          leitura do Supabase (demonstrações) e dos arquivos do controle de ativos
+│     └─ fonte-dados.js          leitura do Supabase (tabelas das demonstrações e arquivos do controle de ativos no Storage)
 └─ pages/
    ├─ hub/                       hub (vistas: demonstrações, controle de ativos, controladoria)
    ├─ controladoria/             tarefas, equipe, férias, automações (tabelas próprias no Supabase)
@@ -30,9 +30,9 @@ public/                          tudo o que é publicado no site
    │  ├─ indicadores.js          coluna de indicadores (visão por empresa)
    │  └─ exportar.js             botão "Exportar planilha"
    └─ controles/                 Composição geral, Analítico, PEPs, Ordens de investimento (módulos ES)
-      └─ dados/                  ativos.json · peps.json
 
-dados/demonstracoes/             fontes das demonstrações, NÃO publicadas (base para gerar as cargas do Supabase)
+dados/                           NÃO publicada nem enviada ao GitHub: demonstracoes/ (fontes das cargas do Supabase)
+                                 e controles/ (cópias de ativos.json e peps.json, que ficam no Storage)
 supabase/                        SQL do banco, na ordem dos números
 scripts/                         extrair_balancetes_xlsx.py · preparar_dados_supabase.py
 ```
@@ -66,7 +66,8 @@ controladoria; rode-o de novo sempre que criar uma tabela nova. Nas regras, a fu
 carregamento das demonstrações leva ~20 s (bancos criados antes desta versão: rode `supabase/07_regras_rapidas.sql`). O banco recusa saldo de empresa ou conta não cadastrada, o mesmo
 mês importado duas vezes, conta classificada numa linha inexistente e comentário em nome de outra pessoa.
 O autor dos comentários é o colaborador logado (tabela `colaboradores`, por `id_auth` ou e-mail); quem não está
-cadastrado não comenta.
+cadastrado não comenta. Cada autor pode editar o texto (lápis) e excluir (lixeira, com confirmação) os próprios
+comentários; regras em `supabase/08_editar_comentarios.sql` e `supabase/09_excluir_comentarios.sql`.
 
 ### Visões
 
@@ -96,9 +97,23 @@ depois dela, rode `supabase/05_apos_importacao.sql`).
 
 ### Controle de Ativos
 
-`ativos.json` e `peps.json` ainda são lidos de `public/pages/controles/dados/`. Para protegê-los, rode
-`supabase/02_storage_dados.sql`, envie os arquivos ao bucket privado `dados` e troque a origem de `ativos` e `peps`
-para `'storage'` em `fonte-dados.js`.
+`ativos.json` e `peps.json` ficam no bucket privado `dados` do Supabase Storage (pasta `controles/`), lidos só por
+usuários logados com e-mail corporativo; não fazem parte do site. Primeira vez: rode `supabase/02_storage_dados.sql`
+e envie os dois arquivos pelo painel (Storage › dados › controles). Para atualizar, substitua os arquivos no bucket.
+As cópias de trabalho ficam em `dados/controles/` (fora do site e do GitHub, pelo `.gitignore`).
+
+## Equipes e situação dos colaboradores (controle de acesso — etapa 1)
+
+`supabase/10_equipes_e_situacao.sql` cria a tabela `equipes` (com `id_equipe_pai` para a hierarquia; ciclos são
+recusados) e acrescenta a `colaboradores` os campos `esta_ativo` (padrão: ativo) e `id_equipe`.
+Colaborador inativo não entra no portal (regra no banco e aviso no login), sai das listas de escolha (responsáveis de
+tarefa, férias) e continua no histórico (comentários, calendário de férias, tarefas). O cadastro de equipes e da
+situação é feito pelo painel do Supabase.
+
+`supabase/11_acesso_somente_cadastrados.sql`: só entra quem tem cadastro **ativo** em `colaboradores` (pelo `id_auth`
+ou pelo e-mail). Sem cadastro, o login mostra "acesso ainda não liberado pela Controladoria"; para liberar alguém,
+inclua a pessoa em `colaboradores`. A função `situacao_acesso()` informa o motivo (liberado, sem_cadastro, inativo,
+dominio) e `usuario_corporativo()`, usada nas regras das tabelas, só é verdadeira para "liberado". Próximas etapas: permissões por módulo e por empresa.
 
 ## Domínios com acesso
 

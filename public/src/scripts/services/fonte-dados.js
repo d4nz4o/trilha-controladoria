@@ -162,8 +162,13 @@
                       `(função usuario_corporativo: ${error.message}). Confira se o supabase/01_acesso.sql foi executado.`);
     }
     if (liberado === false) {
-      throw new Error(`A regra de acesso do banco não liberou o usuário ${email}. Confira os domínios na função ` +
-                      `usuario_corporativo() (supabase/01_acesso.sql) e rode o arquivo novamente no SQL Editor.`);
+      // Usuário barrado pelo banco (sem cadastro, inativo…): volta ao login com o aviso da situação
+      if (typeof bloquearAcesso === 'function') {
+        const { data: situacao } = await sb.rpc('situacao_acesso');
+        await bloquearAcesso(situacao || 'sem_cadastro');
+        await new Promise(() => {});   // a página está sendo trocada; não segue com a carga
+      }
+      throw new Error(`O acesso do usuário ${email} não foi liberado (cadastro em colaboradores ausente ou inativo).`);
     }
     throw new Error(`A tabela ${f.tabela} está vazia no Supabase (o usuário ${email} tem acesso). ` +
                     `Confira se a importação foi feita nesse projeto e nessa tabela.`);

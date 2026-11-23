@@ -42,7 +42,7 @@ function fecharModalNovasFerias(event) {
 
 function preencherColaboradoresNovasFerias(selecionarUsuario) {
   const select = document.getElementById('nfColaborador');
-  const equipe = listaColaboradores || [];
+  const equipe = colaboradoresAtivos();   // inativos não recebem férias novas (os períodos antigos seguem no calendário)
   if (!equipe.length) {
     select.innerHTML = '<option value="">Nenhum colaborador encontrado</option>';
     return;
