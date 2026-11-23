@@ -1,0 +1,1679 @@
+empresa,conta_contabil,descricao_conta,classificacao_nv1,classificacao_nv2,classificacao_nv3
+4029,11110001,CAIXA GERAL,Ativo circulante,Caixa e equivalentes de caixa,Caixa geral e fundo fixo
+4029,11110002,FUNDO FIXO,Ativo circulante,Caixa e equivalentes de caixa,Caixa geral e fundo fixo
+4029,11113002,BANCO DE BRASILIA (BRB) 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11113003,BANCO DO BRASIL 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11113004,BANCO DO BRASIL 2,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11113012,BANCO SAFRA 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11113020,BRADESCO 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11113041,SANTANDER 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11113303,ENTRADA BRASIL 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11113304,BANCO ENTRADA,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11113320,BANCO ENTRADA,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11113341,BANCO ENTRADA,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11113641,BANCO SAIDA,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11113356,BANCO ENTRADA,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11113603,SAIDA BRASIL 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11113604,BANCO SAIDA,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4029,11114002,BANCO DO BRASIL,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+4029,11114012,APLIC AUTOM SANTANDE,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+4029,11114501,CDB,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+4029,11114503,APLICAÇÃO COMPROMISS,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+4029,11114506,APLICAÇÃO FINANCEIRA EM MOEDA ESTRANGEIRA,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+4029,11210005,CLIENTES - URBANO/FERROVIÁRIO,Ativo circulante,Contas a receber,CR operacional
+4029,11210007,CLIENTES - PIX,Ativo circulante,Contas a receber,CR operacional
+4029,11210010,CLIENTES - ALUGUEL DE IMÓVEIS,Ativo circulante,Contas a receber,CR aluguéis
+4029,11211005,CARTOES DE DEBITO,Ativo circulante,Contas a receber,CR operacional
+4029,11213003,CLIENTES - ORGAOS PUBLICOS - URBANO/FER,Ativo circulante,Contas a receber,CR órgãos públicos
+4029,11216001,(-) PROV. P/ CRED. DE LIQUID. DUVIDOSA,Ativo circulante,Contas a receber,(-) PCLD
+4029,11222002,CONTAS A RECEBER DE PUBLICIDADE,Ativo circulante,Contas a receber,CR publicidade
+4029,11222005,REEMBOLSO DE DESPESAS,Ativo circulante,Outros créditos,Reembolso de despesas
+4029,11222010,CONTAS A RECEBER,Ativo circulante,Outros créditos,Outras contas a receber
+4029,11222012,(-) OUTRAS CONTAS A RECEBER - TRANSFERE,Ativo circulante,Outros créditos,Transferência entre circulante e não circulante
+4029,11310001,ADIANTAMENTO A FORNECEDORES,Ativo circulante,Adiantamentos,Adiantamentos a fornecedores
+4029,11310006,(-) CONTRAPARTIDA AQUISIÇÃO ATIVO FINANCEIRO,Ativo não circulante,Ativo financeiro,Contrapartida de aquisição
+4029,11310007,(-) CONTRAPARTIDA AQUISIÇÃO ATIVO IMOBILIZADO,Ativo não circulante,Imobilizado,Contrapartida de aquisição
+4029,11219002,CONTAS A RECEBER - VENDA DE IMOBILIZADOS,Ativo circulante,Contas a receber,CR venda de imobilizado
+4029,11310003,ADIANTAMENTO - FUNDO FIXO,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4029,11310004,ADIANTAMENTO DE CRÉDITO,Ativo circulante,Outros créditos,Outros adiantamentos
+4029,11313004,ADIANTAMENTO DIVERSOS,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4029,11313006,SALDO DEVEDOR PROVENTOS,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4029,11314001,ADIANTAMENTO POR CONTA DE FERIAS,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4029,11315001,ADIANTAMENTO POR CONTA DE 13O SALÁRIO,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4029,11317002,ADIANTAMENTO DE VIAGEM,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4029,11318003,PROMOCOES,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4029,11319001,IRPJ ANTECIPACAO - ESTIMATIVA,Ativo circulante,Tributos a recuperar,IRPJ a recuperar
+4029,11320001,IRPJ SALDO NEGATIVO,Ativo circulante,Tributos a recuperar,IRPJ a recuperar
+4029,11322001,IRRF S/ APLIC FINANC,Ativo circulante,Tributos a recuperar,IRRF a recuperar
+4029,11324001,IRRF SOBRE SERV. PREST. A ORGAOS PUBLICOS,Ativo circulante,Tributos a recuperar,IRRF a recuperar
+4029,11326505,IRRF S/ RESGATE DE DEP. JUDICIAL,Ativo circulante,Tributos a recuperar,IRRF a recuperar
+4029,11327001,CSLL ANTECIPACAO - ESTIMATIVA,Ativo circulante,Tributos a recuperar,CSLL a recuperar
+4029,11328001,CSLL SALDO NEGATIVO,Ativo circulante,Tributos a recuperar,CSLL a recuperar
+4029,11331001,CSLL SOBRE SERV. PREST. A ORGAOS PUBLICOS,Ativo circulante,Tributos a recuperar,CSLL a recuperar
+4029,11335001,PIS RETIDO SOBRE SERV. PREST. A ORGAOS PUBLICOS,Ativo circulante,Tributos a recuperar,PIS a recuperar
+4029,11339001,COFINS RETIDA SOBRE SERV. PREST. A ORGAOS PUBLICOS,Ativo circulante,Tributos a recuperar,COFINS a recuperar
+4029,11349002,IMPOSTOS E CONTRIB. FEDERAIS A COMPENSA,Ativo circulante,Tributos a recuperar,Outros tributos a recuperar
+4029,11349008,CAUCOES EM GARANTIA,Ativo circulante,Outros créditos,Cauções em garantia
+4029,11353003,VIACAO PIRACICABANA LTDA,Ativo circulante,Partes relacionadas,Viação Piracicabana
+4029,11353029,COMPORTE PART-CP A,Ativo circulante,Partes relacionadas,Comporte
+4029,11353091,(-) TRANS EMP LIGADA,Ativo circulante,Partes relacionadas,Transferência entre circulante e não circulante
+4029,11353166,TIC TRENS S.A.,Ativo circulante,Partes relacionadas,TIC Trens
+4029,11353167,ENGETRENS SERVIÇOS DE ENGENHARIA E PROJETOS LTDA,Ativo circulante,Partes relacionadas,Engetrens
+4029,11510001,PECAS E ACESSORIOS,Ativo circulante,Estoques,Peças e acessórios
+4029,11510002,PECAS E ACESSORIOS - RECONDIC.,Ativo circulante,Estoques,Peças e acessórios
+4029,11510004,PECAS E ACESSORIOS DE BILHETAGEM,Ativo circulante,Estoques,Peças e acessórios
+4029,11510007,(-) PROV. OBSOLETO PECAS E ACESSORIOS,Ativo circulante,Estoques,(-) Peças e acessórios
+4029,11511001,MATERIAIS DE PINTURA,Ativo circulante,Estoques,Materiais de manutenção
+4029,11511002,MATERIAIS DE FUNILARIA,Ativo circulante,Estoques,Materiais de manutenção
+4029,11511003,MATERIAIS DE ELETRICA,Ativo circulante,Estoques,Materiais de manutenção
+4029,11511008,(-) PROVISÃO OBSOLETO MATERIAIS DE CARROCERIA,Ativo circulante,Estoques,(-) Materiais de manutenção
+4029,11513001,GRAXAS/OLEOS/LUBRIFICANTES,Ativo circulante,Estoques,Combustíveis e lubrificantes
+4029,11515050,FERRAMENTAS E FERRAGENS,Ativo circulante,Estoques,Materiais de manutenção
+4029,11516001,MATERIAL DE EXPEDIENTE E INFORMATICA,Ativo circulante,Estoques,Materiais de expediente e informática
+4029,11517001,MATERIAIS DE CONSERVACAO/LIMPEZA,Ativo circulante,Estoques,Materiais de consumo
+4029,11517002,MATER REP BENS EQUI,Ativo circulante,Estoques,Materiais de manutenção
+4029,11517003,MATERIAIS SEGURANCA,Ativo circulante,Estoques,Materiais de consumo
+4029,11517005,UNIFORMES,Ativo circulante,Estoques,Materiais de consumo
+4029,11517007,MATERIAIS DIVERSOS,Ativo circulante,Estoques,Materiais de consumo
+4029,11517013,(-) PROVISÃO OBSOLETOS MATERIAIS DIVERSOS,Ativo circulante,Estoques,(-) Materiais diversos
+4029,11517014,MATERIAS PARA OBRAS - EVENTOGRAMAS,Ativo circulante,Estoques,Materiais para obras
+4029,11517017,OUTROS COMBUSTIVEIS,Ativo circulante,Estoques,Combustíveis e lubrificantes
+4029,11610003,SEGURO NAO OBRIGATORIO,Ativo circulante,Despesas antecipadas,Seguros a apropriar
+4029,11610005,OUTROS CUSTOS E DESPESAS,Ativo circulante,Despesas antecipadas,Seguros a apropriar
+4029,11610006,SEGUROS GERAIS,Ativo circulante,Despesas antecipadas,Seguros a apropriar
+4029,11613002,DESPESAS A APROPRIAR,Ativo circulante,Despesas antecipadas,Outras despesas a apropriar
+4029,11613003,ALUGUEIS A APROPRIAR,Ativo circulante,Despesas antecipadas,Aluguéis a apropriar
+4029,11613010,BENEFICIOS,Ativo circulante,Despesas antecipadas,Benefícios a apropriar
+4029,12113005,DESPESAS A APROPRIAR,Ativo não circulante,Despesas antecipadas,Outras despesas a apropriar
+4029,12122001,OPERACOES A RECEBER,Ativo não circulante,Outros créditos,Operações a receber
+4029,12122003,OUTRAS CONTAS A RECEBER - TRANSFERÊNCIA,Ativo não circulante,Outros créditos,Transferência entre circulante e não circulante
+4029,12122005,(-) OUTRAS CONTAS A RECEBER,Ativo não circulante,Outros créditos,Outras contas a receber
+4029,12125001,IRPJ DIFERIDO - PREJUIZO FISCAL,Ativo não circulante,Tributos diferidos,IRPJ diferidos - prejuízo fiscal e base negativa
+4029,12126001,IRPJ DIFERIDO,Ativo não circulante,Tributos diferidos,IRPJ diferidos - diferenças temporárias
+4029,12127001,CSLL DIFERIDA - BASE NEGATIVA,Ativo não circulante,Tributos diferidos,CSLL diferidos - prejuízo fiscal e base negativa
+4029,12128001,CSLL DIFERIDA,Ativo não circulante,Tributos diferidos,CSLL diferidos - diferenças temporárias
+4029,12136001,DEPOSITOS JUDICIAIS TRABALHISTAS,Ativo não circulante,Depósitos judiciais,Depósitos judiciais trabalhistas
+4029,12137001,PENHORA DE CREDITO,Ativo não circulante,Depósitos judiciais,Bloqueios e penhoras judiciais
+4029,12138002,DEPOSITO CAUCAO CONTRATUAL,Ativo não circulante,Outros créditos,Cauções contratuais
+4029,12140091,TRANSAÇÕES EMP LIG,Ativo não circulante,Partes relacionadas,Transferência entre circulante e não circulante
+4029,12151002,SEGUROS GERAIS LP,Ativo não circulante,Despesas antecipadas,Seguros a apropriar
+4029,12154001,FUNDO DE INVESTIMENT,Ativo não circulante,Títulos e valores imobiliários,Fundos de investimento
+4029,12154009,APLICAÇÃO FINANCEIRA - CAIXA RESTRITO,Ativo não circulante,Caixa restrito,Caixa restrito
+4029,12154010,ATIVO FINANCEIRO - OBRAS RECURSO PODER PUBLICO,Ativo não circulante,Ativo financeiro,Obras com recursos do poder público
+4029,12154011,ADIANTAMENTO - ATIVO FINANCEIRO,Ativo não circulante,Ativo financeiro,Adiantamentos de ativo financeiro
+4029,12154012,(-) ATIVO FINANCEIRO,Ativo não circulante,Ativo financeiro,(-) Ativo financeiro
+4029,12154013,DEBÊNTURES,Ativo não circulante,Títulos e valores imobiliários,Debêntures
+4029,12154099,CONTRAPARTIDA AQUISIÇÃO ATIVO FINANCEIRO,Ativo não circulante,Ativo financeiro,Contrapartida de aquisição
+4029,12210386,METRO BH S.A.,Ativo não circulante,Investimentos,Participações em controladas (MEP)
+4029,12210432,METRO BH S.A.,Ativo não circulante,Investimentos,Participações em controladas (MEP)
+4029,12311005,DIREITO DE USO - IMÓVEIS,Ativo não circulante,Direito de uso,Direito de uso de imóveis
+4029,12312001,INSTALACOES,Ativo não circulante,Imobilizado,Instalações
+4029,12313003,VANS,Ativo não circulante,Imobilizado,Veículos
+4029,12313004,EQUIP/ACESS P/ VEIC.DE LINHA,Ativo não circulante,Imobilizado,Veículos
+4029,12313501,VEICULOS,Ativo não circulante,Imobilizado,Veículos
+4029,12313502,EQUIPAMENTOS E ACESSÓRIOS PARA VEÍCULOS,Ativo não circulante,Imobilizado,Veículos
+4029,12313507,TRENS,Ativo não circulante,Imobilizado,Trens
+4029,12315001,VEICULOS DE AUTO-SOCORRO,Ativo não circulante,Imobilizado,Veículos
+4029,12315004,VEICULOS ADMINISTRATIVOS,Ativo não circulante,Imobilizado,Veículos
+4029,12316001,MAQ/EQUIP. FERR. MANUT.,Ativo não circulante,Imobilizado,Máquinas e equipamentos
+4029,12316002,EQUIPTOS COMUNICACAO,Ativo não circulante,Imobilizado,Máquinas e equipamentos
+4029,12316003,EQUIPTOS. DE SEGURANCA,Ativo não circulante,Imobilizado,Máquinas e equipamentos
+4029,12316004,SIST. DE EMISSAO DE PASSAGENS,Ativo não circulante,Imobilizado,Sistemas de bilhetes e passagens
+4029,12316006,SIST. AUTOM. DE BILH. ELETRONICA,Ativo não circulante,Imobilizado,Sistemas de bilhetes e passagens
+4029,12318001,EQUIPTOS. DE INFORMATICA,Ativo não circulante,Imobilizado,Equipamentos de informática
+4029,12319001,MOVEIS E UTENSILIOS,Ativo não circulante,Imobilizado,Móveis e utensílios
+4029,12322001,BENFEITORIAS EM BENS DE TERCEIROS,Ativo não circulante,Imobilizado,Benfeitorias em bens de terceiros
+4029,12323001,ATIVOS IMOBILIZADOS COM P&D,Ativo não circulante,Imobilizado,Ativos com P&D (Lei 11.196/05)
+4029,12323002,ATIVOS IMOBILIZADOS COM P&D,Ativo não circulante,Imobilizado,Ativos com P&D (Lei 11.196/05)
+4029,12336001,ADIANTAMENTO DE IMOBILIZADO,Ativo não circulante,Imobilizado,Adiantamento de imobilizado
+4029,12336002,ADIANTAMENTO DE IMOBILIZADO,Ativo não circulante,Imobilizado,Adiantamento de imobilizado
+4029,12337001,OBRAS EM ANDAMENTO,Ativo não circulante,Imobilizado,Imobilizado em andamento
+4029,12337003,OBRAS EM ANDAMENTO - REVERSIVEL,Ativo não circulante,Imobilizado,Imobilizado em andamento
+4029,12339001,IMOBILIZAÇÕES EM ANDAMENTO,Ativo não circulante,Imobilizado,Imobilizado em andamento
+4029,12341006,DEPREC. DIREITO DE USO - IMÓVEIS,Ativo não circulante,Direito de uso,(-) Direito de uso de imóveis
+4029,12342001,DEPREC. INSTALACOES,Ativo não circulante,Imobilizado,(-) Instalações
+4029,12343003,DEPREC. VANS,Ativo não circulante,Imobilizado,(-) Veículos
+4029,12343004,DEPREC. EQUIP/ACESS P/ VEIC.DE LINHA,Ativo não circulante,Imobilizado,(-) Veículos
+4029,12343502,DEPREC. EQUIPAMENTOS E ACESSÓRIOS PARA,Ativo não circulante,Imobilizado,(-) Veículos
+4029,12343507,DEPRECIAÇÃO - TRENS,Ativo não circulante,Imobilizado,(-) Trens
+4029,12345001,DEPREC. VEIC.DE AUTO-SOCORRO,Ativo não circulante,Imobilizado,(-) Veículos
+4029,12345004,DEPREC. VEIC.ADMINISTRATIVOS,Ativo não circulante,Imobilizado,(-) Veículos
+4029,12345005,(-) DEPREC. VEICULOS,Ativo não circulante,Imobilizado,(-) Veículos
+4029,12346001,DEPREC. MAQ/EQUIP. FERR. MANUT.,Ativo não circulante,Imobilizado,(-) Máquinas e equipamentos
+4029,12346002,DEPREC. EQUIPTOS. DE COMUNICACAO,Ativo não circulante,Imobilizado,(-) Máquinas e equipamentos
+4029,12346003,DEPREC. EQUIPTOS. DE SEGURANCA,Ativo não circulante,Imobilizado,(-) Máquinas e equipamentos
+4029,12346004,DEPREC. SIST. DE EMISSAO DE PASSAGENS,Ativo não circulante,Imobilizado,(-) Sistemas de bilhetes e passagens
+4029,12346006,DEPREC. SIST. AUTOM. BILH. ELETRONICA,Ativo não circulante,Imobilizado,(-) Sistemas de bilhetes e passagens
+4029,12348001,DEPREC. COMPUTADORES E PERIFERICOS,Ativo não circulante,Imobilizado,(-) Equipamentos de informática
+4029,12349001,DEPREC. MOVEIS E UTENSILIOS,Ativo não circulante,Imobilizado,(-) Móveis e utensílios
+4029,12349002,CONSORCIO DEPREC. MOVEIS E UTENSILIOS,Ativo não circulante,Imobilizado,(-) Móveis e utensílios
+4029,12352001,DEPREC. BENF. EM IMOVEIS DE TERCEIROS,Ativo não circulante,Imobilizado,(-) Benfeitorias em bens de terceiros
+4029,12353001,(-) DEPRECIAÇÕES/AMORTIZAÇÕS COM P&D,Ativo não circulante,Imobilizado,Ativos com P&D (Lei 11.196/05)
+4029,12353002,(-) DEPRECIAÇÕES/AMOR. COM P&D,Ativo não circulante,Imobilizado,Ativos com P&D (Lei 11.196/05)
+4029,12399001,CONTRAPARTIDA AQUISIÇÃO ATIVO IMOBILIZADO,Ativo não circulante,Imobilizado,Contrapartida de aquisição
+4029,12410001,CONCESSOES,Ativo não circulante,Intangível,Direito de concessão
+4029,12412001,LICENCA DE USO DE SOFTWARE,Ativo não circulante,Intangível,Softwares
+4029,12418001,AMORTIZ. DIREITOS DE USO E CONCESSOES D,Ativo não circulante,Intangível,(-) Direito de concessão
+4029,12420001,(-) SOFTWARE,Ativo não circulante,Intangível,(-) Softwares
+4029,21118006,ARRENDAMENTO DIREITO DE USO A PAGAR,Passivo circulante,Passivo de arrendamento,Arrendamento mercantil
+4029,21119001,DEBÊNTURES,Passivo circulante,Debêntures,Debêntures
+4029,21210001,FORNECEDORES - PJ,Passivo circulante,Fornecedores,Fornecedores nacionais
+4029,21210002,FORNECEDORES-PF NAC,Passivo circulante,Fornecedores,Fornecedores nacionais
+4029,21210004,ENTRADA DE MERCADORIA/ENTRADA DE FATURA,Passivo circulante,Fornecedores,Transitória MIRO/MIGO
+4029,21210006,FORNECEDORES,Passivo circulante,Fornecedores,Fornecedores nacionais
+4029,21210007,(-) FORNECEDORES - TRANSF CIRCULANTE,Passivo circulante,Fornecedores,Transferência entre circulante e não circulante
+4029,21210008,PROVISÃO FORNECEDORES,Passivo circulante,Fornecedores,Provisão de fornecedores
+4029,21211001,FORNECEDORES-PJ EXT,Passivo circulante,Fornecedores,Fornecedores estrangeiros
+4029,21310001,PIS A RECOLHER,Passivo circulante,Obrigações tributárias,PIS a recolher
+4029,21311001,COFINS A RECOLHER,Passivo circulante,Obrigações tributárias,COFINS a recolher
+4029,21312001,IRPJ A RECOLHER,Passivo circulante,Obrigações tributárias,IRPJ a recolher
+4029,21312101,IRPJ - FORNECEDORES,Passivo circulante,Obrigações tributárias,IRPJ a recolher
+4029,21313001,CSLL A RECOLHER,Passivo circulante,Obrigações tributárias,CSLL a recolher
+4029,21313101,CSLL - FORNECEDORES,Passivo circulante,Obrigações tributárias,CSLL a recolher
+4029,21315001,(0561)REND TRAB SAL,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4029,21315002,(0588) S/ REND.DO TRAB.S/ VINCULO,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4029,21315003,(1708) IRRF S/ REMUN.DE SERV.PRESTADOS,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4029,21315007,(8045) S/ OUTROS RENDIMENTOS,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4029,21316001,CONTRIBUIÇÕES RETIDAS A RECOLHER,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4029,21317001,ISS - TOMADOR,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4029,21317101,ISS DE TERCEIROS - FORNECEDORES,Passivo circulante,Obrigações tributárias,Outros tributos a recolher
+4029,21318001,INSS RETIDO - AUTONOMOS,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4029,21318002,INSS RETIDO - PJ,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4029,21318004,INSS RETIDO - FORNECEDORES,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4029,21318005,TERMO DE COOPERAÇÃO SENAI/EMPRESA,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4029,21319001,ICMS A RECOLHER,Passivo circulante,Obrigações tributárias,ICMS a recolher
+4029,21319004,ICMS - FORNECEDORES,Passivo circulante,Obrigações tributárias,ICMS a recolher
+4029,21323001,PARCELAMENTOS FISCAIS,Passivo circulante,Obrigações tributárias,Parcelamentos fiscais
+4029,21323004,PARCELAMENTOS FISCAIS,Passivo circulante,Obrigações tributárias,Parcelamentos fiscais
+4029,21325006,IMP. E TX. - FORN.,Passivo circulante,Obrigações tributárias,Outros tributos a recolher
+4029,21410001,SALARIOS A PAGAR,Passivo circulante,Obrigações trabalhistas,Salários e pró-labore a pagar
+4029,21410011,PLR A PAGAR,Passivo circulante,Obrigações trabalhistas,PLR a pagar
+4029,21410101,SALS A PAGAR-FORNES,Passivo circulante,Obrigações trabalhistas,Salários e pró-labore a pagar
+4029,21411001,INSS A RECOLHER,Passivo circulante,Obrigações trabalhistas,INSS a recolher
+4029,21411004,INSS SOBRE FATURAMENTO,Passivo circulante,Obrigações trabalhistas,INSS a recolher
+4029,21412001,FGTS A RECOLHER,Passivo circulante,Obrigações trabalhistas,FGTS a recolher
+4029,21412101,FGTS - FORNCEDORES,Passivo circulante,Obrigações trabalhistas,FGTS a recolher
+4029,21413003,CONTRIBUIÇÃO SINDICAL,Passivo circulante,Obrigações trabalhistas,Contribuições sindicais e assistenciais
+4029,21510009,ADIANTAMENTO DE CLIENTES,Passivo circulante,Outras obrigações,Adiantamento de clientes
+4029,21517201,PENSÃO ALIMENTICIA,Passivo circulante,Obrigações trabalhistas,Consignações e descontos em folha
+4029,21517205,CONTAS A PAGAR,Passivo circulante,Fornecedores,Contas a pagar diversas
+4029,21517206,CONTAS A PAGAR - FORNECEDORES,Passivo circulante,Fornecedores,Contas a pagar diversas
+4029,21517224,(-) CONTAS A PAGAR - TRANS. CP/LP,Passivo circulante,Fornecedores,Transferência entre circulante e não circulante
+4029,21517225,OUTRAS OBRIGAÇÕES - FORNECEDORES,Passivo circulante,Fornecedores,Contas a pagar diversas
+4029,21711029,COMPORTE PARTICIPACOES S.A.,Passivo circulante,Partes relacionadas,Comporte
+4029,21711003,VIACAO PIRACICABANA LTDA,Passivo circulante,Partes relacionadas,Viação Piracicabana
+4029,21711110,(-) TRANS C/ EMP LIGADAS - TRANSF CIRCULANTE,Passivo circulante,Partes relacionadas,Transferência entre circulante e não circulante
+4029,21711179,TIC TRENS S.A.,Passivo circulante,Partes relacionadas,TIC Trens
+4029,21712014,JOAQUIM CONSTANTINO NETO,Passivo circulante,Partes relacionadas,Acionistas PF
+4029,21712015,HENRIQUE CONSTANTINO,Passivo circulante,Partes relacionadas,Acionistas PF
+4029,21712016,RICARDO CONSTANTINO,Passivo circulante,Partes relacionadas,Acionistas PF
+4029,21810001,PROV.DE FERIAS,Passivo circulante,Obrigações trabalhistas,Provisão de férias e encargos
+4029,21810002,PROVDE ENC S/ FERIAS,Passivo circulante,Obrigações trabalhistas,Provisão de férias e encargos
+4029,21811001,PROV.DE 13O SALARIO,Passivo circulante,Obrigações trabalhistas,Provisão de 13º salário e encargos
+4029,21811002,PROV.DE ENCARGOS S/ 13O SALARIO,Passivo circulante,Obrigações trabalhistas,Provisão de 13º salário e encargos
+4029,21510003,ADIANTAMENTO DE CLIENTES DE TURISMO,Passivo circulante,Outras obrigações,Adiantamento de clientes
+4029,22118004,ARRENDAMENTO DIREITO DE USO A PAGAR,Passivo não circulante,Passivo de arrendamento,Arrendamento mercantil
+4029,22119001,DEBENTURES,Passivo não circulante,Debêntures,Debêntures
+4029,22122003,FORNECEDORES - TRANSF NÃO CIRCULANTE,Passivo não circulante,Fornecedores,Fornecedores nacionais
+4029,22123003,CONTAS A PAGAR,Passivo não circulante,Outras obrigações,Contas a pagar diversas
+4029,22123004,CONTAS A PAGAR - TRANSF NÃO CIRCULANTE,Passivo não circulante,Outras obrigações,Contas a pagar diversas
+4029,22125084,TRANS C/ EMP LIGADAS - TRANSF NÃO CIRCULANTE,Passivo não circulante,Partes relacionadas,Transferência entre circulante e não circulante
+4029,22128008,PARCELAMENTOS,Passivo não circulante,Obrigações tributárias,Parcelamentos fiscais
+4029,22129004,CREDITOS TRIBUTARIOS NAO HOMOLOGADOS,Passivo não circulante,Obrigações tributárias,Créditos tributários não homologados
+4029,22137001,PROCESSOS CIVEIS,Passivo não circulante,Provisões para contingências,Cíveis
+4029,22139001,PROCESSOS TRABALHISTAS,Passivo não circulante,Provisões para contingências,Trabalhistas
+4029,22139002,PROCESSOS TRABALHISTAS - CBTU AC,Passivo não circulante,Provisões para contingências,Trabalhistas
+4029,24110005,COMPORTE PART-CAPSOC,Patrimônio líquido,Capital social,Capital subscrito
+4029,24110026,CAPITAL SOCIAL SUBSCRITO,Patrimônio líquido,Capital social,Capital subscrito
+4029,24110079,(-) OUTRAS RESERVAS,Patrimônio líquido,Capital social,(-) Outras reservas
+4029,24111005,COMPORTE-CAP/INT,Patrimônio líquido,Capital social,(-) Capital a integralizar
+4029,24215001,RESERVAS DE LUCROS A REALIZAR,Patrimônio líquido,Reserva de lucros,Reserva de lucros a realizar
+4029,24215015,RESERVA DE SUBVENÇÃO,Patrimônio líquido,Reserva de lucros,Reserva de incentivos fiscais
+4029,24410001,RESERVA LEGAL,Patrimônio líquido,Reserva legal,Reserva legal
+4029,24510004,PREJUIZOS ACUMULADOS,Patrimônio líquido,Lucros / prejuízos acumulados,Prejuízos acumulados
+4029,24511001,RESULTADO DO EXERCICIO,Patrimônio líquido,Resultado do período,Resultado do período
+4029,24710003,COMPORTE PART-AFAC P,Patrimônio líquido,AFAC,Comporte
+4029,24710031,VEICULO DE DESESTATIZAÇÃO DE MINAS GERA,Patrimônio líquido,AFAC,VDMG
+4029,31111502,INTERMUNICIPAL - FERROVIÁRIO - TARIFA TÉCNICA,Receita líquida,Receita tarifária,Receita tarifária
+4029,31111505,INTERMUNICIPAL - FERROVIÁRIO - DEMANDA,Receita líquida,Receita mitigação,Receita mitigação
+4029,32210001,(-) PIS S/ FATURAMENTO,Receita líquida,(-) Tributos,PIS
+4029,32210501,(-) COFINS S/ FATURAMENTO,Receita líquida,(-) Tributos,COFINS
+4029,32213000,(-) CONTRIBUIÇÃO PREVIDENCIARIA SOBRE A RECEITA BRUTA,Receita líquida,(-) Tributos,CPRB
+4029,51110501,SALARIOS,Despesas,Mão de obra,Salários
+4029,51110502,FERIAS,Despesas,Mão de obra,Salários
+4029,51111001,HORAS EXTRAS,Despesas,Mão de obra,Salários
+4029,51112501,DESCANSO SEMANAL REMUNERADO,Despesas,Mão de obra,Salários
+4029,51113501,PREMIOS,Despesas,Mão de obra,Salários
+4029,51116501,PROVISAO DE FERIAS,Despesas,Mão de obra,Salários
+4029,51117001,PROVISAO PARA 13O SALARIO,Despesas,Mão de obra,Salários
+4029,51118001,PARTICIPACAO NOS RESULTADOS,Despesas,Mão de obra,PLR
+4029,51119001,FGTS SOBRE FOLHA DE PAGAMENTO,Despesas,Mão de obra,Encargos
+4029,51120001,INSS - EMPRESA,Despesas,Mão de obra,Encargos
+4029,51120002,INSS - TERCEIROS,Despesas,Mão de obra,Encargos
+4029,51120003,INSS - ACID.DE TRABALHO,Despesas,Mão de obra,Encargos
+4029,51121001,INSS/FGTS S/PROV.FERIAS,Despesas,Mão de obra,Encargos
+4029,51121003,INSS S/PROV.FERIAS,Despesas,Mão de obra,Provisões
+4029,51121501,INSS/FGTS S/PROV.13O,Despesas,Mão de obra,Encargos
+4029,51121502,INSS S/PROV.13O,Despesas,Mão de obra,Encargos
+4029,51121503,FGTS S/PROV.13O,Despesas,Mão de obra,Encargos
+4029,51122001,VALE REFEICAO/ VALE ALIMENTAÇÃO,Despesas,Mão de obra,Benefícios
+4029,51126501,UNIFORMES,Despesas,Materiais,Uniformes
+4029,51127001,CURSOS/TREINAMENTOS,Despesas,Mão de obra,Treinamentos
+4029,51128501,COMISSOES E DESPESAS COM CARTAO DE CRED,Despesas,Gastos gerais,Outros gastos
+4029,51132001,MATERIAIS DE EXPEDIENTE,Despesas,Materiais,Material de escritório
+4029,51133001,CONSERVACAO DE IMOVEIS,Despesas,Materiais,Conservação e limpeza
+4029,51134001,MANUTENCAO E CONSERV. DE MAQUINAS E EQU,Despesas,Materiais,Materiais veículos
+4029,51134501,COMBUSTIVEIS E LUBRIFICANTES,Despesas,Materiais,Combustíveis e lubrificantes
+4029,51133501,CONSERVACAO DE INSTALACOES,Despesas,Materiais,Conservação e limpeza
+4029,51136003,"TAXA DE LICENCIAMENTO, VISTORIA E OUTRA",Despesas,Impostos e taxas,Impostos e taxas
+4029,51137501,SERVICOS CONTRATADOS P.JURIDICA,Despesas,Serviços,Outros serviços
+4029,51137001,SERVICOS CONTRATADOS P.FISICA,Despesas,Serviços,Outros serviços
+4029,51137502,SERVICOS DE CONSULTORIA,Despesas,Serviços,Consultoria
+4029,51143001,LOCACAO DE BENS MOVEIS,Despesas,Gastos gerais,Aluguel e condomínio
+4029,51145001,FRETES E CARRETOS,Despesas,Serviços,Transporte
+4029,51150001,BENS DE USO PERMANENTE NAO ATIVADOS,Despesas,Materiais,Bens de pequeno valor
+4029,51146001,VIAGENS E CONDUCOES,Despesas,Gastos gerais,Outros gastos
+4029,51146501,LANCHES E REFEICOES,Despesas,Gastos gerais,Outros gastos
+4029,51152501,DEPREC. C/ INSTALACOES,Despesas,Depreciação e amortização,Depreciação
+4029,51153001,DEPREC. C/ VEICULOS DE APOIO COMERCIAIS,Despesas,Depreciação e amortização,Depreciação
+4029,51210001,PRO-LABORE E HONORARIOS DA DIRETORIA,Despesas,Mão de obra,Salários
+4029,51210501,SALARIOS (ADM),Despesas,Mão de obra,Salários
+4029,51210502,FERIAS E ADICIONAL,Despesas,Mão de obra,Salários
+4029,51210503,13O SALARIO,Despesas,Mão de obra,Salários
+4029,51211001,HORAS EXTRAS,Despesas,Mão de obra,Salários
+4029,51212501,DESCANSO SEMANAL REMUNERADO,Despesas,Mão de obra,Salários
+4029,51213501,PREMIOS,Despesas,Mão de obra,Salários
+4029,51214001,AJUDA DE CUSTO,Despesas,Mão de obra,Benefícios
+4029,51214501,ADICIONAL NOTURNO,Despesas,Mão de obra,Salários
+4029,51215001,ADICIONAL DE INSALUBRIDADE E PERICULOSIDADE,Despesas,Mão de obra,Salários
+4029,51215501,AVISO PREVIO INDENIZADO,Despesas,Mão de obra,Rescisões
+4029,51216501,PROV DE FER(ADM),Despesas,Mão de obra,Salários
+4029,51216502,(-) REVERSÃO PROVISAO DE FERIAS,Despesas,Mão de obra,Salários
+4029,51217001,PROV 13O SAL(ADM),Despesas,Mão de obra,Salários
+4029,51217501,INDENIZACOES/ACORDOS TRABALHISTAS,Despesas,Mão de obra,Rescisões
+4029,51218001,PARTICIPACAO NOS RESULTADOS,Despesas,Mão de obra,PLR
+4029,51218002,PROVISÃO PARTICIPACAO NOS RESULTADOS,Despesas,Mão de obra,PLR
+4029,51218003,REVERSÃO PROVISÃO PARTICIPACAO NOS RESU,Despesas,Mão de obra,Salários
+4029,51219001,FGTS(ADM),Despesas,Mão de obra,Encargos
+4029,51219501,INDENIZACAO FGTS ( MULTA RESCISORIA ),Despesas,Mão de obra,Rescisões
+4029,51220001,INSS - EMP(ADM),Despesas,Mão de obra,Encargos
+4029,51220002,INSS - TERC(ADM),Despesas,Mão de obra,Encargos
+4029,51220004,INSS AC TRAB(ADM),Despesas,Mão de obra,Encargos
+4029,51221001,INSS FGTS P FER(ADM),Despesas,Mão de obra,Encargos
+4029,51221003,INSS SOBRE PROVISAO DE FERIAS,Despesas,Mão de obra,Encargos
+4029,51221005,(-) REVERSÃO INSS SOBRE PROVISAO DE FERIAS,Despesas,Mão de obra,Provisões
+4029,51221501,INSS FGTS PR 13(ADM),Despesas,Mão de obra,Encargos
+4029,51221502,INSS SOBRE PROVISAO DE 13O,Despesas,Mão de obra,Encargos
+4029,51221503,FGTS SOBRE PROVISAO DE 13O,Despesas,Mão de obra,Encargos
+4029,51222001,VALE REFEICAO/ VALE ALIMENTAÇÃO,Despesas,Mão de obra,Benefícios
+4029,51223001,ASSISTENCIA MEDICA,Despesas,Mão de obra,Benefícios
+4029,51224001,SEGURO DE VIDA EM GRUPO,Despesas,Mão de obra,Benefícios
+4029,51224501,VALE TRANSPORTE,Despesas,Mão de obra,Benefícios
+4029,51225001,CESTA BASICA / VALE ALIMENTACAO,Despesas,Mão de obra,Benefícios
+4029,51226002,AUX. CRECHE,Despesas,Mão de obra,Benefícios
+4029,51226003,FUNDO ASSISTENCIAL,Despesas,Mão de obra,Encargos
+4029,51226501,UNIFORMES,Despesas,Materiais,Uniformes
+4029,51226502,EQUIPAMENTOS DE PROTECAO INDIVIDUAL,Despesas,Materiais,EPIs e segurança
+4029,51227001,CURSOS/TREINAMENTOS,Despesas,Mão de obra,Treinamentos
+4029,51228001,CONSERVACAO DE IMOVEIS,Despesas,Materiais,Conservação e limpeza
+4029,51228501,CONSERVACAO DE INSTALACOES,Despesas,Materiais,Conservação e limpeza
+4029,51228502,MATERIAIS DE CONSERVACAO DE BENS,Despesas,Materiais,Conservação e limpeza
+4029,51228503,MATERIAIS DE CONSERVACAO E LIMPEZA,Despesas,Materiais,Conservação e limpeza
+4029,51228504,OUTROS MATERIAIS,Despesas,Materiais,Materiais diversos
+4029,51229001,MANUTENCAO E CONSERV. DE MAQUINAS E EQUIPAMEN,Despesas,Materiais,Materiais veículos
+4029,51229501,COMBUSTIVEIS E LUBRIFICANTES,Despesas,Materiais,Combustíveis e lubrificantes
+4029,51230501,MANUTENCAO DE VEICULOS DE APOIO,Despesas,Serviços,Materiais Veículos
+4029,51231001,IPVA - IMPOSTO SOBRE VEICULOS AUTOMOTORES,Despesas,Impostos e taxas,Impostos e taxas
+4029,51231003,"TAXA DE LICENCIAMENTO, VISTORIA E OUTRAS",Despesas,Impostos e taxas,Impostos e taxas
+4029,51231501,DESPESAS COM VEICULOS AUXILIARES,Despesas,Materiais,Materiais veículos
+4029,51232001,SERVICOS PRESTADOS P/ P.FISICA,Despesas,Serviços,Outros serviços
+4029,51232501,SERVICOS DE AUDITORIA,Despesas,Serviços,Outros serviços
+4029,51232502,SERVICOS DE CONSULTORIA,Despesas,Serviços,Consultoria
+4029,51232503,SERVICOS JURIDICOS,Despesas,Serviços,Jurídico
+4029,51232504,SERVICOS DE CONSERVACAO/LIMPEZA,Despesas,Serviços,Conservação e Limpeza
+4029,51232505,SERVICOS DE ADMINISTRACAO,Despesas,Serviços,Administrativo
+4029,51232506,EXAME PERIODICO / SAUDE OCUPACIONAL,Despesas,Serviços,Outros serviços
+4029,51232510,SERV. DESPACHANTE,Despesas,Serviços,Outros serviços
+4029,51232511,SERVICOS DE SEGURANÇA,Despesas,Serviços,Segurança
+4029,51232512,SERV ADMINISTRATIVOS,Despesas,Serviços,Administrativo
+4029,51232513,SERVIÇO DE TRANSPORTE DE COLABORADORES,Despesas,Serviços,Transporte
+4029,51233001,SERVICOS DE INFORMATICA,Despesas,Serviços,Tecnologia da Informação
+4029,51233002,SERVICOS DE TI,Despesas,Serviços,Tecnologia da Informação
+4029,51233501,SERVICOS DE MANUTENCAO CONTRATADOS COM,Despesas,Serviços,Outros serviços
+4029,51234001,OUT SERV(ADM),Despesas,Serviços,Outros serviços
+4029,51234501,ENERGIA ELETRICA,Despesas,Gastos gerais,Contas de consumo
+4029,51235001,AGUA E ESGOTO,Despesas,Gastos gerais,Contas de consumo
+4029,51235501,TELEFONE,Despesas,Gastos gerais,Contas de consumo
+4029,51236001,COPIAS E AUTENTICACOES,Despesas,Gastos gerais,Outros gastos
+4029,51236501,SEGUROS (ADM),Despesas,Seguros,Seguros
+4029,51237501,ALUGUEL E CONDOMINIO DE BENS IMOVEIS,Despesas,Gastos gerais,Aluguel e condomínio
+4029,51237502,ALUGUEL (ARREDAMENTO MERCANTIL),Despesas,Gastos gerais,Aluguel e condomínio
+4029,51238001,ALUGUEL DE BENS DIVERSOS,Despesas,Gastos gerais,Aluguéis diversos
+4029,51238501,ANUNCIOS E PUBLICACOES,Despesas,Gastos gerais,Comunicação / eventos
+4029,51240001,FRETES E CARRETOS,Despesas,Serviços,Transporte
+4029,51240501,MATERIAL DE EXPEDIENTE,Despesas,Materiais,Material de escritório
+4029,51240502,MATERIAL DE INFORMATICA,Despesas,Materiais,Materiais de informática
+4029,51240504,MATERIAL DE SEGURANÇA,Despesas,Materiais,EPIs e segurança
+4029,51241001,CONDUCAO/ESTACIONAMENTO/PEDAGIO,Despesas,Gastos gerais,Outros gastos
+4029,51241002,VIAGENS E ESTADIAS,Despesas,Gastos gerais,Outros gastos
+4029,51241501,LANCHES E REFEICOES,Despesas,Gastos gerais,Outros gastos
+4029,51241502,COPA E COZINHA,Despesas,Gastos gerais,Outros gastos
+4029,51242001,LEGAIS E JUD(ADM),Despesas,Gastos gerais,Jurídico
+4029,51242002,HONORARIOS PERICIAIS,Despesas,Gastos gerais,Jurídico
+4029,51242004,OUTRAS DESPESAS,Despesas,Gastos gerais,Outros gastos
+4029,51242501,CONTRIB. A ASSOCIACOES DE CLASSE,Despesas,Gastos gerais,Outros gastos
+4029,51243001,LIVR JORN REV(ADM),Despesas,Gastos gerais,Outros gastos
+4029,51243501,BRIND E PRES(ADM),Despesas,Gastos gerais,Outros gastos
+4029,51243505,INCENTIVO A CULTURA,Despesas,Gastos gerais,Outros gastos
+4029,51244501,ANUNCIOS E PUBLICACOES,Despesas,Gastos gerais,Comunicação / eventos
+4029,51245001,BENS DE USO PERMANENTE NAO ATIVADOS,Despesas,Materiais,Bens de pequeno valor
+4029,51245501,MEDICAMENTOS P/ AMBULATORIO,Despesas,Gastos gerais,Outros gastos
+4029,51245504,CONFRATERNIZACOES,Despesas,Gastos gerais,Outros gastos
+4029,51245505,COMEMOR EVENT(ADM),Despesas,Gastos gerais,Outros gastos
+4029,51245509,OUTRAS DESPESAS,Despesas,Gastos gerais,Outros gastos
+4029,51245510,CORREIOS E MALOTES,Despesas,Gastos gerais,Outros gastos
+4029,51245512,ASSISTENCIA MEDICA,Despesas,Mão de obra,Benefícios
+4029,51245513,DESPESAS ADMINISTRATIVAS,Despesas,Gastos gerais,Outros gastos
+4029,51246002,DEPREC. C/ DIREITO DE USO - ARRENDAMENT,Despesas,Depreciação e amortização,Depreciação
+4029,51247001,DEPREC. C/ VEICULOS AUXILIARES,Despesas,Depreciação e amortização,Depreciação
+4029,51247502,DEPREC. C/ EQUIPTOS. DE COMUNICACAO,Despesas,Depreciação e amortização,Depreciação
+4029,51247503,DEPREC. C/ EQUIPTOS. DE SEGURANCA,Despesas,Depreciação e amortização,Depreciação
+4029,51248001,DEPREC. C/ EQUIPTOS. DE INFORMATICA,Despesas,Depreciação e amortização,Depreciação
+4029,51248501,DEPREC. C/ MOVEIS E UTENSILIOS,Despesas,Depreciação e amortização,Depreciação
+4029,51250001,DEPREC. C/ BENF. EM PROPR. DE TERC.,Despesas,Depreciação e amortização,Depreciação
+4029,51251501,AMORTIZACAO SOFTWARES,Despesas,Depreciação e amortização,Amortização
+4029,51311001,VENDAS DE SUCATAS,Outras despesas / receitas,Outras despesas / receitas,Venda de sucata
+4029,51312001,RECUPERACAO DE PROCESSOS,Outras despesas / receitas,Outras despesas / receitas,Outros
+4029,51312501,INDENIZACAO POR SINISTRO,Outras despesas / receitas,Outras despesas / receitas,Sinistro
+4029,51313502,RECEITA C/ LOCACAO DE ESPACO P/ PUBLICIDADE,Outras despesas / receitas,Outras despesas / receitas,Outros
+4029,51313503,RECEITAS EVENTUAIS DIVERSAS,Outras despesas / receitas,Outras despesas / receitas,Outros
+4029,51313002,REVERSAO DE PROV. PROC.TRAB.,Despesas,Mão de obra,Provisões
+4029,51313513,RECEITA C/ ALUGUEIS,Outras despesas / receitas,Outras despesas / receitas,Aluguel
+4029,51313522,RECEITA PUBLICIDADE,Outras despesas / receitas,Outras despesas / receitas,Publicidade
+4029,51313525,RECUPERACAO DE CUSTOS/DESPESA,Outras despesas / receitas,Outras despesas / receitas,Outros
+4029,51313526,RECEITA COM VENDA PEÇAS E PNEUS,Outras despesas / receitas,Outras despesas / receitas,Outros
+4029,51314001,PIS SOBRE OUTRAS RECEITAS,Outras despesas / receitas,Outras despesas / receitas,PIS
+4029,51314501,COFINS SOBRE OUTRAS RECEITAS,Outras despesas / receitas,Outras despesas / receitas,COFINS
+4029,51315001,ICMS - DIF. DE ALIQUOTA,Outras despesas / receitas,Outras despesas / receitas,ICMS
+4029,51315002,ICMS - OUTRAS RECEITAS,Outras despesas / receitas,Outras despesas / receitas,ICMS
+4029,51315501,IPTU,Despesas,Impostos e taxas,Impostos e taxas
+4029,51316501,IMP TX ESTAD,Despesas,Impostos e taxas,Impostos e taxas
+4029,51316502,IMPOSTOS E TAXAS FEDERAIS,Despesas,Impostos e taxas,Impostos e taxas
+4029,51316503,IMPOSTOS E TAXAS MUNICIPAIS,Despesas,Impostos e taxas,Impostos e taxas
+4029,51316510,OUTROS IMPOSTOS/TAXAS/CONTRIB.,Despesas,Impostos e taxas,Impostos e taxas
+4029,51317001,MULTAS/JUROS,Despesas financeiras,Despesas financeiras,Juros e multas
+4029,51318501,TAXAS DE LOCALIZ. E FUNCIONAMENTO,Despesas,Impostos e taxas,Impostos e taxas
+4029,51319002,TAXA DE GERENCIAMENTO,Despesas,Impostos e taxas,Impostos e taxas
+4029,51319511,PERDAS C/ RECEBTO. DE CREDITO DEDUTIVEL,Despesas,Gastos gerais,Outros gastos
+4029,51319521,DESPESA COM VENDA PEÇAS E PNEUS,Outras despesas / receitas,Outras despesas / receitas,Outros
+4029,51319522,MATERIAL DE PAISAGISMO E JARDINAGEM,Despesas,Materiais,Materiais diversos
+4029,51321501,MULTAS DE TRANSITO,Despesas,Gastos gerais,Outros gastos
+4029,51322001,AUTOS DE INFRACAO,Despesas,Gastos gerais,Outros gastos
+4029,51322002,MULTAS POR INFRACOES FISCAIS,Despesas,Gastos gerais,Outros gastos
+4029,51326001,VENDA DE IMOBILIZADO,Outras despesas / receitas,Outras despesas / receitas,Venda de imobilizado
+4029,51326501,(-) VALOR LIQUIDO CONTABIL,Outras despesas / receitas,Outras despesas / receitas,Venda de imobilizado
+4029,52110001,REND APLICAC FINANC,Receitas financeiras,Receitas financeiras,Aplicações financeiras
+4029,52110002,REND. DE APLICACOES FINANCEIRAS - BLOQU,Receitas financeiras,Receitas financeiras,Aplicações financeiras
+4029,52110501,JUROS ATIVOS,Receitas financeiras,Receitas financeiras,Juros
+4029,52111001,DESCONTOS OBTIDOS,Receitas financeiras,Receitas financeiras,Outros
+4029,52113501,JAM S/ DEVOL. DE DEP. JUDICIAIS,Receitas financeiras,Receitas financeiras,Variação monetária
+4029,52113502,GANHO PART FDOS INVE,Receitas financeiras,Receitas financeiras,Aplicações financeiras
+4029,52114001,IOF - DESPESA,Despesas financeiras,Despesas financeiras,Taxas
+4029,52114501,JUROS/ENCARGOS S/ EMPRESTIMOS,Despesas financeiras,Despesas financeiras,Juros sobre financiamento
+4029,52114504,JUROS PASSIVOS,Despesas financeiras,Despesas financeiras,Juros e multas
+4029,52114506,JUROS S/ ARRENDAMENTO MERCANTIL (CPC 06),Despesas financeiras,Despesas financeiras,Juros e multas
+4029,52116001,TARIFAS BANCARIAS,Despesas financeiras,Despesas financeiras,Taxas
+4029,52116002,COMIS CAPT RECURSOS,Despesas financeiras,Despesas financeiras,Taxas
+4029,52116003,TARIFAS BANCARIAS - PRODUTOS FINANCEIR,Despesas financeiras,Despesas financeiras,Taxas
+4029,52117001,JUROS SOBRE DEBENTURES,Despesas financeiras,Despesas financeiras,Juros sobre financiamento
+4029,52119001,ARREDONDAMENTO,Despesas financeiras,Despesas financeiras,Outros
+4029,52119008,PIS/COFINS S/ REC. F,Despesas financeiras,Despesas financeiras,Pis/Cofins
+4029,52210501,VAR. MONETARIAS ATIVAS,Receitas financeiras,Receitas financeiras,Variação monetária
+4029,52210502,VAR. MONETARIAS ATIVAS - EXCLUSÃO BASE,Receitas financeiras,Receitas financeiras,Variação monetária
+4029,52212501,VAR. CAMBIAIS ATIVAS,Receitas financeiras,Receitas financeiras,Variação cambial
+4029,52212502,VAR. CAMBIAIS ATIVAS NÃO REALIZADA,Receitas financeiras,Receitas financeiras,Variação cambial
+4029,52213003,VARIACOES CAMBIAIS PASSIVAS,Despesas financeiras,Despesas financeiras,Variação cambial
+4029,52213004,VARIACOES CAMBIAIS PASSIVAS NÃO REALIZA,Despesas financeiras,Despesas financeiras,Variação cambial
+4029,54110001,PROVISAO DE IRPJ,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+4029,54110003,(-) RECEITA DE SUBVENÇÃO IRPJ,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+4029,54110005,(-) INCENTIVOS,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+4029,54110501,PROVISAO DE CSLL,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+4029,54110503,(-) RECEITA DE SUBVENÇÃO CSLL,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+4029,54111002,PROV. ATIVA DE IRPJ DIFERIDO,IR / CSLL,IRPJ / CSLL diferido,IRPJ / CSLL diferido
+4029,54111502,PROV. ATIVA DE CSLL DIFERIDA,IR / CSLL,IRPJ / CSLL diferido,IRPJ / CSLL diferido
+4029,61117001,INDENIZACOES TRABALHISTAS,Custos,Mão de obra,Rescisões
+4029,61120001,INSS S/ INDENIZ. TRABALHISTAS,Custos,Mão de obra,Rescisões
+4029,61120002,FGTS S/ INDENIZ. TRABALHISTAS,Custos,Mão de obra,Rescisões
+4029,61126001,UNIFORMES PROFISSIONAIS,Custos,Materiais,Uniformes
+4029,61126002,EQUIPAMENTOS DE PROTECAO INDIVIDUAL,Custos,Materiais,EPIs e segurança
+4029,61128501,SALARIOS,Custos,Mão de obra,Salários
+4029,61128502,FERIAS,Custos,Mão de obra,Salários
+4029,61128503,13O SALARIO,Custos,Mão de obra,Salários
+4029,61129001,HORAS EXTRAS,Custos,Mão de obra,Salários
+4029,61130501,DESCANSO SEMANAL REMUNERADO,Custos,Mão de obra,Salários
+4029,61131001,COMISSOES E GRATIFICACOES,Custos,Mão de obra,Salários
+4029,61131501,PREMIOS,Custos,Mão de obra,Salários
+4029,61132001,AJUDA DE CUSTO,Custos,Mão de obra,Benefícios
+4029,61132501,ADICIONAL NOTURNO,Custos,Mão de obra,Salários
+4029,61133001,ADICIONAL DE INSALUBRIDADE E PERICULOSI,Custos,Mão de obra,Salários
+4029,61133501,AVISO PREVIO INDENIZADO,Custos,Mão de obra,Rescisões
+4029,61134501,PROVISAO DE FERIAS,Custos,Mão de obra,Salários
+4029,61134502,(-) REVERSÃO PROVISAO DE FERIAS,Custos,Mão de obra,Salários
+4029,61135001,PROVISAO PARA 13O SALARIO,Custos,Mão de obra,Salários
+4029,61135501,INDENIZACOES/ACORDOS TRABALHISTAS,Custos,Mão de obra,Rescisões
+4029,61136001,PARTICIPACAO NOS RESULTADOS,Custos,Mão de obra,PLR
+4029,61137001,FGTS SOBRE FOLHA DE PAGAMENTO,Custos,Mão de obra,Encargos
+4029,61137501,INDENIZACAO FGTS ( MULTA RESCISORIA ),Custos,Mão de obra,Rescisões
+4029,61138001,INSS - EMPRESA,Custos,Mão de obra,Encargos
+4029,61138002,INSS - TERCEIROS,Custos,Mão de obra,Encargos
+4029,61138003,INSS - ACID. DE TRABALHO,Custos,Mão de obra,Encargos
+4029,61139001,INSS E FGTS SOBRE PROVISAO DE FERIAS,Custos,Mão de obra,Encargos
+4029,61139003,INSS SOBRE PROVISAO DE FERIAS,Custos,Mão de obra,Encargos
+4029,61139501,INSS E FGTS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+4029,61139503,INSS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+4029,61139504,FGTS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+4029,61140001,VALE REFEICAO/ VALE ALIMENTAÇÃO,Custos,Mão de obra,Benefícios
+4029,61142501,VALE TRANSPORTE,Custos,Mão de obra,Benefícios
+4029,61143001,CESTA BASICA / VALE ALIMENTACAO,Custos,Mão de obra,Benefícios
+4029,61144002,AUXILIO CRECHE,Custos,Mão de obra,Benefícios
+4029,61144003,FUNDO ASSISTENCIAL,Custos,Mão de obra,Encargos
+4029,61144501,UNIFORMES,Custos,Materiais,Uniformes
+4029,61144502,EQUIPTOS. DE PROTECAO INDIVIDUAL,Custos,Materiais,EPIs e segurança
+4029,61145001,CURSOS/TREINAMENTOS,Custos,Mão de obra,Treinamentos
+4029,61147001,OLEO DIESEL,Custos,Materiais,Combustíveis e lubrificantes
+4029,61147501,GRAXAS E LUBRIFICANTES,Custos,Materiais,Combustíveis e lubrificantes
+4029,61148002,GASOLINA,Custos,Materiais,Combustíveis e lubrificantes
+4029,61149503,MATERIAIS DE BORRACHARIA,Custos,Materiais,Materiais veículos
+4029,61150001,MATERIAIS DE ELETRICA,Custos,Materiais,Materiais diversos
+4029,61150002,MATERIAIS DE FUNILARIA,Custos,Materiais,Materiais veículos
+4029,61150003,MATERIAIS DE PINTURA,Custos,Materiais,Materiais diversos
+4029,61150005,OUTROS MATERIAIS,Custos,Materiais,Materiais diversos
+4029,61150501,MATERIAIS DE CONSERVAÇÃO E LIMPEZA,Custos,Materiais,Conservação e limpeza
+4029,61150502,OUTROS MATERIAIS,Custos,Materiais,Materiais diversos
+4029,61151001,PECAS / ACESSORIOS - NOVOS,Custos,Materiais,Materiais veículos
+4029,61151002,PECAS / ACESSORIOS - RECONDIC.,Custos,Materiais,Materiais veículos
+4029,61151006,(-) ESTORNO DE CONSUMO PARA PRODUÇÃO,Custos,Materiais,Materiais diversos
+4029,61151007,PEÇAS E ACESSÓRIOS DE BILHETAGEM,Custos,Materiais,Materiais diversos
+4029,61152501,"TAXA DE LICENCIAMENTO, LICENÇA E OUTROS",Custos,Impostos e taxas,Impostos e taxas
+4029,61155501,DESPESAS COM VEICULOS AUXILIARES,Custos,Gastos gerais,Outros gastos
+4029,61155502,ENER ELETRICA VLT/METRO - REDE AEREA E,Custos,Energia,Energia
+4029,61155503,CUSTOS PARA CONTROLE E OPERAÇÃO DE VEÍC,Custos,Gastos gerais,Outros gastos
+4029,61157501,ALUGUEL DE BENS DIVERSOS,Custos,Gastos gerais,Aluguéis diversos
+4029,61158001,HONORARIOS PERICIAIS,Custos,Gastos gerais,Jurídico
+4029,61158002,HONORARIOS ADVOCATICIOS,Custos,Serviços,Jurídico
+4029,61158003,OUTROS CUSTOS,Custos,Gastos gerais,Outros gastos
+4029,61158004,LEGAIS E JUDICIAIS,Custos,Gastos gerais,Jurídico
+4029,61158501,INDENIZ. C/ ACIDENTES E DANOS MATERIAIS,Custos,Gastos gerais,Outros gastos
+4029,61159001,CUSTOS C/ SINISTROS,Custos,Gastos gerais,Outros gastos
+4029,61160001,SERVICOS DE CONSERVACAO/LIMPEZA,Custos,Serviços,Conservação e Limpeza
+4029,61160003,SERVICOS DE SEGURANCA,Custos,Serviços,Segurança
+4029,61160004,SERVICOS DE TRANSPORTES,Custos,Serviços,Transporte
+4029,61160006,OUTROS SERVICOS,Custos,Serviços,Outros serviços
+4029,61160007,SERVIÇOS DE CONSULTORIA,Custos,Serviços,Consultoria
+4029,61160501,ENERGIA ELETRICA,Custos,Energia,Energia
+4029,61161001,AGUA E ESGOTO,Custos,Gastos gerais,Contas de consumo
+4029,61162002,LANCHES E REFEICOES,Custos,Gastos gerais,Outros gastos
+4029,61162501,IMPRESSOS E MAT. DE ESCRITORIO,Custos,Materiais,Material de escritório
+4029,61162502,MATERIAIS DE INFORMATICA,Custos,Materiais,Materiais de informática
+4029,61162504,MATERIAL DE SEGURANÇA,Custos,Materiais,EPIs e segurança
+4029,61163001,CONSERVACAO DE BENS,Custos,Materiais,Conservação e limpeza
+4029,61163002,CONSERVACAO DE INSTALACOES,Custos,Materiais,Conservação e limpeza
+4029,61163501,BENS DE NATUREZA PERMANENTE,Custos,Materiais,Bens de pequeno valor
+4029,61164502,DEPREC. C/ DIREITO DE USO - ARRENDAMENTO MERCANTIL,Custos,Depreciação e amortização,Depreciação
+4029,61165501,DEPREC. C/ VEICULOS DE LINHA,Custos,Depreciação e amortização,Depreciação
+4029,61166501,DEPREC. C/ VEICULOS DE AUXILIARES,Custos,Depreciação e amortização,Depreciação
+4029,61167001,DEPREC. C/ MAQ.EQUIPTOS.FERR. DA MANUT.,Custos,Depreciação e amortização,Depreciação
+4029,61167004,DEPREC. C/ EQUIPTOS. P/ VEICULOS,Custos,Depreciação e amortização,Depreciação
+4029,61167005,DEPREC. SIST. DE EMISSAO DE PASSAGENS,Custos,Depreciação e amortização,Depreciação
+4029,61167006,DEPREC. SIST. AUTOM. BILH. ELETRONICA,Custos,Depreciação e amortização,Depreciação
+4029,61171002,AMORTIZ. C/ OUTORGA E CONCESSAO DE LINH,Custos,Depreciação e amortização,Amortização
+4029,62110001,SALARIOS,Custos,Mão de obra,Salários
+4029,62110002,FERIAS E ADICIONAL,Custos,Mão de obra,Salários
+4029,62110003,13O SALARIO,Custos,Mão de obra,Salários
+4029,62110501,HORAS EXTRAS,Custos,Mão de obra,Salários
+4029,62112001,DESCANSO SEMANAL REMUNERADO,Custos,Mão de obra,Salários
+4029,62112501,COMISSOES E GRATIFICACOES,Custos,Mão de obra,Salários
+4029,62113001,PREMIOS,Custos,Mão de obra,Salários
+4029,62113501,AJUDA DE CUSTO,Custos,Mão de obra,Benefícios
+4029,62114001,ADICIONAL NOTURNO,Custos,Mão de obra,Salários
+4029,62114501,ADICIONAL DE INSALUBRIDADE E PERICULOSI,Custos,Mão de obra,Salários
+4029,62115001,AVISO PREVIO INDENIZADO,Custos,Mão de obra,Rescisões
+4029,62116001,PROVISAO DE FERIAS,Custos,Mão de obra,Salários
+4029,62116002,(-) REVERSÃO PROVISAO DE FERIAS,Custos,Mão de obra,Salários
+4029,62116501,PROVISAO PARA 13O SALARIO,Custos,Mão de obra,Salários
+4029,62117501,PARTICIPACAO NOS RESULTADOS,Custos,Mão de obra,PLR
+4029,62118501,FGTS SOBRE FOLHA DE PAGAMENTO,Custos,Mão de obra,Encargos
+4029,62119001,INDENIZACAO FGTS ( MULTA RESCISORIA ),Custos,Mão de obra,Rescisões
+4029,62119501,INSS - EMPRESA,Custos,Mão de obra,Encargos
+4029,62119502,INSS - TERCEIROS,Custos,Mão de obra,Encargos
+4029,62119504,INSS - ACID. DE TRABALHO,Custos,Mão de obra,Encargos
+4029,62120501,INSS E FGTS SOBRE PROVISAO DE FERIAS,Custos,Mão de obra,Encargos
+4029,62120503,INSS SOBRE PROVISAO DE FERIAS,Custos,Mão de obra,Encargos
+4029,62120505,(-) REVERSÃO INSS SOBRE PROVISAO DE FERIAS,Custos,Mão de obra,Provisões
+4029,62121001,INSS E FGTS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+4029,62121003,INSS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+4029,62121004,FGTS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+4029,62121501,VALE REFEICAO/ VALE ALIMENTAÇÃO,Custos,Mão de obra,Benefícios
+4029,62124001,VALE TRANSPORTE,Custos,Mão de obra,Benefícios
+4029,62124501,CESTA BASICA / VALE ALIMENTACAO,Custos,Mão de obra,Benefícios
+4029,62125502,AUX. CRECHE,Custos,Mão de obra,Benefícios
+4029,62126001,UNIFORMES PROFISSIONAIS,Custos,Materiais,Uniformes
+4029,62126002,EQUIPAMENTOS DE PROTEÇÃO INDIVIDUAL,Custos,Materiais,EPIs e segurança
+4029,62126501,TREINAMENTO PROFISSIONAL,Custos,Mão de obra,Treinamentos
+4029,62128501,COMBUSTIVEIS E LUBRIFICANTES,Custos,Materiais,Combustíveis e lubrificantes
+4029,62132501,ALUGUEL DE BENS IMOVEIS,Custos,Gastos gerais,Aluguel e condomínio
+4029,62134502,SERVICOS DE FUNILARIA/PINTURA,Custos,Serviços,Manutenção Veículos
+4029,62134509,OUTROS SERVICOS,Custos,Serviços,Outros serviços
+4029,62134511,SERVICOS DE CONSULTORIA,Custos,Serviços,Consultoria
+4029,62134512,FRETES E CARRETOS,Custos,Serviços,Transporte
+4029,62136501,LANCHES E REFEICOES,Custos,Gastos gerais,Outros gastos
+4029,62136502,VIAGENS E ESTADIAS,Custos,Gastos gerais,Outros gastos
+4029,62136503,CONDUCAO/ESTACIONAMENTO/PEDAGIO,Custos,Gastos gerais,Outros gastos
+4029,62137001,MATERIAIS DE EXPEDIENTE,Custos,Materiais,Material de escritório
+4029,62137002,MATERIAIS DE INFORMATICA,Custos,Materiais,Materiais de informática
+4029,62137003,MATERIAIS DE SEGURANÇA,Custos,Materiais,EPIs e segurança
+4029,62137501,CONSERVACAO DE BENS,Custos,Materiais,Conservação e limpeza
+4029,62137502,CONSERVACAO DE INSTALACOES,Custos,Materiais,Conservação e limpeza
+4029,62137503,MATERIAIS DE CONSERVACAO/LIMPEZA,Custos,Materiais,Conservação e limpeza
+4029,62137504,MATERIAIS DE REPAROS DE BENS E EQUIPTOS,Custos,Materiais,Materiais diversos
+4029,62138001,BENS DE USO PERMANENTE NAO ATIVADOS,Custos,Materiais,Bens de pequeno valor
+4029,62138002,FERRAMENTAS NAO DURAVEIS,Custos,Materiais,Bens de pequeno valor
+4029,99990013,INCORPORAÇÃO,Transitória,Transitória,Transitória
+4034,11113003,BANCO DO BRASIL 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4034,11113012,BANCO SAFRA 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4034,11113303,ENTRADA BRASIL 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4034,11113603,SAIDA BRASIL 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4034,11114012,APLIC AUTOM SANTANDE,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+4034,11114503,APLICAÇÃO COMPROMISS,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+4034,11222005,REEMBOLSO DE DESPESAS,Ativo circulante,Outros créditos,Reembolso de despesas
+4034,11310001,ADIANTAMENTO A FORNECEDORES,Ativo circulante,Adiantamentos,Adiantamentos a fornecedores
+4034,11313004,ADIANTAMENTO DIVERSOS,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4034,11313006,SALDO DEVEDOR PROVENTOS,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4034,11314001,ADIANTAMENTO POR CONTA DE FERIAS,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4034,11315001,ADIANTAMENTO POR CONTA DE 13O SALÁRIO,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4034,11318003,PROMOCOES,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4034,11322001,IRRF S/ APLIC FINANC,Ativo circulante,Tributos a recuperar,IRRF a recuperar
+4034,11353003,VIACAO PIRACICABANA LTDA,Ativo circulante,Partes relacionadas,Viação Piracicabana
+4034,11353029,COMPORTE PART-CP A,Ativo circulante,Partes relacionadas,Comporte
+4034,11353091,(-) TRANS EMP LIGADA,Ativo circulante,Partes relacionadas,Transferência entre circulante e não circulante
+4034,11353166,TIC TRENS S.A.,Ativo circulante,Partes relacionadas,TIC Trens
+4034,11353167,ENGETRENS SERVIÇOS DE ENGENHARIA E PROJETOS LTDA,Ativo circulante,Partes relacionadas,Engetrens
+4034,11516001,MATERIAL DE EXPEDIENTE E INFORMATICA,Ativo circulante,Estoques,Materiais de expediente e informática
+4034,11517002,MATER REP BENS EQUI,Ativo circulante,Estoques,Materiais de manutenção
+4034,11517003,MATERIAIS SEGURANCA,Ativo circulante,Estoques,Materiais de consumo
+4034,11517005,UNIFORMES,Ativo circulante,Estoques,Materiais de consumo
+4034,11517007,MATERIAIS DIVERSOS,Ativo circulante,Estoques,Materiais de consumo
+4034,11610003,SEGURO NAO OBRIGATORIO,Ativo circulante,Despesas antecipadas,Seguros a apropriar
+4034,11610006,SEGUROS GERAIS,Ativo circulante,Despesas antecipadas,Seguros a apropriar
+4034,11613010,BENEFICIOS,Ativo circulante,Despesas antecipadas,Benefícios a apropriar
+4034,12125001,IRPJ DIFERIDO - PREJUIZO FISCAL,Ativo não circulante,Tributos diferidos,IRPJ diferidos - prejuízo fiscal e base negativa
+4034,12127001,CSLL DIFERIDA - BASE NEGATIVA,Ativo não circulante,Tributos diferidos,CSLL diferidos - prejuízo fiscal e base negativa
+4034,12138002,DEPOSITO CAUCAO CONTRATUAL,Ativo não circulante,Outros créditos,Cauções contratuais
+4034,12140091,TRANSAÇÕES EMP LIG,Ativo não circulante,Partes relacionadas,Transferência entre circulante e não circulante
+4034,12154001,FUNDO DE INVESTIMENT,Ativo não circulante,Títulos e valores imobiliários,Fundos de investimento
+4034,12154010,ATIVO FINANCEIRO - OBRAS RECURSO PODER PUBLICO,Ativo não circulante,Ativo financeiro,Obras com recursos do poder público
+4034,12311005,DIREITO DE USO - IMÓVEIS,Ativo não circulante,Direito de uso,Direito de uso de imóveis
+4034,12315004,VEICULOS ADMINISTRATIVOS,Ativo não circulante,Imobilizado,Veículos
+4034,12316002,EQUIPTOS COMUNICACAO,Ativo não circulante,Imobilizado,Máquinas e equipamentos
+4034,12318001,EQUIPTOS. DE INFORMATICA,Ativo não circulante,Imobilizado,Equipamentos de informática
+4034,12319001,MOVEIS E UTENSILIOS,Ativo não circulante,Imobilizado,Móveis e utensílios
+4034,12336001,ADIANTAMENTO  DE IMOBILIZADO,Ativo não circulante,Imobilizado,Adiantamento de imobilizado
+4034,12337001,OBRAS EM ANDAMENTO,Ativo não circulante,Imobilizado,Imobilizado em andamento
+4034,12341006,DEPREC. DIREITO DE USO  - IMÓVEIS,Ativo não circulante,Direito de uso,(-) Direito de uso de imóveis
+4034,12345004,DEPREC. VEIC.ADMINISTRATIVOS,Ativo não circulante,Imobilizado,(-) Veículos
+4034,12346002,DEPREC. EQUIPTOS. DE COMUNICACAO,Ativo não circulante,Imobilizado,(-) Máquinas e equipamentos
+4034,12348001,DEPREC. COMPUTADORES E PERIFERICOS,Ativo não circulante,Imobilizado,(-) Equipamentos de informática
+4034,12349001,DEPREC. MOVEIS E UTENSILIOS,Ativo não circulante,Imobilizado,(-) Móveis e utensílios
+4034,12410001,CONCESSOES,Ativo não circulante,Intangível,Direito de concessão
+4034,21118006,ARRENDAMENTO DIREITO DE USO A PAGAR,Passivo circulante,Passivo de arrendamento,Arrendamento mercantil
+4034,21210001,FORNECEDORES - PJ,Passivo circulante,Fornecedores,Fornecedores nacionais
+4034,21210002,FORNECEDORES-PF NAC,Passivo circulante,Fornecedores,Fornecedores nacionais
+4034,21210004,ENTRADA DE MERCADORIA/ENTRADA DE FATURA,Passivo circulante,Fornecedores,Transitória MIRO/MIGO
+4034,21210006,FORNECEDORES,Passivo circulante,Fornecedores,Fornecedores nacionais
+4034,21210007,(-) FORNECEDORES - TRANSF CIRCULANTE,Passivo circulante,Fornecedores,Transferência entre circulante e não circulante
+4034,21210008,PROVISÃO FORNECEDORES,Passivo circulante,Fornecedores,Provisão de fornecedores
+4034,21211001,FORNECEDORES-PJ EXT,Passivo circulante,Fornecedores,Fornecedores estrangeiros
+4034,21310001,PIS A RECOLHER,Passivo circulante,Obrigações tributárias,PIS a recolher
+4034,21311001,COFINS A RECOLHER,Passivo circulante,Obrigações tributárias,COFINS a recolher
+4034,21315001,(0561)REND TRAB SAL,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4034,21315003,(1708) IRRF S/ REMUN.DE SERV.PRESTADOS,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4034,21315007,(8045) S/ OUTROS RENDIMENTOS,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4034,21316001,CONTRIBUIÇÕES RETIDAS A RECOLHER,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4034,21317001,ISS - TOMADOR,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4034,21318002,INSS RETIDO - PJ,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4034,21319001,ICMS A RECOLHER,Passivo circulante,Obrigações tributárias,ICMS a recolher
+4034,21319004,ICMS - FORNECEDORES,Passivo circulante,Obrigações tributárias,ICMS a recolher
+4034,21325006,IMP. E TX. - FORN.,Passivo circulante,Obrigações tributárias,Outros tributos a recolher
+4034,21410001,SALARIOS A PAGAR,Passivo circulante,Obrigações trabalhistas,Salários e pró-labore a pagar
+4034,21410011,PLR A  PAGAR,Passivo circulante,Obrigações trabalhistas,PLR a pagar
+4034,21410101,SALS A PAGAR-FORNES,Passivo circulante,Obrigações trabalhistas,Salários e pró-labore a pagar
+4034,21411001,INSS A RECOLHER,Passivo circulante,Obrigações trabalhistas,INSS a recolher
+4034,21412001,FGTS A RECOLHER,Passivo circulante,Obrigações trabalhistas,FGTS a recolher
+4034,21412101,FGTS - FORNCEDORES,Passivo circulante,Obrigações trabalhistas,FGTS a recolher
+4034,21517201,PENSÃO ALIMENTICIA,Passivo circulante,Obrigações trabalhistas,Consignações e descontos em folha
+4034,21517205,CONTAS A PAGAR,Passivo circulante,Fornecedores,Contas a pagar diversas
+4034,21517206,CONTAS A PAGAR - FORNECEDORES,Passivo circulante,Fornecedores,Contas a pagar diversas
+4034,21711110,(-) TRANS C/ EMP LIGADAS - TRANSF CIRCULANTE,Passivo circulante,Partes relacionadas,Transferência entre circulante e não circulante
+4034,21711179,TIC TRENS S.A.,Passivo circulante,Partes relacionadas,TIC Trens
+4034,21810001,PROV.DE FERIAS,Passivo circulante,Obrigações trabalhistas,Provisão de férias e encargos
+4034,21810002,PROVDE ENC S/ FERIAS,Passivo circulante,Obrigações trabalhistas,Provisão de férias e encargos
+4034,21811001,PROV.DE 13O SALARIO,Passivo circulante,Obrigações trabalhistas,Provisão de 13º salário e encargos
+4034,21811002,PROV ENC S/ 13O SAL,Passivo circulante,Obrigações trabalhistas,Provisão de 13º salário e encargos
+4034,22118004,ARRENDAMENTO DIREITO DE USO A PAGAR,Passivo não circulante,Passivo de arrendamento,Arrendamento mercantil
+4034,22122003,FORNECEDORES - TRANSF NÃO CIRCULANTE,Passivo não circulante,Fornecedores,Fornecedores nacionais
+4034,22125084,TRANS C/ EMP LIGADAS - TRANSF NÃO CIRCULANTE,Passivo não circulante,Partes relacionadas,Transferência entre circulante e não circulante
+4034,24110005,COMPORTE PART-CAPSOC,Patrimônio líquido,Capital social,Capital subscrito
+4034,24111005,COMPORTE-CAP/INT,Patrimônio líquido,Capital social,(-) Capital a integralizar
+4034,24710003,COMPORTE PART-AFAC P,Patrimônio líquido,AFAC,Comporte
+4034,51122001,VALE REFEICAO/ VALE ALIMENTAÇÃO,Despesas,Mão de obra,Benefícios
+4034,51127001,CURSOS/TREINAMENTOS,Despesas,Mão de obra,Treinamentos
+4034,51134501,COMBUSTIVEIS E LUBRIFICANTES,Despesas,Materiais,Combustíveis e lubrificantes
+4034,51143001,LOCACAO DE BENS MOVEIS,Despesas,Gastos gerais,Aluguel e condomínio
+4034,51146001,VIAGENS E CONDUCOES,Despesas,Gastos gerais,Outros gastos
+4034,51146501,LANCHES E REFEICOES,Despesas,Gastos gerais,Outros gastos
+4034,51210501,SALARIOS (ADM),Despesas,Mão de obra,Salários
+4034,51210502,FERIAS E ADICIONAL,Despesas,Mão de obra,Salários
+4034,51210503,13O SALARIO,Despesas,Mão de obra,Salários
+4034,51211001,HORAS EXTRAS,Despesas,Mão de obra,Salários
+4034,51212501,DESCANSO SEMANAL REMUNERADO,Despesas,Mão de obra,Salários
+4034,51213501,PREMIOS,Despesas,Mão de obra,Salários
+4034,51214001,AJUDA DE CUSTO,Despesas,Mão de obra,Benefícios
+4034,51214501,ADICIONAL NOTURNO,Despesas,Mão de obra,Salários
+4034,51215001,ADICIONAL DE INSALUBRIDADE E PERICULOSIDADE,Despesas,Mão de obra,Salários
+4034,51215501,AVISO PREVIO INDENIZADO,Despesas,Mão de obra,Rescisões
+4034,51216501,PROV DE FER(ADM),Despesas,Mão de obra,Salários
+4034,51217001,PROV  13O SAL(ADM),Despesas,Mão de obra,Salários
+4034,51218002,PROVISÃO PARTICIPACAO NOS RESULTADOS,Despesas,Mão de obra,PLR
+4034,51219001,FGTS(ADM),Despesas,Mão de obra,Encargos
+4034,51219501,INDENIZACAO FGTS ( MULTA RESCISORIA ),Despesas,Mão de obra,Rescisões
+4034,51220001,INSS - EMP(ADM),Despesas,Mão de obra,Encargos
+4034,51220002,INSS - TERC(ADM),Despesas,Mão de obra,Encargos
+4034,51220004,INSS AC TRAB(ADM),Despesas,Mão de obra,Encargos
+4034,51221001,INSS FGTS P FER(ADM),Despesas,Mão de obra,Encargos
+4034,51221501,INSS FGTS PR 13(ADM),Despesas,Mão de obra,Encargos
+4034,51222001,VALE REFEICAO/ VALE ALIMENTAÇÃO,Despesas,Mão de obra,Benefícios
+4034,51223001,ASSISTENCIA MEDICA,Despesas,Mão de obra,Benefícios
+4034,51224001,SEGURO DE VIDA EM GRUPO,Despesas,Mão de obra,Benefícios
+4034,51224501,VALE TRANSPORTE,Despesas,Mão de obra,Benefícios
+4034,51226501,UNIFORMES,Despesas,Materiais,Uniformes
+4034,51226502,EQUIPAMENTOS DE PROTECAO INDIVIDUAL,Despesas,Materiais,EPIs e segurança
+4034,51227001,CURSOS/TREINAMENTOS,Despesas,Mão de obra,Treinamentos
+4034,51228001,CONSERVACAO DE IMOVEIS,Despesas,Materiais,Conservação e limpeza
+4034,51228501,CONSERVACAO DE INSTALACOES,Despesas,Materiais,Conservação e limpeza
+4034,51228502,MATERIAIS DE CONSERVACAO DE BENS,Despesas,Materiais,Conservação e limpeza
+4034,51228503,MATERIAIS DE CONSERVACAO E LIMPEZA,Despesas,Materiais,Conservação e limpeza
+4034,51228504,OUTROS MATERIAIS,Despesas,Materiais,Materiais diversos
+4034,51229001,MANUTENCAO E CONSERV. DE MAQUINAS E EQUIPAMEN,Despesas,Materiais,Materiais veículos
+4034,51229501,COMBUSTIVEIS E LUBRIFICANTES,Despesas,Materiais,Combustíveis e lubrificantes
+4034,51230501,MANUTENCAO DE VEICULOS DE APOIO,Despesas,Serviços,Materiais Veículos
+4034,51231001,IPVA - IMPOSTO SOBRE VEICULOS AUTOMOTORES,Despesas,Impostos e taxas,Impostos e taxas
+4034,51231003,"TAXA DE LICENCIAMENTO, VISTORIA E OUTRAS",Despesas,Impostos e taxas,Impostos e taxas
+4034,51231501,DESPESAS COM VEICULOS AUXILIARES,Despesas,Materiais,Materiais veículos
+4034,51232501,SERVICOS DE AUDITORIA,Despesas,Serviços,Outros serviços
+4034,51232502,SERVICOS DE CONSULTORIA,Despesas,Serviços,Consultoria
+4034,51232503,SERVICOS JURIDICOS,Despesas,Serviços,Jurídico
+4034,51232504,SERVICOS DE CONSERVACAO/LIMPEZA,Despesas,Serviços,Conservação e Limpeza
+4034,51232505,SERVICOS DE ADMINISTRACAO,Despesas,Serviços,Administrativo
+4034,51232506,EXAME PERIODICO / SAUDE OCUPACIONAL,Despesas,Serviços,Outros serviços
+4034,51232510,SERV. DESPACHANTE,Despesas,Serviços,Outros serviços
+4034,51232512,SERV ADMINISTRATIVOS,Despesas,Serviços,Administrativo
+4034,51232513,SERVIÇO DE TRANSPORTE DE COLABORADORES,Despesas,Serviços,Transporte
+4034,51233001,SERVICOS DE INFORMATICA,Despesas,Serviços,Tecnologia da Informação
+4034,51233002,SERVICOS DE TI,Despesas,Serviços,Tecnologia da Informação
+4034,51234001,OUT SERV(ADM),Despesas,Serviços,Outros serviços
+4034,51234501,ENERGIA ELETRICA,Despesas,Gastos gerais,Contas de consumo
+4034,51235001,AGUA E ESGOTO,Despesas,Gastos gerais,Contas de consumo
+4034,51235501,TELEFONE,Despesas,Gastos gerais,Contas de consumo
+4034,51236001,COPIAS E AUTENTICACOES,Despesas,Gastos gerais,Outros gastos
+4034,51236501,SEGUROS (ADM),Despesas,Seguros,Seguros
+4034,51237501,ALUGUEL E CONDOMINIO DE BENS IMOVEIS,Despesas,Gastos gerais,Aluguel e condomínio
+4034,51238001,ALUGUEL DE BENS DIVERSOS,Despesas,Gastos gerais,Aluguéis diversos
+4034,51238501,ANUNCIOS E PUBLICACOES,Despesas,Gastos gerais,Comunicação / eventos
+4034,51240001,FRETES E CARRETOS,Despesas,Serviços,Transporte
+4034,51240501,MATERIAL DE EXPEDIENTE,Despesas,Materiais,Material de escritório
+4034,51240502,MATERIAL DE INFORMATICA,Despesas,Materiais,Materiais de informática
+4034,51240504,MATERIAL DE SEGURANÇA,Despesas,Materiais,EPIs e segurança
+4034,51241001,CONDUCAO/ESTACIONAMENTO/PEDAGIO,Despesas,Gastos gerais,Outros gastos
+4034,51241002,VIAGENS E ESTADIAS,Despesas,Gastos gerais,Outros gastos
+4034,51241501,LANCHES E REFEICOES,Despesas,Gastos gerais,Outros gastos
+4034,51241502,COPA E COZINHA,Despesas,Gastos gerais,Outros gastos
+4034,51242001,LEGAIS E JUD(ADM),Despesas,Gastos gerais,Jurídico
+4034,51242004,OUTRAS DESPESAS,Despesas,Gastos gerais,Outros gastos
+4034,51243001,LIVR JORN REV(ADM),Despesas,Gastos gerais,Outros gastos
+4034,51243501,BRIND E PRES(ADM),Despesas,Gastos gerais,Outros gastos
+4034,51245001,BENS DE USO PERMANENTE NAO ATIVADOS,Despesas,Materiais,Bens de pequeno valor
+4034,51245501,MEDICAMENTOS P/ AMBULATORIO,Despesas,Gastos gerais,Outros gastos
+4034,51245505,COMEMOR EVENT(ADM),Despesas,Gastos gerais,Outros gastos
+4034,51245513,DESPESAS ADMINISTRATIVAS,Despesas,Gastos gerais,Outros gastos
+4034,51246002,DEPREC. C/ DIREITO DE USO - ARRENDAMENT,Despesas,Depreciação e amortização,Depreciação
+4034,51247001,DEPREC. C/ VEICULOS AUXILIARES,Despesas,Depreciação e amortização,Depreciação
+4034,51247502,DEPREC. C/ EQUIPTOS. DE COMUNICACAO,Despesas,Depreciação e amortização,Depreciação
+4034,51248001,DEPREC. C/ EQUIPTOS. DE INFORMATICA,Despesas,Depreciação e amortização,Depreciação
+4034,51248501,DEPREC. C/ MOVEIS E UTENSILIOS,Despesas,Depreciação e amortização,Depreciação
+4034,51313525,RECUPERACAO DE CUSTOS/DESPESA,Outras despesas / receitas,Outras despesas / receitas,Outros
+4034,51315501,IPTU,Despesas,Impostos e taxas,Impostos e taxas
+4034,51316501,IMP TX ESTAD,Despesas,Impostos e taxas,Impostos e taxas
+4034,51316502,IMPOSTOS E TAXAS FEDERAIS,Despesas,Impostos e taxas,Impostos e taxas
+4034,51316510,OUTROS IMPOSTOS/TAXAS/CONTRIB.,Despesas,Impostos e taxas,Impostos e taxas
+4034,51317001,MULTAS/JUROS,Despesas financeiras,Despesas financeiras,Juros e multas
+4034,51318501,TAXAS DE LOCALIZ. E FUNCIONAMENTO,Despesas,Impostos e taxas,Impostos e taxas
+4034,52110001,REND APLICAC FINANC,Receitas financeiras,Receitas financeiras,Aplicações financeiras
+4034,52111001,DESCONTOS OBTIDOS,Receitas financeiras,Receitas financeiras,Outros
+4034,52113502,GANHO PART FDOS INVE,Receitas financeiras,Receitas financeiras,Aplicações financeiras
+4034,52114001,IOF - DESPESA,Despesas financeiras,Despesas financeiras,Taxas
+4034,52114504,JUROS PASSIVOS,Despesas financeiras,Despesas financeiras,Juros e multas
+4034,52114506,JUROS S/ ARRENDAMENTO MERCANTIL (CPC 06),Despesas financeiras,Despesas financeiras,Juros e multas
+4034,52116001,TARIFAS BANCARIAS,Despesas financeiras,Despesas financeiras,Taxas
+4034,52116002,COMIS CAPT RECURSOS,Despesas financeiras,Despesas financeiras,Taxas
+4034,52119001,ARREDONDAMENTO,Despesas financeiras,Despesas financeiras,Outros
+4034,52119008,PIS/COFINS S/ REC. F,Despesas financeiras,Despesas financeiras,Pis/Cofins
+4034,54111002,PROV. ATIVA DE IRPJ DIFERIDO,IR / CSLL,IRPJ / CSLL diferido,IRPJ / CSLL diferido
+4034,54111502,PROV. ATIVA DE CSLL DIFERIDA,IR / CSLL,IRPJ / CSLL diferido,IRPJ / CSLL diferido
+4034,61164502,DEPREC. C/ DIREITO DE USO - ARRENDAMENTO MERCANTIL,Custos,Depreciação e amortização,Depreciação
+4034,11110001,CAIXA GERAL,Ativo circulante,Caixa e equivalentes de caixa,Caixa geral e fundo fixo
+4034,11110002,FUNDO FIXO,Ativo circulante,Caixa e equivalentes de caixa,Caixa geral e fundo fixo
+4034,11113002,BANCO DE BRASILIA (BRB) 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4034,11113004,BANCO DO BRASIL 2,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4034,11113020,BRADESCO 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4034,11113041,SANTANDER 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4034,11113304,BANCO ENTRADA,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4034,11113341,BANCO ENTRADA,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4034,11113356,BANCO ENTRADA,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4034,11113604,BANCO SAIDA,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+4034,11114002,BANCO DO BRASIL,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+4034,11114501,CDB,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+4034,11114506,APLICAÇÃO FINANCEIRA EM MOEDA ESTRANGEI,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+4034,11210005,CLIENTES - URBANO/FERROVIÁRIO,Ativo circulante,Contas a receber,CR operacional
+4034,11210007,CLIENTES - PIX,Ativo circulante,Contas a receber,CR operacional
+4034,11210010,CLIENTES - ALUGUEL DE IMÓVEIS,Ativo circulante,Contas a receber,CR aluguéis
+4034,11211005,CARTOES DE DEBITO,Ativo circulante,Contas a receber,CR operacional
+4034,11213003,CLIENTES - ORGAOS PUBLICOS - URBANO/FER,Ativo circulante,Contas a receber,CR órgãos públicos
+4034,11216001,(-) PROV. P/ CRED. DE LIQUID. DUVIDOSA,Ativo circulante,Contas a receber,(-) PCLD
+4034,12210386,METRO BH S.A.,Ativo não circulante,Investimentos,Participações em controladas (MEP)
+4034,12210432,METRO BH S.A.,Ativo não circulante,Investimentos,Participações em controladas (MEP)
+4034,11222002,CONTAS A RECEBER DE PUBLICIDADE,Ativo circulante,Contas a receber,CR publicidade
+4034,11222010,CONTAS A RECEBER,Ativo circulante,Outros créditos,Outras contas a receber
+4034,11222012,(-) OUTRAS CONTAS A RECEBER - TRANSFERE,Ativo circulante,Outros créditos,Transferência entre circulante e não circulante
+4034,11310003,ADIANTAMENTO - FUNDO FIXO,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4034,11310004,ADIANTAMENTO DE CRÉDITO,Ativo circulante,Outros créditos,Outros adiantamentos
+4034,11310006,(-) CONTRAPARTIDA AQUISIÇÃO ATIVO FINANCEIRO,Ativo não circulante,Ativo financeiro,Contrapartida de aquisição
+4034,11310007,(-) CONTRAPARTIDA AQUISIÇÃO ATIVO IMOBILIZADO,Ativo não circulante,Imobilizado,Contrapartida de aquisição
+4034,11317002,ADIANTAMENTO DE VIAGEM,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+4034,11319001,IRPJ ANTECIPACAO - ESTIMATIVA,Ativo circulante,Tributos a recuperar,IRPJ a recuperar
+4034,11320001,IRPJ SALDO NEGATIVO,Ativo circulante,Tributos a recuperar,IRPJ a recuperar
+4034,11326505,IRRF S/ RESGATE DE DEP. JUDICIAL,Ativo circulante,Tributos a recuperar,IRRF a recuperar
+4034,11327001,CSLL ANTECIPACAO - ESTIMATIVA,Ativo circulante,Tributos a recuperar,CSLL a recuperar
+4034,11328001,CSLL SALDO NEGATIVO,Ativo circulante,Tributos a recuperar,CSLL a recuperar
+4034,11349002,IMPOSTOS E CONTRIB. FEDERAIS A COMPENSA,Ativo circulante,Tributos a recuperar,Outros tributos a recuperar
+4034,11349008,CAUCOES EM GARANTIA,Ativo circulante,Outros créditos,Cauções em garantia
+4034,11510001,PECAS E ACESSORIOS,Ativo circulante,Estoques,Peças e acessórios
+4034,11510002,PECAS E ACESSORIOS - RECONDIC.,Ativo circulante,Estoques,Peças e acessórios
+4034,11510004,PECAS E ACESSORIOS DE BILHETAGEM,Ativo circulante,Estoques,Peças e acessórios
+4034,11510007,(-) PROV. OBSOLETO PECAS E ACESSORIOS,Ativo circulante,Estoques,(-) Peças e acessórios
+4034,11511001,MATERIAIS DE PINTURA,Ativo circulante,Estoques,Materiais de manutenção
+4034,11511003,MATERIAIS DE ELETRICA,Ativo circulante,Estoques,Materiais de manutenção
+4034,11511008,(-) PROVISÃO OBSOLETO MATERIAIS DE CARR,Ativo circulante,Estoques,(-) Materiais de manutenção
+4034,11512001,OLEO DIESEL,Ativo circulante,Estoques,Combustíveis e lubrificantes
+4034,11513001,GRAXAS/OLEOS/LUBRIFICANTES,Ativo circulante,Estoques,Combustíveis e lubrificantes
+4034,11515050,FERRAMENTAS E FERRAGENS,Ativo circulante,Estoques,Materiais de manutenção
+4034,11517001,MATERIAIS DE CONSERVACAO/LIMPEZA,Ativo circulante,Estoques,Materiais de consumo
+4034,11517013,(-) PROVISÃO OBSOLETOS MATERIAIS DIVERS,Ativo circulante,Estoques,(-) Materiais diversos
+4034,11517014,MATERIAS PARA OBRAS - EVENTOGRAMAS,Ativo circulante,Estoques,Materiais para obras
+4034,11517017,OUTROS COMBUSTIVEIS,Ativo circulante,Estoques,Combustíveis e lubrificantes
+4034,11517019,MATERIAL DE COPA E COZINHA,Ativo circulante,Estoques,Materiais de consumo
+4034,11610005,OUTROS CUSTOS E DESPESAS,Ativo circulante,Despesas antecipadas,Seguros a apropriar
+4034,11613002,DESPESAS A APROPRIAR,Ativo circulante,Despesas antecipadas,Outras despesas a apropriar
+4034,11613003,ALUGUEIS A APROPRIAR,Ativo circulante,Despesas antecipadas,Aluguéis a apropriar
+4034,12113005,DESPESAS A APROPRIAR,Ativo não circulante,Despesas antecipadas,Outras despesas a apropriar
+4034,12122001,OPERACOES A RECEBER,Ativo não circulante,Outros créditos,Operações a receber
+4034,12122003,OUTRAS CONTAS A RECEBER - TRANSFERÊNCIA,Ativo não circulante,Outros créditos,Transferência entre circulante e não circulante
+4034,12122005,(-) OUTRAS CONTAS A RECEBER,Ativo não circulante,Outros créditos,Outras contas a receber
+4034,12126001,IRPJ DIFERIDO,Ativo não circulante,Tributos diferidos,IRPJ diferidos - diferenças temporárias
+4034,12128001,CSLL DIFERIDA,Ativo não circulante,Tributos diferidos,CSLL diferidos - diferenças temporárias
+4034,12136001,DEPOSITOS JUDICIAIS TRABALHISTAS,Ativo não circulante,Depósitos judiciais,Depósitos judiciais trabalhistas
+4034,12137001,PENHORA DE CREDITO,Ativo não circulante,Depósitos judiciais,Bloqueios e penhoras judiciais
+4034,12151002,SEGUROS GERAIS LP,Ativo não circulante,Despesas antecipadas,Seguros a apropriar
+4034,12154009,APLICAÇÃO FINANCEIRA - CAIXA RESTRITO,Ativo não circulante,Caixa restrito,Caixa restrito
+4034,12154011,ADIANTAMENTO - ATIVO FINANCEIRO,Ativo não circulante,Ativo financeiro,Adiantamentos de ativo financeiro
+4034,12154012,(-) ATIVO FINANCEIRO,Ativo não circulante,Ativo financeiro,(-) Ativo financeiro
+4034,12154013,DEBÊNTURES,Ativo não circulante,Títulos e valores imobiliários,Debêntures
+4034,12154099,CONTRAPARTIDA AQUISIÇÃO ATIVO FINANCEIR,Ativo não circulante,Ativo financeiro,Contrapartida de aquisição
+4034,12312001,INSTALACOES,Ativo não circulante,Imobilizado,Instalações
+4034,12313003,VANS,Ativo não circulante,Imobilizado,Veículos
+4034,12313004,EQUIP/ACESS P/ VEIC.DE LINHA,Ativo não circulante,Imobilizado,Veículos
+4034,12313501,VEICULOS,Ativo não circulante,Imobilizado,Veículos
+4034,12313502,EQUIPAMENTOS E ACESSÓRIOS PARA VEÍCULOS,Ativo não circulante,Imobilizado,Veículos
+4034,12313507,TRENS,Ativo não circulante,Imobilizado,Trens
+4034,12315001,VEICULOS DE AUTO-SOCORRO,Ativo não circulante,Imobilizado,Veículos
+4034,12316001,MAQ/EQUIP. FERR. MANUT.,Ativo não circulante,Imobilizado,Máquinas e equipamentos
+4034,12316003,EQUIPTOS. DE SEGURANCA,Ativo não circulante,Imobilizado,Máquinas e equipamentos
+4034,12316004,SIST. DE EMISSAO DE PASSAGENS,Ativo não circulante,Imobilizado,Sistemas de bilhetes e passagens
+4034,12316006,SIST. AUTOM. DE BILH. ELETRONICA,Ativo não circulante,Imobilizado,Sistemas de bilhetes e passagens
+4034,12322001,BENFEITORIAS EM BENS DE TERCEIROS,Ativo não circulante,Imobilizado,Benfeitorias em bens de terceiros
+4034,12323001,(-) ATIVOS IMOBILIZADOS COM P&D,Ativo não circulante,Imobilizado,Ativos com P&D (Lei 11.196/05)
+4034,12323002,ATIVOS IMOBILIZADOS COM P&D (LEI. 11.19,Ativo não circulante,Imobilizado,Ativos com P&D (Lei 11.196/05)
+4034,12336002,ADIANTAMENTO DE IMOBILIZADO,Ativo não circulante,Imobilizado,Adiantamento de imobilizado
+4034,12337003,OBRAS EM ANDAMENTO - REVERSIVEL,Ativo não circulante,Imobilizado,Imobilizado em andamento
+4034,12339001,IMOBILIZAÇÕES EM ANDAMENTO,Ativo não circulante,Imobilizado,Imobilizado em andamento
+4034,12342001,DEPREC. INSTALACOES,Ativo não circulante,Imobilizado,(-) Instalações
+4034,12343003,DEPREC. VANS,Ativo não circulante,Imobilizado,(-) Veículos
+4034,12343004,DEPREC. EQUIP/ACESS P/ VEIC.DE LINHA,Ativo não circulante,Imobilizado,(-) Veículos
+4034,12343502,DEPREC. EQUIPAMENTOS E ACESSÓRIOS PARA,Ativo não circulante,Imobilizado,(-) Veículos
+4034,12343507,DEPRECIAÇÃO - TRENS,Ativo não circulante,Imobilizado,(-) Trens
+4034,12345001,DEPREC. VEIC.DE AUTO-SOCORRO,Ativo não circulante,Imobilizado,(-) Veículos
+4034,12345005,(-) DEPREC. VEICULOS,Ativo não circulante,Imobilizado,(-) Veículos
+4034,12346001,DEPREC. MAQ/EQUIP. FERR. MANUT.,Ativo não circulante,Imobilizado,(-) Máquinas e equipamentos
+4034,12346003,DEPREC. EQUIPTOS. DE SEGURANCA,Ativo não circulante,Imobilizado,(-) Máquinas e equipamentos
+4034,12346004,DEPREC. SIST. DE EMISSAO DE PASSAGENS,Ativo não circulante,Imobilizado,(-) Sistemas de bilhetes e passagens
+4034,12346006,DEPREC. SIST. AUTOM. BILH. ELETRONICA,Ativo não circulante,Imobilizado,(-) Sistemas de bilhetes e passagens
+4034,12349002,CONSORCIO DEPREC. MOVEIS E UTENSILIOS,Ativo não circulante,Imobilizado,(-) Móveis e utensílios
+4034,12352001,DEPREC. BENF. EM IMOVEIS DE TERCEIROS,Ativo não circulante,Imobilizado,(-) Benfeitorias em bens de terceiros
+4034,12353001,(-) DEPRECIAÇÕES/AMORTIZAÇÕS COM P&D,Ativo não circulante,Imobilizado,Ativos com P&D (Lei 11.196/05)
+4034,12353002,(-) DEPRECIAÇÕES/AMOR. COM P&D (LEI. 11,Ativo não circulante,Imobilizado,Ativos com P&D (Lei 11.196/05)
+4034,12399001,CONTRAPARTIDA AQUISIÇÃO ATIVO IMOBILIZA,Ativo não circulante,Imobilizado,Contrapartida de aquisição
+4034,12412001,LICENCA DE USO DE SOFTWARE,Ativo não circulante,Intangível,Softwares
+4034,12418001,AMORTIZ. DIREITOS DE USO E CONCESSOES D,Ativo não circulante,Intangível,(-) Direito de concessão
+4034,12420001,(-) SOFTWARE,Ativo não circulante,Intangível,(-) Softwares
+4034,21119001,DEBÊNTURES,Passivo circulante,Debêntures,Debêntures
+4034,21210011,FORNECEDORES - RETENÇÃO,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4034,21312001,IRPJ A RECOLHER,Passivo circulante,Obrigações tributárias,IRPJ a recolher
+4034,21312101,IRPJ - FORNECEDORES,Passivo circulante,Obrigações tributárias,IRPJ a recolher
+4034,21313001,CSLL A RECOLHER,Passivo circulante,Obrigações tributárias,CSLL a recolher
+4034,21313101,CSLL - FORNECEDORES,Passivo circulante,Obrigações tributárias,CSLL a recolher
+4034,21315002,(0588) S/ REND.DO TRAB.S/ VINCULO,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4034,21318001,INSS RETIDO - AUTONOMOS,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4034,21318004,INSS RETIDO - FORNECEDORES,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4034,21318005,TERMO DE COOPERAÇÃO SENAI/EMPRESA,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+4034,21323001,PARCELAMENTOS FISCAIS,Passivo circulante,Obrigações tributárias,Parcelamentos fiscais
+4034,21323004,PARCELAMENTOS FISCAIS,Passivo circulante,Obrigações tributárias,Parcelamentos fiscais
+4034,21411004,INSS SOBRE FATURAMENTO,Passivo circulante,Obrigações trabalhistas,INSS a recolher
+4034,21413001,CONTRIBUIÇÃO ASSISTENCIAL,Passivo circulante,Obrigações trabalhistas,Contribuições sindicais e assistenciais
+4034,21413002,CONTRIBUIÇÃO CONFEDERATIVA/ASSOCIATIVA,Passivo circulante,Obrigações trabalhistas,Contribuições sindicais e assistenciais
+4034,21413003,CONTRIBUIÇÃO SINDICAL,Passivo circulante,Obrigações trabalhistas,Contribuições sindicais e assistenciais
+4034,21510009,ADIANTAMENTO DE CLIENTES,Passivo circulante,Outras obrigações,Adiantamento de clientes
+4034,21517224,(-) CONTAS A PAGAR - TRANS. CP/LP,Passivo circulante,Fornecedores,Transferência entre circulante e não circulante
+4034,21517225,OUTRAS OBRIGAÇÕES - FORNECEDORES,Passivo circulante,Fornecedores,Contas a pagar diversas
+4034,21711003,VIACAO PIRACICABANA LTDA,Passivo circulante,Partes relacionadas,Viação Piracicabana
+4034,21711180,ENGETRENS SERVIÇOS DE ENGENHARIA E PROJETOS LTDA,Passivo circulante,Partes relacionadas,Engetrens
+4034,21712014,JOAQUIM CONSTANTINO NETO,Passivo circulante,Partes relacionadas,Acionistas PF
+4034,21712015,HENRIQUE CONSTANTINO,Passivo circulante,Partes relacionadas,Acionistas PF
+4034,21712016,RICARDO CONSTANTINO,Passivo circulante,Partes relacionadas,Acionistas PF
+4034,22119001,DEBENTURES,Passivo não circulante,Debêntures,Debêntures
+4034,22123003,CONTAS A PAGAR,Passivo não circulante,Outras obrigações,Contas a pagar diversas
+4034,22123004,CONTAS A PAGAR - TRANSF NÃO CIRCULANTE,Passivo não circulante,Outras obrigações,Contas a pagar diversas
+4034,22128008,PARCELAMENTOS,Passivo não circulante,Obrigações tributárias,Parcelamentos fiscais
+4034,22129004,CREDITOS TRIBUTARIOS NAO HOMOLOGADOS,Passivo não circulante,Obrigações tributárias,Créditos tributários não homologados
+4034,22137001,PROCESSOS CIVEIS,Passivo não circulante,Provisões para contingências,Cíveis
+4034,22139001,PROCESSOS TRABALHISTAS,Passivo não circulante,Provisões para contingências,Trabalhistas
+4034,22139002,PROCESSOS TRABALHISTAS - CBTU AC,Passivo não circulante,Provisões para contingências,Trabalhistas
+4034,24110026,CAPITAL SOCIAL SUBSCRITO,Patrimônio líquido,Capital social,Capital subscrito
+4034,24110079,(-) OUTRAS RESERVAS,Patrimônio líquido,Capital social,(-) Outras reservas
+4034,24215001,RESERVAS DE LUCROS A REALIZAR,Patrimônio líquido,Reserva de lucros,Reserva de lucros a realizar
+4034,24215015,RESERVA DE SUBVENÇÃO,Patrimônio líquido,Reserva de lucros,Reserva de incentivos fiscais
+4034,24410001,RESERVA LEGAL,Patrimônio líquido,Reserva legal,Reserva legal
+4034,24510004,PREJUIZOS ACUMULADOS,Patrimônio líquido,Lucros / prejuízos acumulados,Prejuízos acumulados
+4034,24511001,RESULTADO DO EXERCICIO,Patrimônio líquido,Resultado do período,Resultado do período
+4034,24710031,VEICULO DE DESESTATIZAÇÃO DE MINAS GERA,Patrimônio líquido,AFAC,VDMG
+4034,31111502,INTERMUNICIPAL - FERROVIÁRIO - TARIFA T,Receita líquida,Receita tarifária,Receita tarifária
+4034,31111505,INTERMUNICIPAL - FERROVIÁRIO - DEMANDA,Receita líquida,Receita mitigação,Receita mitigação
+4034,31111507,INTERMUNICIPAL - CONTRAPRESTAÇÃO FIXA,Receita líquida,Receita operacional,Receita operacional
+4034,31111509,INTERMUNICIPAL - CONTRAPRESTAÇÃO VARIÁVEL,Receita líquida,Receita operacional,Receita operacional
+4034,32210001,(-) PIS S/ FATURAMENTO,Receita líquida,(-) Tributos,PIS
+4034,32210501,(-) COFINS S/ FATURAMENTO,Receita líquida,(-) Tributos,COFINS
+4034,32212503,(-) TAXA ORGAO GESTOR ESTADUAL,Receita líquida,(-) Deduções,Taxa de fiscalização
+4034,32212506,(-) ÔNUS DE FISCALIZAÇÃO,Receita líquida,(-) Deduções,Bilhetagem
+4034,32213000,(-)  CONTRIBUIÇÃO PREVIDENCIARIA SOBRE,Receita líquida,(-) Tributos,CPRB
+4034,51110501,SALARIOS,Despesas,Mão de obra,Salários
+4034,51110502,FERIAS,Despesas,Mão de obra,Salários
+4034,51111001,HORAS EXTRAS,Despesas,Mão de obra,Salários
+4034,51112501,DESCANSO SEMANAL REMUNERADO,Despesas,Mão de obra,Salários
+4034,51113501,PREMIOS,Despesas,Mão de obra,Salários
+4034,51116501,PROVISAO DE FERIAS,Despesas,Mão de obra,Salários
+4034,51117001,PROVISAO PARA 13O SALARIO,Despesas,Mão de obra,Salários
+4034,51118001,PARTICIPACAO NOS RESULTADOS,Despesas,Mão de obra,PLR
+4034,51119001,FGTS SOBRE FOLHA DE PAGAMENTO,Despesas,Mão de obra,Encargos
+4034,51120001,INSS - EMPRESA,Despesas,Mão de obra,Encargos
+4034,51120002,INSS - TERCEIROS,Despesas,Mão de obra,Encargos
+4034,51120003,INSS - ACID.DE TRABALHO,Despesas,Mão de obra,Encargos
+4034,51121001,INSS/FGTS S/PROV.FERIAS,Despesas,Mão de obra,Encargos
+4034,51121501,INSS/FGTS S/PROV.13O,Despesas,Mão de obra,Encargos
+4034,51128501,COMISSOES E DESPESAS COM CARTAO DE CRED,Despesas,Gastos gerais,Outros gastos
+4034,51132001,MATERIAIS DE EXPEDIENTE,Despesas,Materiais,Material de escritório
+4034,51133001,CONSERVACAO DE IMOVEIS,Despesas,Materiais,Conservação e limpeza
+4034,51134001,MANUTENCAO E CONSERV. DE MAQUINAS E EQU,Despesas,Materiais,Materiais veículos
+4034,51133501,CONSERVACAO DE INSTALACOES,Despesas,Materiais,Conservação e limpeza
+4034,51136501,OUTRAS DESPESAS COM VEICULOS,Despesas,Serviços,Outros serviços
+4034,51136003,"TAXA DE LICENCIAMENTO, VISTORIA E OUTRA",Despesas,Impostos e taxas,Impostos e taxas
+4034,51137001,SERVICOS CONTRATADOS P.FISICA,Despesas,Serviços,Outros serviços
+4034,51137502,SERVICOS DE CONSULTORIA,Despesas,Serviços,Consultoria
+4034,51142501,LOCACAO DE BENS IMOVEIS,Despesas,Gastos gerais,Aluguel e condomínio
+4034,51145502,MATERIAL DE INFORMATICA,Despesas,Materiais,Materiais de informática
+4034,51152501,DEPREC. C/ INSTALACOES,Despesas,Depreciação e amortização,Depreciação
+4034,51153001,DEPREC. C/ VEICULOS DE APOIO COMERCIAIS,Despesas,Depreciação e amortização,Depreciação
+4034,51210001,PRO-LABORE E HONORARIOS DA DIRETORIA,Despesas,Mão de obra,Salários
+4034,51216502,(-) REVERSÃO PROVISAO DE FERIAS,Despesas,Mão de obra,Salários
+4034,51217501,INDENIZACOES/ACORDOS TRABALHISTAS,Despesas,Mão de obra,Rescisões
+4034,51218001,PARTICIPACAO NOS RESULTADOS,Despesas,Mão de obra,PLR
+4034,51218003,REVERSÃO PROVISÃO PARTICIPACAO NOS RESU,Despesas,Mão de obra,Salários
+4034,51221003,INSS SOBRE PROVISAO DE FERIAS,Despesas,Mão de obra,Encargos
+4034,51221502,INSS SOBRE PROVISAO DE 13O,Despesas,Mão de obra,Encargos
+4034,51221503,FGTS SOBRE PROVISAO DE 13O,Despesas,Mão de obra,Encargos
+4034,51223501,ASSISTENCIA ODONTOLOGICA,Despesas,Mão de obra,Benefícios
+4034,51225001,CESTA BASICA / VALE ALIMENTACAO,Despesas,Mão de obra,Benefícios
+4034,51226002,AUX. CRECHE,Despesas,Mão de obra,Benefícios
+4034,51226003,FUNDO ASSISTENCIAL,Despesas,Mão de obra,Encargos
+4034,51232001,SERVICOS PRESTADOS P/ P.FISICA,Despesas,Serviços,Outros serviços
+4034,51232511,SERVICOS DE SEGURANÇA,Despesas,Serviços,Segurança
+4034,51233501,SERVICOS DE MANUTENCAO CONTRATADOS COM,Despesas,Serviços,Outros serviços
+4034,51235502,OUTROS MEIOS DE COMUNICACAO,Despesas,Serviços,Outros serviços
+4034,51237502,ALUGUEL (ARREDAMENTO MERCANTIL),Despesas,Gastos gerais,Aluguel e condomínio
+4034,51242002,HONORARIOS PERICIAIS,Despesas,Gastos gerais,Jurídico
+4034,51242501,CONTRIB. A ASSOCIACOES DE CLASSE,Despesas,Gastos gerais,Outros gastos
+4034,51243505,INCENTIVO A CULTURA,Despesas,Gastos gerais,Outros gastos
+4034,51244501,ANUNCIOS E PUBLICACOES,Despesas,Gastos gerais,Comunicação / eventos
+4034,51245509,OUTRAS DESPESAS,Despesas,Gastos gerais,Outros gastos
+4034,51245510,CORREIOS E MALOTES,Despesas,Gastos gerais,Outros gastos
+4034,51245512,ASSISTENCIA MEDICA,Despesas,Mão de obra,Benefícios
+4034,51247501,DEPREC. C/ MAQ.EQUIPTOS.FERR. DA MANUT.,Despesas,Depreciação e amortização,Depreciação
+4034,51247503,DEPREC. C/ EQUIPTOS. DE SEGURANCA,Despesas,Depreciação e amortização,Depreciação
+4034,51250001,DEPREC. C/ BENF. EM PROPR. DE TERC.,Despesas,Depreciação e amortização,Depreciação
+4034,51251501,AMORTIZACAO SOFTWARES,Despesas,Depreciação e amortização,Amortização
+4034,51311001,VENDAS DE SUCATAS,Outras despesas / receitas,Outras despesas / receitas,Venda de sucata
+4034,51313002,REVERSAO DE PROV. PROC.TRAB.,Despesas,Mão de obra,Provisões
+4034,51313513,RECEITA C/ ALUGUEIS,Outras despesas / receitas,Outras despesas / receitas,Aluguel
+4034,51313522,RECEITA PUBLICIDADE,Outras despesas / receitas,Outras despesas / receitas,Publicidade
+4034,51313542,RECEITA DE CONSTRUÇÃO,Receita líquida,Receita de construção,Receita de construção
+4034,51314001,PIS SOBRE OUTRAS RECEITAS,Outras despesas / receitas,Outras despesas / receitas,PIS
+4034,51314501,COFINS SOBRE OUTRAS RECEITAS,Outras despesas / receitas,Outras despesas / receitas,COFINS
+4034,51315001,ICMS - DIF. DE ALIQUOTA,Outras despesas / receitas,Outras despesas / receitas,ICMS
+4034,51315002,ICMS - OUTRAS RECEITAS,Outras despesas / receitas,Outras despesas / receitas,ICMS
+4034,51316503,IMPOSTOS E TAXAS MUNICIPAIS,Despesas,Impostos e taxas,Impostos e taxas
+4034,51319002,TAXA DE GERENCIAMENTO,Despesas,Impostos e taxas,Impostos e taxas
+4034,51319511,PERDAS C/ RECEBTO. DE CREDITO DEDUTIVEL,Despesas,Gastos gerais,Outros gastos
+4034,51319521,DESPESA COM VENDA PEÇAS E PNEUS,Outras despesas / receitas,Outras despesas / receitas,Outros
+4034,51321501,MULTAS DE TRANSITO,Despesas,Gastos gerais,Outros gastos
+4034,51322002,MULTAS POR INFRACOES FISCAIS,Despesas,Gastos gerais,Outros gastos
+4034,51326001,VENDA DE IMOBILIZADO,Outras despesas / receitas,Outras despesas / receitas,Venda de imobilizado
+4034,51326501,(-) VALOR LIQUIDO CONTABIL,Outras despesas / receitas,Outras despesas / receitas,Venda de imobilizado
+4034,52110002,REND. DE APLICACOES FINANCEIRAS - BLOQU,Receitas financeiras,Receitas financeiras,Aplicações financeiras
+4034,52110501,JUROS ATIVOS,Receitas financeiras,Receitas financeiras,Juros
+4034,52113501,JAM S/ DEVOL. DE DEP. JUDICIAIS,Receitas financeiras,Receitas financeiras,Variação monetária
+4034,52114501,JUROS/ENCARGOS S/ EMPRESTIMOS,Despesas financeiras,Despesas financeiras,Juros sobre financiamento
+4034,52116003,TARIFAS BANCARIAS -  PRODUTOS FINANCEIR,Despesas financeiras,Despesas financeiras,Taxas
+4034,52117001,JUROS SOBRE DEBENTURES,Despesas financeiras,Despesas financeiras,Juros sobre financiamento
+4034,52119010,TAXA DE ADMINISTRAÇÃO - CONSÓRCIO,Despesas financeiras,Despesas financeiras,Taxas
+4034,52210501,VAR. MONETARIAS ATIVAS,Receitas financeiras,Receitas financeiras,Variação monetária
+4034,52210502,VAR. MONETARIAS ATIVAS - EXCLUSÃO BASE,Receitas financeiras,Receitas financeiras,Variação monetária
+4034,52212501,VAR. CAMBIAIS ATIVAS,Receitas financeiras,Receitas financeiras,Variação cambial
+4034,52212502,VAR. CAMBIAIS ATIVAS NÃO REALIZADA,Receitas financeiras,Receitas financeiras,Variação cambial
+4034,52213003,VARIACOES CAMBIAIS PASSIVAS,Despesas financeiras,Despesas financeiras,Variação cambial
+4034,52213004,VARIACOES CAMBIAIS PASSIVAS NÃO REALIZA,Despesas financeiras,Despesas financeiras,Variação cambial
+4034,54110001,PROVISAO DE IRPJ,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+4034,54110003,(-) RECEITA DE SUBVENÇÃO IRPJ,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+4034,54110005,(-) INCENTIVOS,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+4034,54110501,PROVISAO DE CSLL,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+4034,54110503,(-) RECEITA DE SUBVENÇÃO CSLL,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+4034,61117001,INDENIZACOES TRABALHISTAS,Custos,Mão de obra,Rescisões
+4034,61120001,INSS S/ INDENIZ. TRABALHISTAS,Custos,Mão de obra,Rescisões
+4034,61120002,FGTS S/ INDENIZ. TRABALHISTAS,Custos,Mão de obra,Rescisões
+4034,61124001,VALE TRANSPORTE,Custos,Mão de obra,Benefícios
+4034,61126001,UNIFORMES PROFISSIONAIS,Custos,Materiais,Uniformes
+4034,61126002,EQUIPAMENTOS DE PROTECAO INDIVIDUAL,Custos,Materiais,EPIs e segurança
+4034,61128501,SALARIOS,Custos,Mão de obra,Salários
+4034,61128502,FERIAS,Custos,Mão de obra,Salários
+4034,61128503,13O SALARIO,Custos,Mão de obra,Salários
+4034,61129001,HORAS EXTRAS,Custos,Mão de obra,Salários
+4034,61130501,DESCANSO SEMANAL REMUNERADO,Custos,Mão de obra,Salários
+4034,61131001,COMISSOES E GRATIFICACOES,Custos,Mão de obra,Salários
+4034,61131501,PREMIOS,Custos,Mão de obra,Salários
+4034,61132001,AJUDA DE CUSTO,Custos,Mão de obra,Benefícios
+4034,61132501,ADICIONAL NOTURNO,Custos,Mão de obra,Salários
+4034,61133001,ADICIONAL DE INSALUBRIDADE E PERICULOSI,Custos,Mão de obra,Salários
+4034,61133501,AVISO PREVIO INDENIZADO,Custos,Mão de obra,Rescisões
+4034,61134501,PROVISAO DE FERIAS,Custos,Mão de obra,Salários
+4034,61134502,(-) REVERSÃO PROVISAO DE FERIAS,Custos,Mão de obra,Salários
+4034,61135001,PROVISAO PARA 13O SALARIO,Custos,Mão de obra,Salários
+4034,61135501,INDENIZACOES/ACORDOS TRABALHISTAS,Custos,Mão de obra,Rescisões
+4034,61136001,PARTICIPACAO NOS RESULTADOS,Custos,Mão de obra,PLR
+4034,61136002,PROVISÃO PARTICIPAÇÃO NOS RESULTADOS,Custos,Mão de obra,Provisões
+4034,61137001,FGTS SOBRE FOLHA DE PAGAMENTO,Custos,Mão de obra,Encargos
+4034,61137501,INDENIZACAO FGTS ( MULTA RESCISORIA ),Custos,Mão de obra,Rescisões
+4034,61138001,INSS - EMPRESA,Custos,Mão de obra,Encargos
+4034,61138002,INSS - TERCEIROS,Custos,Mão de obra,Encargos
+4034,61138003,INSS - ACID. DE TRABALHO,Custos,Mão de obra,Encargos
+4034,61139001,INSS E FGTS SOBRE PROVISAO DE FERIAS,Custos,Mão de obra,Encargos
+4034,61139003,INSS SOBRE PROVISAO DE FÉRIAS,Custos,Mão de obra,Encargos
+4034,61139501,INSS E FGTS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+4034,61139503,INSS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+4034,61139504,FGTS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+4034,61140001,VALE REFEICAO/ VALE ALIMENTAÇÃO,Custos,Mão de obra,Benefícios
+4034,61141001,ASSISTENCIA MEDICA,Custos,Mão de obra,Benefícios
+4034,61141501,ASSISTENCIA ODONTOLOGICA,Custos,Mão de obra,Benefícios
+4034,61142501,VALE TRANSPORTE,Custos,Mão de obra,Benefícios
+4034,61143001,CESTA BASICA / VALE ALIMENTACAO,Custos,Mão de obra,Benefícios
+4034,61144002,AUXILIO CRECHE,Custos,Mão de obra,Benefícios
+4034,61144003,FUNDO ASSISTENCIAL,Custos,Mão de obra,Encargos
+4034,61144501,UNIFORMES,Custos,Materiais,Uniformes
+4034,61144502,EQUIPTOS. DE PROTECAO INDIVIDUAL,Custos,Materiais,EPIs e segurança
+4034,61145001,CURSOS/TREINAMENTOS,Custos,Mão de obra,Treinamentos
+4034,61147001,OLEO DIESEL,Custos,Materiais,Combustíveis e lubrificantes
+4034,61147501,GRAXAS E LUBRIFICANTES,Custos,Materiais,Combustíveis e lubrificantes
+4034,61148002,GASOLINA,Custos,Materiais,Combustíveis e lubrificantes
+4034,61149503,MATERIAIS DE BORRACHARIA,Custos,Materiais,Materiais veículos
+4034,61150001,MATERIAIS DE ELETRICA,Custos,Materiais,Materiais diversos
+4034,61150002,MATERIAIS DE FUNILARIA,Custos,Materiais,Materiais veículos
+4034,61150003,MATERIAIS DE PINTURA,Custos,Materiais,Materiais diversos
+4034,61150005,OUTROS MATERIAIS,Custos,Materiais,Materiais diversos
+4034,61150502,OUTROS MATERIAIS,Custos,Materiais,Materiais diversos
+4034,61151001,PECAS / ACESSORIOS - NOVOS,Custos,Materiais,Materiais veículos
+4034,61151002,PECAS / ACESSORIOS - RECONDIC.,Custos,Materiais,Materiais veículos
+4034,61151007,PEÇAS E ACESSÓRIOS DE BILHETAGEM,Custos,Materiais,Materiais diversos
+4034,61152501,"TAXA DE LICENCIAMENTO, LICENÇA E OUTROS",Custos,Impostos e taxas,Impostos e taxas
+4034,61155502,ENER ELETRICA VLT/METRO - REDE AEREA E,Custos,Energia,Energia
+4034,61155503,CUSTOS PARA CONTROLE E OPERAÇÃO DE VEÍC,Custos,Gastos gerais,Outros gastos
+4034,61157501,ALUGUEL DE BENS DIVERSOS,Custos,Gastos gerais,Aluguéis diversos
+4034,61158001,HONORARIOS PERICIAIS,Custos,Gastos gerais,Jurídico
+4034,61158002,HONORARIOS ADVOCATICIOS,Custos,Serviços,Jurídico
+4034,61158004,LEGAIS E JUDICIAIS,Custos,Gastos gerais,Jurídico
+4034,61158501,INDENIZ. C/ ACIDENTES E DANOS MATERIAIS,Custos,Gastos gerais,Outros gastos
+4034,61160001,SERVICOS DE CONSERVACAO/LIMPEZA,Custos,Serviços,Conservação e Limpeza
+4034,61160003,SERVICOS DE SEGURANCA,Custos,Serviços,Segurança
+4034,61160004,SERVICOS DE TRANSPORTES,Custos,Serviços,Transporte
+4034,61160006,OUTROS SERVICOS,Custos,Serviços,Outros serviços
+4034,61160007,SERVIÇOS DE CONSULTORIA,Custos,Serviços,Consultoria
+4034,61160501,ENERGIA ELETRICA,Custos,Energia,Energia
+4034,61161001,AGUA E ESGOTO,Custos,Gastos gerais,Contas de consumo
+4034,61162002,LANCHES E REFEICOES,Custos,Gastos gerais,Outros gastos
+4034,61162501,IMPRESSOS E MAT. DE ESCRITORIO,Custos,Materiais,Material de escritório
+4034,61162502,MATERIAIS DE INFORMATICA,Custos,Materiais,Materiais de informática
+4034,61162504,MATERIAL DE SEGURANÇA,Custos,Materiais,EPIs e segurança
+4034,61163001,CONSERVACAO DE BENS,Custos,Materiais,Conservação e limpeza
+4034,61163002,CONSERVACAO DE INSTALACOES,Custos,Materiais,Conservação e limpeza
+4034,61163501,BENS DE NATUREZA PERMANENTE,Custos,Materiais,Bens de pequeno valor
+4034,61165501,DEPREC. C/ VEICULOS DE LINHA,Custos,Depreciação e amortização,Depreciação
+4034,61166501,DEPREC. C/ VEICULOS DE AUXILIARES,Custos,Depreciação e amortização,Depreciação
+4034,61167001,DEPREC. C/ MAQ.EQUIPTOS.FERR. DA MANUT.,Custos,Depreciação e amortização,Depreciação
+4034,61167004,DEPREC. C/ EQUIPTOS. P/ VEICULOS,Custos,Depreciação e amortização,Depreciação
+4034,61167005,DEPREC. SIST. DE EMISSAO DE PASSAGENS,Custos,Depreciação e amortização,Depreciação
+4034,61167006,DEPREC. SIST. AUTOM. BILH. ELETRONICA,Custos,Depreciação e amortização,Depreciação
+4034,61171002,AMORTIZ. C/ OUTORGA E CONCESSAO DE LINH,Custos,Depreciação e amortização,Amortização
+4034,62110001,SALARIOS,Custos,Mão de obra,Salários
+4034,62110002,FERIAS E ADICIONAL,Custos,Mão de obra,Salários
+4034,62110003,13O SALARIO,Custos,Mão de obra,Salários
+4034,62110501,HORAS EXTRAS,Custos,Mão de obra,Salários
+4034,62112001,DESCANSO SEMANAL REMUNERADO,Custos,Mão de obra,Salários
+4034,62112501,COMISSOES E GRATIFICACOES,Custos,Mão de obra,Salários
+4034,62113001,PREMIOS,Custos,Mão de obra,Salários
+4034,62113501,AJUDA DE CUSTO,Custos,Mão de obra,Benefícios
+4034,62114001,ADICIONAL NOTURNO,Custos,Mão de obra,Salários
+4034,62114501,ADICIONAL DE INSALUBRIDADE E PERICULOSI,Custos,Mão de obra,Salários
+4034,62115001,AVISO PREVIO INDENIZADO,Custos,Mão de obra,Rescisões
+4034,62116001,PROVISAO DE FERIAS,Custos,Mão de obra,Salários
+4034,62116002,(-) REVERSÃO PROVISAO DE FERIAS,Custos,Mão de obra,Salários
+4034,62116501,PROVISAO PARA 13O SALARIO,Custos,Mão de obra,Salários
+4034,62117501,PARTICIPACAO NOS RESULTADOS,Custos,Mão de obra,PLR
+4034,62117502,PROVISÃO PARTICIPAÇÃO NOS RESULTADOS,Custos,Mão de obra,Provisões
+4034,62118501,FGTS SOBRE FOLHA DE PAGAMENTO,Custos,Mão de obra,Encargos
+4034,62119001,INDENIZACAO FGTS ( MULTA RESCISORIA ),Custos,Mão de obra,Rescisões
+4034,62119501,INSS - EMPRESA,Custos,Mão de obra,Encargos
+4034,62119502,INSS - TERCEIROS,Custos,Mão de obra,Encargos
+4034,62119504,INSS - ACID. DE TRABALHO,Custos,Mão de obra,Encargos
+4034,62120501,INSS E FGTS SOBRE PROVISAO DE FERIAS,Custos,Mão de obra,Encargos
+4034,62120503,INSS SOBRE PROVISAO DE FERIAS,Custos,Mão de obra,Encargos
+4034,62121001,INSS E FGTS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+4034,62121003,INSS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+4034,62121004,FGTS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+4034,62121501,VALE REFEICAO/ VALE ALIMENTAÇÃO,Custos,Mão de obra,Benefícios
+4034,62122501,ASSISTENCIA MEDICA,Custos,Mão de obra,Benefícios
+4034,62123001,ASSISTENCIA ODONTOLOGICA,Custos,Mão de obra,Benefícios
+4034,62124001,VALE TRANSPORTE,Custos,Mão de obra,Benefícios
+4034,62124501,CESTA BASICA / VALE ALIMENTACAO,Custos,Mão de obra,Benefícios
+4034,62125502,AUX. CRECHE,Custos,Mão de obra,Benefícios
+4034,62126001,UNIFORMES PROFISSIONAIS,Custos,Materiais,Uniformes
+4034,62126002,EQUIPAMENTOS DE PROTEÇÃO INDIVIDUAL,Custos,Materiais,EPIs e segurança
+4034,62126501,TREINAMENTO PROFISSIONAL,Custos,Mão de obra,Treinamentos
+4034,62128501,COMBUSTIVEIS E LUBRIFICANTES,Custos,Materiais,Combustíveis e lubrificantes
+4034,62134502,SERVICOS DE FUNILARIA/PINTURA,Custos,Serviços,Manutenção Veículos
+4034,62134504,SERVICOS DE MECANICA,Custos,Serviços,Manutenção Veículos
+4034,62134509,OUTROS SERVICOS,Custos,Serviços,Outros serviços
+4034,62134511,SERVICOS DE CONSULTORIA,Custos,Serviços,Consultoria
+4034,62134512,FRETES E CARRETOS,Custos,Serviços,Transporte
+4034,62136501,LANCHES E REFEICOES,Custos,Gastos gerais,Outros gastos
+4034,62136502,VIAGENS E ESTADIAS,Custos,Gastos gerais,Outros gastos
+4034,62137001,MATERIAIS DE EXPEDIENTE,Custos,Materiais,Material de escritório
+4034,62137002,MATERIAIS DE INFORMATICA,Custos,Materiais,Materiais de informática
+4034,62137003,MATERIAIS DE SEGURANÇA,Custos,Materiais,EPIs e segurança
+4034,62137501,CONSERVACAO DE BENS,Custos,Materiais,Conservação e limpeza
+4034,62137502,CONSERVACAO DE INSTALACOES,Custos,Materiais,Conservação e limpeza
+4034,62137503,MATERIAIS DE CONSERVACAO/LIMPEZA,Custos,Materiais,Conservação e limpeza
+4034,62137504,MATERIAIS DE REPAROS DE BENS E EQUIPTOS,Custos,Materiais,Materiais diversos
+4034,62138001,BENS DE USO PERMANENTE NAO ATIVADOS,Custos,Materiais,Bens de pequeno valor
+4034,62138002,FERRAMENTAS NAO DURAVEIS,Custos,Materiais,Bens de pequeno valor
+4034,63106102,CUSTO DE CONSTRUÇÃO,Custos,Custos de construção,Custos de construção
+6018,11110001,CAIXA GERAL,Ativo circulante,Caixa e equivalentes de caixa,Caixa geral e fundo fixo
+6018,11110002,FUNDO FIXO,Ativo circulante,Caixa e equivalentes de caixa,Caixa geral e fundo fixo
+6018,11113002,BANCO DE BRASILIA (BRB) 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+6018,11113003,BANCO DO BRASIL 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+6018,11113012,BANCO SAFRA 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+6018,11113020,BRADESCO 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+6018,11113041,SANTANDER 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+6018,11113303,ENTRADA BRASIL 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+6018,11113341,BANCO ENTRADA,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+6018,11113356,BANCO ENTRADA,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+6018,11113603,SAIDA BRASIL 1,Ativo circulante,Caixa e equivalentes de caixa,Conta bancária para movimento
+6018,11114002,BANCO DO BRASIL,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+6018,11114012,APLIC AUTOM SANTANDE,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+6018,11114501,CDB,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+6018,11114503,APLICAÇÃO COMPROMISS,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+6018,11114506,APLICAÇÃO FINANCEIRA EM MOEDA ESTRANGEI,Ativo circulante,Caixa e equivalentes de caixa,Aplicações financeiras
+6018,11210005,CLIENTES - URBANO/FERROVIÁRIO,Ativo circulante,Contas a receber,CR operacional
+6018,11210007,CLIENTES - PIX,Ativo circulante,Contas a receber,CR operacional
+6018,11210010,CLIENTES - ALUGUEL DE IMÓVEIS,Ativo circulante,Contas a receber,CR aluguéis
+6018,11211005,CARTOES DE DEBITO,Ativo circulante,Contas a receber,CR operacional
+6018,11213003,CLIENTES - ORGAOS PUBLICOS - URBANO/FER,Ativo circulante,Contas a receber,CR órgãos públicos
+6018,11216001,(-) PROV. P/ CRED. DE LIQUID. DUVIDOSA,Ativo circulante,Contas a receber,(-) PCLD
+6018,11222002,CONTAS A RECEBER DE PUBLICIDADE,Ativo circulante,Contas a receber,CR publicidade
+6018,11222005,REEMBOLSO DE DESPESAS,Ativo circulante,Outros créditos,Reembolso de despesas
+6018,11222010,CONTAS A RECEBER,Ativo circulante,Outros créditos,Outras contas a receber
+6018,11222012,(-) OUTRAS CONTAS A RECEBER - TRANSFERE,Ativo circulante,Outros créditos,Transferência entre circulante e não circulante
+6018,11310001,ADIANTAMENTO A FORNECEDORES,Ativo circulante,Adiantamentos,Adiantamentos a fornecedores
+6018,11310003,ADIANTAMENTO - FUNDO FIXO,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+6018,11313004,ADIANTAMENTO DIVERSOS,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+6018,11313006,SALDO DEVEDOR PROVENTOS,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+6018,11314001,ADIANTAMENTO POR CONTA DE FERIAS,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+6018,11315001,ADIANTAMENTO POR CONTA DE 13o SALÁRIO,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+6018,11317002,ADIANTAMENTO DE VIAGEM,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+6018,11318003,PROMOCOES,Ativo circulante,Outros créditos,Adiantamentos a funcionários
+6018,11319001,IRPJ ANTECIPACAO - ESTIMATIVA,Ativo circulante,Tributos a recuperar,IRPJ a recuperar
+6018,11320001,IRPJ SALDO NEGATIVO,Ativo circulante,Tributos a recuperar,IRPJ a recuperar
+6018,11322001,IRRF S/ APLIC FINANC,Ativo circulante,Tributos a recuperar,IRRF a recuperar
+6018,11323001,IRRF SOBRE SERV. PREST. A PESSOA JURIDI,Ativo circulante,Tributos a recuperar,IRRF a recuperar
+6018,11326505,IRRF S/ RESGATE DE DEP. JUDICIAL,Ativo circulante,Tributos a recuperar,IRRF a recuperar
+6018,11327001,CSLL ANTECIPACAO - ESTIMATIVA,Ativo circulante,Tributos a recuperar,CSLL a recuperar
+6018,11328001,CSLL SALDO NEGATIVO,Ativo circulante,Tributos a recuperar,CSLL a recuperar
+6018,11330001,CSLL SOBRE SERV. PREST. A PESSOA JURIDI,Ativo circulante,Tributos a recuperar,CSLL a recuperar
+6018,11349002,IMPOSTOS E CONTRIB. FEDERAIS A COMPENSA,Ativo circulante,Tributos a recuperar,Outros tributos a recuperar
+6018,11353003,VIACAO PIRACICABANA LTDA,Ativo circulante,Partes relacionadas,Viação Piracicabana
+6018,11353029,COMPORTE PART-CP A,Ativo circulante,Partes relacionadas,Comporte
+6018,11353091,(-) TRANS EMP LIGADA,Ativo circulante,Partes relacionadas,Transferência entre circulante e não circulante
+6018,11353166,TIC TRENS S.A.,Ativo circulante,Partes relacionadas,TIC Trens
+6018,11353167,ENGETRENS SERVIÇOS DE ENGENHARIA E PROJETOS LTDA,Ativo circulante,Partes relacionadas,Engetrens
+6018,11353168,DUCTU TRENS ASSESSORIA E CONSULTORIA OP,Ativo circulante,Partes relacionadas,Ductu Trens
+6018,11353175,TRIVIA TRENS S.A.,Ativo circulante,Partes relacionadas,Trivia Trens
+6018,11353177,BRTRENS MANUTENÇÃO FERROVIARIA LTDA,Ativo circulante,Partes relacionadas,BRTrens
+6018,11510001,PECAS E ACESSORIOS,Ativo circulante,Estoques,Peças e acessórios
+6018,11510002,PECAS E ACESSORIOS - RECONDIC.,Ativo circulante,Estoques,Peças e acessórios
+6018,11510004,PECAS E ACESSORIOS DE BILHETAGEM,Ativo circulante,Estoques,Peças e acessórios
+6018,11510007,(-) PROV. OBSOLETO PECAS E ACESSORIOS,Ativo circulante,Estoques,(-) Peças e acessórios
+6018,11511001,MATERIAIS DE PINTURA,Ativo circulante,Estoques,Materiais de manutenção
+6018,11511003,MATERIAIS DE ELETRICA,Ativo circulante,Estoques,Materiais de manutenção
+6018,11511008,(-) PROVISÃO OBSOLETO MATERIAIS DE CARR,Ativo circulante,Estoques,(-) Materiais de manutenção
+6018,11513001,GRAXAS/OLEOS/LUBRIFICANTES,Ativo circulante,Estoques,Combustíveis e lubrificantes
+6018,11515050,FERRAMENTAS E FERRAGENS,Ativo circulante,Estoques,Materiais de manutenção
+6018,11516001,MATERIAL DE EXPEDIENTE E INFORMATICA,Ativo circulante,Estoques,Materiais de expediente e informática
+6018,11517001,MATERIAIS DE CONSERVACAO/LIMPEZA,Ativo circulante,Estoques,Materiais de consumo
+6018,11517002,MATER REP BENS EQUI,Ativo circulante,Estoques,Materiais de manutenção
+6018,11517003,MATERIAIS SEGURANCA,Ativo circulante,Estoques,Materiais de consumo
+6018,11517005,UNIFORMES,Ativo circulante,Estoques,Materiais de consumo
+6018,11517007,MATERIAIS DIVERSOS,Ativo circulante,Estoques,Materiais de consumo
+6018,11517013,(-) PROVISÃO OBSOLETOS MATERIAIS DIVERS,Ativo circulante,Estoques,(-) Materiais diversos
+6018,11517014,MATERIAS PARA OBRAS - EVENTOGRAMAS,Ativo circulante,Estoques,Materiais para obras
+6018,11517017,OUTROS COMBUSTIVEIS,Ativo circulante,Estoques,Combustíveis e lubrificantes
+6018,11610003,SEGURO NAO OBRIGATORIO,Ativo circulante,Despesas antecipadas,Seguros a apropriar
+6018,11610006,SEGUROS GERAIS,Ativo circulante,Despesas antecipadas,Seguros a apropriar
+6018,11613002,DESPESAS A APROPRIAR,Ativo circulante,Despesas antecipadas,Outras despesas a apropriar
+6018,11613003,ALUGUEIS A APROPRIAR,Ativo circulante,Despesas antecipadas,Aluguéis a apropriar
+6018,11613010,BENEFICIOS,Ativo circulante,Despesas antecipadas,Benefícios a apropriar
+6018,12113005,DESPESAS A APROPRIAR,Ativo não circulante,Despesas antecipadas,Outras despesas a apropriar
+6018,12122001,OPERACOES A RECEBER,Ativo não circulante,Outros créditos,Operações a receber
+6018,12122003,OUTRAS CONTAS A RECEBER - TRANSFERÊNCIA,Ativo não circulante,Outros créditos,Transferência entre circulante e não circulante
+6018,12125001,IRPJ DIFERIDO - PREJUIZO FISCAL,Ativo não circulante,Tributos diferidos,IRPJ diferidos - prejuízo fiscal e base negativa
+6018,12126001,IRPJ DIFERIDO,Ativo não circulante,Tributos diferidos,IRPJ diferidos - diferenças temporárias
+6018,12127001,CSLL DIFERIDA - BASE NEGATIVA,Ativo não circulante,Tributos diferidos,CSLL diferidos - prejuízo fiscal e base negativa
+6018,12128001,CSLL DIFERIDA,Ativo não circulante,Tributos diferidos,CSLL diferidos - diferenças temporárias
+6018,12136001,DEPOSITOS JUDICIAIS TRABALHISTAS,Ativo não circulante,Depósitos judiciais,Depósitos judiciais trabalhistas
+6018,12137001,PENHORA DE CREDITO,Ativo não circulante,Depósitos judiciais,Bloqueios e penhoras judiciais
+6018,12138002,DEPOSITO CAUCAO CONTRATUAL,Ativo não circulante,Outros créditos,Cauções contratuais
+6018,12140091,TRANSAÇÕES EMP LIG,Ativo não circulante,Partes relacionadas,Transferência entre circulante e não circulante
+6018,12151002,SEGUROS GERAIS LP,Ativo não circulante,Despesas antecipadas,Seguros a apropriar
+6018,12154001,FUNDO DE INVESTIMENT,Ativo não circulante,Títulos e valores imobiliários,Fundos de investimento
+6018,12154001,FUNDO DE INVESTIMENT,Ativo não circulante,Títulos e valores imobiliários,Fundos de investimento
+6018,12154009,APLICAÇÃO FINANCEIRA - CAIXA RESTRITO,Ativo não circulante,Caixa restrito,Caixa restrito
+6018,12154010,ATIVO FINANCEIRO - OBRAS RECURSO PODER PUBLICO,Ativo não circulante,Ativo financeiro,Obras com recursos do poder público
+6018,12154010,ATIVO FINANCEIRO - OBRAS RECURSO PODER PUBLICO,Ativo não circulante,Ativo financeiro,Obras com recursos do poder público
+6018,12154011,ADIANTAMENTO - ATIVO FINANCEIRO,Ativo não circulante,Ativo financeiro,Adiantamentos de ativo financeiro
+6018,12154012,(-) ATIVO FINANCEIRO,Ativo não circulante,Ativo financeiro,(-) Ativo financeiro
+6018,12154013,DEBÊNTURES,Ativo não circulante,Títulos e valores imobiliários,Debêntures
+6018,12154099,CONTRAPARTIDA AQUISIÇÃO ATIVO FINANCEIR,Ativo não circulante,Ativo financeiro,Contrapartida de aquisição
+6018,12210135,COMPORTE PARTICIPAÇÕES S/A,Ativo não circulante,Investimentos,Participações em controladas (MEP)
+6018,12311005,DIREITO DE USO - IMÓVEIS,Ativo não circulante,Direito de uso,Direito de uso de imóveis
+6018,12311005,DIREITO DE USO - IMÓVEIS,Ativo não circulante,Direito de uso,Direito de uso de imóveis
+6018,12312001,INSTALACOES,Ativo não circulante,Imobilizado,Instalações
+6018,12313003,VANS,Ativo não circulante,Imobilizado,Veículos
+6018,12313004,EQUIP/ACESS P/ VEIC.DE LINHA,Ativo não circulante,Imobilizado,Veículos
+6018,12313501,VEICULOS,Ativo não circulante,Imobilizado,Veículos
+6018,12313502,EQUIPAMENTOS E ACESSÓRIOS PARA VEÍCULOS,Ativo não circulante,Imobilizado,Veículos
+6018,12313507,TRENS,Ativo não circulante,Imobilizado,Trens
+6018,12315001,VEICULOS DE AUTO-SOCORRO,Ativo não circulante,Imobilizado,Veículos
+6018,12315004,VEICULOS ADMINISTRATIVOS,Ativo não circulante,Imobilizado,Veículos
+6018,12316001,MAQ/EQUIP. FERR. MANUT.,Ativo não circulante,Imobilizado,Máquinas e equipamentos
+6018,12316002,EQUIPTOS COMUNICACAO,Ativo não circulante,Imobilizado,Máquinas e equipamentos
+6018,12316003,EQUIPTOS. DE SEGURANCA,Ativo não circulante,Imobilizado,Máquinas e equipamentos
+6018,12316004,SIST. DE EMISSAO DE PASSAGENS,Ativo não circulante,Imobilizado,Sistemas de bilhetes e passagens
+6018,12316006,SIST. AUTOM. DE BILH. ELETRONICA,Ativo não circulante,Imobilizado,Sistemas de bilhetes e passagens
+6018,12318001,EQUIPTOS. DE INFORMATICA,Ativo não circulante,Imobilizado,Equipamentos de informática
+6018,12319001,MOVEIS E UTENSILIOS,Ativo não circulante,Imobilizado,Móveis e utensílios
+6018,12322001,BENFEITORIAS EM BENS DE TERCEIROS,Ativo não circulante,Imobilizado,Benfeitorias em bens de terceiros
+6018,12323001,(-) ATIVOS IMOBILIZADOS COM P&D,Ativo não circulante,Imobilizado,Ativos com P&D (Lei 11.196/05)
+6018,12323002,ATIVOS IMOBILIZADOS COM P&D (LEI. 11.19,Ativo não circulante,Imobilizado,Ativos com P&D (Lei 11.196/05)
+6018,12336001,ADIANTAMENTO  DE IMOBILIZADO,Ativo não circulante,Imobilizado,Adiantamento de imobilizado
+6018,12336002,ADIANTAMENTO DE IMOBILIZADO,Ativo não circulante,Imobilizado,Adiantamento de imobilizado
+6018,12337001,OBRAS EM ANDAMENTO,Ativo não circulante,Imobilizado,Imobilizado em andamento
+6018,12337003,OBRAS EM ANDAMENTO - REVERSIVEL,Ativo não circulante,Imobilizado,Imobilizado em andamento
+6018,12339001,IMOBILIZAÇÕES EM ANDAMENTO,Ativo não circulante,Imobilizado,Imobilizado em andamento
+6018,12341006,DEPREC. DIREITO DE USO  - IMÓVEIS,Ativo não circulante,Direito de uso,(-) Direito de uso de imóveis
+6018,12342001,DEPREC. INSTALACOES,Ativo não circulante,Imobilizado,(-) Instalações
+6018,12343003,DEPREC. VANS,Ativo não circulante,Imobilizado,(-) Veículos
+6018,12343004,DEPREC. EQUIP/ACESS P/ VEIC.DE LINHA,Ativo não circulante,Imobilizado,(-) Veículos
+6018,12343502,DEPREC. EQUIPAMENTOS E ACESSÓRIOS PARA,Ativo não circulante,Imobilizado,(-) Veículos
+6018,12343507,DEPRECIAÇÃO - TRENS,Ativo não circulante,Imobilizado,(-) Trens
+6018,12345001,DEPREC. VEIC.DE AUTO-SOCORRO,Ativo não circulante,Imobilizado,(-) Veículos
+6018,12345004,DEPREC. VEIC.ADMINISTRATIVOS,Ativo não circulante,Imobilizado,(-) Veículos
+6018,12345005,(-) DEPREC. VEICULOS,Ativo não circulante,Imobilizado,(-) Veículos
+6018,12346001,DEPREC. MAQ/EQUIP. FERR. MANUT.,Ativo não circulante,Imobilizado,(-) Máquinas e equipamentos
+6018,12346002,DEPREC. EQUIPTOS. DE COMUNICACAO,Ativo não circulante,Imobilizado,(-) Máquinas e equipamentos
+6018,12346003,DEPREC. EQUIPTOS. DE SEGURANCA,Ativo não circulante,Imobilizado,(-) Máquinas e equipamentos
+6018,12346006,DEPREC. SIST. AUTOM. BILH. ELETRONICA,Ativo não circulante,Imobilizado,(-) Sistemas de bilhetes e passagens
+6018,12348001,DEPREC. COMPUTADORES E PERIFERICOS,Ativo não circulante,Imobilizado,(-) Equipamentos de informática
+6018,12349001,DEPREC. MOVEIS E UTENSILIOS,Ativo não circulante,Imobilizado,(-) Móveis e utensílios
+6018,12349002,CONSORCIO DEPREC. MOVEIS E UTENSILIOS,Ativo não circulante,Imobilizado,(-) Móveis e utensílios
+6018,12352001,DEPREC. BENF. EM IMOVEIS DE TERCEIROS,Ativo não circulante,Imobilizado,(-) Benfeitorias em bens de terceiros
+6018,12353001,(-) DEPRECIAÇÕES/AMORTIZAÇÕS COM P&D,Ativo não circulante,Imobilizado,Ativos com P&D (Lei 11.196/05)
+6018,12353002,(-) DEPRECIAÇÕES/AMOR. COM P&D (LEI. 11,Ativo não circulante,Imobilizado,Ativos com P&D (Lei 11.196/05)
+6018,12399001,CONTRAPARTIDA AQUISIÇÃO ATIVO IMOBILIZA,Ativo não circulante,Imobilizado,Contrapartida de aquisição
+6018,12410001,CONCESSOES,Ativo não circulante,Intangível,Direito de concessão
+6018,12412001,LICENCA DE USO DE SOFTWARE,Ativo não circulante,Intangível,Softwares
+6018,12418001,AMORTIZ. DIREITOS DE USO E CONCESSOES D,Ativo não circulante,Intangível,(-) Direito de concessão
+6018,12420001,(-) SOFTWARE,Ativo não circulante,Intangível,(-) Softwares
+6018,21118006,ARRENDAMENTO DIREITO DE USO A PAGAR,Passivo circulante,Passivo de arrendamento,Arrendamento mercantil
+6018,21210001,FORNECEDORES - PJ,Passivo circulante,Fornecedores,Fornecedores nacionais
+6018,21210002,FORNECEDORES-PF NAC,Passivo circulante,Fornecedores,Fornecedores nacionais
+6018,21210004,ENTRADA DE MERCADORIA/ENTRADA DE FATURA,Passivo circulante,Fornecedores,Transitória MIRO/MIGO
+6018,21210006,FORNECEDORES,Passivo circulante,Fornecedores,Fornecedores nacionais
+6018,21210007,(-) FORNECEDORES - TRANSF CIRCULANTE,Passivo circulante,Fornecedores,Transferência entre circulante e não circulante
+6018,21210008,PROVISÃO FORNECEDORES,Passivo circulante,Fornecedores,Provisão de fornecedores
+6018,21211001,FORNECEDORES-PJ EXT,Passivo circulante,Fornecedores,Fornecedores estrangeiros
+6018,21310001,PIS A RECOLHER,Passivo circulante,Obrigações tributárias,PIS a recolher
+6018,21311001,COFINS A RECOLHER,Passivo circulante,Obrigações tributárias,COFINS a recolher
+6018,21312001,IRPJ A RECOLHER,Passivo circulante,Obrigações tributárias,IRPJ a recolher
+6018,21312101,IRPJ - FORNECEDORES,Passivo circulante,Obrigações tributárias,IRPJ a recolher
+6018,21313001,CSLL A RECOLHER,Passivo circulante,Obrigações tributárias,CSLL a recolher
+6018,21313101,CSLL - FORNECEDORES,Passivo circulante,Obrigações tributárias,CSLL a recolher
+6018,21315001,(0561)REND TRAB SAL,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+6018,21315002,(0588) S/ REND.DO TRAB.S/ VINCULO,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+6018,21315003,(1708) IRRF S/ REMUN.DE SERV.PRESTADOS,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+6018,21315007,(8045) S/ OUTROS RENDIMENTOS,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+6018,21316001,CONTRIBUIÇÕES RETIDAS A RECOLHER,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+6018,21317001,ISS - TOMADOR,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+6018,21318001,INSS RETIDO - AUTONOMOS,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+6018,21318002,INSS RETIDO - PJ,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+6018,21318004,INSS RETIDO - FORNECEDORES,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+6018,21318005,TERMO DE COOPERAÇÃO SENAI/EMPRESA,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+6018,21319001,ICMS A RECOLHER,Passivo circulante,Obrigações tributárias,ICMS a recolher
+6018,21319004,ICMS - FORNECEDORES,Passivo circulante,Obrigações tributárias,ICMS a recolher
+6018,21321001,ISS - PRESTADOR,Passivo circulante,Obrigações tributárias,Tributos de terceiros a recolher
+6018,21323004,PARCELAMENTOS FISCAIS,Passivo circulante,Obrigações tributárias,Parcelamentos fiscais
+6018,21325006,IMP. E TX. - FORN.,Passivo circulante,Obrigações tributárias,Outros tributos a recolher
+6018,21410001,SALARIOS A PAGAR,Passivo circulante,Obrigações trabalhistas,Salários e pró-labore a pagar
+6018,21410011,PLR A  PAGAR,Passivo circulante,Obrigações trabalhistas,PLR a pagar
+6018,21410101,SALS A PAGAR-FORNES,Passivo circulante,Obrigações trabalhistas,Salários e pró-labore a pagar
+6018,21411001,INSS A RECOLHER,Passivo circulante,Obrigações trabalhistas,INSS a recolher
+6018,21411004,INSS SOBRE FATURAMENTO,Passivo circulante,Obrigações trabalhistas,INSS a recolher
+6018,21412001,FGTS A RECOLHER,Passivo circulante,Obrigações trabalhistas,FGTS a recolher
+6018,21412101,FGTS - FORNCEDORES,Passivo circulante,Obrigações trabalhistas,FGTS a recolher
+6018,21413003,CONTRIBUIÇÃO SINDICAL,Passivo circulante,Obrigações trabalhistas,Contribuições sindicais e assistenciais
+6018,21510009,ADIANTAMENTO DE CLIENTES,Passivo circulante,Outras obrigações,Adiantamento de clientes
+6018,21517201,PENSÃO ALIMENTICIA,Passivo circulante,Obrigações trabalhistas,Consignações e descontos em folha
+6018,21517205,CONTAS A PAGAR,Passivo circulante,Fornecedores,Contas a pagar diversas
+6018,21517206,CONTAS A PAGAR - FORNECEDORES,Passivo circulante,Fornecedores,Contas a pagar diversas
+6018,21517224,(-) CONTAS A PAGAR - TRANS. CP/LP,Passivo circulante,Fornecedores,Transferência entre circulante e não circulante
+6018,21517225,OUTRAS OBRIGAÇÕES - FORNECEDORES,Passivo circulante,Fornecedores,Contas a pagar diversas
+6018,21711003,VIACAO PIRACICABANA LTDA,Passivo circulante,Partes relacionadas,Viação Piracicabana
+6018,21711110,(-) TRANS C/ EMP LIGADAS - TRANSF CIRCULANTE,Passivo circulante,Partes relacionadas,Transferência entre circulante e não circulante
+6018,21711179,TIC TRENS S.A.,Passivo circulante,Partes relacionadas,TIC Trens
+6018,21711188,TRIVIA TRENS S.A.,Passivo circulante,Partes relacionadas,Trivia Trens
+6018,21712014,JOAQUIM CONSTANTINO NETO,Passivo circulante,Partes relacionadas,Acionistas PF
+6018,21712015,HENRIQUE CONSTANTINO,Passivo circulante,Partes relacionadas,Acionistas PF
+6018,21712016,RICARDO CONSTANTINO,Passivo circulante,Partes relacionadas,Acionistas PF
+6018,21810001,PROV.DE FERIAS,Passivo circulante,Obrigações trabalhistas,Provisão de férias e encargos
+6018,21810002,PROVDE ENC S/ FERIAS,Passivo circulante,Obrigações trabalhistas,Provisão de férias e encargos
+6018,21811001,PROV.DE 13o SALARIO,Passivo circulante,Obrigações trabalhistas,Provisão de 13º salário e encargos
+6018,21811002,PROV ENC S/ 13o SAL,Passivo circulante,Obrigações trabalhistas,Provisão de 13º salário e encargos
+6018,22118004,ARRENDAMENTO DIREITO DE USO A PAGAR,Passivo não circulante,Passivo de arrendamento,Arrendamento mercantil
+6018,22122003,FORNECEDORES - TRANSF NÃO CIRCULANTE,Passivo não circulante,Fornecedores,Fornecedores nacionais
+6018,22123004,CONTAS A PAGAR - TRANSF NÃO CIRCULANTE,Passivo não circulante,Outras obrigações,Contas a pagar diversas
+6018,22125084,TRANS C/ EMP LIGADAS - TRANSF NÃO CIRCULANTE,Passivo não circulante,Partes relacionadas,Transferência entre circulante e não circulante
+6018,22128008,PARCELAMENTOS,Passivo não circulante,Obrigações tributárias,Parcelamentos fiscais
+6018,22129004,CREDITOS TRIBUTARIOS NAO HOMOLOGADOS,Passivo não circulante,Obrigações tributárias,Créditos tributários não homologados
+6018,22137001,PROCESSOS CIVEIS,Passivo não circulante,Provisões para contingências,Cíveis
+6018,22139001,PROCESSOS TRABALHISTAS,Passivo não circulante,Provisões para contingências,Trabalhistas
+6018,22139002,PROCESSOS TRABALHISTAS - CBTU AC,Passivo não circulante,Provisões para contingências,Trabalhistas
+6018,24110005,COMPORTE PART-CAPSOC,Patrimônio líquido,Capital social,Capital subscrito
+6018,24110026,CAPITAL SOCIAL SUBSCRITO,Patrimônio líquido,Capital social,Capital subscrito
+6018,24110079,(-) OUTRAS RESERVAS,Patrimônio líquido,Capital social,(-) Outras reservas
+6018,24111005,COMPORTE-CAP/INT,Patrimônio líquido,Capital social,(-) Capital a integralizar
+6018,24215015,RESERVA DE SUBVENÇÃO,Patrimônio líquido,Reserva de lucros,Reserva de incentivos fiscais
+6018,24510001,LUCROS ACUMULADOS,Patrimônio líquido,Lucros / prejuízos acumulados,Lucros acumulados
+6018,24510004,PREJUIZOS ACUMULADOS,Patrimônio líquido,Lucros / prejuízos acumulados,Prejuízos acumulados
+6018,24511001,RESULTADO DO EXERCICIO,Patrimônio líquido,Resultado do período,Resultado do período
+6018,24512003,COMPORTE PARTICIPACOES S/A,Patrimônio líquido,AFAC,Comporte
+6018,24710003,COMPORTE PART-AFAC P,Patrimônio líquido,AFAC,Comporte
+6018,24710031,VEICULO DE DESESTATIZAÇÃO DE MINAS GERA,Patrimônio líquido,AFAC,VDMG
+6018,31111502,INTERMUNICIPAL - FERROVIÁRIO - TARIFA T,Receita líquida,Receita tarifária,Receita tarifária
+6018,31111505,INTERMUNICIPAL - FERROVIÁRIO - DEMANDA,Receita líquida,Receita mitigação,Receita mitigação
+6018,32210001,(-) PIS S/ FATURAMENTO,Receita líquida,(-) Tributos,PIS
+6018,32210501,(-) COFINS S/ FATURAMENTO,Receita líquida,(-) Tributos,COFINS
+6018,32212001,(-) ISSQN,Receita líquida,(-) Tributos,ISSQN
+6018,32213000,(-)  CONTRIBUIÇÃO PREVIDENCIARIA SOBRE,Receita líquida,(-) Tributos,CPRB
+6018,35102006,SERVIÇOS DE ENGENHARIA,Receita líquida,Receita operacional,Receita serviços prestados
+6018,51110501,SALARIOS,Despesas,Mão de obra,Salários
+6018,51110502,FERIAS,Despesas,Mão de obra,Salários
+6018,51111001,HORAS EXTRAS,Despesas,Mão de obra,Salários
+6018,51112501,DESCANSO SEMANAL REMUNERADO,Despesas,Mão de obra,Salários
+6018,51113501,PREMIOS,Despesas,Mão de obra,Salários
+6018,51116501,PROVISAO DE FERIAS,Despesas,Mão de obra,Salários
+6018,51117001,PROVISAO PARA 13O SALARIO,Despesas,Mão de obra,Salários
+6018,51118001,PARTICIPACAO NOS RESULTADOS,Despesas,Mão de obra,PLR
+6018,51119001,FGTS SOBRE FOLHA DE PAGAMENTO,Despesas,Mão de obra,Encargos
+6018,51120001,INSS - EMPRESA,Despesas,Mão de obra,Encargos
+6018,51120002,INSS - TERCEIROS,Despesas,Mão de obra,Encargos
+6018,51120003,INSS - ACID.DE TRABALHO,Despesas,Mão de obra,Encargos
+6018,51121001,INSS/FGTS S/PROV.FERIAS,Despesas,Mão de obra,Encargos
+6018,51121501,INSS/FGTS S/PROV.13O,Despesas,Mão de obra,Encargos
+6018,51122001,VALE REFEICAO/ VALE ALIMENTAÇÃO,Despesas,Mão de obra,Benefícios
+6018,51127001,CURSOS/TREINAMENTOS,Despesas,Mão de obra,Treinamentos
+6018,51128501,COMISSOES E DESPESAS COM CARTAO DE CRED,Despesas,Gastos gerais,Outros gastos
+6018,51132001,MATERIAIS DE EXPEDIENTE,Despesas,Materiais,Material de escritório
+6018,51133001,CONSERVACAO DE IMOVEIS,Despesas,Materiais,Conservação e limpeza
+6018,51134501,COMBUSTIVEIS E LUBRIFICANTES,Despesas,Materiais,Combustíveis e lubrificantes
+6018,51136003,"TAXA DE LICENCIAMENTO, VISTORIA E OUTRA",Despesas,Impostos e taxas,Impostos e taxas
+6018,51137001,SERVICOS CONTRATADOS P.FISICA,Despesas,Serviços,Outros serviços
+6018,51137502,SERVICOS DE CONSULTORIA,Despesas,Serviços,Consultoria
+6018,51143001,LOCACAO DE BENS MOVEIS,Despesas,Gastos gerais,Aluguel e condomínio
+6018,51146001,VIAGENS E CONDUCOES,Despesas,Gastos gerais,Outros gastos
+6018,51146501,LANCHES E REFEICOES,Despesas,Gastos gerais,Outros gastos
+6018,51150001,BENS DE USO PERMANENTE NAO ATIVADOS,Despesas,Materiais,Bens de pequeno valor
+6018,51152501,DEPREC. C/ INSTALACOES,Despesas,Depreciação e amortização,Depreciação
+6018,51153001,DEPREC. C/ VEICULOS DE APOIO COMERCIAIS,Despesas,Depreciação e amortização,Depreciação
+6018,51210001,PRO-LABORE E HONORARIOS DA DIRETORIA,Despesas,Mão de obra,Salários
+6018,51210501,SALARIOS (ADM),Despesas,Mão de obra,Salários
+6018,51210502,FERIAS E ADICIONAL,Despesas,Mão de obra,Salários
+6018,51210503,13o SALARIO,Despesas,Mão de obra,Salários
+6018,51211001,HORAS EXTRAS,Despesas,Mão de obra,Salários
+6018,51212501,DESCANSO SEMANAL REMUNERADO,Despesas,Mão de obra,Salários
+6018,51213501,PREMIOS,Despesas,Mão de obra,Salários
+6018,51214001,AJUDA DE CUSTO,Despesas,Mão de obra,Benefícios
+6018,51214501,ADICIONAL NOTURNO,Despesas,Mão de obra,Salários
+6018,51215001,ADICIONAL DE INSALUBRIDADE E PERICULOSIDADE,Despesas,Mão de obra,Salários
+6018,51215501,AVISO PREVIO INDENIZADO,Despesas,Mão de obra,Rescisões
+6018,51216501,PROV DE FER(ADM),Despesas,Mão de obra,Salários
+6018,51216502,(-) REVERSÃO PROVISAO DE FERIAS,Despesas,Mão de obra,Salários
+6018,51217001,PROV  13o SAL(ADM),Despesas,Mão de obra,Salários
+6018,51217501,INDENIZACOES/ACORDOS TRABALHISTAS,Despesas,Mão de obra,Rescisões
+6018,51218001,PARTICIPACAO NOS RESULTADOS,Despesas,Mão de obra,PLR
+6018,51218002,PROVISÃO PARTICIPACAO NOS RESULTADOS,Despesas,Mão de obra,PLR
+6018,51218003,REVERSÃO PROVISÃO PARTICIPACAO NOS RESU,Despesas,Mão de obra,Salários
+6018,51219001,FGTS(ADM),Despesas,Mão de obra,Encargos
+6018,51219501,INDENIZACAO FGTS ( MULTA RESCISORIA ),Despesas,Mão de obra,Rescisões
+6018,51220001,INSS - EMP(ADM),Despesas,Mão de obra,Encargos
+6018,51220002,INSS - TERC(ADM),Despesas,Mão de obra,Encargos
+6018,51220004,INSS AC TRAB(ADM),Despesas,Mão de obra,Encargos
+6018,51221001,INSS FGTS P FER(ADM),Despesas,Mão de obra,Encargos
+6018,51221003,INSS SOBRE PROVISAO DE FERIAS,Despesas,Mão de obra,Encargos
+6018,51221501,INSS FGTS PR 13(ADM),Despesas,Mão de obra,Encargos
+6018,51221502,INSS SOBRE PROVISAO DE 13O,Despesas,Mão de obra,Encargos
+6018,51221503,FGTS SOBRE PROVISAO DE 13O,Despesas,Mão de obra,Encargos
+6018,51222001,VALE REFEICAO/ VALE ALIMENTAÇÃO,Despesas,Mão de obra,Benefícios
+6018,51223001,ASSISTENCIA MEDICA,Despesas,Mão de obra,Benefícios
+6018,51224001,SEGURO DE VIDA EM GRUPO,Despesas,Mão de obra,Benefícios
+6018,51224501,VALE TRANSPORTE,Despesas,Mão de obra,Benefícios
+6018,51225001,CESTA BASICA / VALE ALIMENTACAO,Despesas,Mão de obra,Benefícios
+6018,51226002,AUX. CRECHE,Despesas,Mão de obra,Benefícios
+6018,51226003,FUNDO ASSISTENCIAL,Despesas,Mão de obra,Encargos
+6018,51226501,UNIFORMES,Despesas,Materiais,Uniformes
+6018,51226502,EQUIPAMENTOS DE PROTECAO INDIVIDUAL,Despesas,Materiais,EPIs e segurança
+6018,51227001,CURSOS/TREINAMENTOS,Despesas,Mão de obra,Treinamentos
+6018,51228001,CONSERVACAO DE IMOVEIS,Despesas,Materiais,Conservação e limpeza
+6018,51228501,CONSERVACAO DE INSTALACOES,Despesas,Materiais,Conservação e limpeza
+6018,51228502,MATERIAIS DE CONSERVACAO DE BENS,Despesas,Materiais,Conservação e limpeza
+6018,51228503,MATERIAIS DE CONSERVACAO E LIMPEZA,Despesas,Materiais,Conservação e limpeza
+6018,51228504,OUTROS MATERIAIS,Despesas,Materiais,Materiais diversos
+6018,51229001,MANUTENCAO E CONSERV. DE MAQUINAS E EQUIPAMEN,Despesas,Materiais,Materiais veículos
+6018,51229501,COMBUSTIVEIS E LUBRIFICANTES,Despesas,Materiais,Combustíveis e lubrificantes
+6018,51230501,MANUTENCAO DE VEICULOS DE APOIO,Despesas,Serviços,Materiais Veículos
+6018,51231001,IPVA - IMPOSTO SOBRE VEICULOS AUTOMOTORES,Despesas,Impostos e taxas,Impostos e taxas
+6018,51231003,"TAXA DE LICENCIAMENTO, VISTORIA E OUTRAS",Despesas,Impostos e taxas,Impostos e taxas
+6018,51231501,DESPESAS COM VEICULOS AUXILIARES,Despesas,Materiais,Materiais veículos
+6018,51232001,SERVICOS PRESTADOS P/ P.FISICA,Despesas,Serviços,Outros serviços
+6018,51232501,SERVICOS DE AUDITORIA,Despesas,Serviços,Outros serviços
+6018,51232502,SERVICOS DE CONSULTORIA,Despesas,Serviços,Consultoria
+6018,51232503,SERVICOS JURIDICOS,Despesas,Serviços,Jurídico
+6018,51232504,SERVICOS DE CONSERVACAO/LIMPEZA,Despesas,Serviços,Conservação e Limpeza
+6018,51232505,SERVICOS DE ADMINISTRACAO,Despesas,Serviços,Administrativo
+6018,51232506,EXAME PERIODICO / SAUDE OCUPACIONAL,Despesas,Serviços,Outros serviços
+6018,51232510,SERV. DESPACHANTE,Despesas,Serviços,Outros serviços
+6018,51232511,SERVICOS DE SEGURANÇA,Despesas,Serviços,Segurança
+6018,51232512,SERV ADMINISTRATIVOS,Despesas,Serviços,Administrativo
+6018,51232513,SERVIÇO DE TRANSPORTE DE COLABORADORES,Despesas,Serviços,Transporte
+6018,51233001,SERVICOS DE INFORMATICA,Despesas,Serviços,Tecnologia da Informação
+6018,51233002,SERVICOS DE TI,Despesas,Serviços,Tecnologia da Informação
+6018,51233501,SERVICOS DE MANUTENCAO CONTRATADOS COM TERCEIROS,Despesas,Serviços,Outros serviços
+6018,51234001,OUT SERV(ADM),Despesas,Serviços,Outros serviços
+6018,51234501,ENERGIA ELETRICA,Despesas,Gastos gerais,Contas de consumo
+6018,51235001,AGUA E ESGOTO,Despesas,Gastos gerais,Contas de consumo
+6018,51235501,TELEFONE,Despesas,Gastos gerais,Contas de consumo
+6018,51236001,COPIAS E AUTENTICACOES,Despesas,Gastos gerais,Outros gastos
+6018,51236501,SEGUROS (ADM),Despesas,Seguros,Seguros
+6018,51237501,ALUGUEL E CONDOMINIO DE BENS IMOVEIS,Despesas,Gastos gerais,Aluguel e condomínio
+6018,51237502,ALUGUEL (ARREDAMENTO MERCANTIL),Despesas,Gastos gerais,Aluguel e condomínio
+6018,51238001,ALUGUEL DE BENS DIVERSOS,Despesas,Gastos gerais,Aluguéis diversos
+6018,51238501,ANUNCIOS E PUBLICACOES,Despesas,Gastos gerais,Comunicação / eventos
+6018,51240001,FRETES E CARRETOS,Despesas,Serviços,Transporte
+6018,51240501,MATERIAL DE EXPEDIENTE,Despesas,Materiais,Material de escritório
+6018,51240502,MATERIAL DE INFORMATICA,Despesas,Materiais,Materiais de informática
+6018,51240503,DESPESA C/ PLOTTER,Despesas,Materiais,Material de escritório
+6018,51240504,MATERIAL DE SEGURANÇA,Despesas,Materiais,EPIs e segurança
+6018,51241001,CONDUCAO/ESTACIONAMENTO/PEDAGIO,Despesas,Gastos gerais,Outros gastos
+6018,51241002,VIAGENS E ESTADIAS,Despesas,Gastos gerais,Outros gastos
+6018,51241501,LANCHES E REFEICOES,Despesas,Gastos gerais,Outros gastos
+6018,51241502,COPA E COZINHA,Despesas,Gastos gerais,Outros gastos
+6018,51242001,LEGAIS E JUD(ADM),Despesas,Gastos gerais,Jurídico
+6018,51242002,HONORARIOS PERICIAIS,Despesas,Gastos gerais,Jurídico
+6018,51242003,HONORARIOS ADVOCATICIOS,Despesas,Serviços,Jurídico
+6018,51242004,OUTRAS DESPESAS,Despesas,Gastos gerais,Outros gastos
+6018,51242501,CONTRIB. A ASSOCIACOES DE CLASSE,Despesas,Gastos gerais,Outros gastos
+6018,51243001,LIVR JORN REV(ADM),Despesas,Gastos gerais,Outros gastos
+6018,51243501,BRIND E PRES(ADM),Despesas,Gastos gerais,Outros gastos
+6018,51243505,INCENTIVO A CULTURA,Despesas,Gastos gerais,Outros gastos
+6018,51244501,ANUNCIOS E PUBLICACOES,Despesas,Gastos gerais,Comunicação / eventos
+6018,51245001,BENS DE USO PERMANENTE NAO ATIVADOS,Despesas,Materiais,Bens de pequeno valor
+6018,51245501,MEDICAMENTOS P/ AMBULATORIO,Despesas,Gastos gerais,Outros gastos
+6018,51245505,COMEMOR EVENT(ADM),Despesas,Gastos gerais,Outros gastos
+6018,51245509,OUTRAS DESPESAS,Despesas,Gastos gerais,Outros gastos
+6018,51245510,CORREIOS E MALOTES,Despesas,Gastos gerais,Outros gastos
+6018,51245512,ASSISTENCIA MEDICA,Despesas,Mão de obra,Benefícios
+6018,51245513,DESPESAS ADMINISTRATIVAS,Despesas,Gastos gerais,Outros gastos
+6018,51246002,DEPREC. C/ DIREITO DE USO - ARRENDAMENT,Despesas,Depreciação e amortização,Depreciação
+6018,51247001,DEPREC. C/ VEICULOS AUXILIARES,Despesas,Depreciação e amortização,Depreciação
+6018,51247502,DEPREC. C/ EQUIPTOS. DE COMUNICACAO,Despesas,Depreciação e amortização,Depreciação
+6018,51247503,DEPREC. C/ EQUIPTOS. DE SEGURANCA,Despesas,Depreciação e amortização,Depreciação
+6018,51248001,DEPREC. C/ EQUIPTOS. DE INFORMATICA,Despesas,Depreciação e amortização,Depreciação
+6018,51248501,DEPREC. C/ MOVEIS E UTENSILIOS,Despesas,Depreciação e amortização,Depreciação
+6018,51250001,DEPREC. C/ BENF. EM PROPR. DE TERC.,Despesas,Depreciação e amortização,Depreciação
+6018,51251501,AMORTIZACAO SOFTWARES,Despesas,Depreciação e amortização,Amortização
+6018,51311001,VENDAS DE SUCATAS,Outras despesas / receitas,Outras despesas / receitas,Venda de sucata
+6018,51313513,RECEITA C/ ALUGUEIS,Outras despesas / receitas,Outras despesas / receitas,Aluguel
+6018,51313522,RECEITA PUBLICIDADE,Outras despesas / receitas,Outras despesas / receitas,Publicidade
+6018,51313525,RECUPERACAO DE CUSTOS/DESPESA,Outras despesas / receitas,Outras despesas / receitas,Outros
+6018,51314001,PIS SOBRE OUTRAS RECEITAS,Outras despesas / receitas,Outras despesas / receitas,PIS
+6018,51314501,COFINS SOBRE OUTRAS RECEITAS,Outras despesas / receitas,Outras despesas / receitas,COFINS
+6018,51315001,ICMS - DIF. DE ALIQUOTA,Outras despesas / receitas,Outras despesas / receitas,ICMS
+6018,51315002,ICMS - OUTRAS RECEITAS,Outras despesas / receitas,Outras despesas / receitas,ICMS
+6018,51315501,IPTU,Despesas,Impostos e taxas,Impostos e taxas
+6018,51316501,IMP TX ESTAD,Despesas,Impostos e taxas,Impostos e taxas
+6018,51316502,IMPOSTOS E TAXAS FEDERAIS,Despesas,Impostos e taxas,Impostos e taxas
+6018,51316510,OUTROS IMPOSTOS/TAXAS/CONTRIB.,Despesas,Impostos e taxas,Impostos e taxas
+6018,51317001,MULTAS/JUROS,Despesas financeiras,Despesas financeiras,Juros e multas
+6018,51318501,TAXAS DE LOCALIZ. E FUNCIONAMENTO,Despesas,Impostos e taxas,Impostos e taxas
+6018,51319002,TAXA DE GERENCIAMENTO,Despesas,Impostos e taxas,Impostos e taxas
+6018,51319511,PERDAS C/ RECEBTO. DE CREDITO DEDUTIVEL,Despesas,Gastos gerais,Outros gastos
+6018,51321501,MULTAS DE TRANSITO,Despesas,Gastos gerais,Outros gastos
+6018,51326501,(-) VALOR LIQUIDO CONTABIL,Outras despesas / receitas,Outras despesas / receitas,Venda de imobilizado
+6018,52110001,REND APLICAC FINANC,Receitas financeiras,Receitas financeiras,Aplicações financeiras
+6018,52110501,JUROS ATIVOS,Receitas financeiras,Receitas financeiras,Juros
+6018,52111001,DESCONTOS OBTIDOS,Receitas financeiras,Receitas financeiras,Outros
+6018,52113501,JAM S/ DEVOL. DE DEP. JUDICIAIS,Receitas financeiras,Receitas financeiras,Variação monetária
+6018,52113502,GANHO PART FDOS INVE,Receitas financeiras,Receitas financeiras,Aplicações financeiras
+6018,52114001,IOF - DESPESA,Despesas financeiras,Despesas financeiras,Taxas
+6018,52114501,JUROS/ENCARGOS S/ EMPRESTIMOS,Despesas financeiras,Despesas financeiras,Juros sobre financiamento
+6018,52114504,JUROS PASSIVOS,Despesas financeiras,Despesas financeiras,Juros e multas
+6018,52114506,JUROS S/ ARRENDAMENTO MERCANTIL (CPC 06),Despesas financeiras,Despesas financeiras,Juros e multas
+6018,52116001,TARIFAS BANCARIAS,Despesas financeiras,Despesas financeiras,Taxas
+6018,52116002,COMIS CAPT RECURSOS,Despesas financeiras,Despesas financeiras,Taxas
+6018,52119001,ARREDONDAMENTO,Despesas financeiras,Despesas financeiras,Outros
+6018,52119008,PIS/COFINS S/ REC. F,Despesas financeiras,Despesas financeiras,Pis/Cofins
+6018,52210501,VAR. MONETARIAS ATIVAS,Receitas financeiras,Receitas financeiras,Variação monetária
+6018,52210502,VAR. MONETARIAS ATIVAS - EXCLUSÃO BASE,Receitas financeiras,Receitas financeiras,Variação monetária
+6018,52212501,VAR. CAMBIAIS ATIVAS,Receitas financeiras,Receitas financeiras,Variação cambial
+6018,52212502,VAR. CAMBIAIS ATIVAS NÃO REALIZADA,Receitas financeiras,Receitas financeiras,Variação cambial
+6018,52213003,VARIACOES CAMBIAIS PASSIVAS,Despesas financeiras,Despesas financeiras,Variação cambial
+6018,52213004,VARIACOES CAMBIAIS PASSIVAS NÃO REALIZA,Despesas financeiras,Despesas financeiras,Variação cambial
+6018,54110001,PROVISAO DE IRPJ,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+6018,54110002,IRPJ ANOS ANTERIORES,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+6018,54110003,(-) RECEITA DE SUBVENÇÃO IRPJ,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+6018,54110005,(-) INCENTIVOS,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+6018,54110501,PROVISAO DE CSLL,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+6018,54110503,(-) RECEITA DE SUBVENÇÃO CSLL,IR / CSLL,IRPJ / CSLL corrente,IRPJ / CSLL corrente
+6018,54111002,PROV. ATIVA DE IRPJ DIFERIDO,IR / CSLL,IRPJ / CSLL diferido,IRPJ / CSLL diferido
+6018,54111502,PROV. ATIVA DE CSLL DIFERIDA,IR / CSLL,IRPJ / CSLL diferido,IRPJ / CSLL diferido
+6018,61117001,INDENIZACOES TRABALHISTAS,Custos,Mão de obra,Rescisões
+6018,61120001,INSS S/ INDENIZ. TRABALHISTAS,Custos,Mão de obra,Rescisões
+6018,61120002,FGTS S/ INDENIZ. TRABALHISTAS,Custos,Mão de obra,Rescisões
+6018,61121501,VALE REFEICAO/ VALE ALIMENTAÇÃO,Custos,Mão de obra,Benefícios
+6018,61124001,VALE TRANSPORTE,Custos,Mão de obra,Benefícios
+6018,61126001,UNIFORMES PROFISSIONAIS,Custos,Materiais,Uniformes
+6018,61126002,EQUIPAMENTOS DE PROTECAO INDIVIDUAL,Custos,Materiais,EPIs e segurança
+6018,61128501,SALARIOS,Custos,Mão de obra,Salários
+6018,61128502,FERIAS,Custos,Mão de obra,Salários
+6018,61128503,13O SALARIO,Custos,Mão de obra,Salários
+6018,61129001,HORAS EXTRAS,Custos,Mão de obra,Salários
+6018,61130501,DESCANSO SEMANAL REMUNERADO,Custos,Mão de obra,Salários
+6018,61131001,COMISSOES E GRATIFICACOES,Custos,Mão de obra,Salários
+6018,61131501,PREMIOS,Custos,Mão de obra,Salários
+6018,61132001,AJUDA DE CUSTO,Custos,Mão de obra,Benefícios
+6018,61132501,ADICIONAL NOTURNO,Custos,Mão de obra,Salários
+6018,61133001,ADICIONAL DE INSALUBRIDADE E PERICULOSI,Custos,Mão de obra,Salários
+6018,61133501,AVISO PREVIO INDENIZADO,Custos,Mão de obra,Rescisões
+6018,61134501,PROVISAO DE FERIAS,Custos,Mão de obra,Salários
+6018,61134502,(-) REVERSÃO PROVISAO DE FERIAS,Custos,Mão de obra,Salários
+6018,61135001,PROVISAO PARA 13O SALARIO,Custos,Mão de obra,Salários
+6018,61135501,INDENIZACOES/ACORDOS TRABALHISTAS,Custos,Mão de obra,Rescisões
+6018,61136001,PARTICIPACAO NOS RESULTADOS,Custos,Mão de obra,PLR
+6018,61137001,FGTS SOBRE FOLHA DE PAGAMENTO,Custos,Mão de obra,Encargos
+6018,61137501,INDENIZACAO FGTS ( MULTA RESCISORIA ),Custos,Mão de obra,Rescisões
+6018,61138001,INSS - EMPRESA,Custos,Mão de obra,Encargos
+6018,61138002,INSS - TERCEIROS,Custos,Mão de obra,Encargos
+6018,61138003,INSS - ACID. DE TRABALHO,Custos,Mão de obra,Encargos
+6018,61139001,INSS E FGTS SOBRE PROVISAO DE FERIAS,Custos,Mão de obra,Encargos
+6018,61139501,INSS E FGTS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+6018,61140001,VALE REFEICAO/ VALE ALIMENTAÇÃO,Custos,Mão de obra,Benefícios
+6018,61142001,SEGURO DE VIDA EM GRUPO,Custos,Mão de obra,Benefícios
+6018,61142501,VALE TRANSPORTE,Custos,Mão de obra,Benefícios
+6018,61143001,CESTA BASICA / VALE ALIMENTACAO,Custos,Mão de obra,Benefícios
+6018,61144002,AUXILIO CRECHE,Custos,Mão de obra,Benefícios
+6018,61144003,FUNDO ASSISTENCIAL,Custos,Mão de obra,Encargos
+6018,61144501,UNIFORMES,Custos,Materiais,Uniformes
+6018,61144502,EQUIPTOS. DE PROTECAO INDIVIDUAL,Custos,Materiais,EPIs e segurança
+6018,61145001,CURSOS/TREINAMENTOS,Custos,Mão de obra,Treinamentos
+6018,61147501,GRAXAS E LUBRIFICANTES,Custos,Materiais,Combustíveis e lubrificantes
+6018,61148002,GASOLINA,Custos,Materiais,Combustíveis e lubrificantes
+6018,61149503,MATERIAIS DE BORRACHARIA,Custos,Materiais,Materiais veículos
+6018,61150001,MATERIAIS DE ELETRICA,Custos,Materiais,Materiais diversos
+6018,61150002,MATERIAIS DE FUNILARIA,Custos,Materiais,Materiais veículos
+6018,61150003,MATERIAIS DE PINTURA,Custos,Materiais,Materiais diversos
+6018,61150005,OUTROS MATERIAIS,Custos,Materiais,Materiais diversos
+6018,61150502,OUTROS MATERIAIS,Custos,Materiais,Materiais diversos
+6018,61151001,PECAS / ACESSORIOS - NOVOS,Custos,Materiais,Materiais veículos
+6018,61151002,PECAS / ACESSORIOS - RECONDIC.,Custos,Materiais,Materiais veículos
+6018,61151007,PEÇAS E ACESSÓRIOS DE BILHETAGEM,Custos,Materiais,Materiais diversos
+6018,61152501,"TAXA DE LICENCIAMENTO, LICENÇA E OUTROS",Custos,Impostos e taxas,Impostos e taxas
+6018,61155501,DESP. C/ VEICULOS AUXILIARES,Custos,Gastos gerais,Outros gastos
+6018,61155502,ENER ELETRICA VLT/METRO - REDE AEREA E,Custos,Energia,Energia
+6018,61155503,CUSTOS PARA CONTROLE E OPERAÇÃO DE VEÍC,Custos,Gastos gerais,Outros gastos
+6018,61157501,ALUGUEL DE BENS DIVERSOS,Custos,Gastos gerais,Aluguéis diversos
+6018,61158002,HONORARIOS ADVOCATICIOS,Custos,Serviços,Jurídico
+6018,61158004,LEGAIS E JUDICIAIS,Custos,Gastos gerais,Jurídico
+6018,61158501,INDENIZ. C/ ACIDENTES E DANOS MATERIAIS,Custos,Gastos gerais,Outros gastos
+6018,61160001,SERVICOS DE CONSERVACAO/LIMPEZA,Custos,Serviços,Conservação e Limpeza
+6018,61160003,SERVICOS DE SEGURANCA,Custos,Serviços,Segurança
+6018,61160004,SERVICOS DE TRANSPORTES,Custos,Serviços,Transporte
+6018,61160005,FRETAMENTO DE VEICULOS DE TERCEIROS,Custos,Serviços,Transporte
+6018,61160006,OUTROS SERVICOS,Custos,Serviços,Outros serviços
+6018,61160007,SERVIÇOS DE CONSULTORIA,Custos,Serviços,Consultoria
+6018,61160501,ENERGIA ELETRICA,Custos,Energia,Energia
+6018,61161001,AGUA E ESGOTO,Custos,Gastos gerais,Contas de consumo
+6018,61162002,LANCHES E REFEICOES,Custos,Gastos gerais,Outros gastos
+6018,61162501,IMPRESSOS E MAT. DE ESCRITORIO,Custos,Materiais,Material de escritório
+6018,61163001,CONSERVACAO DE BENS,Custos,Materiais,Conservação e limpeza
+6018,61163002,CONSERVACAO DE INSTALACOES,Custos,Materiais,Conservação e limpeza
+6018,61163501,BENS DE NATUREZA PERMANENTE,Custos,Materiais,Bens de pequeno valor
+6018,61164502,DEPREC. C/ DIREITO DE USO - ARRENDAMENTO MERCANTIL,Custos,Depreciação e amortização,Depreciação
+6018,61165501,DEPREC. C/ VEICULOS DE LINHA,Custos,Depreciação e amortização,Depreciação
+6018,61166501,DEPREC. C/ VEICULOS DE AUXILIARES,Custos,Depreciação e amortização,Depreciação
+6018,61167001,DEPREC. C/ MAQ.EQUIPTOS.FERR. DA MANUT.,Custos,Depreciação e amortização,Depreciação
+6018,61167004,DEPREC. C/ EQUIPTOS. P/ VEICULOS,Custos,Depreciação e amortização,Depreciação
+6018,61167006,DEPREC. SIST. AUTOM. BILH. ELETRONICA,Custos,Depreciação e amortização,Depreciação
+6018,61171002,AMORTIZ. C/ OUTORGA E CONCESSAO DE LINH,Custos,Depreciação e amortização,Amortização
+6018,62110001,SALARIOS,Custos,Mão de obra,Salários
+6018,62110002,FERIAS E ADICIONAL,Custos,Mão de obra,Salários
+6018,62110501,HORAS EXTRAS,Custos,Mão de obra,Salários
+6018,62112001,DESCANSO SEMANAL REMUNERADO,Custos,Mão de obra,Salários
+6018,62112501,COMISSOES E GRATIFICACOES,Custos,Mão de obra,Salários
+6018,62113001,PREMIOS,Custos,Mão de obra,Salários
+6018,62113501,AJUDA DE CUSTO,Custos,Mão de obra,Benefícios
+6018,62114001,ADICIONAL NOTURNO,Custos,Mão de obra,Salários
+6018,62114501,ADICIONAL DE INSALUBRIDADE E PERICULOSI,Custos,Mão de obra,Salários
+6018,62116001,PROVISAO DE FERIAS,Custos,Mão de obra,Salários
+6018,62116002,(-) REVERSÃO PROVISAO DE FERIAS,Custos,Mão de obra,Salários
+6018,62116501,PROVISAO PARA 13O SALARIO,Custos,Mão de obra,Salários
+6018,62117501,PARTICIPACAO NOS RESULTADOS,Custos,Mão de obra,PLR
+6018,62118501,FGTS SOBRE FOLHA DE PAGAMENTO,Custos,Mão de obra,Encargos
+6018,62119001,INDENIZACAO FGTS ( MULTA RESCISORIA ),Custos,Mão de obra,Rescisões
+6018,62119501,INSS - EMPRESA,Custos,Mão de obra,Encargos
+6018,62119502,INSS - TERCEIROS,Custos,Mão de obra,Encargos
+6018,62119504,INSS - ACID. DE TRABALHO,Custos,Mão de obra,Encargos
+6018,62120501,INSS E FGTS SOBRE PROVISAO DE FERIAS,Custos,Mão de obra,Encargos
+6018,62121001,INSS E FGTS SOBRE PROVISAO DE 13O,Custos,Mão de obra,Encargos
+6018,62121501,VALE REFEICAO/ VALE ALIMENTAÇÃO,Custos,Mão de obra,Benefícios
+6018,62124001,VALE TRANSPORTE,Custos,Mão de obra,Benefícios
+6018,62124501,CESTA BASICA / VALE ALIMENTACAO,Custos,Mão de obra,Benefícios
+6018,62125502,AUX. CRECHE,Custos,Mão de obra,Benefícios
+6018,62126001,UNIFORMES PROFISSIONAIS,Custos,Materiais,Uniformes
+6018,62126002,EQUIPAMENTOS DE PROTEÇÃO INDIVIDUAL,Custos,Materiais,EPIs e segurança
+6018,62126501,TREINAMENTO PROFISSIONAL,Custos,Mão de obra,Treinamentos
+6018,62128501,COMBUSTIVEIS E LUBRIFICANTES,Custos,Materiais,Combustíveis e lubrificantes
+6018,62134502,SERVICOS DE FUNILARIA/PINTURA,Custos,Serviços,Manutenção Veículos
+6018,62134504,SERVICOS DE MECANICA,Custos,Serviços,Manutenção Veículos
+6018,62134509,OUTROS SERVICOS,Custos,Serviços,Outros serviços
+6018,62134511,SERVICOS DE CONSULTORIA,Custos,Serviços,Consultoria
+6018,62134512,FRETES E CARRETOS,Custos,Serviços,Transporte
+6018,62136501,LANCHES E REFEICOES,Custos,Gastos gerais,Outros gastos
+6018,62137001,MATERIAIS DE EXPEDIENTE,Custos,Materiais,Material de escritório
+6018,62137002,MATERIAIS DE INFORMATICA,Custos,Materiais,Materiais de informática
+6018,62137003,MATERIAIS DE SEGURANÇA,Custos,Materiais,EPIs e segurança
+6018,62137501,CONSERVACAO DE BENS,Custos,Materiais,Conservação e limpeza
+6018,62137502,CONSERVACAO DE INSTALACOES,Custos,Materiais,Conservação e limpeza
+6018,62137503,MATERIAIS DE CONSERVACAO/LIMPEZA,Custos,Materiais,Conservação e limpeza
+6018,62137504,MATERIAIS DE REPAROS DE BENS E EQUIPTOS,Custos,Materiais,Materiais diversos
+6018,62138001,BENS DE USO PERMANENTE NAO ATIVADOS,Custos,Materiais,Bens de pequeno valor
+6018,62138002,FERRAMENTAS NAO DURAVEIS,Custos,Materiais,Bens de pequeno valor

@@ -1,0 +1,16 @@
+empresa,mes_atual,classificacao_nv1,classificacao_nv2,classificacao_nv3,comentario,autor,criado_em
+4029,2026-09-30,Ativo não circulante,Caixa restrito,,"Decorrente da liberação por marcos de investimentos:
+- a;
+- b; e
+- c.",Daniel,2026-10-28T16:04:00-03:00
+4029,2026-09-30,Ativo circulante,Contas a receber,,Se trata de receita.,Daniel,2026-10-28T16:04:00-03:00
+4029,2026-09-30,Ativo circulante,Caixa e equivalentes de caixa,,Decorrente da captação de recursos via emissão de debêntures.,Daniel,2026-10-28T16:04:00-03:00
+4029,2026-09-30,Ativo circulante,Adiantamentos,,Decorrente do adiantamento ao fornecedor X.,Daniel,2026-10-28T16:04:00-03:00
+4029,2026-09-30,Ativo circulante,Contas a receber,,"Isso aí tá errado, CORRIGE!",Julia,2026-10-28T17:05:00-03:00
+4029,2026-09-30,Ativo circulante,Contas a receber,,Decorrente da venda de ativos imobilizados (trens elétricos) à CBTU.,Daniel,2026-10-28T18:05:00-03:00
+4029,2026-09-30,Ativo circulante,Contas a receber,,Obrigada!,Julia,2026-10-28T18:15:00-03:00
+4029,2026-09-30,Receita líquida,Receita mitigação,,Baita receita!,Daniel,2026-10-28T18:05:00-03:00
+6018,2026-09-30,Ativo circulante,Partes relacionadas,,Devido ao intercompany com a TIC.,Daniel,2026-11-01T00:43:52-03:00
+4034,2026-09-30,Ativo circulante,Adiantamentos,,Devido maiores gastos com fornecedor A.,Daniel,2026-11-01T00:44:38-03:00
+4034,2026-09-30,Ativo circulante,Caixa e equivalentes de caixa,,Devido emissão de debêntures.,Daniel,2026-11-01T00:44:54-03:00
+4029,2026-09-30,Ativo circulante,Tributos a recuperar,,Concordo!,Daniel,2026-11-05T11:29:12-03:00

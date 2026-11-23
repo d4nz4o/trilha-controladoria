@@ -40,52 +40,29 @@
   };
   const LOCAL = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
 
-  // Endereço curto de uma URL interna (só no site publicado); devolve a própria URL se não houver rota curta
-  function enderecoCurto(url) {
-    if (LOCAL) return url;
-    const destino = new URL(url, document.baseURI);
-    if (destino.origin !== location.origin) return url;
-    const curta = ROTAS_CURTAS[destino.pathname.replace(/^\//, '').replace(/\.html$/, '')];
-    return curta ? location.origin + curta + destino.search + destino.hash : url;
+  // No site publicado: se a página foi aberta pelo endereço longo (ex.: retorno do login), a barra passa para a rota
+  // curta, sem recarregar e mantendo #/parâmetros. Só com o <base> da publicação, que mantém os caminhos relativos.
+  if (!LOCAL && document.querySelector('base[href]')) {
+    const curtaDaPagina = ROTAS_CURTAS[location.pathname.replace(/^\//, '').replace(/\.html$/, '')];
+    if (curtaDaPagina) history.replaceState(history.state, '', curtaDaPagina + location.search + location.hash);
   }
 
+  // No site publicado, todo link interno para uma página com rota curta abre pela rota curta
   if (!LOCAL) {
-    // Página aberta pelo endereço longo (ex.: retorno do login): a barra passa para a rota curta, sem recarregar e
-    // mantendo #/parâmetros. Só com o <base> da publicação, que mantém os caminhos relativos funcionando.
-    if (document.querySelector('base[href]')) {
-      const curta = enderecoCurto(location.href);
-      if (curta !== location.href) history.replaceState(history.state, '', curta);
-    }
-
-    // Links internos com rota curta passam a apontar para ela já na página (vale para passar o mouse, copiar o
-    // endereço e abrir em nova aba), inclusive os criados depois por script (vistas do hub, barra da controladoria)
-    const encurtar = a => {
-      const atual = a.getAttribute('href');
-      if (!atual || atual[0] === '#' || /^(mailto:|tel:|javascript:)/i.test(atual)) return;
-      const curta = enderecoCurto(atual);
-      if (curta !== atual && curta !== new URL(atual, document.baseURI).href) a.setAttribute('href', curta);
+    const encurtar = evento => {
+      const a = evento.target.closest && evento.target.closest('a[href]');
+      if (!a) return;
+      const destino = new URL(a.getAttribute('href'), document.baseURI);
+      if (destino.origin !== location.origin) return;
+      const curta = ROTAS_CURTAS[destino.pathname.replace(/^\//, '').replace(/\.html$/, '')];
+      if (curta) a.href = curta + destino.search + destino.hash;
     };
-    const encurtarEm = raiz => {
-      if (raiz.nodeType !== 1) return;
-      if (raiz.matches('a[href]')) encurtar(raiz);
-      raiz.querySelectorAll('a[href]').forEach(encurtar);
-    };
-    document.addEventListener('DOMContentLoaded', () => {
-      encurtarEm(document.body);
-      new MutationObserver(mudancas => mudancas.forEach(m => {
-        if (m.type === 'attributes') encurtar(m.target);
-        else m.addedNodes.forEach(encurtarEm);
-      })).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['href'] });
-    });
-    // Garantia extra no clique (links que mudem de destino na hora)
-    const noClique = evento => { const a = evento.target.closest && evento.target.closest('a[href]'); if (a) encurtar(a); };
-    document.addEventListener('click', noClique, true);
-    document.addEventListener('auxclick', noClique, true);
+    document.addEventListener('click', encurtar, true);      // antes dos outros cliques da página
+    document.addEventListener('auxclick', encurtar, true);   // clique do meio (nova aba)
   }
 
   window.Sessao = {
     BASE: BASE.href,
-    enderecoCurto,
     URL_LOGIN: new URL('index.html', BASE).href,
     URL_HUB: LOCAL ? new URL('pages/hub/hub.html', BASE).href : location.origin + '/hub',
     usuario: null,

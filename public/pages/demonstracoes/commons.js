@@ -14,7 +14,7 @@
 /* Nome da origem nas mensagens (ex.: "tabela balancetes") */
 const rotuloFonte = nome => FonteDados.rotulo(nome);
 
-const CABECALHO_COMENTARIOS = ['Empresa', 'Mês atual', 'Classificação Nv1', 'Classificação Nv2', 'Classificação Nv3', 'Comentário', 'Autor', 'Data/hora'];
+const CABECALHO_COMENTARIOS = ['Empresa', 'Mês atual', 'Classificação Nv1', 'Classificação Nv2', 'Classificação Nv3', 'Comentário', 'Autor', 'Data/hora', 'Id comentário', 'Id colaborador'];
 
 const ICONE_COMENTARIO =
   '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 3.5h11v7.2h-5.6L5 13v-2.3H2.5z"/></svg>';
@@ -774,29 +774,25 @@ async function estadoComentario() {
 }
 
 /* Prepara o modal: mostra o autor, libera ou bloqueia o envio e exibe o aviso adequado. */
+/* Prepara o modal: libera ou bloqueia o envio, exibe o aviso adequado e marca os comentários editáveis. */
 async function aplicarEstadoComentario(erroHistorico) {
-  const campoAutor = document.getElementById('txtAutor');
   const campoTexto = document.getElementById('txtComentario');
   const botao = document.querySelector('#modalComentario .btn-chat-send');
   const feedback = document.getElementById('feedbackComentario');
 
   // Enquanto identifica o colaborador, o envio fica bloqueado
-  if (campoAutor) { campoAutor.readOnly = true; campoAutor.value = 'Identificando…'; }
   campoTexto.disabled = true;
   if (botao) botao.disabled = true;
   feedback.textContent = '';
 
   const estado = await estadoComentario();
-  if (campoAutor) {
-    campoAutor.value = estado.colab ? estado.colab.nome_colab : '';
-    campoAutor.placeholder = estado.colab ? '' : 'Sem cadastro de colaborador';
-    campoAutor.title = 'Comentários são registrados em nome do colaborador logado';
-  }
   campoTexto.disabled = !estado.pode;
+  campoTexto.placeholder = estado.colab ? `Escreva um comentário como ${estado.colab.nome_colab}…` : 'Escreva um comentário…';
   if (botao) botao.disabled = !estado.pode;
   feedback.textContent = estado.aviso || (erroHistorico
     ? 'Não foi possível carregar o histórico de comentários. Você ainda pode registrar um comentário.'
     : '');
+  marcarComentariosEditaveis(estado.colab);
   if (estado.pode) campoTexto.focus();
   return estado;
 }
@@ -808,7 +804,7 @@ async function carregarComentariosRevisao(empresas) {
     if (linhas.length < 2) return { mapa: {}, erro: false };
 
     const cab = linhas[0].map(normalizarTexto);
-    const [iEmp, iAtual, iN1, iN2, iN3, iTxt, iAut, iDt] = CABECALHO_COMENTARIOS.map(n => cab.indexOf(normalizarTexto(n)));
+    const [iEmp, iAtual, iN1, iN2, iN3, iTxt, iAut, iDt, iId, iColab] = CABECALHO_COMENTARIOS.map(n => cab.indexOf(normalizarTexto(n)));
     if ([iEmp, iAtual, iN1, iTxt].some(i => i < 0)) throw new Error('Cabeçalho dos comentários inesperado.');
 
     const mapa = {};
@@ -822,7 +818,8 @@ async function carregarComentariosRevisao(empresas) {
       const chave = chaveComentario(resolverEmpresa(empresa, empresas), mesAtual, nv1, nv2, nv3);
       (mapa[chave] = mapa[chave] || []).push({
         empresa, mesAtual, nv1, nv2, nv3, texto,
-        autor: (l[iAut] || '').trim(), dataHora: (l[iDt] || '').trim()
+        autor: (l[iAut] || '').trim(), dataHora: (l[iDt] || '').trim(),
+        id: iId < 0 ? '' : (l[iId] || '').trim(), idColab: iColab < 0 ? '' : (l[iColab] || '').trim()
       });
     });
     return { mapa, erro: false };
@@ -851,14 +848,137 @@ async function gravarComentarioRevisao({ empresas, empId, mesAtual, nv1, nv2, nv
 }
 
 /* Balões do histórico (modal) e itens do popup ao passar o mouse */
+const ICONE_LIXEIRA = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11M6 4V2.5h4V4M4 4l.7 9.5h6.6L12 4M6.6 6.5v4.5M9.4 6.5v4.5"/></svg>';
+const ICONE_LAPIS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M11.2 2.3l2.5 2.5-8 8L3 13.5l.7-2.7 7.5-8.5z"/><path d="M10 3.5l2.5 2.5"/></svg>';
+
+/* Balões do histórico. O lápis (editar) aparece depois, só nos comentários do colaborador logado. */
 function htmlHistoricoComentarios(lista) {
   if (!lista.length) return '<div class="chat-empty">Nenhum comentário registrado para este mês.</div>';
   return lista.map(c => `
-    <div class="chat-bubble bubble-mine">
+    <div class="chat-bubble bubble-mine" data-id="${esc(c.id || '')}" data-colab="${esc(c.idColab || '')}">
       <div class="bubble-autor">${esc(c.autor || 'Anônimo')}</div>
       <div class="bubble-texto">${esc(c.texto)}</div>
       <span class="bubble-data">${esc(c.dataHora || '')}</span>
     </div>`).join('');
+}
+
+/* Coloca editar (lápis) e excluir (lixeira) no canto dos comentários escritos pelo colaborador logado */
+function marcarComentariosEditaveis(colab) {
+  if (!colab) return;
+  document.querySelectorAll('#chatHistorico .chat-bubble').forEach(balao => {
+    if (!balao.dataset.id || String(balao.dataset.colab) !== String(colab.id_colab) || balao.querySelector('.bubble-acoes')) return;
+    const acoes = document.createElement('div');
+    acoes.className = 'bubble-acoes';
+    const botao = (classe, titulo, icone, acao) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = classe;
+      b.title = titulo;
+      b.setAttribute('aria-label', titulo);
+      b.innerHTML = icone;
+      b.addEventListener('click', () => acao(balao));
+      acoes.appendChild(b);
+    };
+    botao('btn-editar-comentario', 'Editar comentário', ICONE_LAPIS, editarComentario);
+    botao('btn-excluir-comentario', 'Excluir comentário', ICONE_LIXEIRA, confirmarExclusaoComentario);
+    balao.prepend(acoes);
+  });
+}
+
+/* Exclusão com confirmação dentro do próprio balão (evita apagar por clique acidental) */
+function confirmarExclusaoComentario(balao) {
+  if (balao.classList.contains('editando') || balao.querySelector('.bubble-confirmar')) return;
+  balao.classList.add('confirmando');
+  const caixa = document.createElement('div');
+  caixa.className = 'bubble-confirmar';
+  caixa.setAttribute('role', 'alertdialog');
+  caixa.innerHTML = `
+    <span class="bubble-confirmar-texto">Excluir este comentário?</span>
+    <button type="button" class="btn-edicao-cancelar">Cancelar</button>
+    <button type="button" class="btn-confirmar-excluir">Excluir</button>`;
+  balao.appendChild(caixa);
+  const voltar = () => { caixa.remove(); balao.classList.remove('confirmando'); };
+  caixa.querySelector('.btn-edicao-cancelar').addEventListener('click', voltar);
+  caixa.querySelector('.btn-edicao-cancelar').focus();
+  caixa.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); voltar(); } });
+  caixa.querySelector('.btn-confirmar-excluir').addEventListener('click', async () => {
+    const texto = caixa.querySelector('.bubble-confirmar-texto');
+    caixa.querySelectorAll('button').forEach(b => { b.disabled = true; });
+    texto.textContent = 'Excluindo…';
+    try {
+      await FonteDados.excluir('comentarios', { id_comentario: Number(balao.dataset.id) });
+      // Tira da lista em memória (ícone e balão da tabela)
+      Object.keys(comentariosRevisao).forEach(chave => {
+        comentariosRevisao[chave] = comentariosRevisao[chave].filter(c => String(c.id) !== balao.dataset.id);
+        if (!comentariosRevisao[chave].length) delete comentariosRevisao[chave];
+      });
+      const historico = balao.parentElement;
+      balao.remove();
+      if (historico && !historico.querySelector('.chat-bubble')) historico.innerHTML = htmlHistoricoComentarios([]);
+      if (typeof renderizarTabela === 'function') renderizarTabela();
+    } catch (erro) {
+      console.warn('Falha ao excluir comentário:', erro);
+      texto.textContent = erro.message || 'Não foi possível excluir.';
+      caixa.querySelectorAll('button').forEach(b => { b.disabled = false; });
+    }
+  });
+}
+
+/* Edição no próprio balão: o texto vira um campo com Salvar / Cancelar (Ctrl+Enter salva, Esc cancela) */
+function editarComentario(balao) {
+  if (balao.classList.contains('editando') || balao.classList.contains('confirmando')) return;
+  const textoEl = balao.querySelector('.bubble-texto');
+  const original = textoEl.textContent;
+  balao.classList.add('editando');
+  textoEl.hidden = true;
+
+  const caixa = document.createElement('div');
+  caixa.className = 'bubble-edicao';
+  caixa.innerHTML = `
+    <textarea rows="3" aria-label="Editar comentário"></textarea>
+    <div class="bubble-edicao-acoes">
+      <span class="bubble-edicao-aviso" role="status"></span>
+      <button type="button" class="btn-edicao-cancelar">Cancelar</button>
+      <button type="button" class="btn-edicao-salvar">Salvar</button>
+    </div>`;
+  const campo = caixa.querySelector('textarea');
+  campo.value = original;
+  textoEl.after(caixa);
+  campo.focus();
+  campo.setSelectionRange(campo.value.length, campo.value.length);
+
+  const encerrar = novoTexto => {
+    if (novoTexto !== undefined) textoEl.textContent = novoTexto;
+    caixa.remove();
+    textoEl.hidden = false;
+    balao.classList.remove('editando');
+  };
+  const salvar = async () => {
+    const texto = campo.value.trim();
+    const aviso = caixa.querySelector('.bubble-edicao-aviso');
+    if (!texto) { aviso.textContent = 'O comentário não pode ficar vazio.'; campo.focus(); return; }
+    if (texto === original.trim()) { encerrar(); return; }
+    caixa.querySelectorAll('button').forEach(b => { b.disabled = true; });
+    aviso.textContent = 'Salvando…';
+    try {
+      await FonteDados.atualizar('comentarios', { id_comentario: Number(balao.dataset.id) }, { mensagem: texto });
+      // Atualiza a lista em memória (balões ao passar o mouse na tabela)
+      Object.values(comentariosRevisao).forEach(lista => lista.forEach(c => { if (String(c.id) === balao.dataset.id) c.texto = texto; }));
+      encerrar(texto);
+      if (typeof renderizarTabela === 'function') renderizarTabela();
+    } catch (erro) {
+      console.warn('Falha ao editar comentário:', erro);
+      aviso.textContent = erro.message || 'Não foi possível salvar a alteração.';
+      caixa.querySelectorAll('button').forEach(b => { b.disabled = false; });
+    }
+  };
+  caixa.querySelector('.btn-edicao-cancelar').addEventListener('click', () => encerrar());
+  caixa.querySelector('.btn-edicao-salvar').addEventListener('click', salvar);
+  campo.addEventListener('keydown', e => {
+    // stopPropagation: Ctrl+Enter e Esc também são atalhos do modal (enviar novo / fechar)
+    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); e.stopPropagation(); salvar(); }
+    if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); encerrar(); }
+  });
 }
 
 function htmlTooltipComentarios(lista) {

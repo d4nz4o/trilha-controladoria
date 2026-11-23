@@ -6,14 +6,13 @@
   As linhas são devolvidas no formato de planilha que as páginas esperam: a primeira linha é o cabeçalho
   e os valores vêm como texto ("1234,56", "aaaa-mm-dd"), como nos CSVs de origem em /dados.
 
-  Controle de ativos: ativos.json e peps.json (formato próprio). Origem 'arquivo' (em /public) ou
-  'storage' (bucket privado "dados", ver supabase/02_storage_dados.sql).
+  Controle de ativos: ativos.json e peps.json (formato próprio), no bucket privado "dados" do Supabase Storage
+  (supabase/02_storage_dados.sql), só para usuários logados com e-mail corporativo. Não ficam no site.
 */
 
 (() => {
   const POR_PAGINA = 1000;   // a API do Supabase devolve no máximo 1000 linhas por consulta
   const BUCKET = 'dados';
-  const BASE = new URL('../../../', document.currentScript.src);   // raiz do site (este arquivo fica em src/scripts/services/)
 
   // colunas: [coluna no Supabase, cabeçalho devolvido, tipo, extrator opcional]
   //   extrator: lê valores de tabelas ligadas (ex.: nome do colaborador em colaboradores(nome_colab))
@@ -77,6 +76,7 @@
         ['nivel2', 'Classificação Nv2', 'texto'],
         ['nivel3', 'Classificação Nv3', 'texto'],
         ['mensagem', 'Comentário', 'texto'],
+        ['id_comentario', 'Id comentário', 'numero'],
         ['id_colab', 'Id colaborador', 'numero'],
         ['colaboradores(nome_colab)', 'Autor', 'texto', reg => reg.colaboradores && reg.colaboradores.nome_colab],
         ['criado_em', 'Data/hora', 'datahora'],
@@ -84,10 +84,10 @@
     },
   };
 
-  // Controle de ativos (JSON em formato próprio)
+  // Controle de ativos: caminho de cada arquivo no bucket privado "dados"
   const ARQUIVOS = {
-    ativos: { origem: 'arquivo', arquivo: 'pages/controles/dados/ativos.json', storage: 'controles/ativos.json' },
-    peps: { origem: 'arquivo', arquivo: 'pages/controles/dados/peps.json', storage: 'controles/peps.json' },
+    ativos: 'controles/ativos.json',
+    peps: 'controles/peps.json',
   };
 
   /* ---------- Auxiliares ---------- */
@@ -169,17 +169,13 @@
                     `Confira se a importação foi feita nesse projeto e nessa tabela.`);
   }
 
-  async function baixarArquivo(f) {
-    if (f.origem === 'storage') {
-      const sb = await cliente();
-      const { data, error } = await sb.storage.from(BUCKET).download(f.storage);
-      if (error) throw new Error(`Storage ${BUCKET}/${f.storage}: ${error.message}`);
-      return data.text();
-    }
-    const resposta = await fetch(new URL(f.arquivo, BASE), { cache: 'no-store' });
-    if (!resposta.ok) throw new Error(`${f.arquivo}: HTTP ${resposta.status}`);
-    return resposta.text();
+  async function baixarArquivo(caminho) {
+    const sb = await cliente();
+    const { data, error } = await sb.storage.from(BUCKET).download(caminho);
+    if (error) throw new Error(`Arquivo ${BUCKET}/${caminho} no Supabase Storage: ${error.message || 'não encontrado'}`);
+    return data.text();
   }
+
 
   /* ---------- Colaborador do usuário logado ---------- */
 
@@ -212,6 +208,30 @@
     colaboradorLogado() {
       promessaColaborador = promessaColaborador || buscarColaborador().catch(erro => { promessaColaborador = null; throw erro; });
       return promessaColaborador;
+    },
+
+    // Altera os registros em que todas as colunas de "onde" batem. Sem linha alterada = sem permissão (RLS)
+    async atualizar(nome, onde, valores) {
+      const f = definicao(TABELAS, nome);
+      const sb = await cliente();
+      let consulta = sb.from(f.tabela).update(valores);
+      Object.entries(onde).forEach(([coluna, valor]) => { consulta = consulta.eq(coluna, valor); });
+      const { data, error } = await consulta.select();
+      if (error) throw new Error(`Não foi possível alterar em ${f.tabela}: ${error.message}`);
+      if (!data || !data.length) throw new Error('A alteração não foi permitida (apenas o autor pode editar o próprio comentário).');
+      return data;
+    },
+
+    // Apaga os registros em que todas as colunas de "onde" batem. Sem linha apagada = sem permissão (RLS)
+    async excluir(nome, onde) {
+      const f = definicao(TABELAS, nome);
+      const sb = await cliente();
+      let consulta = sb.from(f.tabela).delete();
+      Object.entries(onde).forEach(([coluna, valor]) => { consulta = consulta.eq(coluna, valor); });
+      const { data, error } = await consulta.select();
+      if (error) throw new Error(`Não foi possível excluir em ${f.tabela}: ${error.message}`);
+      if (!data || !data.length) throw new Error('A exclusão não foi permitida (apenas o autor pode excluir o próprio comentário).');
+      return data;
     },
 
     async inserir(nome, registro) {
