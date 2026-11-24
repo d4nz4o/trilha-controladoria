@@ -5,7 +5,7 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/hub", "destination": "/pages/hub/hub" },
-    { "source": "/hub#", "destination": "/pages/hub/hub#" },
+    { "source": "/hub", "destination": "/pages/hub/hub#" },
     { "source": "/hub#demonstracoes", "destination": "/pages/hub/hub#demonstracoes" },
     { "source": "/hub#controle-ativos", "destination": "/pages/hub/hub#controle-ativos" },
     { "source": "/hub#controladoria", "destination": "/pages/hub/hub#controladoria" },
