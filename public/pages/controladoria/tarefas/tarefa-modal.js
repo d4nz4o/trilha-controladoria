@@ -37,11 +37,7 @@ async function abrirModalDetalhesCard(idTarefa) {
     document.getElementById('modalCardDescricao').value = tarefa.descricao_tarefa || '';
     document.getElementById('modalCardPrioridade').value = tarefa.prioridade_tarefa || 'Média';
     
-    if (tarefa.prazo_fim) {
-      document.getElementById('modalCardPrazoFim').value = tarefa.prazo_fim.split('T')[0];
-    } else {
-      document.getElementById('modalCardPrazoFim').value = '';
-    }
+    preencherPrazoCardModal();
 
     const colEncontrada = listaColunas.find(c => c.id_coluna == tarefa.id_coluna);
     const badge = document.getElementById('modalCardColunaBadge');
@@ -209,12 +205,83 @@ async function salvarPrioridadeCardModal() {
   }
 }
 
-async function salvarDatasCardModal() {
-  const pFim = document.getElementById('modalCardPrazoFim').value || null;
-  if (tarefaModalAtual) {
-    tarefaModalAtual.prazo_fim = pFim;
-    await sbClient.from('tarefas').update({ prazo_fim: pFim }).eq('id_tarefa', tarefaModalAtual.id_tarefa);
+/* ---------- Competência, prazo e recorrência ---------- */
+
+const dataDoBanco = v => (v ? String(v).split('T')[0] : '');
+
+function preencherPrazoCardModal() {
+  const t = tarefaModalAtual;
+  const mes = (listaMeses || []).find(m => m.id_mes === t.id_mes);
+  document.getElementById('modalCardCompetencia').textContent = mes ? rotuloCompetencia(mes.competencia_mes) : '—';
+  document.getElementById('modalCardTipoPrazo').value = t.tipo_prazo === 'dias_uteis' ? 'dias_uteis' : 'data';
+  document.getElementById('modalCardPrazoInicio').value = dataDoBanco(t.prazo_inicio);
+  document.getElementById('modalCardPrazoFim').value = dataDoBanco(t.prazo_fim);
+  document.getElementById('modalCardDuInicio').value = t.prazo_du_inicio ?? '';
+  document.getElementById('modalCardDuFim').value = t.prazo_du_fim ?? '';
+  document.getElementById('modalCardRecorrente').checked = !!t.tarefa_recorrente;
+  avisoPrazoCardModal('');
+  mostrarCamposPrazoCardModal();
+}
+
+function mostrarCamposPrazoCardModal() {
+  const du = document.getElementById('modalCardTipoPrazo').value === 'dias_uteis';
+  document.getElementById('modalCardCamposData').hidden = du;
+  document.getElementById('modalCardCamposDU').hidden = !du;
+  // Em dias úteis, mostra as datas calculadas pelo banco
+  document.getElementById('modalCardDuInicioData').textContent = tarefaModalAtual.prazo_inicio && du ? `= ${dataCurta(dataDoBanco(tarefaModalAtual.prazo_inicio))}` : '';
+  document.getElementById('modalCardDuFimData').textContent = tarefaModalAtual.prazo_fim && du ? `= ${dataCurta(dataDoBanco(tarefaModalAtual.prazo_fim))}` : '';
+}
+
+function avisoPrazoCardModal(texto) { document.getElementById('modalCardPrazoAviso').textContent = texto; }
+
+// Grava na tarefa e atualiza o cartão no quadro (as datas em dias úteis voltam calculadas pelo banco)
+async function gravarPrazoCardModal(campos) {
+  const { data, error } = await sbClient.from('tarefas').update(campos).eq('id_tarefa', tarefaModalAtual.id_tarefa)
+    .select('tipo_prazo, prazo_du_inicio, prazo_du_fim, prazo_inicio, prazo_fim, tarefa_recorrente').single();
+  if (error) { avisoPrazoCardModal('Não foi possível salvar: ' + error.message); return false; }
+  Object.assign(tarefaModalAtual, data);
+  const naLista = (listaTarefas || []).find(x => x.id_tarefa === tarefaModalAtual.id_tarefa);
+  if (naLista) Object.assign(naLista, data);
+  Cache.gravar(chaveCacheTarefas(), listaTarefas);
+  desenharTarefas();
+  avisoPrazoCardModal('');
+  mostrarCamposPrazoCardModal();
+  return true;
+}
+
+async function tipoPrazoCardModalAlterado() {
+  const tipo = document.getElementById('modalCardTipoPrazo').value;
+  mostrarCamposPrazoCardModal();
+  if (tipo === 'data') {
+    // Mantém as datas atuais como datas fixas
+    await gravarPrazoCardModal({ tipo_prazo: 'data', prazo_du_inicio: null, prazo_du_fim: null });
+    preencherPrazoCardModal();
+  } else if (document.getElementById('modalCardDuFim').value === '') {
+    avisoPrazoCardModal('Informe o prazo final em dias úteis (ex.: 2 para D+2).');
+    document.getElementById('modalCardDuFim').focus();
+  } else {
+    await salvarDUCardModal();
   }
+}
+
+async function salvarDUCardModal() {
+  const ler = id => { const v = document.getElementById(id).value; return v === '' ? null : Math.trunc(Number(v)); };
+  const ini = ler('modalCardDuInicio'), fim = ler('modalCardDuFim');
+  if (fim === null) { avisoPrazoCardModal('Informe o prazo final em dias úteis (ex.: 2 para D+2).'); return; }
+  if (ini !== null && ini > fim) { avisoPrazoCardModal('O prazo final não pode ser anterior ao início.'); return; }
+  await gravarPrazoCardModal({ tipo_prazo: 'dias_uteis', prazo_du_inicio: ini, prazo_du_fim: fim });
+}
+
+async function salvarDatasCardModal() {
+  if (!tarefaModalAtual) return;
+  const ini = document.getElementById('modalCardPrazoInicio').value || null;
+  const fim = document.getElementById('modalCardPrazoFim').value || null;
+  if (ini && fim && fim < ini) { avisoPrazoCardModal('O prazo final não pode ser anterior ao início.'); return; }
+  await gravarPrazoCardModal({ tipo_prazo: 'data', prazo_inicio: ini, prazo_fim: fim });
+}
+
+async function salvarRecorrenteCardModal() {
+  await gravarPrazoCardModal({ tarefa_recorrente: document.getElementById('modalCardRecorrente').checked });
 }
 
 // Arquivar = tarefa_arquivada: true. A tarefa some do quadro, mas continua no banco.
@@ -234,7 +301,7 @@ async function arquivarTarefaModal() {
 
   // Tira da lista em memória para o card sumir na hora
   listaTarefas = listaTarefas.filter(t => (t.id_tarefa || t.id) !== id);
-  Cache.gravar('tarefas', listaTarefas);
+  Cache.gravar(chaveCacheTarefas(), listaTarefas);
   fecharModalDetalhes();
 }
 

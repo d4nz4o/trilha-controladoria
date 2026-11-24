@@ -115,7 +115,29 @@ ou pelo e-mail). Sem cadastro, o login mostra "acesso ainda não liberado pela C
 inclua a pessoa em `colaboradores`. A função `situacao_acesso()` informa o motivo (liberado, sem_cadastro, inativo,
 dominio) e `usuario_corporativo()`, usada nas regras das tabelas, só é verdadeira para "liberado". Próximas etapas: permissões por módulo e por empresa.
 
-## Domínios com acesso
+## Tarefas por competência
+
+`supabase/12_tarefas_meses.sql`: cada tarefa pertence a uma competência (`tarefas_meses`, 1º dia do mês; a do fechamento
+de outubro é out/26, mesmo que o trabalho aconteça em novembro). Checklist, responsáveis, tags, comentários, anexos e
+histórico seguem a tarefa; tags e colunas do quadro são comuns a todos os meses.
+- **Prazo por data** (`tipo_prazo = data`) ou **por dias úteis** (`dias_uteis`, D+N em `prazo_du_inicio`/`prazo_du_fim`):
+  D+1 = 1º dia útil do mês seguinte à competência; D0 = último dia útil da competência; D−1 = penúltimo. As datas são
+  calculadas pelo banco, sem fins de semana e sem os feriados de `tarefas_feriados` (incluir feriados recalcula tudo).
+- **Começar o próximo mês:** `tarefas_iniciar_mes(competência, mês de origem, tarefas)` cria a competência e clona as
+  tarefas escolhidas numa única operação (título, descrição, prioridade, recorrente, prazo, responsáveis, tags e
+  checklist desmarcado; sem comentários, anexos ou histórico). Data fixa: +1 mês, no próximo dia útil; dias úteis:
+  recalculado para a nova competência. `tarefa_recorrente` marca o que vem selecionado.
+- **Na tela** (`controladoria/tarefas/competencias.js`): seletor de competência acima do quadro (lembrado no navegador),
+  "Começar <próximo mês>" com a lista para clonar (recorrentes marcadas) e a prévia das novas datas; em "+ Tarefa" e na
+  janela da tarefa, a marca de recorrente e o método de prazo (Data ou Dias úteis, com a data calculada ao lado).
+  Nos cartões, ↻ indica tarefa recorrente e o selo D+N, prazo em dias úteis.
+- **Painel do fechamento** (`controladoria/painel/`, rota `/painel`; requer `supabase/13_tarefas_painel.sql`): por
+  competência, % concluído, concluídas no prazo, atrasadas, dia útil de hoje e em que D+N o fechamento terminou
+  (comparado com a competência anterior); gráfico da evolução por dia útil (realizado × planejado pelos prazos ×
+  competência anterior); carga por responsável e lista de atrasadas. "Concluída" = tarefa numa coluna com
+  `colunas_tarefas.conclui_tarefa`; a data (`tarefas.concluida_em`) é registrada pelo banco ao entrar nessa coluna.
+
+
 
 `triviatrens.com.br`, `tictrens.com.br`, `comporte.com.br` e `metrobh.com.br`. A lista fica em dois lugares, que precisam
 ser iguais: `DOMINIOS_CORPORATIVOS` em `public/src/scripts/core/supabase.js` e a função `usuario_corporativo()` em

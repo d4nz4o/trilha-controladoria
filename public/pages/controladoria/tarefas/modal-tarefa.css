@@ -250,3 +250,13 @@
   color: var(--brand-blue, #2563eb);
   background: #eff6ff;
 }
+
+/* Competência, prazo (data ou dias úteis) e recorrência */
+.meta-texto { margin: 2px 0 0; font-size: 0.92rem; font-weight: 700; color: var(--text-primary); }
+.modal-prazo-campos { display: grid; gap: 4px; margin-top: 8px; }
+.modal-prazo-campos[hidden] { display: none; }
+.modal-prazo-campos label { font-size: 0.72rem; font-weight: 600; color: var(--text-secondary); text-transform: none; letter-spacing: 0; margin-top: 4px; }
+.modal-du-data { font-size: 0.76rem; color: #1d5fa0; font-weight: 600; min-height: 1em; }
+.modal-prazo-aviso { display: block; margin-top: 4px; font-size: 0.76rem; color: #b91c1c; }
+.modal-recorrente { display: flex !important; align-items: center; gap: 8px; font-size: 0.86rem !important; font-weight: 600; color: var(--text-primary) !important; text-transform: none !important; letter-spacing: 0 !important; cursor: pointer; }
+.modal-recorrente input { accent-color: var(--brand-blue); width: 16px; height: 16px; }

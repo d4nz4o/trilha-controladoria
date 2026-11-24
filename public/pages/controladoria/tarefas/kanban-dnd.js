@@ -19,7 +19,7 @@ function soltarCard(ev, idColunaAlvo) {
   if (tarefa) {
     // 1. Atualização instantânea na interface (sem nova consulta ao banco)
     tarefa.id_coluna = idColunaBanco;
-    Cache.gravar('tarefas', listaTarefas);
+    Cache.gravar(chaveCacheTarefas(), listaTarefas);
     renderizarTarefas();
 
     // 2. Gravação em segundo plano

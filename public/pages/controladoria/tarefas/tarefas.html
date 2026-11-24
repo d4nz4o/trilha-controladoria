@@ -28,6 +28,7 @@
         <script defer src="../commons/avatar.js"></script>
         <script defer src="../../../src/scripts/core/dados.js"></script>
         <script defer src="../../../src/scripts/core/usuario.js"></script>
+        <script defer src="competencias.js"></script>
         <script defer src="kanban.js"></script>
         <script defer src="kanban-dnd.js"></script>
         <script defer src="tarefa-modal.js"></script>
@@ -47,6 +48,8 @@
         <main class="content-container">
             <section id="view-kanban" class="view-section active">
                 <div class="main-container">
+                    <!-- Competência (‹ out/26 ›) e "Começar próximo mês": competencias.js -->
+                    <div class="barra-competencia" id="barraCompetencia" hidden></div>
                     <!-- Quadro de tarefas (kanban) com colunas geradas dinamicamente via Supabase -->
                     <div class="kanban-board" id="kanbanBoard"></div>
                 </div>
@@ -129,8 +132,39 @@
                         </div>
 
                         <div class="meta-group">
-                            <label>Prazo Final</label>
-                            <input type="date" id="modalCardPrazoFim" onchange="salvarDatasCardModal()">
+                            <label>Competência</label>
+                            <p class="meta-texto" id="modalCardCompetencia">—</p>
+                        </div>
+
+                        <!-- Prazo por data fixa ou por dias úteis (D+N, datas calculadas pelo banco) -->
+                        <div class="meta-group">
+                            <label for="modalCardTipoPrazo">Prazo</label>
+                            <select id="modalCardTipoPrazo" onchange="tipoPrazoCardModalAlterado()">
+                                <option value="data">Data</option>
+                                <option value="dias_uteis">Dias úteis (D+N)</option>
+                            </select>
+                            <div class="modal-prazo-campos" id="modalCardCamposData">
+                                <label for="modalCardPrazoInicio">Início</label>
+                                <input type="date" id="modalCardPrazoInicio" onchange="salvarDatasCardModal()">
+                                <label for="modalCardPrazoFim">Prazo final</label>
+                                <input type="date" id="modalCardPrazoFim" onchange="salvarDatasCardModal()">
+                            </div>
+                            <div class="modal-prazo-campos" id="modalCardCamposDU" hidden>
+                                <label for="modalCardDuInicio">Início (D+N)</label>
+                                <input type="number" id="modalCardDuInicio" step="1" min="-31" max="31" placeholder="ex.: 0" onchange="salvarDUCardModal()">
+                                <small class="modal-du-data" id="modalCardDuInicioData"></small>
+                                <label for="modalCardDuFim">Prazo final (D+N)</label>
+                                <input type="number" id="modalCardDuFim" step="1" min="-31" max="31" placeholder="ex.: 2" onchange="salvarDUCardModal()">
+                                <small class="modal-du-data" id="modalCardDuFimData"></small>
+                            </div>
+                            <small class="modal-prazo-aviso" id="modalCardPrazoAviso" role="status"></small>
+                        </div>
+
+                        <div class="meta-group">
+                            <label class="modal-recorrente">
+                                <input type="checkbox" id="modalCardRecorrente" onchange="salvarRecorrenteCardModal()">
+                                Tarefa recorrente
+                            </label>
                         </div>
 
                         <div class="meta-group danger-zone" style="margin-top: 2rem;">
@@ -147,7 +181,7 @@
                   role="dialog" aria-modal="true" aria-labelledby="novaTarefaTitulo">
                 <button type="button" class="modal-close-btn" onclick="fecharModalNovaTarefa()" aria-label="Fechar">&times;</button>
                 <div class="modal-header">
-                    <span class="modal-coluna-badge">Nova tarefa</span>
+                    <span class="modal-coluna-badge">Nova tarefa<span id="ntCompetencia"></span></span>
                     <h2 id="novaTarefaTitulo">Criar atividade</h2>
                 </div>
 
@@ -200,7 +234,15 @@
                             </select>
                         </div>
 
-                        <div class="nt-datas">
+                        <!-- Prazo por data fixa ou por dias úteis (D+N, calculado pelo banco) -->
+                        <div class="popup-campo">
+                            <label>Prazo</label>
+                            <div class="nt-metodo" role="radiogroup" aria-label="Método de prazo">
+                                <label><input type="radio" name="ntTipoPrazo" value="data" checked onchange="tipoPrazoNovaTarefaAlterado()"> Data</label>
+                                <label><input type="radio" name="ntTipoPrazo" value="dias_uteis" onchange="tipoPrazoNovaTarefaAlterado()"> Dias úteis (D+N)</label>
+                            </div>
+                        </div>
+                        <div class="nt-datas" id="ntCamposData">
                             <div class="popup-campo">
                                 <label for="ntInicio">Início</label>
                                 <input type="date" id="ntInicio" onchange="datasNovaTarefaAlteradas()">
@@ -210,6 +252,24 @@
                                 <input type="date" id="ntPrazo" onchange="datasNovaTarefaAlteradas()">
                             </div>
                         </div>
+                        <div class="nt-datas" id="ntCamposDU" hidden>
+                            <div class="popup-campo">
+                                <label for="ntDuInicio">Início (D+N)</label>
+                                <input type="number" id="ntDuInicio" step="1" min="-31" max="31" placeholder="ex.: 0" oninput="previaDUNovaTarefa()">
+                                <small class="nt-du-data" id="ntDuInicioData"></small>
+                            </div>
+                            <div class="popup-campo">
+                                <label for="ntDuFim">Prazo final (D+N)</label>
+                                <input type="number" id="ntDuFim" step="1" min="-31" max="31" placeholder="ex.: 2" oninput="previaDUNovaTarefa()">
+                                <small class="nt-du-data" id="ntDuFimData"></small>
+                            </div>
+                        </div>
+                        <small class="nt-du-ajuda" id="ntDuAjuda" hidden>D+1 = 1º dia útil do mês seguinte à competência · D0 = último dia útil da competência</small>
+
+                        <label class="nt-recorrente">
+                            <input type="checkbox" id="ntRecorrente">
+                            <span>Tarefa recorrente <small>vem marcada ao começar o próximo mês</small></span>
+                        </label>
 
                         <div class="popup-campo">
                             <label>Responsáveis</label>

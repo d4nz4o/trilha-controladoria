@@ -2,8 +2,6 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <!-- Publicado (vercel.json): a página recebe <base> com o endereço real. Com ele, referências internas
-       do SVG (#id) apontariam para outro documento quando aberta por /hub: passam a apontar para esta. -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var doc = location.href.split('#')[0];
@@ -19,7 +17,6 @@
   <title>Trilha Participações | Portal da Controladoria</title>
   <link rel="icon" type="image/png" href="../../assets/icons/favicon-trilha.png">
   <link rel="stylesheet" href="hub.css">
-  <!-- Sessão (login, domínio corporativo e ociosidade) + fonte de dados. Ver /src/scripts/core e /src/scripts/services -->
   <script src="../../src/scripts/core/sessao.js"></script>
   <script src="../../src/scripts/services/fonte-dados.js"></script>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -261,7 +258,17 @@
           <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <a class="cartao entra" style="--i: 7" href="hub.html" data-vista="raiz">
+        <a class="cartao entra" style="--i: 7" href="../controladoria/painel/painel.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Painel do fechamento</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 8" href="hub.html" data-vista="raiz">
           <span class="cartao-icone" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5M4 9h11a5 5 0 0 1 5 5v1a5 5 0 0 1-5 5H9"/></svg>
           </span>

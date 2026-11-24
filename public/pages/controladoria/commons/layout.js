@@ -15,6 +15,8 @@ const PAGINAS = [
     recursos: [`${PASTA}/commons/popup.css`, `${PASTA}/ferias/ferias.css`, `${PASTA}/ferias/ferias.js`, `${PASTA}/ferias/nova-ferias.js`] },
   { id: 'automacoes', rotulo: 'Automações', url: PASTA + '/automacoes/automacoes.html', acao: '+ Robô',
     recursos: [`${PASTA}/automacoes/automacoes.css`, `${PASTA}/automacoes/automacoes.js`] },
+  { id: 'painel',     rotulo: 'Painel',     url: PASTA + '/painel/painel.html',     acao: '',
+    recursos: [`${PASTA}/painel/painel.css`, `${PASTA}/painel/painel.js`, `${PASTA}/tarefas/competencias.js`] },
 ];
 
 // Mesmo padrão da barra das Demonstrações: logo | abas | ação, busca e perfil
@@ -38,7 +40,7 @@ function renderizarTopbar() {
       </nav>
 
       <div class="barra-direita">
-        <button type="button" id="btn-acao-contextual" class="btn-action-highlight" onclick="executarAcaoAba()">${atual.acao}</button>
+        ${atual.acao ? `<button type="button" id="btn-acao-contextual" class="btn-action-highlight" onclick="executarAcaoAba()">${atual.acao}</button>` : ''}
         <input type="search" id="campoBusca" class="search-input" placeholder="Buscar…" aria-label="Buscar" oninput="filtrarBusca(this.value)">
         ${htmlPerfilUsuario()}
       </div>

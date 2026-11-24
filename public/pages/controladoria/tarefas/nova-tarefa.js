@@ -46,7 +46,14 @@ function limparFormularioNovaTarefa() {
   novaTarefa.subtarefas = [];
   novaTarefa.responsaveis = new Set();
   novaTarefa.responsavelPadraoAplicado = false;
-  ['ntTitulo', 'ntDescricao', 'ntInicio', 'ntPrazo', 'ntTagInput', 'ntSubtarefaInput'].forEach(id => { document.getElementById(id).value = ''; });
+  ['ntTitulo', 'ntDescricao', 'ntInicio', 'ntPrazo', 'ntTagInput', 'ntSubtarefaInput', 'ntDuInicio', 'ntDuFim'].forEach(id => { document.getElementById(id).value = ''; });
+  document.querySelector('input[name="ntTipoPrazo"][value="data"]').checked = true;
+  document.getElementById('ntRecorrente').checked = false;
+  ['ntDuInicio', 'ntDuFim'].forEach(id => document.getElementById(id).classList.remove('popup-invalido'));
+  tipoPrazoNovaTarefaAlterado();
+  // Competência em que a tarefa será criada (a selecionada no quadro)
+  const comp = competenciaSelecionadaISO();
+  document.getElementById('ntCompetencia').textContent = comp ? ` · ${rotuloCompetencia(comp)}` : '';
   document.getElementById('ntPrioridade').value = 'Média';
   document.getElementById('ntTitulo').classList.remove('popup-invalido');
   document.getElementById('ntPrazo').classList.remove('popup-invalido');
@@ -66,6 +73,27 @@ function tituloNovaTarefaAlterado(campo) {
   if (!campo.classList.contains('popup-invalido') || !campo.value.trim()) return;
   campo.classList.remove('popup-invalido');
   definirFeedbackNovaTarefa('');
+}
+
+// Método de prazo: Data (campos de data) ou Dias úteis (D+N, com a data calculada ao lado)
+const tipoPrazoNovaTarefa = () => document.querySelector('input[name="ntTipoPrazo"]:checked').value;
+
+function tipoPrazoNovaTarefaAlterado() {
+  const du = tipoPrazoNovaTarefa() === 'dias_uteis';
+  document.getElementById('ntCamposData').hidden = du;
+  document.getElementById('ntCamposDU').hidden = !du;
+  document.getElementById('ntDuAjuda').hidden = !du;
+  if (du) previaDUNovaTarefa();
+  definirFeedbackNovaTarefa('');
+}
+
+function previaDUNovaTarefa() {
+  const comp = competenciaSelecionadaISO();
+  [['ntDuInicio', 'ntDuInicioData'], ['ntDuFim', 'ntDuFimData']].forEach(([campo, saida]) => {
+    const v = document.getElementById(campo).value;
+    document.getElementById(campo).classList.remove('popup-invalido');
+    document.getElementById(saida).textContent = comp && v !== '' ? `= ${dataCurta(diaUtilDaCompetencia(comp, v))}` : '';
+  });
 }
 
 // Ao corrigir as datas, some o aviso de prazo anterior ao início
@@ -230,10 +258,25 @@ async function salvarNovaTarefa(event) {
     definirFeedbackNovaTarefa('Não há colunas no quadro para receber a tarefa.', 'erro');
     return;
   }
-  const inicio = document.getElementById('ntInicio').value || null;
-  const prazo = document.getElementById('ntPrazo').value || null;
-  if (inicio && prazo && prazo < inicio) {
+  const porDiasUteis = tipoPrazoNovaTarefa() === 'dias_uteis';
+  const inicio = porDiasUteis ? null : (document.getElementById('ntInicio').value || null);
+  const prazo = porDiasUteis ? null : (document.getElementById('ntPrazo').value || null);
+  const lerDU = id => { const v = document.getElementById(id).value; return v === '' ? null : Math.trunc(Number(v)); };
+  const duInicio = porDiasUteis ? lerDU('ntDuInicio') : null;
+  const duFim = porDiasUteis ? lerDU('ntDuFim') : null;
+  if (!porDiasUteis && inicio && prazo && prazo < inicio) {
     document.getElementById('ntPrazo').classList.add('popup-invalido');
+    definirFeedbackNovaTarefa('O prazo final não pode ser anterior ao início.', 'erro');
+    return;
+  }
+  if (porDiasUteis && duFim === null) {
+    document.getElementById('ntDuFim').classList.add('popup-invalido');
+    definirFeedbackNovaTarefa('Informe o prazo final em dias úteis (ex.: 2 para D+2).', 'erro');
+    document.getElementById('ntDuFim').focus();
+    return;
+  }
+  if (porDiasUteis && duInicio !== null && duInicio > duFim) {
+    document.getElementById('ntDuFim').classList.add('popup-invalido');
     definirFeedbackNovaTarefa('O prazo final não pode ser anterior ao início.', 'erro');
     return;
   }
@@ -258,6 +301,12 @@ async function salvarNovaTarefa(event) {
     prazo_fim: prazo,
     id_criador: identificarColaboradorLogado()?.id_colab ?? null,
     tarefa_arquivada: false,
+    // Competência selecionada no quadro; em dias úteis, as datas são calculadas pelo banco
+    ...(idMesSelecionado ? { id_mes: idMesSelecionado } : {}),
+    tarefa_recorrente: document.getElementById('ntRecorrente').checked,
+    tipo_prazo: porDiasUteis ? 'dias_uteis' : 'data',
+    prazo_du_inicio: duInicio,
+    prazo_du_fim: duFim,
   };
 
   try {
@@ -313,7 +362,8 @@ async function salvarNovaTarefa(event) {
   Grava a tarefa. Campo opcional que não existir na tabela é deixado de fora (e avisado),
   em vez de impedir a criação. Título e status (id_coluna) são obrigatórios.
 */
-const CAMPOS_OPCIONAIS = ['descricao_tarefa', 'prioridade_tarefa', 'prazo_inicio', 'prazo_fim', 'id_criador', 'tarefa_arquivada'];
+const CAMPOS_OPCIONAIS = ['descricao_tarefa', 'prioridade_tarefa', 'prazo_inicio', 'prazo_fim', 'id_criador', 'tarefa_arquivada',
+  'id_mes', 'tarefa_recorrente', 'tipo_prazo', 'prazo_du_inicio', 'prazo_du_fim'];
 const ROTULOS_CAMPOS = { descricao_tarefa: 'descrição', prioridade_tarefa: 'prioridade', prazo_inicio: 'início', prazo_fim: 'prazo', id_criador: 'criador' };
 
 async function inserirTarefa(registroOriginal) {

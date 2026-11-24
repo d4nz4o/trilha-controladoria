@@ -84,6 +84,7 @@
 
 .popup-campo input[type="text"],
 .popup-campo input[type="date"],
+.popup-campo input[type="number"],
 .popup-campo select,
 .popup-campo textarea {
   width: 100%;

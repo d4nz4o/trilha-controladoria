@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trilha Participações | Painel do fechamento</title>
+        <link rel="icon" type="image/png" href="../../../assets/icons/favicon-trilha.png">
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+        <link rel="stylesheet" href="../commons/tokens.css">
+        <link rel="stylesheet" href="../commons/base.css">
+        <link rel="stylesheet" href="../commons/topbar.css">
+        <link rel="stylesheet" href="../commons/layout.css">
+        <link rel="stylesheet" href="../commons/components.css">
+        <link rel="stylesheet" href="../commons/popup.css">
+        <link rel="stylesheet" href="painel.css">
+
+        <!-- Esconde a página até o login ser confirmado (main.js) -->
+        <script src="../../../src/scripts/core/sessao.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script defer src="../../../src/scripts/core/supabase.js"></script>
+        <script defer src="../commons/state.js"></script>
+        <script defer src="../commons/utils.js"></script>
+        <script defer src="../commons/avatar.js"></script>
+        <script defer src="../../../src/scripts/core/dados.js"></script>
+        <script defer src="../../../src/scripts/core/usuario.js"></script>
+        <script defer src="../tarefas/competencias.js"></script>
+        <script defer src="painel.js"></script>
+        <script defer src="../commons/layout.js"></script>
+        <script defer src="../commons/busca.js"></script>
+        <script defer src="../../../src/scripts/core/inatividade.js"></script>
+        <script defer src="../../../src/scripts/core/main.js"></script>
+    </head>
+
+        <body data-aba="painel">
+        <!-- A barra superior é montada por commons/layout.js -->
+        <header class="barra-topo" id="topbar"></header>
+        <main class="content-container painel">
+            <div class="painel-topo">
+                <div>
+                    <h1>Painel do fechamento</h1>
+                    <p class="painel-sub" id="painelSub">Evolução das tarefas da competência por dia útil.</p>
+                </div>
+                <!-- Competência (‹ out/26 ›): ../tarefas/competencias.js; sem o botão "Começar" -->
+                <div class="barra-competencia" id="barraCompetencia" data-sem-inicio hidden></div>
+            </div>
+
+            <section class="painel-kpis" id="painelKpis" aria-label="Indicadores"></section>
+
+            <section class="painel-card">
+                <div class="painel-card-topo">
+                    <h2>Evolução por dia útil</h2>
+                    <div class="painel-legenda" id="painelLegenda"></div>
+                </div>
+                <div id="painelGrafico" class="painel-grafico"></div>
+                <p class="painel-nota" id="painelComparacao"></p>
+            </section>
+
+            <div class="painel-duas">
+                <section class="painel-card">
+                    <h2>Carga por responsável</h2>
+                    <div id="painelResponsaveis"></div>
+                </section>
+                <section class="painel-card">
+                    <h2>Atrasadas</h2>
+                    <div id="painelAtrasadas"></div>
+                </section>
+            </div>
+        </main>
+        <script>function iniciarPagina() { iniciarPainel(); }</script>
+    </body>
+</html>

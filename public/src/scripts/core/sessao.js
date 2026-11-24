@@ -29,6 +29,7 @@
     'pages/controladoria/equipe/equipe': '/equipe',
     'pages/controladoria/ferias/ferias': '/ferias',
     'pages/controladoria/automacoes/automacoes': '/automacoes',
+    'pages/controladoria/painel/painel': '/painel',
     'pages/demonstracoes/bp/bp': '/bp',
     'pages/demonstracoes/dr/dr': '/dr',
     'pages/demonstracoes/dmpl/dmpl': '/dmpl',

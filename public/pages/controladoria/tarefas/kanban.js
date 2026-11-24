@@ -77,11 +77,12 @@ async function renderizarTarefas(recarregar = false) {
   const board = document.getElementById('kanbanBoard');
   if (!board) return;
 
-  // Colunas e tarefas são buscadas em paralelo
+  // Colunas e tarefas são buscadas em paralelo; antes, a competência selecionada (competencias.js)
   const colunasProntas = (!listaColunas || listaColunas.length === 0) ? carregarEConstruirColunas() : null;
+  await carregarCompetencias();
 
   if (!tarefasCarregadas && listaTarefas.length === 0) {
-    const emCache = Cache.ler('tarefas');
+    const emCache = Cache.ler(chaveCacheTarefas());
     if (emCache) { listaTarefas = emCache; await desenharTarefas(); }
   }
 
@@ -99,7 +100,9 @@ async function renderizarTarefas(recarregar = false) {
 async function buscarTarefas() {
   if (sbClient) {
     try {
-      const { data, error } = await sbClient
+      // Só as tarefas da competência selecionada (sem competências no banco: todas, como antes)
+      const doMes = consulta => (idMesSelecionado ? consulta.eq('id_mes', idMesSelecionado) : consulta);
+      const { data, error } = await doMes(sbClient
         .from('tarefas')
         .select(`
           *,
@@ -108,12 +111,12 @@ async function buscarTarefas() {
             colaboradores (id_colab, nome_colab)
           ),
           ${SELECT_TAGS_DA_TAREFA}
-        `);
+        `));
 
       if (error) {
-        const { data: dataSimples, error: errSimples } = await sbClient
+        const { data: dataSimples, error: errSimples } = await doMes(sbClient
           .from('tarefas')
-          .select('*');
+          .select('*'));
 
         if (!errSimples) {
           listaTarefas = dataSimples || [];
@@ -127,7 +130,7 @@ async function buscarTarefas() {
       console.error('Erro de conexão ao carregar tarefas:', err);
     }
   }
-  Cache.gravar('tarefas', listaTarefas);
+  Cache.gravar(chaveCacheTarefas(), listaTarefas);
 }
 
 async function desenharTarefas() {
@@ -237,18 +240,25 @@ async function desenharTarefas() {
         ? `<div class="task-tags-flex">${tarefa.tagsLista.map(tag => htmlTag(tag)).join('')}</div>`
         : '';
 
+      // Prazo em dias úteis: selo D+N; recorrente: ícone ↻
+      const seloDU = tarefa.tipo_prazo === 'dias_uteis' && tarefa.prazo_du_fim !== null && tarefa.prazo_du_fim !== undefined
+        ? `<span class="selo-du" title="Prazo em dias úteis">${rotuloDU(tarefa.prazo_du_fim)}</span>` : '';
+      const iconeRecorrente = tarefa.tarefa_recorrente ? '<span class="icone-recorrente" title="Tarefa recorrente">↻</span>' : '';
+
       card.innerHTML = `
-        <h4>${tituloText}</h4>
+        <h4>${iconeRecorrente}${tituloText}</h4>
         ${htmlTags}
         <div class="task-meta task-date" style="margin-top: 8px;">
           ${htmlAvatars}
-          <small>📅 ${prazoFormatado}</small>
+          <small>${seloDU}📅 ${prazoFormatado}</small>
         </div>
       `;
 
       containerCol.appendChild(card);
     }
   });
+
+  atualizarContagemCompetencia(listaTarefas.length);
 
   // Exibe aviso em colunas sem tarefas
   listaColunas.forEach(col => {

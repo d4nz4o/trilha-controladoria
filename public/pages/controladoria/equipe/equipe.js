@@ -142,33 +142,18 @@ function selecionarColaborador(c, elementoCard) {
         <div class="avatar profile-avatar" style="background:${corDoAvatar(c.id_colab)};">${iniciais}</div>
         <div class="profile-title">
           <h2>${c.nome_comp_colab || c.nome_colab}</h2>
+          <span class="role-badge">${c.esta_ativo === false ? '<span class="situacao inativo">Inativo</span>' : '<span class="situacao ativo">Ativo</span>'}</span>
           <span class="role-badge">${c.cargo_colab || 'Não informado'}</span>
+          <span class="role-badge">${nomeEquipe(c)}</span>
         </div>
       </div>
 
       <div class="profile-details-grid">
-        <div class="detail-item">
-          <label>Situação</label>
-          <p>${c.esta_ativo === false ? '<span class="situacao inativo">Inativo</span>' : '<span class="situacao ativo">Ativo</span>'}</p>
-        </div>
-
-        <div class="detail-item">
-          <label>Equipe</label>
-          <p>${nomeEquipe(c) || 'Não informada'}</p>
-        </div>
-
         <div class="detail-item">
           <label>Matrícula</label>
           <p>${c.matricula_colab || 'Não informado'}</p>
         </div>
 
-        <div class="detail-item">
-          <label>Tempo de Empresa</label>
-          <p>${tempo_colab || 'Não informado'}</p>
-        </div>
-      </div>
-
-      <div class="profile-details-grid">
         <div class="detail-item">
           <label>Usuário SAP</label>
           <p>${c.sap_colab || 'Não informado'}</p>
@@ -183,7 +168,12 @@ function selecionarColaborador(c, elementoCard) {
           <label>WhatsApp</label>
           <p>${wpp_colab || 'Não informado'}</p>
         </div>
-      </div>        
+
+        <div class="detail-item">
+          <label>Tempo de Empresa</label>
+          <p>${tempo_colab || 'Não informado'}</p>
+        </div>
+      </div> 
 
       <div class="profile-details-grid-2">
         <div class="detail-item">
