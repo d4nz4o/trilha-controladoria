@@ -732,7 +732,7 @@ tr:hover .btn-comment, .btn-comment:focus-visible { opacity: 1; }
 
 .btn-contas:hover { background: var(--rail-soft); color: var(--rail-dark); opacity: 1; }
 
-.modal-card.modal-contas { max-width: 920px; background: var(--surface); }
+.modal-card.modal-contas { max-width: 1200px; background: var(--surface); }
 
 .contas-corpo { overflow: auto; max-height: 60vh; background: var(--surface); }
 
@@ -792,6 +792,7 @@ tr:hover .btn-comment, .btn-comment:focus-visible { opacity: 1; }
 
 /* Variação numa célula: Δ $ e Δ % lado a lado */
 td.td-delta { white-space: nowrap; }
+
 td.td-delta .chip { margin-left: 8px; min-width: 54px; padding: 1px 7px; font-size: 0.7rem; vertical-align: 1px; }
 
 /* Títulos das colunas de variação, mais discretos que os meses */
@@ -805,12 +806,15 @@ td.td-delta .chip { margin-left: 8px; min-width: 54px; padding: 1px 7px; font-si
   color: var(--rail-dark);
   box-shadow: inset 0 -2px 0 var(--rail);
 }
+
 .bp-table tbody td.td-mes-selecionado,
 .tabela-contas td.td-mes-selecionado {
   background-color: rgba(37, 115, 192, 0.07);
   color: var(--ink);
 }
+
 .bp-table.modo-empresa tbody td.td-mes-selecionado { border-left: 1px solid var(--line-strong); }
+
 .bp-table .tr-total td.td-mes-selecionado { background-color: rgba(37, 115, 192, 0.14); }
 
 

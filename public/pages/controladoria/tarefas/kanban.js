@@ -40,21 +40,21 @@ async function carregarEConstruirColunas() {
   if (colunasEmCache && colunasEmCache.length) { listaColunas = colunasEmCache; desenharColunas(board); }
 
   try {
-    // Consulta a tabela colunas_tarefas do Supabase ordenada por ordem_coluna
+    // Consulta a tabela tarefas_colunas do Supabase ordenada por ordem_coluna
     const { data, error } = await sbClient
-      .from('colunas_tarefas')
+      .from('tarefas_colunas')
       .select('*')
       .order('ordem_coluna', { ascending: true });
 
     if (error) {
-      console.error('Erro ao consultar colunas_tarefas no Supabase:', error);
+      console.error('Erro ao consultar tarefas_colunas no Supabase:', error);
       board.innerHTML = `<p style="color: red; padding: 1rem;">Erro ao carregar colunas do Supabase: ${error.message}</p>`;
       return;
     }
 
     if (!data || data.length === 0) {
-      console.warn('Tabela colunas_tarefas retornou vazia.');
-      board.innerHTML = '<p style="color: #64748b; padding: 1rem;">Nenhuma coluna encontrada na tabela "colunas_tarefas".</p>';
+      console.warn('Tabela tarefas_colunas retornou vazia.');
+      board.innerHTML = '<p style="color: #64748b; padding: 1rem;">Nenhuma coluna encontrada na tabela "tarefas_colunas".</p>';
       return;
     }
 

@@ -56,7 +56,7 @@ body.partindo .trem-wrap { animation: trem-parte .56s cubic-bezier(.55, 0, .85, 
   padding-right: clamp(16px, 3vw, 32px);
 }
 
-.capa-topo { padding-top: 18px; line-height: 0; }
+.capa-topo { padding-top: 18px; }
 .capa-topo img { display: block; width: auto; height: 52px; }
 
 .capa-conteudo {
@@ -102,7 +102,20 @@ body.partindo .trem-wrap { animation: trem-parte .56s cubic-bezier(.55, 0, .85, 
 
 /* ---------- Texto ---------- */
 
-.topo { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topo2 {
+  display: flex;
+  align-content: center;
+  padding: 10px;
+  gap: 10px
+;
+}
 
 .sair {
   display: inline-flex;
@@ -128,7 +141,6 @@ body.partindo .trem-wrap { animation: trem-parte .56s cubic-bezier(.55, 0, .85, 
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin: 0 0 14px;
   padding: 5px 12px 5px 10px;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -137,10 +149,13 @@ body.partindo .trem-wrap { animation: trem-parte .56s cubic-bezier(.55, 0, .85, 
   font-size: .74rem;
   font-weight: 600;
   letter-spacing: .08em;
-  text-transform: uppercase;
 }
 
-.selo { text-transform: none; letter-spacing: .01em; font-size: .85rem; }
+.selo {
+  text-transform: none;
+  letter-spacing: .01em;
+  font-size: .85rem;
+}
 
 .selo-ponto {
   width: 8px;
@@ -325,7 +340,10 @@ body.partindo .trem-wrap { animation: trem-parte .56s cubic-bezier(.55, 0, .85, 
 .farol-brilho { animation: farol 2.4s ease-in-out infinite; }
 
 /* ---------- Animações ---------- */
-.entra { animation: entra .8s var(--ease-saida) backwards; animation-delay: calc(var(--i, 0) * 90ms + 80ms); }
+.entra {
+  animation: entra .8s var(--ease-saida) backwards;
+  animation-delay: calc(var(--i, 0) * 90ms + 80ms);
+}
 
 @keyframes entra     { from { opacity: 0; transform: translateY(16px); } }
 @keyframes corre     { to { transform: translateX(-50%); } }

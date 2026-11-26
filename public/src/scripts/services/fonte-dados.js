@@ -28,19 +28,21 @@
         ['montante_balancete', 'Montante', 'numero'],
       ],
     },
-    // Plano de contas único, com a classificação de cada conta (pela ligação com classificacoes)
+
     classificacao: {
-      tabela: 'contas_contabeis',
+      tabela: 'balancetes_contas',
       ordenarPor: 'id_conta',
       colunas: [
         ['numero_conta', 'Conta contábil', 'texto'],
         ['desc_conta', 'Descrição conta', 'texto'],
-        ['classificacoes(nivel1,nivel2,nivel3)', 'Classificação Nv1', 'texto', reg => reg.classificacoes && reg.classificacoes.nivel1],
-        ['classificacoes(nivel1,nivel2,nivel3)', 'Classificação Nv2', 'texto', reg => reg.classificacoes && reg.classificacoes.nivel2],
-        ['classificacoes(nivel1,nivel2,nivel3)', 'Classificação Nv3', 'texto', reg => reg.classificacoes && reg.classificacoes.nivel3],
+        // Classificação de cada conta pela ligação com balancetes_classificacoes (o nome da ligação é o da tabela)
+        ['balancetes_classificacoes(nivel1,nivel2,nivel3)', 'Classificação Nv1', 'texto', reg => reg.balancetes_classificacoes && reg.balancetes_classificacoes.nivel1],
+        ['balancetes_classificacoes(nivel1,nivel2,nivel3)', 'Classificação Nv2', 'texto', reg => reg.balancetes_classificacoes && reg.balancetes_classificacoes.nivel2],
+        ['balancetes_classificacoes(nivel1,nivel2,nivel3)', 'Classificação Nv3', 'texto', reg => reg.balancetes_classificacoes && reg.balancetes_classificacoes.nivel3],
         ['id_empresa_contraparte', 'contraparte', 'texto'],
       ],
     },
+
     empresas: {
       tabela: 'empresas',
       ordenarPor: 'id_empresa',
@@ -52,9 +54,9 @@
         ['classificacao_empresa', 'classificacao', 'numero'],
       ],
     },
-    // Linhas das demonstrações e ordem de exibição
+
     hierarquia: {
-      tabela: 'classificacoes',
+      tabela: 'balancetes_classificacoes',
       ordenarPor: 'id_classificacao',
       colunas: [
         ['nivel1', 'Classificação Nv1', 'texto'],
@@ -65,9 +67,9 @@
         ['ordem_nivel3', 'Ordem Nv3', 'numero'],
       ],
     },
-    // Comentários da revisão analítica (BP e DR). Autor = colaborador; o nome vem de colaboradores.
+
     comentarios: {
-      tabela: 'revisoes_comentarios',
+      tabela: 'balancetes_comentarios',
       ordenarPor: 'criado_em',
       colunas: [
         ['id_empresa', 'Empresa', 'texto'],
@@ -84,13 +86,11 @@
     },
   };
 
-  // Controle de ativos: caminho de cada arquivo no bucket privado "dados"
   const ARQUIVOS = {
     ativos: 'controles/ativos.json',
     peps: 'controles/peps.json',
   };
 
-  /* ---------- Auxiliares ---------- */
 
   function definicao(mapa, nome) {
     const f = mapa[nome];

@@ -10,7 +10,7 @@ let colunasPainel = [];
 
 async function iniciarPainel() {
   if (typeof sbClient === 'undefined' || !sbClient) return;
-  const { data } = await sbClient.from('colunas_tarefas').select('id_coluna, titulo_coluna, ordem_coluna, conclui_tarefa').order('ordem_coluna');
+  const { data } = await sbClient.from('tarefas_colunas').select('id_coluna, titulo_coluna, ordem_coluna, conclui_tarefa').order('ordem_coluna');
   colunasPainel = data || [];
   await carregarCompetencias();
   await carregarPainel();

@@ -51,20 +51,24 @@
     </div>
 
     <!-- Marca e saída -->
-    <header class="capa-topo topo entra" style="--i: 0">
-      <img src="../../assets/images/logo-trilha.png" alt="Trilha Participações" width="182" height="68">
-      <a class="sair" href="../../index.html" data-sai data-logout>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></svg>
-        Sair
-      </a>
+    <header class="capa-topo entra" style="--i: 0">
+      <div class="topo">
+        <img src="../../assets/images/logo-trilha.png" alt="Trilha Participações" width="182" height="68">
+        <div class="topo2">
+          <a class="capa-selo selo entra"><span class="selo-ponto"></span><span id="saudacao">Olá</span></a>
+          <a class="sair" href="../../index.html" data-sai data-logout>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></svg>
+            Sair
+          </a>
+        </div>
+      </div>
     </header>
 
     <!-- Conteúdo -->
     <main class="capa-conteudo" id="conteudo">
-      <p class="capa-selo selo entra" style="--i: 1"><span class="selo-ponto"></span><span id="saudacao">Olá</span></p>
-      <!-- A saudação fica fixa; só o que está em #vista troca ao navegar pelo hub -->
+      
       <div id="vista">
-      <h1 class="capa-titulo entra" style="--i: 2">Portal da</h1>
+      <h1 class="capa-titulo entra" style="--i: 1">Portal da</h1>
       <h1 class="capa-titulo entra" style="--i: 2"><span class="destaque">controladoria</span></h1>
       <nav class="cartoes" aria-label="Módulos">
         <a class="cartao entra" style="--i: 3" href="hub.html#demonstracoes" data-vista="demonstracoes">
@@ -258,16 +262,6 @@
           <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <a class="cartao entra" style="--i: 7" href="../controladoria/painel/painel.html" data-sai>
-          <span class="cartao-icone" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"/></svg>
-          </span>
-          <span class="cartao-texto">
-            <strong>Painel do fechamento</strong>
-          </span>
-          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-
         <a class="cartao entra" style="--i: 8" href="hub.html" data-vista="raiz">
           <span class="cartao-icone" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5M4 9h11a5 5 0 0 1 5 5v1a5 5 0 0 1-5 5H9"/></svg>
@@ -321,6 +315,16 @@
           </span>
           <span class="cartao-texto">
             <strong>Automações</strong>
+          </span>
+          <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="cartao entra" style="--i: 7" href="../controladoria/painel/painel.html" data-sai>
+          <span class="cartao-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"/></svg>
+          </span>
+          <span class="cartao-texto">
+            <strong>Painel do fechamento</strong>
           </span>
           <span class="cartao-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>

@@ -2,7 +2,7 @@
   INDICADORES — coluna à direita da tabela, só na visão por empresa (BP e DR).
   Mostra o mês selecionado e, abaixo, o mês anterior com a seta da tendência.
 
-  As linhas usadas vêm da hierarquia (Nv1 › Nv2). Se uma linha da hierarquia (tabela classificacoes) for renomeada,
+  As linhas usadas vêm da hierarquia (Nv1 › Nv2). Se uma linha da hierarquia (tabela balancetes_classificacoes) for renomeada,
   ajuste os nomes nas constantes abaixo.
 
   BP: saldos do mês. DR: segue o seletor Mensal (só o mês) / Acumulado (no ano).
