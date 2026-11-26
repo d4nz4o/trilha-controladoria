@@ -1,0 +1,224 @@
+/* Layout do Mapa de Férias */
+.ferias-header-controls {
+  display: flex;
+  background: var(--bg-surface);
+  padding: 0 2px 0 0;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  z-index: 101;
+  text-transform: uppercase;
+}
+
+.ano-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f1f5f9;
+  padding: 6px 12px;
+  border-radius: 8px;
+  user-select: none;
+}
+
+.ano-selector span {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1e293b;
+  min-width: 50px;
+  text-align: center;
+}
+
+.btn-ano {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  font-size: 1.1rem;
+  font-weight: bold;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 102;
+}
+
+.btn-ano:hover {
+  background-color: #e2e8f0;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+.btn-ano:active {
+  transform: scale(0.95);
+}
+
+.legenda-ferias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.legenda-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.legenda-cor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* Grid */
+.mapa-ferias-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 1024px) {
+  .mapa-ferias-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .mapa-ferias-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mes-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.mes-card h4 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+  color: #334155;
+}
+
+.dias-semana-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.dias-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.dia-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  color: #334155;
+  background: #f8fafc;
+  position: relative;
+}
+
+.dia-cell.vazio {
+  background: transparent;
+}
+
+.dia-cell.com-ferias {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Dia dividido entre várias pessoas: sombra no número para ler sobre as faixas */
+.dia-cell.dividido { text-shadow: 0 0 3px rgba(15, 23, 42, 0.65); }
+
+/* Escolha do período a remover (dia com mais de uma pessoa) */
+.periodos-dia { max-width: 460px; }
+.periodos-dia .modal-header h2 { text-transform: none; margin-bottom: 0.75rem; }
+.periodos-lista { list-style: none; display: flex; flex-direction: column; gap: 6px; padding: 0; }
+.periodos-lista li { display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "cor nome btn" "cor datas btn"; align-items: center; column-gap: 10px; padding: 10px 12px; border: 1px solid var(--border-light); border-radius: 6px; }
+.periodos-lista .legenda-cor { grid-area: cor; }
+.periodo-nome { grid-area: nome; font-size: 0.88rem; font-weight: 600; color: var(--text-primary); }
+.periodo-datas { grid-area: datas; font-size: 0.8rem; color: var(--text-secondary); }
+.btn-remover-periodo { grid-area: btn; padding: 6px 12px; border: 1px solid #fecaca; border-radius: 6px; background: #fff; color: #dc2626; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+.btn-remover-periodo:hover { background: #fef2f2; }
+
+/* ==========================================
+   POPUP DE NOVAS FÉRIAS (base em ../commons/popup.css)
+   ========================================== */
+.novas-ferias { max-width: 520px; display: flex; flex-direction: column; gap: 1rem; }
+.novas-ferias .modal-header h2 { text-transform: none; }
+.novas-ferias .popup-campo { margin-bottom: 0; }
+
+.nf-tipo { display: inline-flex; gap: 4px; padding: 4px; align-self: flex-start; background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 10px; }
+.nf-tipo-opcao { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 7px; font-size: 0.84rem; font-weight: 500; color: var(--text-secondary); cursor: pointer; }
+.nf-tipo-opcao input { accent-color: var(--brand-blue); }
+.nf-tipo-opcao:has(input:checked) { background: #ffffff; color: var(--text-primary); box-shadow: var(--shadow-sm); }
+
+.nf-datas { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.nf-datas .popup-campo[hidden] { display: none; }
+
+.nf-resumo { display: flex; flex-direction: column; gap: 8px; }
+.nf-resumo:empty { display: none; }
+.nf-duracao { padding: 10px 12px; border-radius: 6px; background: #e4f0fb; color: var(--text-primary); font-size: 0.85rem; }
+.nf-duracao span { color: var(--text-secondary); font-size: 0.78rem; }
+.nf-alerta { padding: 10px 12px; border-radius: 6px; border: 1px solid #fde68a; background: #fffbeb; color: #92400e; font-size: 0.82rem; line-height: 1.4; }
+.nf-alerta-erro { border-color: #fecaca; background: #fef2f2; color: #b91c1c; }
+#nfSalvar:disabled { opacity: .65; cursor: wait; }
+
+/* Confirmação de remoção de período */
+.modal-card-container.remover-ferias { max-width: 480px; }
+.badge-remover { background: #fef2f2 !important; color: #b91c1c !important; }
+.remover-resumo { margin: 4px 0 12px; padding: 14px 16px; border: 1px solid var(--border-light); border-radius: 10px; background: var(--bg-subtle, #f6f8fb); }
+.remover-pessoa { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.remover-pessoa strong { font-size: 0.95rem; color: var(--text-primary); }
+.remover-tipo { margin-left: auto; padding: 2px 10px; border-radius: 999px; background: #e8eef5; color: var(--text-secondary); font-size: 0.75rem; font-weight: 600; }
+.remover-resumo dl { margin: 0; display: grid; gap: 6px; }
+.remover-resumo dl div { display: grid; grid-template-columns: 80px 1fr; gap: 8px; font-size: 0.85rem; }
+.remover-resumo dt { color: var(--text-secondary); }
+.remover-resumo dd { margin: 0; color: var(--text-primary); font-weight: 500; }
+.remover-ate { color: var(--text-secondary); font-weight: 400; }
+.remover-aviso { margin: 0 0 14px; font-size: 0.8rem; color: var(--text-secondary); }
+.btn-perigo { padding: 9px 18px; border: 0; border-radius: 8px; background: #dc2626; color: #fff; font: inherit; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: background-color .15s ease; }
+.btn-perigo:hover { background: #b91c1c; }
+.btn-perigo:disabled { opacity: .65; cursor: wait; }
+.btn-perigo:focus-visible { outline: 2px solid #dc2626; outline-offset: 2px; }
+
+/* Aviso discreto após remover */
+.aviso-ferias {
+  position: fixed; left: 50%; bottom: 28px; z-index: 2000; transform: translate(-50%, 12px);
+  padding: 10px 18px; border-radius: 10px; background: #15385e; color: #fff; font-size: 0.85rem; font-weight: 500;
+  box-shadow: 0 10px 28px -8px rgba(21, 56, 94, .45); opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease;
+}
+.aviso-ferias.visivel { opacity: 1; transform: translate(-50%, 0); }
+
+/* Fins de semana e feriados no calendário */
+.dia-cell.fim-de-semana { background: #e2e8f0; color: #64748b; }
+.dia-cell.feriado { background: #4b5563; color: #ffffff; font-weight: 600; cursor: help; }
+.dia-cell.com-ferias { cursor: pointer; }
+.legenda-cor.legenda-fim-de-semana { background: #e2e8f0; border: 1px solid #cbd5e1; }
+.legenda-cor.legenda-feriado { background: #4b5563; }
+.legenda-tipo-dia { color: #64748b; }

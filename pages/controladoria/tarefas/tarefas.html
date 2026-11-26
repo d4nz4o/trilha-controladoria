@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trilha Participações | Tarefas</title>
+        <link rel="icon" type="image/png" href="../../../assets/icons/favicon-trilha.png">
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+        <link rel="stylesheet" href="../commons/tokens.css">
+        <link rel="stylesheet" href="../commons/base.css">
+        <link rel="stylesheet" href="../commons/topbar.css">
+        <link rel="stylesheet" href="../commons/layout.css">
+        <link rel="stylesheet" href="kanban.css">
+        <link rel="stylesheet" href="../commons/components.css">
+        <link rel="stylesheet" href="../commons/popup.css">
+        <link rel="stylesheet" href="modal-tarefa.css">
+        <link rel="stylesheet" href="nova-tarefa.css">
+
+        <!-- Esconde a página até o login ser confirmado (main.js) -->
+        <script src="../../../src/scripts/core/sessao.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script defer src="../../../src/scripts/core/supabase.js"></script>
+        <script defer src="../commons/state.js"></script>
+        <script defer src="../commons/utils.js"></script>
+        <script defer src="../commons/avatar.js"></script>
+        <script defer src="../../../src/scripts/core/dados.js"></script>
+        <script defer src="../../../src/scripts/core/usuario.js"></script>
+        <script defer src="competencias.js"></script>
+        <script defer src="kanban.js"></script>
+        <script defer src="kanban-dnd.js"></script>
+        <script defer src="tarefa-modal.js"></script>
+        <script defer src="tarefa-interacoes.js"></script>
+        <script defer src="tarefa-tags.js"></script>
+        <script defer src="nova-tarefa.js"></script>
+        <script defer src="../commons/layout.js"></script>
+        <script defer src="../commons/busca.js"></script>
+        <script defer src="../../../src/scripts/core/inatividade.js"></script>
+        <script defer src="../../../src/scripts/core/main.js"></script>
+    </head>
+
+    <body data-aba="kanban">
+        <!-- A barra superior é montada por commons/layout.js -->
+        <header class="barra-topo" id="topbar"></header>
+
+        <main class="content-container">
+            <section id="view-kanban" class="view-section active">
+                <div class="main-container">
+                    <!-- Competência (‹ out/26 ›) e "Começar próximo mês": competencias.js -->
+                    <div class="barra-competencia" id="barraCompetencia" hidden></div>
+                    <!-- Quadro de tarefas (kanban) com colunas geradas dinamicamente via Supabase -->
+                    <div class="kanban-board" id="kanbanBoard"></div>
+                </div>
+            </section>
+        </main>
+        <!-- MODAL DE DETALHES DA TAREFA -->
+        <div class="modal-overlay" id="modalCardDetalhes" onclick="fecharModalDetalhes(event)">
+            <div class="modal-card-container" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close-btn" onclick="fecharModalDetalhes()">&times;</button>
+                <div class="modal-header">
+                    <span id="modalCardColunaBadge" class="modal-coluna-badge">Status</span>
+                    <h2 id="modalCardTitulo" contenteditable="true" onblur="salvarTituloCardModal()">Título da Tarefa</h2>
+                </div>
+
+                <div class="modal-body-grid">
+                    <!-- Coluna Esquerda: Descrição, Checklist, Anexos e Comentários -->
+                    <div class="modal-main-content">
+                        <div class="meta-group">
+                            <div id="modalCardTagsContainer" class="modal-tags-container"></div>
+                        </div>
+
+                        <!-- Descrição -->
+                        <div class="modal-section">
+                            <h3>Descrição</h3>
+                            <textarea id="modalCardDescricao" rows="3" placeholder="Adicione uma descrição..." onblur="salvarDescricaoCardModal()"></textarea>
+                        </div>
+
+                        <!-- Subtarefas / Checklist -->
+                        <div class="modal-section">
+                            <div class="section-header-flex">
+                                <h3>Checklist</h3>
+                                <span id="modalChecklistProgressoTexto" class="progress-text">0%</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div id="modalChecklistProgressBar" class="progress-bar-fill" style="width: 0%;"></div>
+                            </div>
+                            <div id="modalSubtarefasLista" class="subtarefas-lista"></div>
+                            
+                            <div class="add-subtask-box">
+                                <input type="text" id="inputNovaSubtarefa" placeholder="+ Adicionar item de checklist..." onkeypress="handleKeySubtarefa(event)">
+                                <button type="button" class="btn-primary btn-sm" onclick="adicionarSubtarefaModal()">Adicionar</button>
+                            </div>
+                        </div>
+
+                        <!-- Anexos -->
+                        <div class="modal-section">
+                            <h3>Anexos e documentos</h3>
+                            <div id="modalAnexosLista" class="anexos-lista"></div>
+                            <div class="upload-anexo-box">
+                                <input type="file" id="inputUploadAnexo" style="display:none;" onchange="enviarAnexoCardModal(event)">
+                                <button type="button" class="btn-secondary btn-sm" onclick="document.getElementById('inputUploadAnexo').click()">Enviar arquivo</button>
+                            </div>
+                        </div>
+
+                        <!-- Comentários -->
+                        <div class="modal-section">
+                            <h3>Comentários</h3>
+                            <div id="modalComentariosLista" class="comentarios-lista"></div>
+                            <div class="novo-comentario-box">
+                                <textarea id="inputNovoComentario" rows="2" placeholder="Escreva um comentário..."></textarea>
+                                <button type="button" class="btn-primary btn-sm" onclick="enviarComentarioModal()">Comentar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna Direita: Metadados, Responsáveis e Prazos -->
+                    <div class="modal-sidebar-content">
+                        <div class="meta-group">
+                            <label>Prioridade</label>
+                            <select id="modalCardPrioridade" onchange="salvarPrioridadeCardModal()">
+                                <option value="Baixa">Baixa</option>
+                                <option value="Média">Média</option>
+                                <option value="Alta">Alta</option>
+                            </select>
+                        </div>
+
+                        <div class="meta-group">
+                            <label>Atribuído a</label>
+                            <div id="modalResponsaveisAvatares" class="responsaveis-avatares-flex"></div>
+                        </div>
+
+                        <div class="meta-group">
+                            <label>Competência</label>
+                            <p class="meta-texto" id="modalCardCompetencia">—</p>
+                        </div>
+
+                        <!-- Prazo por data fixa ou por dias úteis (D+N, datas calculadas pelo banco) -->
+                        <div class="meta-group">
+                            <label for="modalCardTipoPrazo">Prazo</label>
+                            <select id="modalCardTipoPrazo" onchange="tipoPrazoCardModalAlterado()">
+                                <option value="data">Data</option>
+                                <option value="dias_uteis">Dias úteis (D+N)</option>
+                            </select>
+                            <div class="modal-prazo-campos" id="modalCardCamposData">
+                                <label for="modalCardPrazoInicio">Início</label>
+                                <input type="date" id="modalCardPrazoInicio" onchange="salvarDatasCardModal()">
+                                <label for="modalCardPrazoFim">Prazo final</label>
+                                <input type="date" id="modalCardPrazoFim" onchange="salvarDatasCardModal()">
+                            </div>
+                            <div class="modal-prazo-campos" id="modalCardCamposDU" hidden>
+                                <label for="modalCardDuInicio">Início (D+N)</label>
+                                <input type="number" id="modalCardDuInicio" step="1" min="-31" max="31" placeholder="ex.: 0" onchange="salvarDUCardModal()">
+                                <small class="modal-du-data" id="modalCardDuInicioData"></small>
+                                <label for="modalCardDuFim">Prazo final (D+N)</label>
+                                <input type="number" id="modalCardDuFim" step="1" min="-31" max="31" placeholder="ex.: 2" onchange="salvarDUCardModal()">
+                                <small class="modal-du-data" id="modalCardDuFimData"></small>
+                            </div>
+                            <small class="modal-prazo-aviso" id="modalCardPrazoAviso" role="status"></small>
+                        </div>
+
+                        <div class="meta-group">
+                            <label class="modal-recorrente">
+                                <input type="checkbox" id="modalCardRecorrente" onchange="salvarRecorrenteCardModal()">
+                                Tarefa recorrente
+                            </label>
+                        </div>
+
+                        <div class="meta-group danger-zone" style="margin-top: 2rem;">
+                            <button type="button" class="btn-danger-outline" onclick="arquivarTarefaModal()">Arquivar Tarefa</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL DE NOVA TAREFA (botão "+ Tarefa" da barra superior) -->
+        <div class="modal-overlay" id="modalNovaTarefa" onclick="fecharModalNovaTarefa(event)">
+            <form class="modal-card-container nova-tarefa" id="formNovaTarefa" onclick="event.stopPropagation()"
+                  onsubmit="salvarNovaTarefa(event)" novalidate
+                  role="dialog" aria-modal="true" aria-labelledby="novaTarefaTitulo">
+                <button type="button" class="modal-close-btn" onclick="fecharModalNovaTarefa()" aria-label="Fechar">&times;</button>
+                <div class="modal-header">
+                    <span class="modal-coluna-badge">Nova tarefa<span id="ntCompetencia"></span></span>
+                    <h2 id="novaTarefaTitulo">Criar atividade</h2>
+                </div>
+
+                <div class="modal-body-grid">
+                    <!-- Coluna esquerda: o que é a tarefa -->
+                    <div class="modal-main-content">
+                        <div class="popup-campo">
+                            <label for="ntTitulo">Título <span class="popup-obrigatorio" aria-hidden="true">*</span></label>
+                            <input type="text" id="ntTitulo" maxlength="200" required placeholder="Ex.: Conciliar contas de adiantamentos" autocomplete="off" oninput="tituloNovaTarefaAlterado(this)">
+                        </div>
+
+                        <div class="popup-campo">
+                            <label for="ntDescricao">Descrição</label>
+                            <textarea id="ntDescricao" rows="4" placeholder="Contexto, objetivo, onde estão os arquivos…"></textarea>
+                        </div>
+
+                        <div class="popup-campo">
+                            <label for="ntTagInput">Tags</label>
+                            <div class="nt-tags" id="ntTags" onclick="document.getElementById('ntTagInput').focus()">
+                                <input type="text" id="ntTagInput" list="ntTagsExistentes" placeholder="Digite ou escolha e tecle Enter" autocomplete="off"
+                                       onkeydown="teclaTagNovaTarefa(event)" onblur="confirmarTagNovaTarefa()">
+                                <datalist id="ntTagsExistentes"></datalist>
+                            </div>
+                        </div>
+
+                        <div class="popup-campo">
+                            <label for="ntSubtarefaInput">Checklist</label>
+                            <ul class="nt-checklist" id="ntChecklist"></ul>
+                            <div class="add-subtask-box">
+                                <input type="text" id="ntSubtarefaInput" placeholder="+ Item de checklist" autocomplete="off"
+                                       onkeydown="teclaSubtarefaNovaTarefa(event)">
+                                <button type="button" class="btn-secondary btn-sm" onclick="adicionarSubtarefaNovaTarefa()">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna direita: organização -->
+                    <div class="modal-sidebar-content">
+                        <div class="popup-campo">
+                            <label for="ntColuna">Status <span class="popup-obrigatorio" aria-hidden="true">*</span></label>
+                            <select id="ntColuna" required></select>
+                        </div>
+
+                        <div class="popup-campo">
+                            <label for="ntPrioridade">Prioridade</label>
+                            <select id="ntPrioridade">
+                                <option value="Baixa">Baixa</option>
+                                <option value="Média" selected>Média</option>
+                                <option value="Alta">Alta</option>
+                            </select>
+                        </div>
+
+                        <!-- Prazo por data fixa ou por dias úteis (D+N, calculado pelo banco) -->
+                        <div class="popup-campo">
+                            <label>Prazo</label>
+                            <div class="nt-metodo" role="radiogroup" aria-label="Método de prazo">
+                                <label><input type="radio" name="ntTipoPrazo" value="data" checked onchange="tipoPrazoNovaTarefaAlterado()"> Data</label>
+                                <label><input type="radio" name="ntTipoPrazo" value="dias_uteis" onchange="tipoPrazoNovaTarefaAlterado()"> Dias úteis (D+N)</label>
+                            </div>
+                        </div>
+                        <div class="nt-datas" id="ntCamposData">
+                            <div class="popup-campo">
+                                <label for="ntInicio">Início</label>
+                                <input type="date" id="ntInicio" onchange="datasNovaTarefaAlteradas()">
+                            </div>
+                            <div class="popup-campo">
+                                <label for="ntPrazo">Prazo final</label>
+                                <input type="date" id="ntPrazo" onchange="datasNovaTarefaAlteradas()">
+                            </div>
+                        </div>
+                        <div class="nt-datas" id="ntCamposDU" hidden>
+                            <div class="popup-campo">
+                                <label for="ntDuInicio">Início (D+N)</label>
+                                <input type="number" id="ntDuInicio" step="1" min="-31" max="31" placeholder="ex.: 0" oninput="previaDUNovaTarefa()">
+                                <small class="nt-du-data" id="ntDuInicioData"></small>
+                            </div>
+                            <div class="popup-campo">
+                                <label for="ntDuFim">Prazo final (D+N)</label>
+                                <input type="number" id="ntDuFim" step="1" min="-31" max="31" placeholder="ex.: 2" oninput="previaDUNovaTarefa()">
+                                <small class="nt-du-data" id="ntDuFimData"></small>
+                            </div>
+                        </div>
+                        <small class="nt-du-ajuda" id="ntDuAjuda" hidden>D+1 = 1º dia útil do mês seguinte à competência · D0 = último dia útil da competência</small>
+
+                        <label class="nt-recorrente">
+                            <input type="checkbox" id="ntRecorrente">
+                            <span>Tarefa recorrente <small>vem marcada ao começar o próximo mês</small></span>
+                        </label>
+
+                        <div class="popup-campo">
+                            <label>Responsáveis</label>
+                            <div class="nt-responsaveis" id="ntResponsaveis" role="group" aria-label="Responsáveis">
+                                <span class="nt-vazio">Carregando equipe…</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popup-rodape">
+                    <span class="popup-feedback" id="ntFeedback" role="status" aria-live="polite"></span>
+                    <button type="button" class="btn-secondary" onclick="fecharModalNovaTarefa()">Cancelar</button>
+                    <button type="submit" class="btn-primary" id="ntSalvar">Criar tarefa</button>
+                </div>
+            </form>
+        </div>
+        <script>function iniciarPagina() { renderizarTarefas(); carregarColaboradoresDados(identificarColaboradorLogado); }</script>
+    </body>
+</html>

@@ -1,0 +1,196 @@
+/* Quadro Kanban */
+.kanban-board {
+  flex: 1;
+  display: flex;
+  gap: 0.30rem;
+  overflow-x: auto;
+  align-items: flex-start;
+}
+
+.kanban-column {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  background: rgba(255, 255, 255, 0.5); 
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-cards);
+  padding: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+}
+
+.column-header {
+  min-width: 180px;
+  max-width: 300px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 4px;
+  border-radius: 3px;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: inline-block;
+  text-align: center;
+}
+
+.status-todo { background: var(--tag-todo-bg); color: var(--tag-todo-txt); }
+.status-doing { background: var(--tag-doing-bg); color: var(--tag-doing-txt); }
+.status-review { background: var(--tag-review-bg); color: var(--tag-review-txt); }
+.status-done { background: var(--tag-done-bg); color: var(--tag-done-txt); }
+.status-semprazo { background: var(--tag-semprazo-bg); color: var(--tag-semprazo-txt); }
+
+.cards-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: visible;
+}
+
+/* Card de Tarefa Neutro */
+.task-card {
+  min-height: 80px;
+  min-width: 180px;
+  background: var(--bg-surface);
+  padding: 6px;
+  border-radius: 3px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  cursor: grab;
+  transition: all 0.15s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-focus);
+  position: relative; 
+}
+
+.task-card h4 {
+  min-height: 30px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.task-meta.task-date {
+  margin-bottom: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Badges de Prioridade */
+.priority-Alta { background: var(--prio-high-bg); color: var(--prio-high-txt); padding: 2px 8px; border-radius: 4px; font-weight: 600; font-size: 0.7rem; }
+.priority-Média { background: var(--prio-med-bg); color: var(--prio-med-txt); padding: 2px 8px; border-radius: 4px; font-weight: 600; font-size: 0.7rem; }
+.priority-Baixa { background: var(--prio-low-bg); color: var(--prio-low-txt); padding: 2px 8px; border-radius: 4px; font-weight: 600; font-size: 0.7rem; }
+
+.empty-column-msg {
+  align-content: center;
+  text-align: center;
+  min-height: 80px;
+  min-width: 180px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  padding: 1.5rem 0.5rem;
+  border: 1px dashed var(--border-light);
+  border-radius: var(--radius-cards);
+  background-color: var(--bg-surface);
+  user-select: none;
+}
+
+/* Avatars dentro do Card Kanban */
+.task-avatars-flex {
+  display: flex;
+  align-items: center;
+  gap: -4px;
+}
+
+.task-avatar-sm {
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 0.65rem !important;
+  border: 1.5px solid #ffffff;
+  margin-right: -6px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.task-avatar-sm:hover {
+  transform: scale(1.15);
+  z-index: 10;
+}
+
+/* Garante que os elementos internos do card não bloqueiem os eventos de Drag & Drop */
+.task-card * {
+  pointer-events: none;
+}
+
+/* Evita que elementos vazios ou textos da coluna interceptem o drop */
+.empty-column-msg {
+  pointer-events: none;
+}
+
+/* Tags: bolinha com a cor cadastrada (tags.cor_tag) */
+.task-tag-pill .tag-cor { display: inline-block; width: 8px; height: 8px; margin-right: 5px; border-radius: 50%; vertical-align: middle; }
+.task-tag-pill .tag-remover { margin-left: 5px; color: #dc2626; font-weight: 700; cursor: pointer; }
+
+/* ==========================================
+   COMPETÊNCIA (competencias.js)
+   ========================================== */
+/* Na página de tarefas, a área do quadro vira coluna: barra de competência em cima, quadro embaixo */
+#view-kanban .main-container { flex-direction: column; gap: 12px; }
+#view-kanban .kanban-board { min-height: 0; }
+.barra-competencia { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; flex: 0 0 auto; }
+.barra-competencia[hidden] { display: none; }
+.competencia-seletor { display: flex; align-items: center; gap: 6px; padding: 6px 10px; background: #fff; border: 1px solid var(--border-light); border-radius: 12px; box-shadow: 0 1px 2px rgba(15, 23, 42, .04); }
+.competencia-rotulo { font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); margin-right: 4px; }
+.competencia-seletor select { padding: 5px 10px; border: 1px solid var(--border-light); border-radius: 8px; background: #f4f7fb; font: inherit; font-size: 0.9rem; font-weight: 700; color: var(--text-primary); cursor: pointer; }
+.btn-competencia { width: 30px; height: 30px; border: 1px solid var(--border-light); border-radius: 8px; background: #fff; color: var(--text-secondary); font-weight: 700; cursor: pointer; }
+.btn-competencia:hover:not(:disabled) { background: #eef4fb; color: var(--brand-blue); }
+.btn-competencia:disabled { opacity: .4; cursor: default; }
+.competencia-contagem { margin-left: 6px; font-size: 0.78rem; color: var(--text-secondary); }
+.btn-proximo-mes { white-space: nowrap; }
+
+/* Cartões: selo de dias úteis e ícone de recorrente */
+.selo-du { display: inline-block; margin-right: 6px; padding: 1px 7px; border-radius: 999px; background: #e8f1fb; color: #1d5fa0; font-size: 0.7rem; font-weight: 700; vertical-align: 1px; }
+.icone-recorrente { margin-right: 5px; color: var(--brand-blue); font-weight: 700; }
+
+/* Popup "Começar próximo mês" */
+.modal-card-container.inicio-mes { max-width: 640px; }
+.inicio-opcoes { display: grid; gap: 8px; margin: 4px 0 14px; }
+.inicio-opcao { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border: 1px solid var(--border-light); border-radius: 10px; cursor: pointer; }
+.inicio-opcao:has(input:checked) { border-color: var(--brand-blue); background: #f2f7fd; }
+.inicio-opcao input { margin-top: 3px; accent-color: var(--brand-blue); }
+.inicio-opcao span { display: flex; flex-direction: column; gap: 2px; font-size: 0.88rem; color: var(--text-primary); }
+.inicio-opcao small { color: var(--text-secondary); font-size: 0.78rem; }
+.inicio-lista-area.desativada { opacity: .4; pointer-events: none; }
+.inicio-lista-topo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 0.8rem; color: var(--text-secondary); }
+.inicio-atalhos button { border: 0; background: none; padding: 0; color: var(--brand-blue); font: inherit; font-weight: 600; cursor: pointer; }
+.inicio-atalhos button:hover { text-decoration: underline; }
+.inicio-lista { max-height: 320px; overflow-y: auto; border: 1px solid var(--border-light); border-radius: 10px; }
+.inicio-item { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; padding: 9px 12px; border-bottom: 1px solid var(--border-light); cursor: pointer; }
+.inicio-item:last-child { border-bottom: 0; }
+.inicio-item:hover { background: #f7f9fc; }
+.inicio-item input { accent-color: var(--brand-blue); width: 16px; height: 16px; }
+.inicio-item-titulo { display: flex; flex-direction: column; font-size: 0.86rem; color: var(--text-primary); }
+.inicio-item-titulo small { color: var(--text-secondary); font-size: 0.74rem; }
+.tag-recorrente { font-style: normal; font-size: 0.7rem; font-weight: 600; color: var(--brand-blue); margin-left: 4px; }
+.inicio-item-prazo { font-size: 0.78rem; color: var(--text-secondary); white-space: nowrap; }
+.inicio-item-prazo b { color: #1d5fa0; }
+.inicio-item-prazo .sem-prazo { font-style: italic; }
+.inicio-vazio { margin: 0; padding: 16px; font-size: 0.85rem; color: var(--text-secondary); }
+.inicio-nota { margin: 8px 0 12px; font-size: 0.76rem; color: var(--text-secondary); line-height: 1.4; }

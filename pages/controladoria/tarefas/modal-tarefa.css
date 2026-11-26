@@ -1,0 +1,262 @@
+/* ==========================================
+   ESTILOS DO MODAL DE DETALHES DA TAREFA
+   ========================================== */
+
+/* Base do popup (fundo, cartão, botão fechar, selo e título): ../commons/popup.css */
+
+.modal-body-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .modal-body-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.modal-section {
+  margin-bottom: 1.25rem;
+}
+
+.modal-section h3 {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.modal-section textarea {
+  width: 100%;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  outline: none;
+  resize: vertical;
+  color: var(--text-primary);
+  background: var(--bg-app);
+}
+
+.modal-section textarea:focus {
+  border-color: var(--brand-blue);
+  background: #fff;
+}
+
+/* Checklist / Subtarefas */
+.section-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--brand-blue);
+}
+
+.progress-bar-container {
+  height: 6px;
+  background: var(--border-light);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--brand-blue);
+  transition: width 0.2s ease;
+}
+
+.subtask-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 0.85rem;
+  border-bottom: 1px dashed var(--border-light);
+}
+
+.subtask-item.concluida span {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.btn-del-sub {
+  background: transparent;
+  border: none;
+  color: #dc2626;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.add-subtask-box {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.add-subtask-box input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  outline: none;
+}
+
+.btn-sm {
+  padding: 6px 12px !important;
+  font-size: 0.78rem !important;
+}
+
+/* Sidebar do Modal */
+.meta-group {
+  margin-bottom: 1.1rem;
+}
+
+.meta-group label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.meta-group select, .meta-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  background: var(--bg-surface);
+}
+
+.responsaveis-avatares-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.btn-danger-outline {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.btn-danger-outline:hover {
+  background: #fef2f2;
+}
+
+/* Anexos e Comentários */
+.anexo-item, .comentario-item {
+  background: var(--bg-app);
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+}
+
+.anexo-item a {
+  color: var(--brand-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.anexo-item a:hover {
+  text-decoration: underline;
+}
+
+.comentario-item strong {
+  color: var(--text-primary);
+}
+
+.comentario-item small {
+  color: var(--text-muted);
+}
+
+.comentario-item p {
+  margin-top: 4px;
+  color: var(--text-secondary);
+}
+
+.novo-comentario-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+/* ==========================================
+   TAGS / ETIQUETAS DAS TAREFAS
+   ========================================== */
+
+.task-tags-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.task-tag-pill {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: var(--bg-subtle, #f1f5f9);
+  color: var(--text-secondary, #475569);
+  border: 1px solid var(--border-light, #e2e8f0);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Modal: Seção de Tags */
+.modal-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.btn-add-tag-modal {
+  background: transparent;
+  border: 1px dashed var(--border-light, #cbd5e1);
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  cursor: pointer;
+  color: var(--text-muted, #64748b);
+  transition: all 0.15s ease;
+}
+
+.btn-add-tag-modal:hover {
+  border-color: var(--brand-blue, #2563eb);
+  color: var(--brand-blue, #2563eb);
+  background: #eff6ff;
+}
+
+/* Competência, prazo (data ou dias úteis) e recorrência */
+.meta-texto { margin: 2px 0 0; font-size: 0.92rem; font-weight: 700; color: var(--text-primary); }
+.modal-prazo-campos { display: grid; gap: 4px; margin-top: 8px; }
+.modal-prazo-campos[hidden] { display: none; }
+.modal-prazo-campos label { font-size: 0.72rem; font-weight: 600; color: var(--text-secondary); text-transform: none; letter-spacing: 0; margin-top: 4px; }
+.modal-du-data { font-size: 0.76rem; color: #1d5fa0; font-weight: 600; min-height: 1em; }
+.modal-prazo-aviso { display: block; margin-top: 4px; font-size: 0.76rem; color: #b91c1c; }
+.modal-recorrente { display: flex !important; align-items: center; gap: 8px; font-size: 0.86rem !important; font-weight: 600; color: var(--text-primary) !important; text-transform: none !important; letter-spacing: 0 !important; cursor: pointer; }
+.modal-recorrente input { accent-color: var(--brand-blue); width: 16px; height: 16px; }
