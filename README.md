@@ -139,9 +139,9 @@ histórico seguem a tarefa; tags e colunas do quadro são comuns a todos os mese
 
 
 
-`triviatrens.com.br`, `tictrens.com.br`, `comporte.com.br` e `metrobh.com.br`. A lista fica em dois lugares, que precisam
-ser iguais: `DOMINIOS_CORPORATIVOS` em `public/src/scripts/core/supabase.js` e a função `usuario_corporativo()` em
-`supabase/01_acesso.sql`.
+`triviatrens.com.br`, `tictrens.com.br`, `comporte.com.br`, `metrobh.com.br` e `engetrens.com.br`. A lista fica em dois lugares, que precisam
+ser iguais: `DOMINIOS_CORPORATIVOS` em `public/src/scripts/core/supabase.js` e a função `situacao_acesso()` no banco
+(scripts `11_acesso_somente_cadastrados.sql` e `20_dominio_engetrens.sql`; para um domínio novo, crie um script como o 20).
 
 ## Configurações (engrenagem do hub)
 
@@ -158,6 +158,20 @@ Aba **Empresas** (`#empresas`, `empresas.js`; requer `supabase/16_cadastro_empre
 código SAP (só na inclusão; os balancetes dependem dele), nome, método de consolidação (integral, proporcional ou fora),
 participação do grupo (0 a 100) e ordem de exibição (única; vazia = no fim). Sem exclusão: para tirar uma empresa do
 consolidado, use o método "fora".
+
+Aba **Plano de contas** (`#contas`, `contas.js`; requer `supabase/21_plano_de_contas.sql`, que cria o recurso
+"Plano de contas" e libera a edição de `balancetes_contas`): contas com número (só na inclusão), descrição,
+classificação em cascata (Demonstração BP/DR → Nv1 → Nv2 → Nv3) e contraparte intercompany. Pendências:
+- **Contas sem classificação**, as com saldo nos balancetes primeiro, com classificação sugerida pelas contas de número
+  mais parecido;
+- **Conferir arquivo do balancete** (Excel ou CSV do SAP, lido no navegador): lista as contas do arquivo que não estão
+  no cadastro (o banco não aceita saldo de conta não cadastrada), para cadastrar uma a uma ou todas de uma vez.
+
+**Carga de balancetes com pendências** (`supabase/22_balancetes_pendencias.sql`): importe o CSV de saldos na tabela
+`balancetes_pendencias` (colunas de `balancetes` + `desc_conta` opcional). Na importação, as linhas com conta cadastrada
+migram para `balancetes` (o saldo mais recente vale; saldos existentes são atualizados); ficam só as de contas sem
+cadastro, mostradas no painel "Saldos com conta sem cadastro" da aba Plano de contas, com sugestão de classificação.
+Ao cadastrar a conta (portal, painel ou script), as pendências dela migram sozinhas para `balancetes`.
 
 Aba **Grupos de acesso** (`#grupos`, `grupos.js`; requer `supabase/17_grupos_acesso.sql`): cada grupo define, para cada
 recurso do catálogo `acessos_recursos` (por módulo: Controladoria e Administração), o nível **não ver**, **ver** ou
