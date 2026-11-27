@@ -25,7 +25,8 @@ scripts/autores_comentarios.csv com os nomes; preencha o id_colab de cada um (ta
 e rode de novo. Os demais arquivos são gerados mesmo assim.
 
 Carga mensal de balancetes: basta rodar de novo e importar só as linhas do mês novo
-(ou filtrar o balancetes.csv do SAP antes). Contas novas precisam existir em balancetes_contas antes.
+(ou filtrar o balancetes.csv do SAP antes). Importe na tabela balancetes_pendencias (script 22): o que tiver
+conta cadastrada vai direto para balancetes; as contas novas ficam como pendência em Configurações › Plano de contas.
 """
 
 import csv
@@ -321,9 +322,9 @@ def main():
     if inicio:
         mensal = [l for l in balancetes if l[2] >= inicio]
         gravar(f"balancetes_a_partir_{inicio[:7]}.csv", ["id_empresa", "numero_conta", "periodo_balancete", "montante_balancete"], mensal)
-        print(f"Importe na tabela balancetes. Para reprocessar meses já carregados, apague-os antes no Supabase:\n"
-              f"  delete from public.balancetes where periodo_balancete >= '{inicio}';\n"
-              "Contas novas precisam existir antes em balancetes_contas (com id_classificacao e, se for o caso, id_empresa_contraparte).")
+        print("Importe na tabela balancetes_pendencias: as linhas com conta cadastrada vão direto para balancetes\n"
+              "(saldos já existentes são atualizados); as de contas novas ficam como pendência em\n"
+              "Configurações › Plano de contas e migram sozinhas quando a conta for cadastrada.")
         return
 
     print(f"\nArquivos em {SAIDA.relative_to(RAIZ)} (importe nesta ordem):")

@@ -80,7 +80,8 @@ as $$
       'triviatrens.com.br',
       'tictrens.com.br',
       'comporte.com.br',
-      'metrobh.com.br'
+      'metrobh.com.br',
+      'engetrens.com.br'
     ])
     and not exists (
       select 1 from public.colaboradores c

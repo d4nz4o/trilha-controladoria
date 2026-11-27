@@ -3,7 +3,7 @@
 -- Rode uma vez no SQL Editor do Supabase, antes dos demais scripts.
 -- Libera os dados do portal só para quem está logado com e-mail corporativo do grupo
 -- (a mesma regra que o login do site já aplica no navegador, agora no banco).
--- Domínios aceitos: triviatrens.com.br, tictrens.com.br, comporte.com.br e metrobh.com.br.
+-- Domínios aceitos: triviatrens.com.br, tictrens.com.br, comporte.com.br, metrobh.com.br e engetrens.com.br.
 -- =====================================================================
 
 create or replace function public.usuario_corporativo()
@@ -23,7 +23,8 @@ as $$
     'triviatrens.com.br',
     'tictrens.com.br',
     'comporte.com.br',
-    'metrobh.com.br'
+    'metrobh.com.br',
+    'engetrens.com.br'
   ]);
 $$;
 

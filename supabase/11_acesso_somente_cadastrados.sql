@@ -44,7 +44,8 @@ as $$
       'triviatrens.com.br',
       'tictrens.com.br',
       'comporte.com.br',
-      'metrobh.com.br'
+      'metrobh.com.br',
+      'engetrens.com.br'
     ]) then 'dominio'
     when not exists (select 1 from cadastro) then 'sem_cadastro'
     when (select esta_ativo from cadastro) is not true then 'inativo'
