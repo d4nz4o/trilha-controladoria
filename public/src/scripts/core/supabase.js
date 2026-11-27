@@ -4,7 +4,7 @@ const SUPABASE_URL = "https://luujxgjjkbppjbefllsg.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_eziJVLtciOqcihK-lLCfnw_ZGK72sFh";
 
 // Domínios de e-mail com acesso ao portal. Manter igual à função usuario_corporativo() (supabase/01_acesso.sql).
-const DOMINIOS_CORPORATIVOS = ['triviatrens.com.br', 'tictrens.com.br', 'comporte.com.br', 'metrobh.com.br'];
+const DOMINIOS_CORPORATIVOS = ['triviatrens.com.br', 'tictrens.com.br', 'comporte.com.br', 'metrobh.com.br', 'engetrens.com.br'];
 
 function emailCorporativo(email) {
   const dominio = String(email || '').toLowerCase().trim().split('@')[1] || '';
