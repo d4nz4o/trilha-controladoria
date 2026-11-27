@@ -173,7 +173,7 @@
     <header class="topbar">
       <div class="bp-title-group">
         <h1>Configurações</h1>
-        <p>Grupos de acesso: o que cada grupo pode ver ou editar. Nesta etapa, os grupos ainda não restringem o portal.</p>
+        <p>Grupos de acesso: o nível de cada grupo em cada parte do portal (Nenhum, Leitura ou Edição).</p>
       </div>
       <div class="cad-filtros">
         <button type="button" class="btn-action btn-novo-colab" data-editar="grupos_acesso" onclick="abrirGrupo(null)">
@@ -219,7 +219,12 @@
           <div class="cad-grade">
             <label>Empresa *<select name="id_empresa" id="cadEmpresa"><option value="">—</option></select><small class="cad-ajuda">Define de quais empresas a pessoa vê dados (holding: todas).</small></label>
             <label>Cargo<input type="text" name="cargo_colab" maxlength="80"></label>
-            <label>Equipe<select name="id_equipe" id="cadEquipe"><option value="">—</option></select></label>
+            <label>Equipe<select name="id_equipe" id="cadEquipe"><option value="">—</option></select>
+              <span class="cad-nova-equipe" id="cadNovaEquipe" hidden>
+                <input type="text" id="cadNovaEquipeNome" maxlength="60" placeholder="Nome da nova equipe">
+                <button type="button" class="btn-action" onclick="criarEquipe()">Criar</button>
+                <button type="button" class="cta-link" onclick="cancelarNovaEquipe()">Cancelar</button>
+              </span></label>
             <label>Grupo de acesso<select name="id_grupo" id="cadGrupo"><option value="">—</option></select></label>
             <label>Matrícula<input type="text" name="matricula_colab" inputmode="numeric" maxlength="15"></label>
             <label>Usuário SAP<input type="text" name="sap_colab" maxlength="40"></label>

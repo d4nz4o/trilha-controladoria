@@ -75,8 +75,14 @@ async function carregarCadastro() {
     return;
   }
   cadColaboradores = colab.data || [];
-  document.getElementById('cadEquipe').innerHTML = '<option value="">—</option>' +
-    cadEquipes.map(e => `<option value="${e.id_equipe}">${escCad(e.nome_equipe)}</option>`).join('');
+  preencherEquipesCad();
+  document.getElementById('cadEquipe').addEventListener('change', e => {
+    if (e.target.value === '__nova__') abrirNovaEquipe(); else cancelarNovaEquipe(true);
+  });
+  document.getElementById('cadNovaEquipeNome').addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); criarEquipe(); }
+    if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); cancelarNovaEquipe(); }
+  });
   preencherGruposCad();
   preencherEmpresasCad();
   desenharCadastro();
@@ -88,6 +94,57 @@ function preencherEmpresasCad() {
   const atual = sel.value;
   sel.innerHTML = '<option value="">—</option>' + cadEmpresas.map(e => `<option value="${e.id_empresa}">${escCad(e.nome_empresa)}</option>`).join('');
   sel.value = atual;
+}
+
+// Lista de equipes no formulário, com a opção de criar uma nova (só para quem edita o cadastro)
+function preencherEquipesCad() {
+  const sel = document.getElementById('cadEquipe');
+  const atual = sel.value;
+  sel.innerHTML = '<option value="">—</option>' +
+    cadEquipes.map(e => `<option value="${e.id_equipe}">${escCad(e.nome_equipe)}</option>`).join('') +
+    (Permissoes.podeEditar('cad_colaboradores') ? '<option value="__nova__">+ Nova equipe…</option>' : '');
+  sel.value = atual === '__nova__' ? '' : atual;
+}
+
+let equipeAntesDaNova = '';
+function abrirNovaEquipe() {
+  document.getElementById('cadNovaEquipe').hidden = false;
+  const nome = document.getElementById('cadNovaEquipeNome');
+  nome.value = '';
+  nome.classList.remove('invalido');
+  nome.focus();
+}
+
+function cancelarNovaEquipe(manterSelecao = false) {
+  document.getElementById('cadNovaEquipe').hidden = true;
+  const sel = document.getElementById('cadEquipe');
+  if (!manterSelecao && sel.value === '__nova__') sel.value = equipeAntesDaNova;
+}
+
+async function criarEquipe() {
+  const campoNome = document.getElementById('cadNovaEquipeNome');
+  const nome = campoNome.value.trim();
+  const erro = msg => { campoNome.classList.add('invalido'); campoNome.focus(); definirFeedbackCad(msg, 'erro'); };
+  if (!nome) return erro('Informe o nome da nova equipe.');
+  const mesma = cadEquipes.find(e => e.nome_equipe.toLowerCase() === nome.toLowerCase());
+  if (mesma) {                       // já existe: só seleciona
+    cancelarNovaEquipe(true);
+    document.getElementById('cadEquipe').value = mesma.id_equipe;
+    return definirFeedbackCad(`A equipe ${mesma.nome_equipe} já existia e foi selecionada.`);
+  }
+  const { data, error } = await sbClient.from('equipes').insert({ nome_equipe: nome }).select('id_equipe, nome_equipe');
+  const nova = data && data[0];
+  if (error || !nova) {
+    return erro(error && !/row-level security/i.test(error.message) ? 'Não foi possível criar a equipe: ' + error.message
+      : 'O banco não permitiu criar a equipe. Rode supabase/23_equipes_pelo_portal.sql e confira o seu grupo de acesso.');
+  }
+  cadEquipes.push(nova);
+  cadEquipes.sort((a, b) => a.nome_equipe.localeCompare(b.nome_equipe, 'pt-BR'));
+  preencherEquipesCad();
+  document.getElementById('cadEquipe').value = nova.id_equipe;
+  document.getElementById('cadNovaEquipe').hidden = true;
+  definirFeedbackCad('');
+  avisoCadastro(`Equipe ${nova.nome_equipe} criada.`);
 }
 
 // Lista de grupos no formulário (também chamada por grupos.js quando um grupo é criado ou renomeado)
@@ -144,6 +201,8 @@ function abrirCadastro(id) {
   if (c.cel_colab) campo('cel_colab').value = formatarCelular(String(c.cel_colab));
   CAMPOS_DATA.forEach(n => { campo(n).value = c[n] ? String(c[n]).slice(0, 10) : ''; });
   campo('id_equipe').value = c.id_equipe ?? '';
+  equipeAntesDaNova = campo('id_equipe').value;
+  document.getElementById('cadNovaEquipe').hidden = true;
   campo('id_empresa').value = c.id_empresa ?? '';
   campo('id_grupo').value = c.id_grupo ?? '';
   campo('esta_ativo').checked = c.esta_ativo !== false;
@@ -192,6 +251,7 @@ function lerFormulario() {
   CAMPOS_NUMERO.forEach(n => { const x = soDigitos(campo(n).value); v[n] = x || null; });
   CAMPOS_DATA.forEach(n => { v[n] = campo(n).value || null; });
   v.email_colab = v.email_colab ? v.email_colab.toLowerCase() : null;
+  if (campo('id_equipe').value === '__nova__') campo('id_equipe').value = equipeAntesDaNova;   // nova equipe não criada
   v.id_equipe = campo('id_equipe').value ? Number(campo('id_equipe').value) : null;
   if (cadEmpresas.length || campo('id_empresa').value) v.id_empresa = campo('id_empresa').value ? Number(campo('id_empresa').value) : null;
   if (cadGrupos.length || campo('id_grupo').value) v.id_grupo = campo('id_grupo').value ? Number(campo('id_grupo').value) : null;

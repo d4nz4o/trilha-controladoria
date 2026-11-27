@@ -133,3 +133,9 @@
 .cta-lista .cta-acoes { display: flex; gap: 6px; flex: 0 0 auto; }
 .cta-descartar { color: #b91c1c; }
 .cta-pend-qtd { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; background: #fef3c7; color: #92400e; font-size: .72rem; font-weight: 700; }
+
+/* Nova equipe (cadastro de colaboradores) */
+.cad-nova-equipe { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.cad-nova-equipe[hidden] { display: none; }
+.cad-nova-equipe input { flex: 1; min-width: 0; }
+.cad-nova-equipe .btn-action { padding: 6px 12px; font-size: .78rem; }

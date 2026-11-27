@@ -12,7 +12,7 @@ let gruPermissoes = [];      // { id_grupo, id_recurso, nivel_permissao }
 let gruEditando = null;
 let gruNiveis = {};          // níveis no formulário: id_recurso -> nivel
 
-const NIVEIS = [['nao_ver', 'Não ver'], ['ver', 'Ver'], ['editar', 'Editar']];
+const NIVEIS = [['nao_ver', 'Nenhum'], ['ver', 'Leitura'], ['editar', 'Edição']];   // valores no banco: nao_ver | ver | editar
 const campoGru = nome => document.querySelector(`#gruForm [name="${nome}"]`);
 
 async function iniciarGrupos() {
@@ -49,8 +49,8 @@ const pessoasDoGrupo = idGrupo => (typeof cadColaboradores !== 'undefined' ? cad
 function resumoGrupo(idGrupo) {
   const n = { editar: 0, ver: 0 };
   gruRecursos.forEach(r => { const v = nivelDe(idGrupo, r.id_recurso); if (v in n) n[v]++; });
-  if (!n.editar && !n.ver) return '<span class="gru-resumo vazio">Sem acesso</span>';
-  return [n.editar ? `<span class="gru-resumo editar">${n.editar} edita</span>` : '', n.ver ? `<span class="gru-resumo ver">${n.ver} só vê</span>` : ''].join(' ');
+  if (!n.editar && !n.ver) return '<span class="gru-resumo vazio">Nenhum</span>';
+  return [n.editar ? `<span class="gru-resumo editar">${n.editar} edição</span>` : '', n.ver ? `<span class="gru-resumo ver">${n.ver} leitura</span>` : ''].join(' ');
 }
 
 function desenharGrupos() {
