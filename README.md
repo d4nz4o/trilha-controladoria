@@ -54,10 +54,10 @@ Planejado: `public/commons/` (base visual compartilhada entre os módulos).
 | Tabela | Conteúdo | Ligações |
 |---|---|---|
 | `empresas` | `id_empresa` (= código SAP), `nome_empresa`, `metodo_consolidacao` (integral · proporcional · fora), `percentual_participacao`, `classificacao_empresa` (ordem lado a lado) | — |
-| `classificacoes` | linhas do BP/DR: `nivel1..3` e `ordem_nivel1..3` | — |
-| `contas_contabeis` | plano de contas único: `numero_conta`, `desc_conta` | `id_classificacao` → `classificacoes` (vazio = sem classificação); `id_empresa_contraparte` → `empresas` (saldo com empresa do grupo, eliminado no consolidado) |
-| `balancetes` | saldos acumulados: `periodo_balancete` (último dia do mês), `montante_balancete` | `id_empresa` → `empresas`; `numero_conta` → `contas_contabeis` |
-| `revisoes_comentarios` | revisão analítica: `nivel1..3`, `mensagem`, `criado_em` | `id_empresa` → `empresas`; `id_colab` → `colaboradores` |
+| `balancetes_classificacoes` | linhas do BP/DR: `nivel1..3` e `ordem_nivel1..3` | — |
+| `balancetes_contas` | plano de contas único: `numero_conta`, `desc_conta` | `id_classificacao` → `balancetes_classificacoes` (vazio = sem classificação); `id_empresa_contraparte` → `empresas` (saldo com empresa do grupo, eliminado no consolidado) |
+| `balancetes` | saldos acumulados: `periodo_balancete` (último dia do mês), `montante_balancete` | `id_empresa` → `empresas`; `numero_conta` → `balancetes_contas` |
+| `balancetes_comentarios` | revisão analítica: `nivel1..3`, `mensagem`, `criado_em` | `id_empresa` → `empresas`; `id_colab` → `colaboradores` |
 
 Só usuários logados com e-mail corporativo leem (RLS). O `supabase/06_acesso_todas_tabelas.sql` aplica a mesma exigência
 a **todas** as tabelas do banco (regra restritiva "somente e-mail corporativo") e dá acesso completo às tabelas da
@@ -85,7 +85,7 @@ comentários; regras em `supabase/08_editar_comentarios.sql` e `supabase/09_excl
    `python scripts/extrair_balancetes_xlsx.py PASTA 2026 --integrar`
    O script confere se cada mês fecha, avisa contas sem classificação e atualiza `dados/demonstracoes/balancetes.csv`.
    O código SAP de cada arquivo fica em `CODIGOS`, no início do script.
-2. **Contas novas:** inclua em `dados/demonstracoes/classificacao.csv` e cadastre em `contas_contabeis` pelo painel do
+2. **Contas novas:** inclua em `dados/demonstracoes/classificacao.csv` e cadastre em `balancetes_contas` pelo painel do
    Supabase (com `id_classificacao` e, se for saldo com empresa do grupo, `id_empresa_contraparte`).
 3. **Gerar a carga do mês:** `python scripts/preparar_dados_supabase.py --a-partir 2026-11`
    (gera `scripts/saida/balancetes_a_partir_2026-11.csv` e confere as ligações antes).
@@ -135,13 +135,50 @@ histórico seguem a tarefa; tags e colunas do quadro são comuns a todos os mese
   competência, % concluído, concluídas no prazo, atrasadas, dia útil de hoje e em que D+N o fechamento terminou
   (comparado com a competência anterior); gráfico da evolução por dia útil (realizado × planejado pelos prazos ×
   competência anterior); carga por responsável e lista de atrasadas. "Concluída" = tarefa numa coluna com
-  `colunas_tarefas.conclui_tarefa`; a data (`tarefas.concluida_em`) é registrada pelo banco ao entrar nessa coluna.
+  `tarefas_colunas.conclui_tarefa`; a data (`tarefas.concluida_em`) é registrada pelo banco ao entrar nessa coluna.
 
 
 
 `triviatrens.com.br`, `tictrens.com.br`, `comporte.com.br` e `metrobh.com.br`. A lista fica em dois lugares, que precisam
 ser iguais: `DOMINIOS_CORPORATIVOS` em `public/src/scripts/core/supabase.js` e a função `usuario_corporativo()` em
 `supabase/01_acesso.sql`.
+
+## Configurações (engrenagem do hub)
+
+`pages/configuracao/` (rota `/configuracao`): cadastro de colaboradores, conforme as colunas de `colaboradores`
+(nome de exibição e completo, e-mail, cargo, equipe, grupo de acesso, matrícula, usuário SAP, admissão, celular,
+aniversário e situação). Lista com busca e filtro por situação; inclusão e edição num formulário.
+- Sem exclusão: quem sai é inativado (`esta_ativo = false`); ninguém inativa o próprio cadastro.
+- E-mail obrigatório e único (gravado em minúsculas), com aviso se o domínio não for do grupo; matrícula e celular só
+  com números. `id_auth` (vínculo com o login) é automático no primeiro acesso e só exibido.
+- Hoje, qualquer pessoa da equipe com acesso ao portal pode editar o cadastro (regras do script 06); a restrição por
+  grupo de acesso virá com o controle de acesso.
+
+Aba **Empresas** (`#empresas`, `empresas.js`; requer `supabase/16_cadastro_empresas.sql`, que libera inclusão e edição):
+código SAP (só na inclusão; os balancetes dependem dele), nome, método de consolidação (integral, proporcional ou fora),
+participação do grupo (0 a 100) e ordem de exibição (única; vazia = no fim). Sem exclusão: para tirar uma empresa do
+consolidado, use o método "fora".
+
+Aba **Grupos de acesso** (`#grupos`, `grupos.js`; requer `supabase/17_grupos_acesso.sql`): cada grupo define, para cada
+recurso do catálogo `acessos_recursos` (por módulo: Controladoria e Administração), o nível **não ver**, **ver** ou
+**editar** (`acessos_permissoes`). Cada pessoa tem um grupo (`colaboradores.id_grupo`, escolhido em Colaboradores).
+Grupo com pessoas não pode ser excluído.
+
+**Aplicação** (`supabase/18_aplicar_grupos.sql`):
+- **Banco:** regras restritivas por tabela, conforme o recurso (ver = consultar; editar = incluir, alterar e excluir),
+  somadas às regras que já existiam; arquivos do bucket `dados` exigem ver "Controle de ativos" e os anexos de tarefas,
+  editar "Tarefas". As verificações rodam uma vez por consulta (sem custo por linha).
+- **Tela:** cada página faz uma chamada (`minhas_permissoes`: situação do acesso + nível por recurso). Página de um
+  recurso sem acesso volta ao hub com aviso; elementos com `data-recurso` (ver) e `data-editar` (editar) somem
+  conforme o grupo; `Permissoes.travar(elemento, recurso)` abre formulários só para leitura.
+- **Transição:** ativos sem grupo recebem o grupo "Acesso total". **Proteção:** o banco recusa qualquer alteração que
+  deixe o portal sem ninguém ativo com "editar" em Grupos de acesso.
+
+**Limitação por empresa** (`supabase/19_limitar_por_empresa.sql`): cada colaborador tem uma empresa
+(`colaboradores.id_empresa`, obrigatória no cadastro); quem é de empresa marcada como holding (`empresas.empresa_holding`,
+a Trilha) vê os dados de todas, os demais só os da própria. Vale para balancetes e comentários (regras do banco), para o
+seletor de empresas das demonstrações e para a visão Consolidada (só para quem vê todas). O controle de ativos segue
+restrito pelos grupos até a migração para tabelas.
 
 ## Configuração do Supabase (Authentication › URL Configuration)
 

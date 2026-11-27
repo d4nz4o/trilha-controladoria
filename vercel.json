@@ -5,6 +5,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/configuracao",
+      "destination": "/pages/configuracao/configuracao"
+    },
+    {
       "source": "/hub",
       "destination": "/pages/hub/hub"
     },
