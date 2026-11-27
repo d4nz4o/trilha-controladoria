@@ -4,9 +4,9 @@
 -- Requer 01_acesso.sql (id_colab_usuario) e 04_comentarios_revisao.sql. Pode ser rodado de novo.
 -- =====================================================================
 
-drop policy if exists "exclusao pelo proprio colaborador" on public.revisoes_comentarios;
-create policy "exclusao pelo proprio colaborador" on public.revisoes_comentarios
+drop policy if exists "exclusao pelo proprio colaborador" on public.balancetes_comentarios;
+create policy "exclusao pelo proprio colaborador" on public.balancetes_comentarios
   for delete to authenticated
   using (id_colab = (select public.id_colab_usuario()));
 
-grant delete on public.revisoes_comentarios to authenticated;
+grant delete on public.balancetes_comentarios to authenticated;

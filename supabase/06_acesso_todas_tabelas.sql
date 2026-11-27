@@ -38,7 +38,7 @@ do $$
 declare t text;
 begin
   foreach t in array array[
-    'tarefas', 'colunas_tarefas', 'subtarefas', 'tags', 'tarefas_tags', 'tarefas_colaboradores',
+    'tarefas', 'tarefas_colunas', 'subtarefas', 'tags', 'tarefas_tags', 'tarefas_colaboradores',
     'tarefas_comentarios', 'tarefas_anexos', 'tarefas_historicos', 'colaboradores', 'ferias', 'automacoes'
   ] loop
     if to_regclass('public.' || t) is null then

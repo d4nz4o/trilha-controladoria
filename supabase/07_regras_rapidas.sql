@@ -22,7 +22,7 @@ end $$;
 do $$
 declare t text;
 begin
-  foreach t in array array['empresas', 'classificacoes', 'contas_contabeis', 'balancetes', 'revisoes_comentarios'] loop
+  foreach t in array array['empresas', 'balancetes_classificacoes', 'balancetes_contas', 'balancetes', 'balancetes_comentarios'] loop
     if to_regclass('public.' || t) is null then continue; end if;
     execute format('drop policy if exists "leitura corporativa" on public.%I', t);
     execute format('create policy "leitura corporativa" on public.%I for select to authenticated '
@@ -31,8 +31,8 @@ begin
 end $$;
 
 -- Comentários: inclusão só em nome próprio
-drop policy if exists "inclusao pelo proprio colaborador" on public.revisoes_comentarios;
-create policy "inclusao pelo proprio colaborador" on public.revisoes_comentarios
+drop policy if exists "inclusao pelo proprio colaborador" on public.balancetes_comentarios;
+create policy "inclusao pelo proprio colaborador" on public.balancetes_comentarios
   for insert to authenticated
   with check (
     (select public.usuario_corporativo())

@@ -200,7 +200,7 @@ begin
     return v_id_mes;
   end if;
 
-  select id_coluna into v_coluna from public.colunas_tarefas order by ordem_coluna limit 1;
+  select id_coluna into v_coluna from public.tarefas_colunas order by ordem_coluna limit 1;
   -- Competência no padrão do portal (ex.: out/26)
   select (array['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'])[extract(month from competencia_mes)::int]
          || '/' || to_char(competencia_mes, 'YY')

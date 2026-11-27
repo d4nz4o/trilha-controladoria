@@ -6,11 +6,11 @@
 -- Requer 01_acesso.sql (id_colab_usuario) e 04_comentarios_revisao.sql. Pode ser rodado de novo.
 -- =====================================================================
 
-drop policy if exists "edicao pelo proprio colaborador" on public.revisoes_comentarios;
-create policy "edicao pelo proprio colaborador" on public.revisoes_comentarios
+drop policy if exists "edicao pelo proprio colaborador" on public.balancetes_comentarios;
+create policy "edicao pelo proprio colaborador" on public.balancetes_comentarios
   for update to authenticated
   using (id_colab = (select public.id_colab_usuario()))
   with check (id_colab = (select public.id_colab_usuario()));
 
-revoke update on public.revisoes_comentarios from authenticated, anon;
-grant update (mensagem) on public.revisoes_comentarios to authenticated;
+revoke update on public.balancetes_comentarios from authenticated, anon;
+grant update (mensagem) on public.balancetes_comentarios to authenticated;
