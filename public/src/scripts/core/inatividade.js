@@ -141,7 +141,8 @@
     // Se o usuário sair em outra aba, esta também volta para o login
     if (typeof sbClient !== 'undefined' && sbClient) {
       sbClient.auth.onAuthStateChange((evento) => {
-        if (evento === 'SIGNED_OUT' && !encerrando) {
+        // Saída feita pelo portal com aviso (domínio, acesso inativo…): o main.js já leva ao login com o aviso
+        if (evento === 'SIGNED_OUT' && !encerrando && !window.__saidaComAviso) {
           encerrando = true;
           window.location.href = Sessao.URL_LOGIN;
         }

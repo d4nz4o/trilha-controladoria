@@ -94,9 +94,18 @@ const ERRO_DA_SITUACAO = { sem_cadastro: 'acesso_nao_liberado', inativo: 'acesso
 // Encerra a sessão e volta ao login com o aviso da situação. Usada aqui e pela fonte de dados,
 // quando o banco recusa os dados de uma página já aberta.
 async function bloquearAcesso(situacao) {
+  await sairComAviso(ERRO_DA_SITUACAO[situacao] || 'acesso_nao_liberado');
+}
+
+// Encerra a sessão e volta ao login COM o aviso. O aviso vai no endereço (?erro=) e também fica guardado no
+// navegador, caso algum redirecionamento no caminho perca o endereço; e o módulo de inatividade é avisado para
+// não mandar ao login sem aviso quando perceber a saída.
+async function sairComAviso(codigo) {
+  window.__saidaComAviso = true;
+  try { sessionStorage.setItem('trilha_aviso_login', codigo); } catch (e) { /* sem armazenamento */ }
   try { await sbClient.auth.signOut(); } catch (e) { /* segue para o login mesmo assim */ }
-  Cache.limparTudo();
-  window.location.href = Sessao.URL_LOGIN + "?erro=" + (ERRO_DA_SITUACAO[situacao] || 'acesso_nao_liberado');
+  Cache.limparTudo();   // apaga só as chaves "trilha:", o aviso continua
+  window.location.href = Sessao.URL_LOGIN + "?erro=" + codigo;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -110,9 +119,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const email = user?.email || "";
 
   if (!emailCorporativo(email)) {
-    await sbClient.auth.signOut();
-    Cache.limparTudo();
-    window.location.href = Sessao.URL_LOGIN + "?erro=dominio_invalido";
+    await sairComAviso('dominio_invalido');
     return;
   }
 
