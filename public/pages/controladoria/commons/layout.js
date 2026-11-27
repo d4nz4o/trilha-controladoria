@@ -34,6 +34,7 @@ function renderizarTopbar() {
       </div>
 
       <nav class="abas" aria-label="Controladoria">
+        <a href="${URL_HUB}">Início</a>
         ${PAGINAS.map(p => p.id === atual.id
           ? `<a aria-current="page" data-recurso="${p.recurso}">${p.rotulo}</a>`
           : `<a href="${p.url}" data-recurso="${p.recurso}">${p.rotulo}</a>`).join('')}
