@@ -1017,3 +1017,25 @@ function htmlTooltipComentarios(lista) {
       <div class="tt-data">${esc(c.dataHora || '')}</div>
     </div>`).join('')}</div>`;
 }
+
+
+/* ---------- Cabeçalho da tabela travado ----------
+   A área da tabela ocupa o espaço que sobra na tela, abaixo dos filtros, e rola por dentro: assim o cabeçalho
+   (meses e empresas) fica sempre visível. Recalcula quando a janela muda de tamanho ou os filtros quebram de linha. */
+function ajustarAlturaTabela() {
+  const corpo = document.querySelector('.bp-corpo');
+  if (!corpo) return;
+  const topo = corpo.getBoundingClientRect().top + window.scrollY;
+  const legenda = document.getElementById('tabelaLegenda');
+  let altura = Math.max(360, window.innerHeight - topo - (legenda ? legenda.offsetHeight : 0) - 34);
+  corpo.style.setProperty('--altura-tabela', altura + 'px');
+  // Se ainda sobrar rolagem na página (rodapés e notas abaixo da tabela), desconta o que sobrou
+  const sobra = document.documentElement.scrollHeight - window.innerHeight;
+  if (sobra > 0 && altura > 360) corpo.style.setProperty('--altura-tabela', Math.max(360, altura - sobra) + 'px');
+}
+window.addEventListener('resize', ajustarAlturaTabela);
+document.addEventListener('DOMContentLoaded', () => {
+  ajustarAlturaTabela();
+  const topbar = document.querySelector('.topbar');
+  if (topbar && 'ResizeObserver' in window) new ResizeObserver(ajustarAlturaTabela).observe(topbar);
+});

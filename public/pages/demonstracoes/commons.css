@@ -825,11 +825,16 @@ td.td-delta .chip { margin-left: 8px; min-width: 54px; padding: 1px 7px; font-si
    ========================================== */
 .bp-corpo { display: flex; align-items: stretch; }
 .bp-corpo > .bp-table-wrapper { flex: 1 1 auto; min-width: 0; }
+/* Cabeçalho travado: a tabela ocupa o espaço que sobra na tela e rola por dentro (o cabeçalho fica visível).
+   A altura (--altura-tabela) é calculada em commons.js (ajustarAlturaTabela). */
+.bp-corpo > .bp-table-wrapper { max-height: var(--altura-tabela, none); }
 .painel-indicadores {
   flex: 0 0 290px;
   border-left: 1px solid var(--line-strong);
   background: var(--surface-2);
   padding: 14px 16px 12px;
+  max-height: var(--altura-tabela, none);
+  overflow-y: auto;
 }
 .painel-indicadores[hidden] { display: none; }
 .ind-cabecalho h2 { margin: 0; font-size: 0.95rem; color: var(--ink); }
@@ -856,7 +861,7 @@ td.td-delta .chip { margin-left: 8px; min-width: 54px; padding: 1px 7px; font-si
 /* Telas menores: indicadores abaixo da tabela, em colunas */
 @media (max-width: 1280px) {
   .bp-corpo { flex-direction: column; }
-  .painel-indicadores { flex: none; border-left: 0; border-top: 1px solid var(--line-strong); }
+  .painel-indicadores { flex: none; border-left: 0; border-top: 1px solid var(--line-strong); max-height: none; overflow: visible; }
   .painel-indicadores:not([hidden]) { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); column-gap: 24px; }
   .ind-cabecalho, .ind-nota { grid-column: 1 / -1; }
 }
