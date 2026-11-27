@@ -43,6 +43,7 @@ async function iniciarPagina() {
     typeof iniciarEmpresas === 'function' ? iniciarEmpresas() : null,
     typeof iniciarGrupos === 'function' ? iniciarGrupos() : null,
     typeof iniciarContas === 'function' ? iniciarContas() : null,
+    typeof iniciarBalancetes === 'function' ? iniciarBalancetes() : null,
   ]);
 }
 
@@ -338,7 +339,7 @@ window.addEventListener('resize', ajustarAlturaTabelas);
 document.addEventListener('DOMContentLoaded', () => {
   if ('ResizeObserver' in window) {
     const observador = new ResizeObserver(() => ajustarAlturaTabelas());
-    document.querySelectorAll('.cad-secao .topbar, .cta-pendencias').forEach(el => observador.observe(el));
+    document.querySelectorAll('.cad-secao .topbar, .cta-pendencias, .bal-meses').forEach(el => observador.observe(el));
   }
   ajustarAlturaTabelas();
 });
