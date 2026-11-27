@@ -368,13 +368,24 @@
 
   document.addEventListener("DOMContentLoaded", async () => {
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('erro') === 'dominio_invalido') {
+    // Aviso de bloqueio: do endereço (?erro=) ou, se um redirecionamento no caminho o perdeu, do navegador
+    let erro = urlParams.get('erro');
+    try { erro = erro || sessionStorage.getItem('trilha_aviso_login'); sessionStorage.removeItem('trilha_aviso_login'); } catch {}
+    // Erro devolvido pelo Google/Microsoft (ex.: conta recusada por não ser da organização, login cancelado)
+    const hashParams = new URLSearchParams(window.location.hash.slice(1));
+    const erroProvedor = urlParams.get('error') || hashParams.get('error');
+    if (erroProvedor) {
+      console.warn('Login recusado pelo provedor:', erroProvedor, urlParams.get('error_description') || hashParams.get('error_description') || '');
+      history.replaceState(history.state, '', window.location.pathname);   // limpa o endereço
+    }
+
+    if (erro === 'dominio_invalido' || erroProvedor) {
       exibirErro(MSG_DOMINIO);
-    } else if (urlParams.get('erro') === 'acesso_nao_liberado') {
+    } else if (erro === 'acesso_nao_liberado') {
       exibirErro("Seu acesso ao portal ainda não foi liberado pela Controladoria.");
-    } else if (urlParams.get('erro') === 'acesso_inativo') {
+    } else if (erro === 'acesso_inativo') {
       exibirErro("Seu acesso ao portal está inativo. Procure a Controladoria.");
-    } else if (urlParams.get('erro') === 'inatividade') {
+    } else if (erro === 'inatividade') {
       exibirErro("Sua sessão foi encerrada por inatividade. Entre novamente.");
     }
 
@@ -393,7 +404,7 @@
       }
 
       // Chegou aqui por um bloqueio (acesso inativo, domínio): encerra a sessão e fica no login, sem redirecionar
-      if (session && ['acesso_nao_liberado', 'acesso_inativo', 'dominio_invalido'].includes(urlParams.get('erro'))) {
+      if (session && (erroProvedor || ['acesso_nao_liberado', 'acesso_inativo', 'dominio_invalido'].includes(erro))) {
         try { await sbClient.auth.signOut(); } catch {}
         return;
       }
