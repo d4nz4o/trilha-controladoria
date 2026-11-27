@@ -12,7 +12,8 @@
 .btn-novo-colab svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
 
 /* Tabela */
-.cad-tabela-area { overflow-x: auto; }
+.cad-tabela-area { overflow: auto; }   /* rola por dentro; a altura vem de ajustarAlturaTabelas (configuracao.js) */
+.cad-tabela th { z-index: 2; }
 .cad-tabela { width: 100%; border-collapse: collapse; font-size: .86rem; }
 .cad-tabela th {
   position: sticky; top: 0; padding: 11px 14px; background: var(--surface-2); text-align: left;
@@ -139,3 +140,6 @@
 .cad-nova-equipe[hidden] { display: none; }
 .cad-nova-equipe input { flex: 1; min-width: 0; }
 .cad-nova-equipe .btn-action { padding: 6px 12px; font-size: .78rem; }
+
+/* Painéis de pendências compactos: as listas rolam por dentro, para sobrar espaço para a tabela */
+.cta-pendencia .cta-lista { max-height: 150px; overflow-y: auto; }

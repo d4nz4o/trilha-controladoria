@@ -56,6 +56,7 @@ function mostrarSecao(nome) {
   document.querySelectorAll('.abas [data-aba]').forEach(a => {
     if (a.dataset.aba === nome) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
   });
+  if (typeof ajustarAlturaTabelas === 'function') ajustarAlturaTabelas();   // altura da tabela da aba aberta
 }
 
 async function carregarCadastro() {
@@ -314,3 +315,30 @@ function avisoCadastro(texto) {
   clearTimeout(el._t);
   el._t = setTimeout(() => el.classList.remove('visivel'), 2800);
 }
+
+
+/* ---------- Tabelas rolam por dentro (como no BP e na DR) ----------
+   A tabela da aba aberta ocupa o espaço que sobra na tela, abaixo dos filtros (e dos painéis de pendências do
+   plano de contas), e rola por dentro, com o cabeçalho sempre visível. Recalcula ao trocar de aba, ao mudar o
+   tamanho da janela e quando filtros ou painéis mudam de altura. */
+function ajustarAlturaTabelas() {
+  const secao = document.querySelector('.cad-secao:not([hidden])');
+  const area = secao && secao.querySelector('.cad-tabela-area');
+  if (!area) return;
+  const topo = area.getBoundingClientRect().top + window.scrollY;
+  const rodape = secao.querySelector('.cad-rodape');
+  const minimo = window.innerHeight < 800 ? 220 : 300;   // telas baixas aceitam uma tabela menor
+  const altura = Math.max(minimo, window.innerHeight - topo - (rodape ? rodape.offsetHeight : 0) - 34);
+  area.style.maxHeight = altura + 'px';
+  // Se ainda sobrar rolagem na página, desconta o que sobrou
+  const sobra = document.documentElement.scrollHeight - window.innerHeight;
+  if (sobra > 0 && altura > minimo) area.style.maxHeight = Math.max(minimo, altura - sobra) + 'px';
+}
+window.addEventListener('resize', ajustarAlturaTabelas);
+document.addEventListener('DOMContentLoaded', () => {
+  if ('ResizeObserver' in window) {
+    const observador = new ResizeObserver(() => ajustarAlturaTabelas());
+    document.querySelectorAll('.cad-secao .topbar, .cta-pendencias').forEach(el => observador.observe(el));
+  }
+  ajustarAlturaTabelas();
+});
