@@ -11,10 +11,10 @@ Uso (na raiz do projeto, só Python 3, sem instalar nada):
 
 Gera em scripts/saida/, nesta ordem de importação:
     1. empresas.csv              (id_empresa = código SAP)
-    2. classificacoes.csv        (linhas das demonstrações, com id_classificacao já numerado)
-    3. contas_contabeis.csv      (plano de contas único, ligado a id_classificacao)
+    2. balancetes_classificacoes.csv        (linhas das demonstrações, com id_classificacao já numerado)
+    3. balancetes_contas.csv      (plano de contas único, ligado a id_classificacao)
     4. balancetes.csv            (ligado por id_empresa e numero_conta)
-    5. revisoes_comentarios.csv  (comentários antigos, com o id_colab de cada autor)
+    5. balancetes_comentarios.csv  (comentários antigos, com o id_colab de cada autor)
 Depois da importação, rode supabase/05_apos_importacao.sql.
 
 Antes de gerar, o script confere as ligações: empresa ou conta inexistente, conta classificada numa
@@ -25,7 +25,7 @@ scripts/autores_comentarios.csv com os nomes; preencha o id_colab de cada um (ta
 e rode de novo. Os demais arquivos são gerados mesmo assim.
 
 Carga mensal de balancetes: basta rodar de novo e importar só as linhas do mês novo
-(ou filtrar o balancetes.csv do SAP antes). Contas novas precisam existir em contas_contabeis antes.
+(ou filtrar o balancetes.csv do SAP antes). Contas novas precisam existir em balancetes_contas antes.
 """
 
 import csv
@@ -251,7 +251,7 @@ def carregar_autores(nomes):
             w.writerow(["Autor", "id_colab"])
             for nome in sorted(mapa):
                 w.writerow([nome, mapa[nome]])
-        print(f"  revisoes_comentarios.csv   NÃO gerado: falta o id_colab de {', '.join(faltando)}.")
+        print(f"  balancetes_comentarios.csv   NÃO gerado: falta o id_colab de {', '.join(faltando)}.")
         print(f"                             Preencha {AUTORES.relative_to(RAIZ)} e rode de novo.")
         return None
     for nome, id_colab in mapa.items():
@@ -310,7 +310,7 @@ def main():
     SAIDA.mkdir(exist_ok=True)
     try:
         empresas, codigos, nomes_empresas = preparar_empresas()
-        classificacoes, ids_cls = preparar_classificacoes()
+        balancetes_classificacoes, ids_cls = preparar_classificacoes()
         contas, numeros = preparar_contas(ids_cls, codigos)
         balancetes = preparar_balancetes(codigos, numeros)
         comentarios = None if inicio else preparar_comentarios(codigos, nomes_empresas)
@@ -323,16 +323,16 @@ def main():
         gravar(f"balancetes_a_partir_{inicio[:7]}.csv", ["id_empresa", "numero_conta", "periodo_balancete", "montante_balancete"], mensal)
         print(f"Importe na tabela balancetes. Para reprocessar meses já carregados, apague-os antes no Supabase:\n"
               f"  delete from public.balancetes where periodo_balancete >= '{inicio}';\n"
-              "Contas novas precisam existir antes em contas_contabeis (com id_classificacao e, se for o caso, id_empresa_contraparte).")
+              "Contas novas precisam existir antes em balancetes_contas (com id_classificacao e, se for o caso, id_empresa_contraparte).")
         return
 
     print(f"\nArquivos em {SAIDA.relative_to(RAIZ)} (importe nesta ordem):")
     gravar("1_empresas.csv", ["id_empresa", "nome_empresa", "metodo_consolidacao", "percentual_participacao", "classificacao_empresa"], empresas)
-    gravar("2_classificacoes.csv", ["id_classificacao", "nivel1", "nivel2", "nivel3", "ordem_nivel1", "ordem_nivel2", "ordem_nivel3"], classificacoes)
-    gravar("3_contas_contabeis.csv", ["id_conta", "numero_conta", "desc_conta", "id_classificacao", "id_empresa_contraparte"], contas)
+    gravar("2_balancetes_classificacoes.csv", ["id_classificacao", "nivel1", "nivel2", "nivel3", "ordem_nivel1", "ordem_nivel2", "ordem_nivel3"], balancetes_classificacoes)
+    gravar("3_balancetes_contas.csv", ["id_conta", "numero_conta", "desc_conta", "id_classificacao", "id_empresa_contraparte"], contas)
     gravar("4_balancetes.csv", ["id_empresa", "numero_conta", "periodo_balancete", "montante_balancete"], balancetes)
     if comentarios is not None:
-        gravar("5_revisoes_comentarios.csv", ["id_empresa", "mes_atual", "nivel1", "nivel2", "nivel3", "mensagem", "id_colab", "criado_em"], comentarios)
+        gravar("5_balancetes_comentarios.csv", ["id_empresa", "mes_atual", "nivel1", "nivel2", "nivel3", "mensagem", "id_colab", "criado_em"], comentarios)
     print("Depois da importação, rode supabase/05_apos_importacao.sql.")
 
 
