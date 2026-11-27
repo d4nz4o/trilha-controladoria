@@ -104,3 +104,32 @@
 
 /* Empresa holding */
 .emp-holding { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; background: var(--rail-soft); color: var(--rail-dark); font-size: .68rem; font-weight: 600; vertical-align: 1px; }
+
+/* Plano de contas */
+.cta-pendencias { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 12px; margin-bottom: 14px; align-items: start; }
+.cta-pendencia { padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius, 14px); min-width: 0; }
+.cta-pend-topo { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .9rem; color: var(--ink); }
+.cta-pend-texto { margin: 6px 0 0; font-size: .8rem; color: var(--ink-3); line-height: 1.45; }
+.cta-pend-texto.ok { color: #1e7b3a; font-weight: 600; }
+.cta-pend-texto.erro { color: #b91c1c; }
+.cta-pend-texto b { color: var(--ink); }
+.cta-link { border: 0; background: none; padding: 0; font: inherit; font-size: .78rem; font-weight: 600; color: var(--rail); cursor: pointer; }
+.cta-link:hover { text-decoration: underline; }
+.cta-arquivo { cursor: pointer; }
+.cta-lista { list-style: none; margin: 8px 0 0; padding: 0; }
+.cta-lista li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); font-size: .82rem; color: var(--ink); }
+.cta-lista li span { min-width: 0; }
+.cta-lista small { display: block; margin-top: 2px; font-size: .74rem; color: var(--rail-dark); }
+.cta-lista .btn-action { flex: 0 0 auto; padding: 5px 10px; font-size: .76rem; }
+.cta-saldo { font-style: normal; font-size: .7rem; font-weight: 600; color: #b45309; background: #fef3c7; padding: 1px 6px; border-radius: 999px; }
+.cta-dem { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: .7rem; font-weight: 700; }
+.cta-dem.BP { background: var(--rail-soft); color: var(--rail-dark); }
+.cta-dem.DR { background: #ede9fe; color: #5b21b6; }
+.cta-sem { font-size: .78rem; color: #b45309; font-weight: 500; }
+.modal-card.modal-conta { max-width: 760px; }
+.cta-sugestao { margin: 0 0 10px; padding: 8px 12px; border-radius: 8px; background: var(--rail-soft); color: var(--rail-dark); font-size: .8rem; line-height: 1.45; }
+.cta-cascata select:disabled { background: var(--surface-2); color: var(--ink-3); }
+
+.cta-lista .cta-acoes { display: flex; gap: 6px; flex: 0 0 auto; }
+.cta-descartar { color: #b91c1c; }
+.cta-pend-qtd { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; background: #fef3c7; color: #92400e; font-size: .72rem; font-weight: 700; }

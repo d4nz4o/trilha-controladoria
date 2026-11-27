@@ -30,6 +30,7 @@
         <a href="../hub/hub.html">Início</a>
         <a href="#colaboradores" data-aba="colaboradores" data-recurso="cad_colaboradores" aria-current="page">Colaboradores</a>
         <a href="#empresas" data-aba="empresas" data-recurso="cad_empresas">Empresas</a>
+        <a href="#contas" data-aba="contas" data-recurso="plano_contas">Plano de contas</a>
         <a href="#grupos" data-aba="grupos" data-recurso="grupos_acesso">Grupos de acesso</a>
       </nav>
     </div>
@@ -110,6 +111,63 @@
     </section>
    </div>
 
+   <!-- Seção: plano de contas (contas.js) -->
+   <div class="cad-secao" data-secao="contas" hidden>
+    <header class="topbar">
+      <div class="bp-title-group">
+        <h1>Configurações</h1>
+        <p>Plano de contas: contas contábeis e a classificação delas no BP e na DR.</p>
+      </div>
+      <div class="cad-filtros">
+        <div class="filter-group cad-busca">
+          <label for="ctaBusca">Buscar:</label>
+          <input type="search" id="ctaBusca" placeholder="Número, descrição ou classificação" oninput="desenharContas()">
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Mostrar:</span>
+          <div class="seg" role="group" aria-label="Filtro de contas">
+            <button type="button" class="seg-btn is-active" data-filtro-conta="todas" aria-pressed="true" onclick="filtrarContas('todas')">Todas</button>
+            <button type="button" class="seg-btn" data-filtro-conta="sem" aria-pressed="false" onclick="filtrarContas('sem')">Sem classificação</button>
+            <button type="button" class="seg-btn" data-filtro-conta="BP" aria-pressed="false" onclick="filtrarContas('BP')">BP</button>
+            <button type="button" class="seg-btn" data-filtro-conta="DR" aria-pressed="false" onclick="filtrarContas('DR')">DR</button>
+          </div>
+        </div>
+        <button type="button" class="btn-action btn-novo-colab" data-editar="plano_contas" onclick="abrirConta(null)">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg>
+          Conta
+        </button>
+      </div>
+    </header>
+
+    <!-- Pendências: contas sem classificação e conferência do arquivo do balancete -->
+    <section class="cta-pendencias">
+      <div class="cta-pendencia" id="ctaPendSaldos"></div>
+      <div class="cta-pendencia" id="ctaPendSem"></div>
+      <div class="cta-pendencia" data-editar="plano_contas">
+        <div class="cta-pend-topo">
+          <strong>Conferir arquivo do balancete</strong>
+          <label class="btn-action cta-arquivo">
+            <input type="file" id="ctaArquivo" accept=".xlsx,.xls,.csv" onchange="conferirArquivo(this.files[0])" hidden>
+            Selecionar arquivo
+          </label>
+        </div>
+        <p class="cta-pend-texto">Antes da carga, mostra as contas do arquivo (Excel ou CSV do SAP) que ainda não estão no cadastro.
+          Para carregar os saldos, importe o CSV na tabela <b>balancetes_pendencias</b>: o que tiver conta cadastrada vai direto para os balancetes.</p>
+        <div id="ctaArquivoResultado"></div>
+      </div>
+    </section>
+
+    <section class="bp-card-container">
+      <div class="cad-tabela-area">
+        <table class="cad-tabela">
+          <thead><tr><th>Conta</th><th>Descrição</th><th>Dem.</th><th>Classificação</th><th>Contraparte</th></tr></thead>
+          <tbody id="ctaCorpo"><tr><td colspan="5" class="cad-vazio">Carregando…</td></tr></tbody>
+        </table>
+      </div>
+      <p class="cad-rodape" id="ctaRodape"></p>
+    </section>
+   </div>
+
    <!-- Seção: grupos de acesso (grupos.js) -->
    <div class="cad-secao" data-secao="grupos" hidden>
     <header class="topbar">
@@ -135,6 +193,7 @@
       <p class="cad-rodape" id="gruRodape"></p>
     </section>
    </div>
+
   </main>
 
   <!-- Formulário de inclusão e edição -->
@@ -228,6 +287,44 @@
     </div>
   </div>
 
+  <!-- Formulário de contas -->
+  <div class="modal-overlay" id="modalConta">
+    <div class="modal-card modal-chat modal-cadastro modal-conta" role="dialog" aria-modal="true" aria-labelledby="ctaTitulo">
+      <header class="modal-header">
+        <div class="modal-header-info"><h3 id="ctaTitulo">Conta contábil</h3></div>
+        <button type="button" class="btn-close-modal" aria-label="Fechar" onclick="fecharConta()">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+        </button>
+      </header>
+      <form class="cad-form" id="ctaForm" onsubmit="event.preventDefault(); salvarConta();" novalidate>
+        <fieldset>
+          <legend>Conta</legend>
+          <div class="cad-grade">
+            <label>Número *<input type="text" name="numero_conta" inputmode="numeric" maxlength="12" placeholder="ex.: 11113003"><small class="cad-ajuda" id="ctaAjudaNumero"></small></label>
+            <label>Contraparte (intercompany)<select name="id_empresa_contraparte" id="ctaContraparte"><option value="">— não é intercompany —</option></select></label>
+            <label class="cad-largo">Descrição<input type="text" name="desc_conta" maxlength="120"></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Classificação no BP e na DR</legend>
+          <p class="cta-sugestao" id="ctaSugestao" hidden></p>
+          <div class="cad-grade cta-cascata">
+            <label>Demonstração<select id="ctaDem"><option value="">— sem classificação —</option><option value="BP">Balanço Patrimonial (BP)</option><option value="DR">Demonstração do Resultado (DR)</option></select></label>
+            <label>Nível 1<select id="ctaNv1" disabled></select></label>
+            <label>Nível 2<select id="ctaNv2" disabled></select></label>
+            <label>Nível 3<select id="ctaNv3" disabled></select></label>
+          </div>
+          <p class="cad-login">Sem classificação, a conta não aparece no BP nem na DR.</p>
+        </fieldset>
+      </form>
+      <footer class="exportar-acoes cad-acoes">
+        <span class="cad-feedback" id="ctaFeedback" role="status"></span>
+        <button type="button" class="btn-action" onclick="fecharConta()">Cancelar</button>
+        <button type="submit" form="ctaForm" class="btn-exportar-confirmar" id="ctaSalvar" data-editar="plano_contas">Salvar</button>
+      </footer>
+    </div>
+  </div>
+
   <!-- Formulário de grupos de acesso -->
   <div class="modal-overlay" id="modalGrupo">
     <div class="modal-card modal-chat modal-cadastro modal-grupo" role="dialog" aria-modal="true" aria-labelledby="gruTitulo">
@@ -262,6 +359,7 @@
 
   <script src="configuracao.js"></script>
   <script src="empresas.js"></script>
+  <script src="contas.js"></script>
   <script src="grupos.js"></script>
 </body>
 </html>

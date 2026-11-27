@@ -42,6 +42,7 @@ async function iniciarPagina() {
     carregarCadastro(),
     typeof iniciarEmpresas === 'function' ? iniciarEmpresas() : null,
     typeof iniciarGrupos === 'function' ? iniciarGrupos() : null,
+    typeof iniciarContas === 'function' ? iniciarContas() : null,
   ]);
 }
 
