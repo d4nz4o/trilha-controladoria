@@ -63,7 +63,7 @@
             <span class="filter-label" id="rotuloVisao">Visão:</span>
             <div class="seg">
               <button type="button" class="seg-btn is-active" data-modo="empresa" aria-pressed="true" onclick="definirModoVisao('empresa')">Por empresa</button>
-              <button type="button" class="seg-btn" data-modo="consolidada" aria-pressed="false" onclick="definirModoVisao('consolidada')">Consolidada</button>
+              <button type="button" class="seg-btn" data-modo="consolidada" data-todas-empresas aria-pressed="false" onclick="definirModoVisao('consolidada')">Consolidada</button>
             </div>
           </div>
         </div>
@@ -148,7 +148,7 @@
       </div>
 
       <!-- Caixa de envio (Adicionar comentário) -->
-      <div class="modal-footer chat-footer">
+      <div class="modal-footer chat-footer" data-editar="demonstracoes">
         <div class="chat-input-row">
           <textarea id="txtComentario" placeholder="Escreva um comentário…" rows="4" aria-label="Comentário"></textarea>
           <button type="button" class="btn-save btn-chat-send" onclick="salvarComentario()" title="Enviar comentário (Ctrl + Enter)">

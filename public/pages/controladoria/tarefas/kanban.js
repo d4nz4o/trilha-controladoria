@@ -180,7 +180,7 @@ async function desenharTarefas() {
     if (containerCol) {
       const card = document.createElement("div");
       card.className = "task-card";
-      card.draggable = true;
+      card.draggable = Permissoes.podeEditar('tarefas');   // só quem edita tarefas arrasta cartões
       const idCard = tarefa.id_tarefa || tarefa.id;
       card.id = `task-${idCard}`;
       card.onclick = () => abrirModalDetalhesCard(idCard);

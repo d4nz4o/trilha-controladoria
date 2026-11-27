@@ -38,6 +38,7 @@ async function abrirModalDetalhesCard(idTarefa) {
     document.getElementById('modalCardPrioridade').value = tarefa.prioridade_tarefa || 'Média';
     
     preencherPrazoCardModal();
+    Permissoes.travar(modal.querySelector('.modal-card-container') || modal, 'tarefas');   // só leitura para quem não edita
 
     const colEncontrada = listaColunas.find(c => c.id_coluna == tarefa.id_coluna);
     const badge = document.getElementById('modalCardColunaBadge');

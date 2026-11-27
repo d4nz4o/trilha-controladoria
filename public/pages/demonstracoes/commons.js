@@ -484,9 +484,13 @@ function empresasExibidas(empresas) {
   return modoVisao === MODO_EMPRESA ? [empresaSelecionada(empresas)] : empresasDoConsolidado(empresas);
 }
 
-function iniciarVisao(empresas) {
+function iniciarVisao(empresasTodas) {
   const salvas = lerSelecoes();
+  // Seletor só com as empresas que a pessoa vê (empresa dela, ou todas se for da holding)
+  const visiveis = empresasTodas.filter(e => Permissoes.veEmpresa(e.codigo));
+  const empresas = visiveis.length ? visiveis : empresasTodas;
   modoVisao = MODOS_VISAO.includes(salvas.modo) ? salvas.modo : MODO_EMPRESA;
+  if (!Permissoes.todasEmpresas) modoVisao = MODO_EMPRESA;   // Consolidada só para quem vê todas as empresas
   empresaSelecionadaId = (empresas.find(e => e.codigo === salvas.empresa) || empresas[0]).id;
 
   const seletor = document.getElementById('selectEmpresa');
@@ -509,6 +513,7 @@ function atualizarControlesVisao() {
 }
 
 function definirModoVisao(modo) {
+  if (modo !== MODO_EMPRESA && !Permissoes.todasEmpresas) return;   // Consolidada só para quem vê todas as empresas
   modoVisao = modo;
   salvarSelecoes({ modo });
   atualizarControlesVisao();
@@ -886,7 +891,7 @@ async function atualizarModalAposComentario(chave) {
 
 /* Coloca editar (lápis) e excluir (lixeira) no canto dos comentários escritos pelo colaborador logado */
 function marcarComentariosEditaveis(colab) {
-  if (!colab) return;
+  if (!colab || !Permissoes.podeEditar('demonstracoes')) return;   // grupo só consulta: sem editar/excluir
   document.querySelectorAll('#chatHistorico .chat-bubble').forEach(balao => {
     if (!balao.dataset.id || String(balao.dataset.colab) !== String(colab.id_colab) || balao.querySelector('.bubble-acoes')) return;
     const acoes = document.createElement('div');

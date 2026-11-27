@@ -30,6 +30,7 @@
     'pages/controladoria/ferias/ferias': '/ferias',
     'pages/controladoria/automacoes/automacoes': '/automacoes',
     'pages/controladoria/painel/painel': '/painel',
+    'pages/configuracao/configuracao': '/configuracao',
     'pages/demonstracoes/bp/bp': '/bp',
     'pages/demonstracoes/dr/dr': '/dr',
     'pages/demonstracoes/dmpl/dmpl': '/dmpl',

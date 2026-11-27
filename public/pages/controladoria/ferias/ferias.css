@@ -214,3 +214,11 @@
   box-shadow: 0 10px 28px -8px rgba(21, 56, 94, .45); opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease;
 }
 .aviso-ferias.visivel { opacity: 1; transform: translate(-50%, 0); }
+
+/* Fins de semana e feriados no calendário */
+.dia-cell.fim-de-semana { background: #e2e8f0; color: #64748b; }
+.dia-cell.feriado { background: #4b5563; color: #ffffff; font-weight: 600; cursor: help; }
+.dia-cell.com-ferias { cursor: pointer; }
+.legenda-cor.legenda-fim-de-semana { background: #e2e8f0; border: 1px solid #cbd5e1; }
+.legenda-cor.legenda-feriado { background: #4b5563; }
+.legenda-tipo-dia { color: #64748b; }

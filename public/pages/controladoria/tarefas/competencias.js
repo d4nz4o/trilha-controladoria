@@ -153,7 +153,7 @@ function desenharBarraCompetencia() {
       <button type="button" class="btn-competencia" aria-label="Próxima competência" ${i >= listaMeses.length - 1 ? 'disabled' : ''} onclick="mudarCompetencia(1)">&gt;</button>
       <span class="competencia-contagem" id="competenciaContagem"></span>
     </div>
-    ${barra.dataset.semInicio !== undefined ? '' : `<button type="button" class="btn-secondary btn-proximo-mes" onclick="abrirInicioDeMes()"
+    ${barra.dataset.semInicio !== undefined ? '' : `<button type="button" class="btn-secondary btn-proximo-mes" data-editar="tarefas" onclick="abrirInicioDeMes()"
             title="Cria ${rotuloCompetencia(proximaCompetencia(ultima.competencia_mes))}, com a opção de clonar tarefas de ${rotuloCompetencia(ultima.competencia_mes)}">
       Começar ${rotuloCompetencia(proximaCompetencia(ultima.competencia_mes))}
     </button>`}`;

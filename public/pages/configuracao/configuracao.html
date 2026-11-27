@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha Participações | Configurações</title>
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon-trilha.png">
+  <link rel="stylesheet" href="../demonstracoes/commons.css">
+  <link rel="stylesheet" href="configuracao.css">
+  <!-- Sessão (login, domínio corporativo e ociosidade). Ver /src/scripts/core -->
+  <script src="../../src/scripts/core/sessao.js"></script>
+  <script src="../../src/scripts/services/fonte-dados.js"></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="../../src/scripts/core/supabase.js"></script>
+  <script defer src="../../src/scripts/core/dados.js"></script>
+  <script defer src="../../src/scripts/core/usuario.js"></script>
+  <script defer src="../../src/scripts/core/inatividade.js"></script>
+  <script defer src="../../src/scripts/core/main.js"></script>
+</head>
+<body>
+
+  <!-- Barra superior: logo + navegação (o avatar do usuário é incluído por usuario.js) -->
+  <header class="barra-topo">
+    <div class="barra-topo-inner">
+      <a class="marca-logo" href="../hub/hub.html" aria-label="Trilha Participações, início">
+        <img src="../../assets/images/logo-trilha.png" alt="Trilha Participações" width="182" height="68">
+      </a>
+      <nav class="abas" aria-label="Configurações">
+        <a href="../hub/hub.html">Início</a>
+        <a href="#colaboradores" data-aba="colaboradores" data-recurso="cad_colaboradores" aria-current="page">Colaboradores</a>
+        <a href="#empresas" data-aba="empresas" data-recurso="cad_empresas">Empresas</a>
+        <a href="#grupos" data-aba="grupos" data-recurso="grupos_acesso">Grupos de acesso</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="app">
+   <!-- Seção: colaboradores -->
+   <div class="cad-secao" data-secao="colaboradores">
+    <header class="topbar">
+      <div class="bp-title-group">
+        <h1>Configurações</h1>
+        <p>Cadastro de colaboradores do portal.</p>
+      </div>
+      <div class="cad-filtros">
+        <div class="filter-group cad-busca">
+          <label for="cadBusca">Buscar:</label>
+          <input type="search" id="cadBusca" placeholder="Nome, e-mail, empresa, equipe ou grupo" oninput="desenharCadastro()">
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Situação:</span>
+          <div class="seg" role="group" aria-label="Situação">
+            <button type="button" class="seg-btn is-active" data-situacao="ativos" aria-pressed="true" onclick="filtrarSituacao('ativos')">Ativos</button>
+            <button type="button" class="seg-btn" data-situacao="inativos" aria-pressed="false" onclick="filtrarSituacao('inativos')">Inativos</button>
+            <button type="button" class="seg-btn" data-situacao="todos" aria-pressed="false" onclick="filtrarSituacao('todos')">Todos</button>
+          </div>
+        </div>
+        <button type="button" class="btn-action btn-novo-colab" data-editar="cad_colaboradores" onclick="abrirCadastro(null)">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg>
+          Colaborador
+        </button>
+      </div>
+    </header>
+
+    <section class="bp-card-container">
+      <div class="cad-tabela-area">
+        <table class="cad-tabela">
+          <thead>
+            <tr>
+              <th>Nome</th><th>E-mail corporativo</th><th>Empresa</th><th>Equipe</th><th>Grupo de acesso</th><th>Situação</th><th>Login</th>
+            </tr>
+          </thead>
+          <tbody id="cadCorpo"><tr><td colspan="7" class="cad-vazio">Carregando…</td></tr></tbody>
+        </table>
+      </div>
+      <p class="cad-rodape" id="cadRodape"></p>
+    </section>
+   </div>
+
+   <!-- Seção: empresas (empresas.js) -->
+   <div class="cad-secao" data-secao="empresas" hidden>
+    <header class="topbar">
+      <div class="bp-title-group">
+        <h1>Configurações</h1>
+        <p>Cadastro de empresas e regras de consolidação.</p>
+      </div>
+      <div class="cad-filtros">
+        <div class="filter-group cad-busca">
+          <label for="empBusca">Buscar:</label>
+          <input type="search" id="empBusca" placeholder="Nome ou código SAP" oninput="desenharEmpresas()">
+        </div>
+        <button type="button" class="btn-action btn-novo-colab" data-editar="cad_empresas" onclick="abrirEmpresa(null)">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg>
+          Empresa
+        </button>
+      </div>
+    </header>
+
+    <section class="bp-card-container">
+      <div class="cad-tabela-area">
+        <table class="cad-tabela">
+          <thead>
+            <tr><th>Ordem</th><th>Código SAP</th><th>Empresa</th><th>Consolidação</th><th class="num">Participação</th></tr>
+          </thead>
+          <tbody id="empCorpo"><tr><td colspan="5" class="cad-vazio">Carregando…</td></tr></tbody>
+        </table>
+      </div>
+      <p class="cad-rodape" id="empRodape"></p>
+    </section>
+   </div>
+
+   <!-- Seção: grupos de acesso (grupos.js) -->
+   <div class="cad-secao" data-secao="grupos" hidden>
+    <header class="topbar">
+      <div class="bp-title-group">
+        <h1>Configurações</h1>
+        <p>Grupos de acesso: o que cada grupo pode ver ou editar. Nesta etapa, os grupos ainda não restringem o portal.</p>
+      </div>
+      <div class="cad-filtros">
+        <button type="button" class="btn-action btn-novo-colab" data-editar="grupos_acesso" onclick="abrirGrupo(null)">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg>
+          Grupo
+        </button>
+      </div>
+    </header>
+
+    <section class="bp-card-container">
+      <div class="cad-tabela-area">
+        <table class="cad-tabela">
+          <thead><tr><th>Grupo</th><th>Descrição</th><th>Permissões</th><th class="num">Pessoas</th></tr></thead>
+          <tbody id="gruCorpo"><tr><td colspan="4" class="cad-vazio">Carregando…</td></tr></tbody>
+        </table>
+      </div>
+      <p class="cad-rodape" id="gruRodape"></p>
+    </section>
+   </div>
+  </main>
+
+  <!-- Formulário de inclusão e edição -->
+  <div class="modal-overlay" id="modalCadastro">
+    <div class="modal-card modal-chat modal-cadastro" role="dialog" aria-modal="true" aria-labelledby="cadTitulo">
+      <header class="modal-header">
+        <div class="modal-header-info"><h3 id="cadTitulo">Colaborador</h3></div>
+        <button type="button" class="btn-close-modal" aria-label="Fechar" onclick="fecharCadastro()">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+        </button>
+      </header>
+      <form class="cad-form" id="cadForm" onsubmit="event.preventDefault(); salvarCadastro();" novalidate>
+        <fieldset>
+          <legend>Identificação</legend>
+          <div class="cad-grade">
+            <label>Nome de exibição *<input type="text" name="nome_colab" maxlength="80" required placeholder="Como aparece no portal (ex.: Daniel Souza)"></label>
+            <label>Nome completo<input type="text" name="nome_comp_colab" maxlength="160"></label>
+            <label class="cad-largo">E-mail corporativo *<input type="email" name="email_colab" maxlength="160" required placeholder="nome@empresa.com.br"><small id="cadAvisoEmail"></small></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Trabalho</legend>
+          <div class="cad-grade">
+            <label>Empresa *<select name="id_empresa" id="cadEmpresa"><option value="">—</option></select><small class="cad-ajuda">Define de quais empresas a pessoa vê dados (holding: todas).</small></label>
+            <label>Cargo<input type="text" name="cargo_colab" maxlength="80"></label>
+            <label>Equipe<select name="id_equipe" id="cadEquipe"><option value="">—</option></select></label>
+            <label>Grupo de acesso<select name="id_grupo" id="cadGrupo"><option value="">—</option></select></label>
+            <label>Matrícula<input type="text" name="matricula_colab" inputmode="numeric" maxlength="15"></label>
+            <label>Usuário SAP<input type="text" name="sap_colab" maxlength="40"></label>
+            <label>Data de admissão<input type="date" name="data_admissao"></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Contato</legend>
+          <div class="cad-grade">
+            <label>Celular (WhatsApp)<input type="tel" name="cel_colab" inputmode="numeric" maxlength="16" placeholder="(31) 99999-9999"></label>
+            <label>Aniversário<input type="date" name="aniver_colab"></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Situação</legend>
+          <label class="cad-check"><input type="checkbox" name="esta_ativo"> Ativo <small>inativos não entram no portal; o cadastro segue no histórico</small></label>
+          <p class="cad-login" id="cadLogin"></p>
+        </fieldset>
+      </form>
+      <footer class="exportar-acoes cad-acoes">
+        <span class="cad-feedback" id="cadFeedback" role="status"></span>
+        <button type="button" class="btn-action" onclick="fecharCadastro()">Cancelar</button>
+        <button type="submit" form="cadForm" class="btn-exportar-confirmar" id="cadSalvar" data-editar="cad_colaboradores">Salvar</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Formulário de empresas -->
+  <div class="modal-overlay" id="modalEmpresa">
+    <div class="modal-card modal-chat modal-cadastro modal-empresa" role="dialog" aria-modal="true" aria-labelledby="empTitulo">
+      <header class="modal-header">
+        <div class="modal-header-info"><h3 id="empTitulo">Empresa</h3></div>
+        <button type="button" class="btn-close-modal" aria-label="Fechar" onclick="fecharEmpresa()">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+        </button>
+      </header>
+      <form class="cad-form" id="empForm" onsubmit="event.preventDefault(); salvarEmpresa();" novalidate>
+        <fieldset>
+          <legend>Identificação</legend>
+          <div class="cad-grade">
+            <label>Código SAP *<input type="text" name="id_empresa" inputmode="numeric" maxlength="10" placeholder="ex.: 4029"><small class="cad-ajuda" id="empAjudaCodigo"></small></label>
+            <label>Ordem de exibição<input type="number" name="classificacao_empresa" min="1" step="1" placeholder="vazio = no fim"></label>
+            <label class="cad-largo">Nome da empresa *<input type="text" name="nome_empresa" maxlength="80"></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Consolidação</legend>
+          <div class="cad-grade">
+            <label>Método<select name="metodo_consolidacao" id="empMetodo">
+              <option value="integral">Integral</option>
+              <option value="proporcional">Proporcional</option>
+              <option value="fora">Fora do consolidado</option>
+            </select></label>
+            <label>Participação do grupo (%)<input type="number" name="percentual_participacao" min="0" max="100" step="0.01"></label>
+            <p class="cad-largo cad-ajuda-metodo" id="empAjudaMetodo"></p>
+            <label class="cad-largo cad-check"><input type="checkbox" name="empresa_holding"> Holding <small>quem é desta empresa vê os dados de todas as empresas</small></label>
+          </div>
+        </fieldset>
+      </form>
+      <footer class="exportar-acoes cad-acoes">
+        <span class="cad-feedback" id="empFeedback" role="status"></span>
+        <button type="button" class="btn-action" onclick="fecharEmpresa()">Cancelar</button>
+        <button type="submit" form="empForm" class="btn-exportar-confirmar" id="empSalvar" data-editar="cad_empresas">Salvar</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Formulário de grupos de acesso -->
+  <div class="modal-overlay" id="modalGrupo">
+    <div class="modal-card modal-chat modal-cadastro modal-grupo" role="dialog" aria-modal="true" aria-labelledby="gruTitulo">
+      <header class="modal-header">
+        <div class="modal-header-info"><h3 id="gruTitulo">Grupo de acesso</h3></div>
+        <button type="button" class="btn-close-modal" aria-label="Fechar" onclick="fecharGrupo()">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+        </button>
+      </header>
+      <form class="cad-form" id="gruForm" onsubmit="event.preventDefault(); salvarGrupo();" novalidate>
+        <fieldset>
+          <legend>Grupo</legend>
+          <div class="cad-grade">
+            <label>Nome *<input type="text" name="nome_grupo" maxlength="60" placeholder="ex.: Diretoria"></label>
+            <label>Descrição<input type="text" name="desc_grupo" maxlength="160" placeholder="Para quem é este grupo"></label>
+          </div>
+          <p class="cad-login" id="gruPessoas"></p>
+        </fieldset>
+        <fieldset>
+          <legend>Permissões</legend>
+          <div id="gruGrade"></div>
+        </fieldset>
+      </form>
+      <footer class="exportar-acoes cad-acoes">
+        <button type="button" class="btn-action gru-excluir" id="gruExcluir" data-editar="grupos_acesso" onclick="excluirGrupo()">Excluir grupo</button>
+        <span class="cad-feedback" id="gruFeedback" role="status"></span>
+        <button type="button" class="btn-action" onclick="fecharGrupo()">Cancelar</button>
+        <button type="submit" form="gruForm" class="btn-exportar-confirmar" id="gruSalvar" data-editar="grupos_acesso">Salvar</button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="configuracao.js"></script>
+  <script src="empresas.js"></script>
+  <script src="grupos.js"></script>
+</body>
+</html>

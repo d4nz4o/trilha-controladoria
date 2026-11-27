@@ -103,7 +103,9 @@ function contarDias(de, ate) {
   let corridos = 0, uteis = 0;
   for (let d = paraData(de); d <= paraData(ate); d.setDate(d.getDate() + 1)) {
     corridos++;
-    if (d.getDay() !== 0 && d.getDay() !== 6) uteis++;
+    // Dia útil: nem fim de semana nem feriado (feriados carregados pelo calendário, em ferias.js)
+    const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    if (d.getDay() !== 0 && d.getDay() !== 6 && !(typeof feriadosCalendario !== 'undefined' && feriadosCalendario.has(iso))) uteis++;
   }
   return { corridos, uteis };
 }
@@ -117,7 +119,7 @@ function atualizarResumoNovasFerias() {
 
   const { corridos, uteis } = contarDias(de, ate);
   const idColab = document.getElementById('nfColaborador').value;
-  const partes = [`<div class="nf-duracao"><strong>${corridos}</strong> dia${corridos > 1 ? 's' : ''} corrido${corridos > 1 ? 's' : ''} · <strong>${uteis}</strong> ${uteis === 1 ? 'útil' : 'úteis'} <span>(sem considerar feriados)</span></div>`];
+  const partes = [`<div class="nf-duracao"><strong>${corridos}</strong> dia${corridos > 1 ? 's' : ''} corrido${corridos > 1 ? 's' : ''} · <strong>${uteis}</strong> ${uteis === 1 ? 'útil' : 'úteis'} <span>${typeof feriadosCalendario !== 'undefined' && feriadosCalendario.size ? '(descontados fins de semana e feriados)' : '(sem considerar feriados)'}</span></div>`];
 
   const conflitos = (listaFerias || []).filter(f => seSobrepoe(f, de, ate));
   const proprio = conflitos.filter(f => String(f.id_colab) === idColab);

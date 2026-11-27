@@ -48,7 +48,7 @@ function renderizarAutomacoes(automacoes) {
             ${ativada ? '● Ativada' : '○ Desativada'}
           </span>
         </div>
-        <button class="btn-toggle-status ${ativada ? 'btn-desativar' : 'btn-ativar'}" onclick="alternarStatusAutomacao(${a.id_automacao}, ${!ativada})">
+        <button class="btn-toggle-status ${ativada ? 'btn-desativar' : 'btn-ativar'}" data-editar="automacoes" onclick="alternarStatusAutomacao(${a.id_automacao}, ${!ativada})">
           ${ativada ? 'Desativar' : 'Ativar'}
         </button>
       </div>

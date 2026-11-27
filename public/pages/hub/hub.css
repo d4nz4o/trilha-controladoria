@@ -394,3 +394,12 @@ ub-cartoes .cartao { min-height: 104px; padding: 20px 18px 20px 18px; }
 #vista.trocando { opacity: 0; translate: 0 8px; }
 #vista h1:focus { outline: none; }
 @media (prefers-reduced-motion: reduce) { #vista { transition: none; } }
+/* Configurações (engrenagem), no mesmo estilo de pílula da saudação e do "Sair" */
+.topo2 { align-items: center; }
+.config {
+  display: inline-grid; place-items: center; width: 34px; height: 34px; flex: 0 0 auto;
+  border: 1px solid var(--line); border-radius: 50%; background: rgba(255, 255, 255, .72); color: var(--ink-2);
+  transition: background-color .2s ease, color .2s ease, transform .3s ease;
+}
+.config svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.config:hover, .config:focus-visible { background: #fff; color: var(--rail-dark); transform: rotate(30deg); }

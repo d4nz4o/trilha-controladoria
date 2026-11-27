@@ -1,10 +1,27 @@
 // FÉRIAS — Lógica do Calendário e Supabase
 
+// Feriados do calendário: data 'aaaa-mm-dd' -> nome (tabela feriados; se não existir, tarefas_feriados)
+let feriadosCalendario = new Map();
+
+async function carregarFeriadosCalendario() {
+  if (!sbClient) return;
+  for (const tabela of ['feriados', 'tarefas_feriados']) {
+    const { data, error } = await sbClient.from(tabela).select('data_feriado, nome_feriado');
+    if (!error) {
+      feriadosCalendario = new Map((data || []).map(f => [String(f.data_feriado).slice(0, 10), f.nome_feriado || 'Feriado']));
+      return;
+    }
+  }
+  console.warn('Feriados indisponíveis: o calendário mostra só os fins de semana.');
+}
+
 async function carregarFerias() {
   await Promise.all([
+    carregarFeriadosCalendario(),
     carregarColaboradoresDados(renderizarFeriasFiltradas),
     swr('ferias', () => sbClient.from('ferias').select('*'), d => { listaFerias = d; renderizarFeriasFiltradas(); })
   ]);
+  renderizarFeriasFiltradas();   // com os feriados já carregados
 }
 
 function renderizarFeriasFiltradas() {
@@ -41,6 +58,14 @@ function renderizarMapaFerias(ferias, colaboradores) {
       <span class="legenda-cor" style="background-color: ${corDoAvatar(c.id_colab)};"></span>
       <span>${c.nome_colab}</span>
     `;
+    containerLegenda.appendChild(legItem);
+  });
+
+  // Tipos de dia (depois das pessoas)
+  [['legenda-fim-de-semana', 'Fim de semana'], ['legenda-feriado', 'Feriado']].forEach(([classe, rotulo]) => {
+    const legItem = document.createElement('div');
+    legItem.className = 'legenda-item legenda-tipo-dia';
+    legItem.innerHTML = `<span class="legenda-cor ${classe}"></span><span>${rotulo}</span>`;
     containerLegenda.appendChild(legItem);
   });
 
@@ -89,6 +114,12 @@ function renderizarMapaFerias(ferias, colaboradores) {
       const diaFormatado = String(dia).padStart(2, '0');
       const dataStr = `${anoFeriasAtual}-${mesFormatado}-${diaFormatado}`;
 
+      // Fim de semana (cinza mais escuro) e feriado (cinza-chumbo, com o nome ao passar o mouse)
+      const diaSemana = new Date(anoFeriasAtual, mes, dia).getDay();
+      const feriado = feriadosCalendario.get(dataStr);
+      if (feriado) { cellDia.classList.add('feriado'); cellDia.title = feriado; }
+      else if (diaSemana === 0 || diaSemana === 6) cellDia.classList.add('fim-de-semana');
+
       // Todas as pessoas fora neste dia (uma entrada por pessoa), em ordem alfabética para as cores ficarem estáveis
       const registrosDia = registrosDoDia(ferias, colaboradores, dataStr);
 
@@ -96,11 +127,12 @@ function renderizarMapaFerias(ferias, colaboradores) {
         cellDia.classList.add('com-ferias');
         if (registrosDia.length > 1) cellDia.classList.add('dividido');
         cellDia.style.background = fundoDividido(registrosDia.map(r => corDoAvatar(r.colab.id_colab)));
-        cellDia.style.cursor = 'pointer';
-        cellDia.title = registrosDia.map(r => r.colab.nome_colab).join(', ') +
-          (registrosDia.length > 1 ? ' (clique para escolher um período a remover)' : ' (clique para remover)');
+        const podeRemover = Permissoes.podeEditar('ferias_equipe');
+        cellDia.style.cursor = podeRemover ? 'pointer' : 'default';
+        cellDia.title = (feriado ? `${feriado} · ` : '') + registrosDia.map(r => r.colab.nome_colab).join(', ') +
+          (!podeRemover ? '' : registrosDia.length > 1 ? ' (clique para escolher um período a remover)' : ' (clique para remover)');
 
-        cellDia.onclick = () => {
+        if (podeRemover) cellDia.onclick = () => {
           if (registrosDia.length === 1) {
             const { registro, colab } = registrosDia[0];
             excluirFerias(registro.id_ferias, colab.nome_colab, registro.data_de, registro.data_ate);

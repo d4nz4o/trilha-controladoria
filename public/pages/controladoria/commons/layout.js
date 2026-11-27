@@ -7,15 +7,15 @@ const URL_HUB = new URL('../../hub/hub.html', document.currentScript.src).href; 
 const URL_LOGO = new URL('../../../assets/images/logo-trilha.png', document.currentScript.src).href;
 
 const PAGINAS = [
-  { id: 'kanban',     rotulo: 'Tarefas',    url: PASTA + '/tarefas/tarefas.html',    acao: '+ Tarefa',
+  { id: 'kanban', recurso: 'tarefas',     rotulo: 'Tarefas',    url: PASTA + '/tarefas/tarefas.html',    acao: '+ Tarefa',
     recursos: ['../commons/popup.css', 'kanban.css', 'modal-tarefa.css', 'nova-tarefa.css', 'kanban.js', 'kanban-dnd.js', 'tarefa-modal.js', 'tarefa-interacoes.js', 'tarefa-tags.js', 'nova-tarefa.js'].map(a => `${PASTA}/tarefas/${a}`) },
-  { id: 'equipe',     rotulo: 'Equipe',     url: PASTA + '/equipe/equipe.html',     acao: '+ Membro',
+  { id: 'equipe', recurso: 'ferias_equipe',     rotulo: 'Equipe',     url: PASTA + '/equipe/equipe.html',     acao: '+ Membro',
     recursos: [`${PASTA}/equipe/equipe.css`, `${PASTA}/equipe/equipe.js`] },
-  { id: 'ferias',     rotulo: 'Férias',     url: PASTA + '/ferias/ferias.html',     acao: '+ Férias',
+  { id: 'ferias', recurso: 'ferias_equipe',     rotulo: 'Férias',     url: PASTA + '/ferias/ferias.html',     acao: '+ Férias',
     recursos: [`${PASTA}/commons/popup.css`, `${PASTA}/ferias/ferias.css`, `${PASTA}/ferias/ferias.js`, `${PASTA}/ferias/nova-ferias.js`] },
-  { id: 'automacoes', rotulo: 'Automações', url: PASTA + '/automacoes/automacoes.html', acao: '+ Robô',
+  { id: 'automacoes', recurso: 'automacoes', rotulo: 'Automações', url: PASTA + '/automacoes/automacoes.html', acao: '+ Robô',
     recursos: [`${PASTA}/automacoes/automacoes.css`, `${PASTA}/automacoes/automacoes.js`] },
-  { id: 'painel',     rotulo: 'Painel',     url: PASTA + '/painel/painel.html',     acao: '',
+  { id: 'painel', recurso: 'tarefas',     rotulo: 'Painel',     url: PASTA + '/painel/painel.html',     acao: '',
     recursos: [`${PASTA}/painel/painel.css`, `${PASTA}/painel/painel.js`, `${PASTA}/tarefas/competencias.js`] },
 ];
 
@@ -35,12 +35,12 @@ function renderizarTopbar() {
 
       <nav class="abas" aria-label="Controladoria">
         ${PAGINAS.map(p => p.id === atual.id
-          ? `<a aria-current="page">${p.rotulo}</a>`
-          : `<a href="${p.url}">${p.rotulo}</a>`).join('')}
+          ? `<a aria-current="page" data-recurso="${p.recurso}">${p.rotulo}</a>`
+          : `<a href="${p.url}" data-recurso="${p.recurso}">${p.rotulo}</a>`).join('')}
       </nav>
 
       <div class="barra-direita">
-        ${atual.acao ? `<button type="button" id="btn-acao-contextual" class="btn-action-highlight" onclick="executarAcaoAba()">${atual.acao}</button>` : ''}
+        ${atual.acao ? `<button type="button" id="btn-acao-contextual" class="btn-action-highlight" data-editar="${atual.recurso}" onclick="executarAcaoAba()">${atual.acao}</button>` : ''}
         <input type="search" id="campoBusca" class="search-input" placeholder="Buscar…" aria-label="Buscar" oninput="filtrarBusca(this.value)">
         ${htmlPerfilUsuario()}
       </div>
