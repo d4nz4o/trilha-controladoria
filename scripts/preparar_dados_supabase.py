@@ -14,15 +14,12 @@ Gera em scripts/saida/, nesta ordem de importação:
     2. balancetes_classificacoes.csv        (linhas das demonstrações, com id_classificacao já numerado)
     3. balancetes_contas.csv      (plano de contas único, ligado a id_classificacao)
     4. balancetes.csv            (ligado por id_empresa e numero_conta)
-    5. balancetes_comentarios.csv  (comentários antigos, com o id_colab de cada autor)
 Depois da importação, rode supabase/05_apos_importacao.sql.
 
 Antes de gerar, o script confere as ligações: empresa ou conta inexistente, conta classificada numa
 linha que não existe na hierarquia, linha repetida. Qualquer problema interrompe com a lista do que corrigir.
 
-Comentários: o CSV antigo só tem o nome do autor. Na primeira execução o script cria
-scripts/autores_comentarios.csv com os nomes; preencha o id_colab de cada um (tabela colaboradores)
-e rode de novo. Os demais arquivos são gerados mesmo assim.
+Comentários da revisão analítica: são feitos pelo portal (a migração dos comentários antigos já foi feita).
 
 Carga mensal de balancetes: basta rodar de novo e importar só as linhas do mês novo
 (ou filtrar o balancetes.csv do SAP antes). Importe na tabela balancetes_pendencias (script 22): o que tiver
@@ -37,7 +34,6 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 ORIGEM = RAIZ / "dados" / "demonstracoes"   # CSVs de origem (não publicados no site)
 SAIDA = Path(__file__).resolve().parent / "saida"
-AUTORES = Path(__file__).resolve().parent / "autores_comentarios.csv"
 
 
 class ErroDados(Exception):
@@ -236,64 +232,6 @@ def preparar_balancetes(empresas, contas):
     return saida
 
 
-def carregar_autores(nomes):
-    """De-para nome -> id_colab. Devolve o dicionário ou None se faltar algum id."""
-    mapa = {}
-    if AUTORES.exists():
-        with open(AUTORES, encoding="utf-8-sig", newline="") as f:
-            for linha in csv.DictReader(f, delimiter=";"):
-                mapa[linha["Autor"].strip()] = (linha.get("id_colab") or "").strip()
-    faltando = sorted(n for n in nomes if not mapa.get(n))
-    if faltando:
-        for n in faltando:
-            mapa.setdefault(n, "")
-        with open(AUTORES, "w", encoding="utf-8-sig", newline="") as f:
-            w = csv.writer(f, delimiter=";")
-            w.writerow(["Autor", "id_colab"])
-            for nome in sorted(mapa):
-                w.writerow([nome, mapa[nome]])
-        print(f"  balancetes_comentarios.csv   NÃO gerado: falta o id_colab de {', '.join(faltando)}.")
-        print(f"                             Preencha {AUTORES.relative_to(RAIZ)} e rode de novo.")
-        return None
-    for nome, id_colab in mapa.items():
-        if not re.fullmatch(r"\d+", id_colab):
-            raise ErroDados(f"{AUTORES.name}: id_colab inválido para {nome!r}: {id_colab!r}")
-    return mapa
-
-
-def preparar_comentarios(empresas, nomes_empresas):
-    if not (ORIGEM / "comentarios.csv").exists():
-        return None
-    cab, dados = ler("comentarios.csv")
-    exigir("comentarios.csv", cab, ["Empresa", "Mês atual", "Classificação Nv1", "Comentário", "Autor", "Data/hora"])
-    dados = [(n, l) for n, l in dados if texto(l["Comentário"])]
-    autores = carregar_autores({texto(l["Autor"]) for _, l in dados if texto(l["Autor"])})
-    if autores is None:
-        return None
-    saida, problemas = [], []
-    for n, l in dados:
-        empresa = texto(l["Empresa"])
-        empresa = empresa if empresa in empresas else nomes_empresas.get(empresa.lower(), "")
-        autor = texto(l["Autor"])
-        if not empresa:
-            problemas.append(f"linha {n}: empresa {texto(l['Empresa'])!r} não existe em empresas.csv")
-            continue
-        if not autor:
-            problemas.append(f"linha {n}: comentário sem autor")
-            continue
-        try:
-            saida.append([
-                empresa, data(l["Mês atual"]),
-                nivel(l["Classificação Nv1"]), nivel(l.get("Classificação Nv2")), nivel(l.get("Classificação Nv3")),
-                texto(l["Comentário"]), autores[autor], data_hora(l["Data/hora"]),
-            ])
-        except ValueError as erro:
-            problemas.append(f"linha {n}: {erro}")
-    if problemas:
-        raise ErroDados("comentarios.csv:\n    " + resumir(problemas))
-    return saida
-
-
 def mes_inicial():
     """--a-partir AAAA-MM -> 'AAAA-MM-01' (ou None para a carga completa)"""
     if "--a-partir" not in sys.argv:
@@ -314,7 +252,6 @@ def main():
         balancetes_classificacoes, ids_cls = preparar_classificacoes()
         contas, numeros = preparar_contas(ids_cls, codigos)
         balancetes = preparar_balancetes(codigos, numeros)
-        comentarios = None if inicio else preparar_comentarios(codigos, nomes_empresas)
     except ErroDados as erro:
         print(f"\nNada foi gerado. Corrija antes de importar:\n  {erro}", file=sys.stderr)
         sys.exit(1)
@@ -332,8 +269,6 @@ def main():
     gravar("2_balancetes_classificacoes.csv", ["id_classificacao", "nivel1", "nivel2", "nivel3", "ordem_nivel1", "ordem_nivel2", "ordem_nivel3"], balancetes_classificacoes)
     gravar("3_balancetes_contas.csv", ["id_conta", "numero_conta", "desc_conta", "id_classificacao", "id_empresa_contraparte"], contas)
     gravar("4_balancetes.csv", ["id_empresa", "numero_conta", "periodo_balancete", "montante_balancete"], balancetes)
-    if comentarios is not None:
-        gravar("5_balancetes_comentarios.csv", ["id_empresa", "mes_atual", "nivel1", "nivel2", "nivel3", "mensagem", "id_colab", "criado_em"], comentarios)
     print("Depois da importação, rode supabase/05_apos_importacao.sql.")
 
 

@@ -5,6 +5,26 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/configuracao/colaboradores",
+      "destination": "/pages/configuracao/colaboradores/colaboradores"
+    },
+    {
+      "source": "/configuracao/empresas",
+      "destination": "/pages/configuracao/empresas/empresas"
+    },
+    {
+      "source": "/configuracao/plano-contas",
+      "destination": "/pages/configuracao/plano-contas/plano-contas"
+    },
+    {
+      "source": "/configuracao/balancetes",
+      "destination": "/pages/configuracao/balancetes/balancetes"
+    },
+    {
+      "source": "/configuracao/grupos",
+      "destination": "/pages/configuracao/grupos/grupos"
+    },
+    {
       "source": "/configuracao",
       "destination": "/pages/configuracao/configuracao"
     },

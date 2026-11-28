@@ -143,12 +143,34 @@ histórico seguem a tarefa; tags e colunas do quadro são comuns a todos os mese
 ser iguais: `DOMINIOS_CORPORATIVOS` em `public/src/scripts/core/supabase.js` e a função `situacao_acesso()` no banco
 (scripts `11_acesso_somente_cadastrados.sql` e `20_dominio_engetrens.sql`; para um domínio novo, crie um script como o 20).
 
+## Cores
+
+Todas as cores da interface vêm de **`public/src/styles/cores.css`** (paleta única), carregado primeiro em todas as
+páginas. Use sempre `var(--nome)`; para transparência, `rgba(var(--nome-rgb), .5)`. Não escreva cores diretamente.
+- Marca e texto: `--ink`, `--ink-2`, `--ink-3`, `--rail`, `--rail-dark`, `--rail-soft`, `--rail-tint`, `--rail-borda`,
+  `--logo-blue`. Superfícies e linhas: `--surface`, `--surface-2`, `--paper`, `--line`, `--line-strong`, `--branco`.
+- Situações: `--pos`, `--neg`, `--perigo`, `--alerta`, `--info`, `--destaque` (cada uma com `-bg` e `-borda`;
+  `--pos-vivo` e `--alerta-vivo` para gráficos).
+- Grandes exceções ficam no arquivo comum do módulo: `pages/controladoria/commons/tokens.css` (férias e avatares,
+  além dos nomes usados pela controladoria apontando para a paleta).
+- As ilustrações (trem do hub e cena da tela de login) mantêm as cores próprias.
+
 ## Configurações (engrenagem do hub)
+
+Uma página por área, cada uma na sua pasta em `pages/configuracao/` e com a sua rota curta:
+`colaboradores/` (`/configuracao/colaboradores`), `empresas/`, `plano-contas/`, `balancetes/` e `grupos/`.
+- `commons.js` e `commons.css` (na raiz de `configuracao/`): o que é comum — barra de abas (lista `PAGINAS_CONFIG`;
+  cada aba só aparece para quem vê o recurso dela), avisos, formatação, leitura em páginas (`lerTudo`), leitor de
+  planilhas (`carregarSheetJS`), tabelas que rolam por dentro e os estilos de tabela, filtros, formulários e painéis.
+- Cada página tem o seu `.html`, `.js` (define `iniciarConfig()`) e `.css` (só o que é dela), e exige o seu recurso.
+- `configuracao.html` (rota `/configuracao`, a engrenagem do hub): abre a primeira página permitida e redireciona os
+  links antigos (`#empresas`, `#contas`…).
 
 `pages/configuracao/` (rota `/configuracao`): cadastro de colaboradores, conforme as colunas de `colaboradores`
 (nome de exibição e completo, e-mail, cargo, equipe, grupo de acesso, matrícula, usuário SAP, admissão, celular,
 aniversário e situação). Lista com busca e filtro por situação; inclusão e edição num formulário.
 - Sem exclusão: quem sai é inativado (`esta_ativo = false`); ninguém inativa o próprio cadastro.
+- Equipe: a lista tem "+ Nova equipe…" para criar uma equipe na hora (requer `supabase/23_equipes_pelo_portal.sql`).
 - E-mail obrigatório e único (gravado em minúsculas), com aviso se o domínio não for do grupo; matrícula e celular só
   com números. `id_auth` (vínculo com o login) é automático no primeiro acesso e só exibido.
 - Hoje, qualquer pessoa da equipe com acesso ao portal pode editar o cadastro (regras do script 06); a restrição por
@@ -173,9 +195,16 @@ migram para `balancetes` (o saldo mais recente vale; saldos existentes são atua
 cadastro, mostradas no painel "Saldos com conta sem cadastro" da aba Plano de contas, com sugestão de classificação.
 Ao cadastrar a conta (portal, painel ou script), as pendências dela migram sozinhas para `balancetes`.
 
+Aba **Balancetes** (`#balancetes`, `balancetes.js`; requer `supabase/25_gestao_balancetes.sql`, que cria o recurso
+"Gestão de balancetes"): quadro de meses carregados (empresa × mês), saldos do mês em reais com alteração do valor na
+própria linha, exclusão de um saldo ou do mês inteiro (dois cliques) e carga de arquivo (CSV ou Excel no formato de
+`preparar_dados_supabase.py`), conferido no navegador antes de carregar. A carga vai por empresa e mês, cada uma numa
+única operação (`balancetes_carregar`), pelas pendências: conta cadastrada → balancetes; sem cadastro → pendência.
+A opção "substituir" apaga antes os saldos das empresas e meses do arquivo.
+
 Aba **Grupos de acesso** (`#grupos`, `grupos.js`; requer `supabase/17_grupos_acesso.sql`): cada grupo define, para cada
-recurso do catálogo `acessos_recursos` (por módulo: Controladoria e Administração), o nível **não ver**, **ver** ou
-**editar** (`acessos_permissoes`). Cada pessoa tem um grupo (`colaboradores.id_grupo`, escolhido em Colaboradores).
+recurso do catálogo `acessos_recursos` (por módulo: Controladoria e Administração), o nível **Nenhum**, **Leitura** ou
+**Edição** (`acessos_permissoes`; no banco: `nao_ver`, `ver`, `editar`). Cada pessoa tem um grupo (`colaboradores.id_grupo`, escolhido em Colaboradores).
 Grupo com pessoas não pode ser excluído.
 
 **Aplicação** (`supabase/18_aplicar_grupos.sql`):
