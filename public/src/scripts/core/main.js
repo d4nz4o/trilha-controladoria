@@ -54,7 +54,12 @@ const RECURSOS_DA_PAGINA = [
   [/\/pages\/controladoria\/(tarefas|painel)\//, 'tarefas', 'Tarefas e painel'],
   [/\/pages\/controladoria\/(ferias|equipe)\//, 'ferias_equipe', 'Férias e equipe'],
   [/\/pages\/controladoria\/automacoes\//, 'automacoes', 'Automações'],
-  [/\/pages\/configuracao\//, 'cad_colaboradores cad_empresas grupos_acesso', 'Configurações'],
+  [/\/pages\/configuracao\/colaboradores\//, 'cad_colaboradores', 'Configurações › Colaboradores'],
+  [/\/pages\/configuracao\/empresas\//, 'cad_empresas', 'Configurações › Empresas'],
+  [/\/pages\/configuracao\/plano-contas\//, 'plano_contas', 'Configurações › Plano de contas'],
+  [/\/pages\/configuracao\/balancetes\//, 'balancetes', 'Configurações › Balancetes'],
+  [/\/pages\/configuracao\/grupos\//, 'grupos_acesso', 'Configurações › Grupos de acesso'],
+  [/\/pages\/configuracao\//, 'cad_colaboradores cad_empresas plano_contas balancetes grupos_acesso', 'Configurações'],
 ];
 
 async function carregarPermissoes() {
@@ -82,8 +87,8 @@ function avisoPermissao(texto) {
   el.setAttribute('role', 'status');
   el.textContent = texto;
   el.style.cssText = 'position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:3000;padding:10px 18px;' +
-    'border-radius:10px;background:#15385e;color:#fff;font:500 .86rem/1.4 Inter,system-ui,sans-serif;' +
-    'box-shadow:0 10px 28px -8px rgba(21,56,94,.45);max-width:90vw;text-align:center';
+    'border-radius:10px;background:var(--ink);color:var(--branco);font:500 .86rem/1.4 Inter,system-ui,sans-serif;' +
+    'box-shadow:0 10px 28px -8px rgba(var(--ink-rgb), .45);max-width:90vw;text-align:center';
   document.body.appendChild(el);
   setTimeout(() => el.remove(), 5000);
 }

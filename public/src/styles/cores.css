@@ -1,0 +1,57 @@
+/* =====================================================================
+   PALETA ÚNICA DO PORTAL — todas as cores da interface vêm daqui.
+   Carregada primeiro em todas as páginas (inclusive a tela de login).
+   - Use sempre var(--nome). Para transparência: rgba(var(--nome-rgb), .5).
+   - Cores próprias de um módulo (grandes exceções) ficam no arquivo comum do módulo, apontando para esta paleta
+     sempre que possível: controladoria/commons/tokens.css (quadro de tarefas, prioridades, avatares, férias,
+     gráfico do painel). As ilustrações em SVG (trem do hub e da tela de login) mantêm as cores próprias.
+   ===================================================================== */
+:root {
+  /* Marca e texto */
+  --ink: #15385e;             /* marinho: títulos e texto principal */
+  --ink-2: #46607c;           /* texto secundário */
+  --ink-3: #5a6e88;           /* texto de apoio (contraste ≥ 4,5:1 nos fundos claros) */
+  --rail: #2573c0;            /* azul da Trilha: ações, links, destaques */
+  --rail-dark: #1b5a9a;       /* azul ao passar o mouse / pressionado */
+  --rail-soft: #e4f0fb;       /* fundo azul suave (seleção, etiquetas) */
+  --rail-tint: #cfe3f6;       /* fundo azul um pouco mais forte (passar o mouse em itens suaves) */
+  --rail-borda: #b7d5f0;      /* borda azul suave */
+  --logo-blue: #3a93dd;       /* azul do logotipo (detalhes e brilhos) */
+
+  /* Superfícies e linhas */
+  --branco: #ffffff;
+  --surface: #ffffff;         /* cartões, tabelas, janelas */
+  --surface-2: #f4f7fb;       /* faixas, cabeçalhos de tabela, áreas secundárias */
+  --paper: #edf2f8;           /* fundo da página */
+  --line: #dce5ef;            /* linhas e bordas */
+  --line-strong: #c4d2e2;     /* bordas mais marcadas, divisórias */
+
+  /* Situações */
+  --pos: #0c7a4b;             /* positivo / sucesso (texto) */
+  --pos-vivo: #16a34a;        /* positivo em gráficos e marcadores */
+  --pos-bg: #e3f4eb;
+  --pos-borda: #b9e3cb;
+  --neg: #b4281c;             /* negativo / erro (texto) */
+  --perigo: #dc2626;          /* ações de exclusão, ícones de erro */
+  --neg-bg: #fce9e6;
+  --neg-borda: #f5c4bd;
+  --alerta: #b45309;          /* atenção (texto) */
+  --alerta-vivo: #f59e0b;     /* atenção em gráficos e marcadores */
+  --alerta-bg: #fef3c7;
+  --alerta-borda: #fde68a;
+  --info: #0369a1;            /* informação (texto) */
+  --info-bg: #e0f2fe;
+  --info-borda: #bae6fd;
+  --destaque: #5b21b6;        /* destaque secundário (ex.: DR no plano de contas) */
+  --destaque-bg: #ede9fe;
+  --neu: var(--ink-3);        /* neutro (variação nula) */
+  --neu-bg: var(--paper);
+
+  /* Versões RGB para transparências: rgba(var(--ink-rgb), .45) */
+  --ink-rgb: 21, 56, 94;
+  --rail-rgb: 37, 115, 192;
+  --logo-rgb: 58, 147, 221;
+  --branco-rgb: 255, 255, 255;
+  --sombra-rgb: 8, 23, 43;    /* sombras profundas e fundos de janela (overlay) */
+  --perigo-rgb: 220, 38, 38;
+}

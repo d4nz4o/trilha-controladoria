@@ -41,18 +41,18 @@
     const estilo = document.createElement('style');
     estilo.textContent = `
       .inat-fundo { position: fixed; inset: 0; z-index: 99999; display: grid; place-items: center; padding: 16px;
-        background: rgba(8, 23, 43, .55); backdrop-filter: blur(3px); animation: inat-in .25s ease; }
-      .inat-caixa { width: 100%; max-width: 400px; padding: 26px 24px 22px; border-radius: 16px; background: #fff;
-        color: #15385e; text-align: center; font-family: inherit; box-shadow: 0 24px 48px -12px rgba(2, 10, 24, .5); }
+        background: rgba(var(--sombra-rgb), .55); backdrop-filter: blur(3px); animation: inat-in .25s ease; }
+      .inat-caixa { width: 100%; max-width: 400px; padding: 26px 24px 22px; border-radius: 16px; background: var(--surface);
+        color: var(--ink); text-align: center; font-family: inherit; box-shadow: 0 24px 48px -12px rgba(var(--sombra-rgb), .5); }
       .inat-caixa h2 { margin: 0 0 8px; font-size: 1.15rem; }
-      .inat-caixa p { margin: 0; color: #46607c; font-size: .95rem; line-height: 1.45; }
-      .inat-tempo { margin: 14px 0 18px; font-size: 2.2rem; font-weight: 700; font-variant-numeric: tabular-nums; color: #2573c0; }
+      .inat-caixa p { margin: 0; color: var(--ink-2); font-size: .95rem; line-height: 1.45; }
+      .inat-tempo { margin: 14px 0 18px; font-size: 2.2rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--rail); }
       .inat-botoes { display: flex; gap: 10px; }
       .inat-botoes button { flex: 1; padding: 11px 12px; border-radius: 10px; font: inherit; font-weight: 600; cursor: pointer; }
-      .inat-continuar { border: 0; background: #2573c0; color: #fff; }
-      .inat-continuar:hover { background: #1b5a9a; }
-      .inat-sair { border: 1px solid #cbd5e1; background: #fff; color: #1e293b; }
-      .inat-sair:hover { background: #f1f5f9; }
+      .inat-continuar { border: 0; background: var(--rail); color: var(--branco); }
+      .inat-continuar:hover { background: var(--rail-dark); }
+      .inat-sair { border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); }
+      .inat-sair:hover { background: var(--surface-2); }
       @keyframes inat-in { from { opacity: 0; } }
       @media (prefers-reduced-motion: reduce) { .inat-fundo { animation: none; } }
     `;

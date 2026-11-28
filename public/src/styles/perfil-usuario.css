@@ -13,22 +13,22 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #2573c0;
-  color: #ffffff;
+  background-color: var(--rail);
+  color: var(--branco);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
   font-size: 0.9rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border: 2px solid #dce5ef;
+  box-shadow: 0 2px 4px rgba(var(--sombra-rgb), 0.2);
+  border: 2px solid var(--line);
   overflow: hidden;
   flex-shrink: 0;
   cursor: pointer;
   transition: transform 0.15s ease, border-color 0.15s ease;
 }
-.user-profile-avatar:hover { transform: scale(1.05); border-color: #3a93dd; }
-.user-profile-avatar:focus-visible { outline: 2px solid #2573c0; outline-offset: 2px; }
+.user-profile-avatar:hover { transform: scale(1.05); border-color: var(--logo-blue); }
+.user-profile-avatar:focus-visible { outline: 2px solid var(--rail); outline-offset: 2px; }
 .user-profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
 .user-dropdown-menu {
@@ -40,10 +40,10 @@
   min-width: 240px;
   max-width: 300px;
   padding: 0.75rem 0;
-  background-color: #ffffff;
-  border: 1px solid #dce5ef;
+  background-color: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 10px;
-  box-shadow: 0 12px 32px -8px rgba(21, 56, 94, 0.28);
+  box-shadow: 0 12px 32px -8px rgba(var(--ink-rgb), 0.28);
   text-align: left;
   animation: perfil-surgir 0.15s ease-in-out;
 }
@@ -51,9 +51,9 @@
 @keyframes perfil-surgir { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 
 .dropdown-header { display: flex; flex-direction: column; gap: 2px; padding: 0.5rem 1rem; }
-.dropdown-header strong { font-size: 0.88rem; color: #15385e; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.dropdown-header span { font-size: 0.75rem; color: #7a8fa6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.dropdown-divider { height: 1px; margin: 0.5rem 0; background-color: #dce5ef; }
+.dropdown-header strong { font-size: 0.88rem; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dropdown-header span { font-size: 0.75rem; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dropdown-divider { height: 1px; margin: 0.5rem 0; background-color: var(--line); }
 
 .dropdown-item {
   display: flex;
@@ -67,9 +67,9 @@
   font-size: 0.85rem;
   font-weight: 500;
   text-align: left;
-  color: #15385e;
+  color: var(--ink);
   cursor: pointer;
   transition: background-color 0.15s ease;
 }
-.dropdown-item.btn-logout { color: #dc2626; font-size: 0.8rem; }
-.dropdown-item.btn-logout:hover { background-color: #fef2f2; }
+.dropdown-item.btn-logout { color: var(--perigo); font-size: 0.8rem; }
+.dropdown-item.btn-logout:hover { background-color: var(--neg-bg); }
