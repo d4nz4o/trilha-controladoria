@@ -3,7 +3,7 @@
 
 /* Cartões de indicadores */
 .kpis { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 12px; }
-.kpi { flex: 1 1 auto; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 1px 2px rgba(21, 56, 94, .04), 0 12px 32px -16px rgba(21, 56, 94, .18); }
+.kpi { flex: 1 1 auto; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 1px 2px rgba(var(--ink-rgb), .04), 0 12px 32px -16px rgba(var(--ink-rgb), .18); }
 .kpi small { display: block; font-size: .76rem; font-weight: 500; color: var(--ink-3); text-align: center; }
 .kpi b { display: block; margin-top: 2px; font-size: 1.05rem; font-weight: 700; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; text-align: right; }
 
@@ -21,14 +21,14 @@
 .tb-ativos tbody td.n { text-align: right; }
 .tb-ativos tbody td:first-child { position: static; width: auto; padding-left: 12px; box-shadow: none; }
 .tb-ativos tbody td:nth-child(2) { border-left: 0; }
-.tb-ativos tbody tr:hover { --row-bg: #f6f8fb; }
+.tb-ativos tbody tr:hover { --row-bg: var(--surface-2); }
 .tb-ativos td.d { max-width: 280px; overflow: hidden; text-overflow: ellipsis; }
 #t1 tr, #pt tr { cursor: pointer; }
 #t1 td:nth-child(5) { max-width: 230px; overflow: hidden; text-overflow: ellipsis; }
 .pep-vazio { visibility: hidden; }
 
 /* Etiquetas de status e natureza */
-.chip.alerta { background: #fff3d9; color: #a86a00; }
+.chip.alerta { background: var(--alerta-bg); color: var(--alerta); }
 .chip.info { background: var(--rail-soft); color: var(--rail-dark); }
 
 /* Paginação */
@@ -40,13 +40,13 @@
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  box-shadow: 0 1px 2px rgba(21, 56, 94, 0.04), 0 12px 32px -16px rgba(21, 56, 94, 0.18);
+  box-shadow: 0 1px 2px rgba(var(--ink-rgb), 0.04), 0 12px 32px -16px rgba(var(--ink-rgb), 0.18);
   overflow: visible;
 }
 
 /* Ficha do bem */
-dialog { max-width: 540px; width: 92%; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius); color: var(--ink); box-shadow: 0 24px 60px -20px rgba(21, 56, 94, .45); }
-dialog::backdrop { background: rgba(21, 56, 94, .4); }
+dialog { max-width: 540px; width: 92%; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius); color: var(--ink); box-shadow: 0 24px 60px -20px rgba(var(--ink-rgb), .45); }
+dialog::backdrop { background: rgba(var(--ink-rgb), .4); }
 dialog h2 { font-size: 1.15rem; color: var(--ink); }
 .fx { position: absolute; top: 12px; right: 14px; width: 32px; height: 32px; padding: 0 0 3px; border: 0; border-radius: 8px; background: var(--surface-2); display: grid; place-items: center; font-size: 1.4rem; line-height: 1; color: var(--ink-2); cursor: pointer; }
 .fx:hover { background: var(--rail-soft); color: var(--rail-dark); }

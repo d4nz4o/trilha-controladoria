@@ -12,8 +12,8 @@
 .pg .btn-action { padding: 4px 12px; }
 
 /* Ficha do bem */
-dialog { max-width: 540px; width: 92%; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius); color: var(--ink); box-shadow: 0 24px 60px -20px rgba(21, 56, 94, .45); }
-dialog::backdrop { background: rgba(21, 56, 94, .4); }
+dialog { max-width: 540px; width: 92%; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius); color: var(--ink); box-shadow: 0 24px 60px -20px rgba(var(--ink-rgb), .45); }
+dialog::backdrop { background: rgba(var(--ink-rgb), .4); }
 dialog h2 { font-size: 1.15rem; color: var(--ink); }
 .fx { position: absolute; top: 12px; right: 14px; width: 32px; height: 32px; padding: 0 0 3px; border: 0; border-radius: 8px; background: var(--surface-2); display: grid; place-items: center; font-size: 1.4rem; line-height: 1; color: var(--ink-2); cursor: pointer; }
 .fx:hover { background: var(--rail-soft); color: var(--rail-dark); }

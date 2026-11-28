@@ -174,7 +174,7 @@ function desenharResponsaveis(comp, tarefas, r) {
       <thead><tr><th>Responsável</th><th>Tarefas</th><th>Concluídas</th><th>Atrasadas</th><th title="Não concluídas com prazo nos próximos 2 dias úteis">Vencem em 2 DU</th></tr></thead>
       <tbody>${linhas.map(l => `
         <tr>
-          <td><span class="pessoa"><span class="avatar-mini" style="background:${l.p.id_colab ? corDoAvatar(l.p.id_colab) : '#cbd5e1'}">${iniciaisPainel(l.p.nome_colab)}</span>${escTarefa(l.p.nome_colab)}</span></td>
+          <td><span class="pessoa"><span class="avatar-mini" style="background:${l.p.id_colab ? corDoAvatar(l.p.id_colab) : 'var(--line-strong)'}">${iniciaisPainel(l.p.nome_colab)}</span>${escTarefa(l.p.nome_colab)}</span></td>
           <td>${l.total}</td>
           <td><span class="mini-barra"><span style="width:${pct(l.feitas, l.total)}%"></span></span>${l.feitas}</td>
           <td class="${l.atrasadas ? 'num-alerta' : ''}">${l.atrasadas}</td>

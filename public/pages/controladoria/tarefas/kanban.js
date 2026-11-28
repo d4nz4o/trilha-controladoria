@@ -11,10 +11,10 @@ function desenharColunas(board) {
       colDiv.setAttribute('ondragover', 'permitirSoltar(event)');
       colDiv.setAttribute('ondrop', `soltarCard(event, '${col.id_coluna}')`);
 
-      const corHex = col.cor_coluna || '#cbd5e1';
+      const corHex = col.cor_coluna || 'var(--line-strong)';
 
       colDiv.innerHTML = `
-        <div class="column-header" style="background-color: ${corHex}; color: #1e293b;">
+        <div class="column-header" style="background-color: ${corHex}; color: var(--ink);">
           ${col.titulo_coluna}
         </div>
         <div class="cards-container" id="col-${col.id_coluna}"></div>
@@ -54,7 +54,7 @@ async function carregarEConstruirColunas() {
 
     if (!data || data.length === 0) {
       console.warn('Tabela tarefas_colunas retornou vazia.');
-      board.innerHTML = '<p style="color: #64748b; padding: 1rem;">Nenhuma coluna encontrada na tabela "tarefas_colunas".</p>';
+      board.innerHTML = '<p style="color: var(--ink-3); padding: 1rem;">Nenhuma coluna encontrada na tabela "tarefas_colunas".</p>';
       return;
     }
 

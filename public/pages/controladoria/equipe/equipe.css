@@ -205,7 +205,7 @@
 
 .level-badge {
   display: inline-block;
-  color: #fff;
+  color: var(--branco);
   padding: 2px 8px;
   border-radius: 4px;
   font-size: 0.8rem;
@@ -224,7 +224,7 @@
 .filtro-inativos input { accent-color: var(--brand-blue); }
 .member-card.inativo { opacity: .6; }
 .member-card.inativo .avatar { filter: grayscale(1); }
-.tag-inativo { margin-left: 4px; padding: 1px 6px; border-radius: 999px; background: #eef0f3; color: #6b7785; font-size: 0.65rem; font-style: normal; font-weight: 600; vertical-align: 1px; }
+.tag-inativo { margin-left: 4px; padding: 1px 6px; border-radius: 999px; background: var(--paper); color: var(--ink-3); font-size: 0.65rem; font-style: normal; font-weight: 600; vertical-align: 1px; }
 .situacao { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
-.situacao.ativo { background: #e7f6ec; color: #1e7b3a; }
-.situacao.inativo { background: #eef0f3; color: #6b7785; }
+.situacao.ativo { background: var(--pos-bg); color: var(--pos); }
+.situacao.inativo { background: var(--paper); color: var(--ink-3); }

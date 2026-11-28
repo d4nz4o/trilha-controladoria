@@ -11,7 +11,7 @@
   flex: 1;
   min-width: 200px;
   max-width: 300px;
-  background: rgba(255, 255, 255, 0.5); 
+  background: rgba(var(--branco-rgb), 0.5); 
   backdrop-filter: blur(8px);
   border-radius: var(--radius-cards);
   padding: 0.35rem;
@@ -123,7 +123,7 @@
   width: 24px !important;
   height: 24px !important;
   font-size: 0.65rem !important;
-  border: 1.5px solid #ffffff;
+  border: 1.5px solid var(--branco);
   margin-right: -6px;
   cursor: pointer;
   transition: transform 0.15s ease;
@@ -146,7 +146,7 @@
 
 /* Tags: bolinha com a cor cadastrada (tags.cor_tag) */
 .task-tag-pill .tag-cor { display: inline-block; width: 8px; height: 8px; margin-right: 5px; border-radius: 50%; vertical-align: middle; }
-.task-tag-pill .tag-remover { margin-left: 5px; color: #dc2626; font-weight: 700; cursor: pointer; }
+.task-tag-pill .tag-remover { margin-left: 5px; color: var(--perigo); font-weight: 700; cursor: pointer; }
 
 /* ==========================================
    COMPETÊNCIA (competencias.js)
@@ -156,24 +156,24 @@
 #view-kanban .kanban-board { min-height: 0; }
 .barra-competencia { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; flex: 0 0 auto; }
 .barra-competencia[hidden] { display: none; }
-.competencia-seletor { display: flex; align-items: center; gap: 6px; padding: 6px 10px; background: #fff; border: 1px solid var(--border-light); border-radius: 12px; box-shadow: 0 1px 2px rgba(15, 23, 42, .04); }
+.competencia-seletor { display: flex; align-items: center; gap: 6px; padding: 6px 10px; background: var(--surface); border: 1px solid var(--border-light); border-radius: 12px; box-shadow: 0 1px 2px rgba(var(--sombra-rgb), .04); }
 .competencia-rotulo { font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); margin-right: 4px; }
-.competencia-seletor select { padding: 5px 10px; border: 1px solid var(--border-light); border-radius: 8px; background: #f4f7fb; font: inherit; font-size: 0.9rem; font-weight: 700; color: var(--text-primary); cursor: pointer; }
-.btn-competencia { width: 30px; height: 30px; border: 1px solid var(--border-light); border-radius: 8px; background: #fff; color: var(--text-secondary); font-weight: 700; cursor: pointer; }
-.btn-competencia:hover:not(:disabled) { background: #eef4fb; color: var(--brand-blue); }
+.competencia-seletor select { padding: 5px 10px; border: 1px solid var(--border-light); border-radius: 8px; background: var(--surface-2); font: inherit; font-size: 0.9rem; font-weight: 700; color: var(--text-primary); cursor: pointer; }
+.btn-competencia { width: 30px; height: 30px; border: 1px solid var(--border-light); border-radius: 8px; background: var(--surface); color: var(--text-secondary); font-weight: 700; cursor: pointer; }
+.btn-competencia:hover:not(:disabled) { background: var(--rail-soft); color: var(--brand-blue); }
 .btn-competencia:disabled { opacity: .4; cursor: default; }
 .competencia-contagem { margin-left: 6px; font-size: 0.78rem; color: var(--text-secondary); }
 .btn-proximo-mes { white-space: nowrap; }
 
 /* Cartões: selo de dias úteis e ícone de recorrente */
-.selo-du { display: inline-block; margin-right: 6px; padding: 1px 7px; border-radius: 999px; background: #e8f1fb; color: #1d5fa0; font-size: 0.7rem; font-weight: 700; vertical-align: 1px; }
+.selo-du { display: inline-block; margin-right: 6px; padding: 1px 7px; border-radius: 999px; background: var(--rail-soft); color: var(--rail-dark); font-size: 0.7rem; font-weight: 700; vertical-align: 1px; }
 .icone-recorrente { margin-right: 5px; color: var(--brand-blue); font-weight: 700; }
 
 /* Popup "Começar próximo mês" */
 .modal-card-container.inicio-mes { max-width: 640px; }
 .inicio-opcoes { display: grid; gap: 8px; margin: 4px 0 14px; }
 .inicio-opcao { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border: 1px solid var(--border-light); border-radius: 10px; cursor: pointer; }
-.inicio-opcao:has(input:checked) { border-color: var(--brand-blue); background: #f2f7fd; }
+.inicio-opcao:has(input:checked) { border-color: var(--brand-blue); background: var(--surface-2); }
 .inicio-opcao input { margin-top: 3px; accent-color: var(--brand-blue); }
 .inicio-opcao span { display: flex; flex-direction: column; gap: 2px; font-size: 0.88rem; color: var(--text-primary); }
 .inicio-opcao small { color: var(--text-secondary); font-size: 0.78rem; }
@@ -184,13 +184,13 @@
 .inicio-lista { max-height: 320px; overflow-y: auto; border: 1px solid var(--border-light); border-radius: 10px; }
 .inicio-item { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; padding: 9px 12px; border-bottom: 1px solid var(--border-light); cursor: pointer; }
 .inicio-item:last-child { border-bottom: 0; }
-.inicio-item:hover { background: #f7f9fc; }
+.inicio-item:hover { background: var(--surface-2); }
 .inicio-item input { accent-color: var(--brand-blue); width: 16px; height: 16px; }
 .inicio-item-titulo { display: flex; flex-direction: column; font-size: 0.86rem; color: var(--text-primary); }
 .inicio-item-titulo small { color: var(--text-secondary); font-size: 0.74rem; }
 .tag-recorrente { font-style: normal; font-size: 0.7rem; font-weight: 600; color: var(--brand-blue); margin-left: 4px; }
 .inicio-item-prazo { font-size: 0.78rem; color: var(--text-secondary); white-space: nowrap; }
-.inicio-item-prazo b { color: #1d5fa0; }
+.inicio-item-prazo b { color: var(--rail-dark); }
 .inicio-item-prazo .sem-prazo { font-style: italic; }
 .inicio-vazio { margin: 0; padding: 16px; font-size: 0.85rem; color: var(--text-secondary); }
 .inicio-nota { margin: 8px 0 12px; font-size: 0.76rem; color: var(--text-secondary); line-height: 1.4; }

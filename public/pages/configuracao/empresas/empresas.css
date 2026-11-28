@@ -1,0 +1,7 @@
+/* Configurações › Empresas — só o que é desta página (o comum está em ../commons.css) */
+
+.emp-metodo { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: .74rem; font-weight: 600; }
+.emp-metodo.integral { background: var(--rail-soft); color: var(--rail-dark); }
+.emp-metodo.proporcional { background: var(--alerta-bg); color: var(--alerta); }
+.emp-metodo.fora { background: var(--paper); color: var(--ink-3); }
+.emp-holding { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; background: var(--rail-soft); color: var(--rail-dark); font-size: .68rem; font-weight: 600; vertical-align: 1px; }

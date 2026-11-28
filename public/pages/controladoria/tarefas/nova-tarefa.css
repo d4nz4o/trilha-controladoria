@@ -23,9 +23,9 @@
   background: var(--bg-surface);
   cursor: text;
 }
-.nt-tags:focus-within { border-color: var(--brand-blue); box-shadow: 0 0 0 3px rgba(59, 145, 216, 0.15); }
+.nt-tags:focus-within { border-color: var(--brand-blue); box-shadow: 0 0 0 3px rgba(var(--logo-rgb), 0.15); }
 .popup-campo .nt-tags input[type="text"] { flex: 1; min-width: 140px; padding: 4px; border: 0; box-shadow: none; }
-.nt-remover { margin-left: 4px; padding: 0 2px; border: 0; background: none; color: #dc2626; font-weight: 700; cursor: pointer; line-height: 1; }
+.nt-remover { margin-left: 4px; padding: 0 2px; border: 0; background: none; color: var(--perigo); font-weight: 700; cursor: pointer; line-height: 1; }
 
 /* Checklist */
 .nt-checklist { list-style: none; display: flex; flex-direction: column; gap: 4px; margin-bottom: 6px; }
@@ -57,7 +57,7 @@
   cursor: pointer;
 }
 .nt-pessoa:hover { background: var(--bg-subtle); }
-.nt-pessoa.marcado { background: #e4f0fb; }
+.nt-pessoa.marcado { background: var(--rail-soft); }
 .nt-pessoa input { accent-color: var(--brand-blue); }
 .nt-pessoa .avatar { width: 24px; height: 24px; font-size: 0.65rem; flex-shrink: 0; }
 .nt-pessoa-nome { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -68,17 +68,17 @@
 /* Card recém-criado pisca no quadro */
 .task-card.nt-card-novo { animation: ntDestaque 2.2s ease; }
 @keyframes ntDestaque {
-  0%, 60% { box-shadow: 0 0 0 3px rgba(59, 145, 216, 0.55); }
+  0%, 60% { box-shadow: 0 0 0 3px rgba(var(--logo-rgb), 0.55); }
   100% { box-shadow: none; }
 }
 
 /* Método de prazo e recorrência */
 .nt-metodo { display: flex; gap: 6px; }
 .nt-metodo label { flex: 1; display: flex; align-items: center; gap: 6px; padding: 7px 10px; border: 1px solid var(--border-light); border-radius: 8px; font-size: 0.84rem; color: var(--text-primary); cursor: pointer; }
-.nt-metodo label:has(input:checked) { border-color: var(--brand-blue); background: #f2f7fd; font-weight: 600; }
+.nt-metodo label:has(input:checked) { border-color: var(--brand-blue); background: var(--surface-2); font-weight: 600; }
 .nt-metodo input { accent-color: var(--brand-blue); }
 .nt-datas[hidden] { display: none; }
-.nt-du-data { display: block; min-height: 1em; margin-top: 2px; font-size: 0.76rem; color: #1d5fa0; font-weight: 600; }
+.nt-du-data { display: block; min-height: 1em; margin-top: 2px; font-size: 0.76rem; color: var(--rail-dark); font-weight: 600; }
 .nt-du-ajuda { display: block; margin: -6px 0 12px; font-size: 0.74rem; color: var(--text-secondary); }
 .nt-du-ajuda[hidden] { display: none; }
 .nt-recorrente { display: flex; align-items: flex-start; gap: 8px; margin: 0 0 1rem; font-size: 0.86rem; color: var(--text-primary); cursor: pointer; }

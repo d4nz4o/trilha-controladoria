@@ -1,0 +1,32 @@
+/* Configurações › Balancetes — só o que é desta página (o comum está em ../commons.css) */
+
+.bal-excluir-mes { color: var(--neg); }
+.bal-excluir-mes:disabled { opacity: .45; cursor: not-allowed; }
+.bal-meses { margin-bottom: 14px; }
+.bal-meses .cta-pend-topo { justify-content: flex-start; gap: 12px; }
+.bal-meses .cta-pend-texto { margin: 0; }
+.bal-matriz-area { overflow-x: auto; margin-top: 8px; }
+.bal-matriz { border-collapse: collapse; font-size: .8rem; }
+.bal-matriz th { padding: 4px 8px; font-weight: 600; color: var(--ink-2); text-align: center; white-space: nowrap; }
+.bal-matriz tbody th { text-align: left; color: var(--ink); font-weight: 500; }
+.bal-matriz td { padding: 2px 3px; text-align: center; }
+.bal-celula { min-width: 52px; padding: 5px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--rail-soft); color: var(--rail-dark); font: inherit; font-size: .78rem; font-weight: 600; font-variant-numeric: tabular-nums; cursor: pointer; }
+.bal-celula:hover { border-color: var(--rail); }
+.bal-celula.bal-sel { background: var(--rail); color: var(--branco); border-color: var(--rail); }
+.bal-vazio { color: var(--ink-3); }
+.bal-saldo { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bal-saldo.negativo, .bal-saldo.negativo .bal-valor { color: var(--neg); }
+.bal-valor { border: 1px dashed transparent; background: none; padding: 2px 6px; border-radius: 6px; font: inherit; color: inherit; cursor: text; }
+.bal-valor:hover, .bal-valor:focus-visible { border-color: var(--rail); background: var(--surface-2); outline: none; }
+.bal-input { width: 150px; padding: 4px 8px; border: 1px solid var(--rail); border-radius: 6px; font: inherit; font-size: .86rem; text-align: right; }
+.bal-acoes-col { width: 48px; text-align: center; }
+.bal-lixeira { width: 32px; height: 32px; display: inline-grid; place-items: center; border: 1px solid transparent; border-radius: 8px; background: none; color: var(--ink-3); cursor: pointer; }
+.bal-lixeira svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.bal-lixeira:hover { color: var(--neg); border-color: var(--neg-borda); background: var(--neg-bg); }
+.bal-lixeira.confirmar { color: var(--branco); background: var(--perigo); border-color: var(--perigo); }
+.modal-card.modal-carga { max-width: 680px; }
+.bal-escolher { display: inline-flex; margin: 4px 0 10px; }
+.carga-resumo { margin: 0; display: grid; gap: 6px; font-size: .82rem; }
+.carga-resumo div { display: grid; grid-template-columns: 150px 1fr; gap: 10px; }
+.carga-resumo dt { color: var(--ink-3); }
+.carga-resumo dd { margin: 0; color: var(--ink); }

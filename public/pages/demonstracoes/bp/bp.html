@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trilha Participações | Balanço Patrimonial</title>
   <link rel="icon" type="image/png" href="../../../assets/icons/favicon-trilha.png">
+  <link rel="stylesheet" href="../../../src/styles/cores.css">   <!-- paleta única de cores -->
   <link rel="stylesheet" href="../commons.css">
   <!-- Sessão (login, domínio corporativo e ociosidade) + fonte de dados. Ver /src/scripts/core e /src/scripts/services -->
   <script src="../../../src/scripts/core/sessao.js"></script>
@@ -28,9 +29,9 @@
       <nav class="abas" aria-label="Demonstrações">
         <a href="../../hub/hub.html">Início</a>
         <a aria-current="page">BP</a>
-        <a href="../dr/dr.html">DR</a>
-        <a href="../dmpl/dmpl.html">DMPL</a>
-        <a href="../dfc/dfc.html">DFC</a>
+        <a href="../dr/dr.html" data-recurso="demonstracoes">DR</a>
+        <a href="../dmpl/dmpl.html" data-recurso="demonstracoes">DMPL</a>
+        <a href="../dfc/dfc.html" data-recurso="demonstracoes">DFC</a>
       </nav>
     </div>
   </header>

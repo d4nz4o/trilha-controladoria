@@ -7,15 +7,15 @@
    ========================================== */
 
 .barra-topo {
-  --bt-surface: #ffffff;
-  --bt-surface-2: #f4f7fb;
-  --bt-ink: #15385e;
-  --bt-ink-2: #46607c;
-  --bt-ink-3: #7a8fa6;
-  --bt-line: #dce5ef;
-  --bt-rail: #2573c0;
-  --bt-rail-dark: #1b5a9a;
-  --bt-logo-blue: #3a93dd;
+  --bt-surface: var(--surface);
+  --bt-surface-2: var(--surface-2);
+  --bt-ink: var(--ink);
+  --bt-ink-2: var(--ink-2);
+  --bt-ink-3: var(--ink-3);
+  --bt-line: var(--line);
+  --bt-rail: var(--rail);
+  --bt-rail-dark: var(--rail-dark);
+  --bt-logo-blue: var(--logo-blue);
 
   position: sticky;
   top: 0;
@@ -23,7 +23,7 @@
   background: var(--bt-surface);
   border-top: 3px solid var(--bt-logo-blue);
   border-bottom: 1px solid var(--bt-line);
-  box-shadow: 0 8px 24px -18px rgba(21, 56, 94, 0.35);
+  box-shadow: 0 8px 24px -18px rgba(var(--ink-rgb), 0.35);
   view-transition-name: topbar;
 }
 
@@ -50,7 +50,7 @@
 .abas { display: inline-flex; gap: 4px; padding: 4px; background: var(--bt-surface-2); border: 1px solid var(--bt-line); border-radius: 12px; }
 .abas a { padding: 6px 12px; text-align: center; border-radius: 8px; color: var(--bt-ink-2); font-size: 0.85rem; font-weight: 500; text-decoration: none; white-space: nowrap; }
 .abas a:hover { background: var(--bt-surface-2); color: var(--bt-ink); }
-.abas a[aria-current="page"] { background: var(--bt-rail); color: #ffffff; font-weight: 600; }
+.abas a[aria-current="page"] { background: var(--bt-rail); color: var(--branco); font-weight: 600; }
 
 /* ---------- Direita: ação, busca e perfil ---------- */
 .barra-direita { display: flex; align-items: center; gap: 10px; justify-self: end; min-width: 0; }
@@ -60,7 +60,7 @@
   border: 0;
   border-radius: 8px;
   background: var(--bt-rail);
-  color: #ffffff;
+  color: var(--branco);
   font-size: 0.85rem;
   font-weight: 600;
   white-space: nowrap;
@@ -83,7 +83,7 @@
   transition: border-color .15s ease, box-shadow .15s ease;
 }
 .search-input::placeholder { color: var(--bt-ink-3); }
-.search-input:focus { border-color: var(--bt-rail); box-shadow: 0 0 0 3px rgba(37, 115, 192, 0.18); background: #ffffff; }
+.search-input:focus { border-color: var(--bt-rail); box-shadow: 0 0 0 3px rgba(var(--rail-rgb), 0.18); background: var(--surface); }
 
 @media (max-width: 1100px) {
   .search-input { width: 140px; }

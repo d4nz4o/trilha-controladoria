@@ -46,7 +46,7 @@ async function abrirModalDetalhesCard(idTarefa) {
       badge.innerText = colEncontrada ? colEncontrada.titulo_coluna : 'Sem Status';
       if (colEncontrada && colEncontrada.cor_coluna) {
         badge.style.backgroundColor = colEncontrada.cor_coluna;
-        badge.style.color = '#1e293b';
+        badge.style.color = 'var(--ink)';
       }
     }
 
@@ -126,7 +126,7 @@ function renderizarModalSubtarefas() {
     item.innerHTML = `
       <input type="checkbox" ${s.concluido ? 'checked' : ''} onchange="alternarSubtarefaModal(${s.id_subtarefa}, this.checked)">
       <span>${s.titulo_subtarefa}</span>
-      <button type="button" class="btn-del-sub" onclick="excluirSubtarefaModal(${s.id_subtarefa})">&times;</button>
+      <button type="button" class="btn-del-sub" data-editar="tarefas" onclick="excluirSubtarefaModal(${s.id_subtarefa})">&times;</button>
     `;
     container.appendChild(item);
   });

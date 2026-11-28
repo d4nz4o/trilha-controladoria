@@ -1,13 +1,7 @@
 // PALETA DE CORES E AVATAR
 
-const AVATAR_PALETTE = [
-  '#3b91d8', '#7c3aed', '#059669', '#d97706', '#db2777', 
-  '#0891b2', '#4f46e5', '#65806e', '#2563eb', '#ea580c', 
-  '#0d9488', '#9333ea', '#c026d3', '#475569', '#16a34a', 
-  '#b91c1c', '#0284c7', '#78350f', '#57534e', '#e11d48', 
-  '#6366f1', '#d946ef', '#ca8a04', '#0e7490', '#4338ca', 
-  '#be123c', '#15803d', '#334155'
-];
+// Cores em controladoria/commons/tokens.css (--avatar-1 a --avatar-28)
+const AVATAR_PALETTE = Array.from({ length: 28 }, (_, i) => `var(--avatar-${i + 1})`);
 
 function corDoAvatar(id) {
   if (!id) return AVATAR_PALETTE[0];

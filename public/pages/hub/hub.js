@@ -34,6 +34,16 @@
 
   const vistaDoHash = () => (location.hash.slice(1) in vistas ? location.hash.slice(1) : 'raiz');
 
+  // Vista de um módulo que o grupo de acesso não vê (ex.: aberta pelo endereço): volta à página inicial do hub.
+  // O recurso de cada vista é o do cartão que leva a ela na página inicial (data-recurso).
+  const moldeRaiz = document.createElement('div');
+  moldeRaiz.innerHTML = vistas.raiz.html;
+  function vistaPermitida(nome) {
+    if (nome === 'raiz' || !window.Permissoes) return true;
+    const cartao = moldeRaiz.querySelector(`a[data-vista="${nome}"][data-recurso]`);
+    return !cartao || Permissoes.algumVer(cartao.dataset.recurso);
+  }
+
   function desenhar(nome) {
     conteudo.innerHTML = vistas[nome].html;
     document.title = vistas[nome].titulo;
@@ -44,6 +54,7 @@
   }
 
   function ir(nome, historico = true) {
+    if (!vistaPermitida(nome)) nome = 'raiz';
     if (nome === alvo) return;
     alvo = nome;
     // Endereço completo a partir do caminho atual: um '#vista' relativo seria resolvido pelo <base> da publicação
@@ -69,7 +80,10 @@
   window.addEventListener('popstate', () => ir(vistaDoHash(), false));
 
   saudar();
-  if (window.Sessao) Sessao.pronta.then(saudar);   // o nome chega quando o login é confirmado
+  if (window.Sessao) Sessao.pronta.then(() => {    // o nome e as permissões chegam quando o login é confirmado
+    saudar();
+    if (!vistaPermitida(atual)) { alvo = 'raiz'; history.replaceState(null, '', location.pathname + location.search); desenhar('raiz'); }
+  });
   if (vistaDoHash() !== 'raiz') { alvo = vistaDoHash(); desenhar(alvo); }
 
   /* ---------- Parallax ---------- */

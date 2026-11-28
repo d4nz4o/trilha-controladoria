@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha Participações | Configurações · Empresas</title>
+  <link rel="icon" type="image/png" href="../../../assets/icons/favicon-trilha.png">
+  <link rel="stylesheet" href="../../../src/styles/cores.css">   <!-- paleta única de cores -->
+  <link rel="stylesheet" href="../../demonstracoes/commons.css">
+  <link rel="stylesheet" href="../commons.css">
+  <link rel="stylesheet" href="empresas.css">
+  <!-- Sessão (login, domínio corporativo e ociosidade). Ver /src/scripts/core -->
+  <script src="../../../src/scripts/core/sessao.js"></script>
+  <script src="../../../src/scripts/services/fonte-dados.js"></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="../../../src/scripts/core/supabase.js"></script>
+  <script defer src="../../../src/scripts/core/dados.js"></script>
+  <script defer src="../../../src/scripts/core/usuario.js"></script>
+  <script defer src="../../../src/scripts/core/inatividade.js"></script>
+  <script defer src="../../../src/scripts/core/main.js"></script>
+</head>
+<body data-pagina-config="empresas">
+
+  <!-- Barra superior: logo + abas de Configurações (montadas por ../commons.js; o avatar vem de usuario.js) -->
+  <header class="barra-topo">
+    <div class="barra-topo-inner">
+      <a class="marca-logo" href="../../hub/hub.html" aria-label="Trilha Participações, início">
+        <img src="../../../assets/images/logo-trilha.png" alt="Trilha Participações" width="182" height="68">
+      </a>
+      <nav class="abas" id="abasConfig" aria-label="Configurações"></nav>
+    </div>
+  </header>
+
+  <main class="app">
+   <!-- Seção: empresas (empresas.js) -->
+   <div class="cad-secao" data-secao="empresas">
+    <header class="topbar">
+      <div class="bp-title-group">
+        <h1>Configurações</h1>
+        <p>Cadastro de empresas e regras de consolidação.</p>
+      </div>
+      <div class="cad-filtros">
+        <div class="filter-group cad-busca">
+          <label for="empBusca">Buscar:</label>
+          <input type="search" id="empBusca" placeholder="Nome ou código SAP" oninput="desenharEmpresas()">
+        </div>
+        <button type="button" class="btn-action btn-novo-colab" data-editar="cad_empresas" onclick="abrirEmpresa(null)">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg>
+          Empresa
+        </button>
+      </div>
+    </header>
+
+    <section class="bp-card-container">
+      <div class="cad-tabela-area">
+        <table class="cad-tabela">
+          <thead>
+            <tr><th>Ordem</th><th>Código SAP</th><th>Empresa</th><th>Consolidação</th><th class="num">Participação</th></tr>
+          </thead>
+          <tbody id="empCorpo"><tr><td colspan="5" class="cad-vazio">Carregando…</td></tr></tbody>
+        </table>
+      </div>
+      <p class="cad-rodape" id="empRodape"></p>
+    </section>
+   </div>
+  </main>
+
+  <!-- Formulário de empresas -->
+  <div class="modal-overlay" id="modalEmpresa">
+    <div class="modal-card modal-chat modal-cadastro modal-empresa" role="dialog" aria-modal="true" aria-labelledby="empTitulo">
+      <header class="modal-header">
+        <div class="modal-header-info"><h3 id="empTitulo">Empresa</h3></div>
+        <button type="button" class="btn-close-modal" aria-label="Fechar" onclick="fecharEmpresa()">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+        </button>
+      </header>
+      <form class="cad-form" id="empForm" onsubmit="event.preventDefault(); salvarEmpresa();" novalidate>
+        <fieldset>
+          <legend>Identificação</legend>
+          <div class="cad-grade">
+            <label>Código SAP *<input type="text" name="id_empresa" inputmode="numeric" maxlength="10" placeholder="ex.: 4029"><small class="cad-ajuda" id="empAjudaCodigo"></small></label>
+            <label>Ordem de exibição<input type="number" name="classificacao_empresa" min="1" step="1" placeholder="vazio = no fim"></label>
+            <label class="cad-largo">Nome da empresa *<input type="text" name="nome_empresa" maxlength="80"></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Consolidação</legend>
+          <div class="cad-grade">
+            <label>Método<select name="metodo_consolidacao" id="empMetodo">
+              <option value="integral">Integral</option>
+              <option value="proporcional">Proporcional</option>
+              <option value="fora">Fora do consolidado</option>
+            </select></label>
+            <label>Participação do grupo (%)<input type="number" name="percentual_participacao" min="0" max="100" step="0.01"></label>
+            <p class="cad-largo cad-ajuda-metodo" id="empAjudaMetodo"></p>
+            <label class="cad-largo cad-check"><input type="checkbox" name="empresa_holding"> Holding <small>quem é desta empresa vê os dados de todas as empresas</small></label>
+          </div>
+        </fieldset>
+      </form>
+      <footer class="exportar-acoes cad-acoes">
+        <span class="cad-feedback" id="empFeedback" role="status"></span>
+        <button type="button" class="btn-action" onclick="fecharEmpresa()">Cancelar</button>
+        <button type="submit" form="empForm" class="btn-exportar-confirmar" id="empSalvar" data-editar="cad_empresas">Salvar</button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="../commons.js"></script>
+  <script src="empresas.js"></script>
+</body>
+</html>

@@ -10,7 +10,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(15, 23, 42, 0.5);
+  background: rgba(var(--sombra-rgb), 0.5);
   backdrop-filter: blur(4px);
   z-index: 2000;
   align-items: center;
@@ -53,7 +53,7 @@
 
 .modal-coluna-badge {
   display: inline-block;
-  color: #fff;
+  color: var(--branco);
   font-size: 0.72rem;
   font-weight: 600;
   padding: 2px 8px;
@@ -80,7 +80,7 @@
 /* ---------- Campos de formulário ---------- */
 .popup-campo { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
 .popup-campo label { font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); }
-.popup-obrigatorio { color: #dc2626; }
+.popup-obrigatorio { color: var(--perigo); }
 
 .popup-campo input[type="text"],
 .popup-campo input[type="date"],
@@ -100,8 +100,8 @@
 .popup-campo textarea { resize: vertical; min-height: 90px; }
 .popup-campo input:focus,
 .popup-campo select:focus,
-.popup-campo textarea:focus { border-color: var(--brand-blue); box-shadow: 0 0 0 3px rgba(59, 145, 216, 0.15); }
-.popup-campo input.popup-invalido { border-color: #dc2626; box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12); }
+.popup-campo textarea:focus { border-color: var(--brand-blue); box-shadow: 0 0 0 3px rgba(var(--logo-rgb), 0.15); }
+.popup-campo input.popup-invalido { border-color: var(--perigo); box-shadow: 0 0 0 3px rgba(var(--perigo-rgb), 0.12); }
 
 /* Rodapé: mensagem + botões */
 .popup-rodape {
@@ -113,4 +113,4 @@
   border-top: 1px solid var(--border-light);
 }
 .popup-feedback { margin-right: auto; font-size: 0.82rem; color: var(--text-secondary); }
-.popup-feedback-erro { color: #b91c1c; }
+.popup-feedback-erro { color: var(--neg); }

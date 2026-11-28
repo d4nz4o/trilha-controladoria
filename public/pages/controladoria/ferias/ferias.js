@@ -193,7 +193,7 @@ function abrirEscolhaPeriodoDia(dataStr, registrosDia) {
             <span class="legenda-cor" style="background-color:${corDoAvatar(colab.id_colab)};"></span>
             <span class="periodo-nome">${colab.nome_colab}</span>
             <span class="periodo-datas">${registro.data_de === registro.data_ate ? 'Day off · ' + br(registro.data_de) : br(registro.data_de) + ' a ' + br(registro.data_ate)}</span>
-            <button type="button" class="btn-remover-periodo" data-id="${registro.id_ferias}">Remover</button>
+            <button data-editar="ferias_equipe" type="button" class="btn-remover-periodo" data-id="${registro.id_ferias}">Remover</button>
           </li>`).join('')}
       </ul>
     </div>`;
@@ -216,6 +216,7 @@ document.addEventListener('keydown', e => {
 
 // Popup de confirmação com o resumo do período; a remoção acontece dentro dele (erros aparecem ali mesmo)
 function excluirFerias(idFerias, nomeColab, dataDe, dataAte) {
+  if (!Permissoes.podeEditar('ferias_equipe')) return;   // só quem edita férias remove períodos
   const registro = (listaFerias || []).find(f => String(f.id_ferias) === String(idFerias)) || {};
   const dayoff = dataDe === dataAte;
   const dataLonga = iso => {

@@ -125,7 +125,7 @@
 
 .btn-ativar {
   background-color: var(--brand-blue);
-  color: #ffffff;
+  color: var(--branco);
 }
 
 .btn-ativar:hover {
@@ -138,7 +138,7 @@
 }
 
 .btn-desativar:hover {
-  background-color: #fecaca;
+  background-color: var(--neg-borda);
 }
 
 .automacao-descricao {

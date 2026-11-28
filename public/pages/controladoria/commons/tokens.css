@@ -1,60 +1,97 @@
+/* Controladoria — arquivo comum do módulo para cores.
+   As cores vêm da paleta única (src/styles/cores.css); aqui ficam só as GRANDES EXCEÇÕES do módulo (férias e
+   avatares) e os nomes usados pelas páginas da controladoria, apontando para a paleta. */
 :root {
+  /* Férias (exceção do calendário): feriado em cinza-chumbo e fim de semana em cinza claro */
+  --ferias-feriado: #4b5563;
+  --ferias-fim-semana: #e2e8f0;
+
+  /* Avatares: uma cor por pessoa (exceção: paleta de identificação, não da interface) */
+  --avatar-1: #3b91d8;
+  --avatar-2: #7c3aed;
+  --avatar-3: #059669;
+  --avatar-4: #d97706;
+  --avatar-5: #db2777;
+  --avatar-6: #0891b2;
+  --avatar-7: #4f46e5;
+  --avatar-8: #65806e;
+  --avatar-9: #2563eb;
+  --avatar-10: #ea580c;
+  --avatar-11: #0d9488;
+  --avatar-12: #9333ea;
+  --avatar-13: #c026d3;
+  --avatar-14: #475569;
+  --avatar-15: #16a34a;
+  --avatar-16: #b91c1c;
+  --avatar-17: #0284c7;
+  --avatar-18: #78350f;
+  --avatar-19: #57534e;
+  --avatar-20: #e11d48;
+  --avatar-21: #6366f1;
+  --avatar-22: #d946ef;
+  --avatar-23: #ca8a04;
+  --avatar-24: #0e7490;
+  --avatar-25: #4338ca;
+  --avatar-26: #be123c;
+  --avatar-27: #15803d;
+  --avatar-28: #334155;
+
   /* Cores da Identidade Visual (Trilha Participações) */
-  --brand-navy: #ffffff;
-  --brand-blue: #3b91d8;
-  --brand-blue-hover: #2d7bbd;
+  --brand-navy: var(--branco);
+  --brand-blue: var(--rail);
+  --brand-blue-hover: var(--rail-dark);
 
   /* Cores Neutras de Fundo e Superfície */
-  --bg-app: #eef1f5;
-  --bg-surface: #ffffff;
-  --bg-subtle: #f1f5f9;
+  --bg-app: var(--paper);
+  --bg-surface: var(--surface);
+  --bg-subtle: var(--surface-2);
   
   /* Textos */
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-2);
+  --text-muted: var(--ink-3);
 
   /* Bordas e Divisores */
-  --border-light: #e2e8f0;
-  --border-focus: #3b91d8;
+  --border-light: var(--line);
+  --border-focus: var(--rail);
 
   /* Status e Colunas (Pastéis Neutros) */
-  --col-todo-bg: #f8fafc;
-  --col-todo-border: #cbd5e1;
-  --tag-todo-bg: #f1f5f9;
-  --tag-todo-txt: #475569;
+  --col-todo-bg: var(--surface-2);
+  --col-todo-border: var(--line-strong);
+  --tag-todo-bg: var(--surface-2);
+  --tag-todo-txt: var(--ink-2);
 
-  --col-doing-bg: #f0f9ff;
-  --col-doing-border: #bae6fd;
-  --tag-doing-bg: #e0f2fe;
-  --tag-doing-txt: #0369a1;
+  --col-doing-bg: var(--info-bg);
+  --col-doing-border: var(--info-borda);
+  --tag-doing-bg: var(--info-bg);
+  --tag-doing-txt: var(--info);
 
-  --col-review-bg: #fffbebf5;
-  --col-review-border: #fde68a;
-  --tag-review-bg: #fef3c7;
-  --tag-review-txt: #b45309;
+  --col-review-bg: var(--alerta-bg);
+  --col-review-border: var(--alerta-borda);
+  --tag-review-bg: var(--alerta-bg);
+  --tag-review-txt: var(--alerta);
 
-  --col-done-bg: #f0fdf4;
-  --col-done-border: #bbf7d0;
-  --tag-done-bg: #dcfce7;
-  --tag-done-txt: #15803d;
+  --col-done-bg: var(--pos-bg);
+  --col-done-border: var(--pos-borda);
+  --tag-done-bg: var(--pos-bg);
+  --tag-done-txt: var(--pos);
 
-  --col-semprazo-bg: #f1f5f9;
-  --col-semprazo-border: #cbd5e1;
-  --tag-semprazo-bg: #f1f5f9;
-  --tag-semprazo-txt: #475569;
+  --col-semprazo-bg: var(--surface-2);
+  --col-semprazo-border: var(--line-strong);
+  --tag-semprazo-bg: var(--surface-2);
+  --tag-semprazo-txt: var(--ink-2);
 
   /* Prioridades */
-  --prio-high-bg: #fee2e2;
-  --prio-high-txt: #991b1b;
-  --prio-med-bg: #ffedd5;
-  --prio-med-txt: #9a3412;
-  --prio-low-bg: #f1f5f9;
-  --prio-low-txt: #475569;
+  --prio-high-bg: var(--neg-bg);
+  --prio-high-txt: var(--neg);
+  --prio-med-bg: var(--alerta-bg);
+  --prio-med-txt: var(--alerta);
+  --prio-low-bg: var(--surface-2);
+  --prio-low-txt: var(--ink-2);
 
   /* Elevação e Efeitos */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 2px 0 rgba(var(--sombra-rgb), 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(var(--sombra-rgb), 0.07), 0 2px 4px -2px rgba(var(--sombra-rgb), 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(var(--sombra-rgb), 0.1), 0 4px 6px -4px rgba(var(--sombra-rgb), 0.05);
   --radius-cards: 6px;
 }

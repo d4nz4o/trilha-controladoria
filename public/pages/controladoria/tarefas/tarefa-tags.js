@@ -21,7 +21,7 @@ function normalizarTagsDaTarefa(tarefa) {
 }
 
 function htmlTag(tag, extra = '') {
-  const cor = tag.cor_tag || '#3b91d8';
+  const cor = tag.cor_tag || 'var(--rail)';
   return `<span class="task-tag-pill"><span class="tag-cor" style="background:${cor};"></span>${escTag(tag.nome_tag)}${extra}</span>`;
 }
 
@@ -65,13 +65,14 @@ function renderizarModalTags() {
   if (!container || !tarefaModalAtual) return;
 
   container.innerHTML = (tarefaModalAtual.tagsLista || []).map(tag => htmlTag(tag,
-    `<span class="tag-remover" title="Remover tag" onclick="removerTagModal(${tag.id_tag})">&times;</span>`)).join('');
+    `<span class="tag-remover" data-editar="tarefas" title="Remover tag" onclick="removerTagModal(${tag.id_tag})">&times;</span>`)).join('');
 
   const btnAdd = document.createElement('button');
   btnAdd.type = 'button';
   btnAdd.className = 'btn-add-tag-modal';
   btnAdd.innerText = '+ Tag';
   btnAdd.onclick = adicionarTagModal;
+  btnAdd.dataset.editar = 'tarefas';   // só quem edita tarefas vê
   container.appendChild(btnAdd);
 }
 

@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="../../../src/styles/cores.css">   <!-- paleta única de cores -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
         <link rel="stylesheet" href="../commons/tokens.css">
         <link rel="stylesheet" href="../commons/base.css">
@@ -88,7 +89,7 @@
                             </div>
                             <div id="modalSubtarefasLista" class="subtarefas-lista"></div>
                             
-                            <div class="add-subtask-box">
+                            <div class="add-subtask-box" data-editar="tarefas">
                                 <input type="text" id="inputNovaSubtarefa" placeholder="+ Adicionar item de checklist..." onkeypress="handleKeySubtarefa(event)">
                                 <button type="button" class="btn-primary btn-sm" onclick="adicionarSubtarefaModal()">Adicionar</button>
                             </div>
@@ -98,7 +99,7 @@
                         <div class="modal-section">
                             <h3>Anexos e documentos</h3>
                             <div id="modalAnexosLista" class="anexos-lista"></div>
-                            <div class="upload-anexo-box">
+                            <div class="upload-anexo-box" data-editar="tarefas">
                                 <input type="file" id="inputUploadAnexo" style="display:none;" onchange="enviarAnexoCardModal(event)">
                                 <button type="button" class="btn-secondary btn-sm" onclick="document.getElementById('inputUploadAnexo').click()">Enviar arquivo</button>
                             </div>
@@ -108,7 +109,7 @@
                         <div class="modal-section">
                             <h3>Comentários</h3>
                             <div id="modalComentariosLista" class="comentarios-lista"></div>
-                            <div class="novo-comentario-box">
+                            <div class="novo-comentario-box" data-editar="tarefas">
                                 <textarea id="inputNovoComentario" rows="2" placeholder="Escreva um comentário..."></textarea>
                                 <button type="button" class="btn-primary btn-sm" onclick="enviarComentarioModal()">Comentar</button>
                             </div>
@@ -168,7 +169,7 @@
                         </div>
 
                         <div class="meta-group danger-zone" style="margin-top: 2rem;">
-                            <button type="button" class="btn-danger-outline" onclick="arquivarTarefaModal()">Arquivar Tarefa</button>
+                            <button type="button" class="btn-danger-outline" data-editar="tarefas" onclick="arquivarTarefaModal()">Arquivar Tarefa</button>
                         </div>
                     </div>
                 </div>

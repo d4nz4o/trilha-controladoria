@@ -174,6 +174,7 @@ function proximaCompetencia(iso) {
 let inicioDeMes = null;   // { origem, nova, tarefas: [], marcadas: Set }
 
 async function abrirInicioDeMes() {
+  if (!Permissoes.podeEditar('tarefas')) return;   // só quem edita tarefas começa um mês
   await carregarCompetencias();
   if (!listaMeses.length) return;
   const origem = listaMeses[listaMeses.length - 1];

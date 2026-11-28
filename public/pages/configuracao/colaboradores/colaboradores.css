@@ -1,0 +1,11 @@
+/* Configurações › Colaboradores — só o que é desta página (o comum está em ../commons.css) */
+
+.cad-situacao { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: .74rem; font-weight: 600; }
+.cad-situacao.ativo { background: var(--pos-bg); color: var(--pos); }
+.cad-situacao.inativo { background: var(--paper); color: var(--ink-3); }
+.cad-vinculo { color: var(--pos); font-weight: 700; }
+.cad-sem-vinculo { color: var(--ink-3); }
+.cad-nova-equipe { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.cad-nova-equipe[hidden] { display: none; }
+.cad-nova-equipe input { flex: 1; min-width: 0; }
+.cad-nova-equipe .btn-action { padding: 6px 12px; font-size: .78rem; }

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trilha Participações | Controle de ativos</title>
   <link rel="icon" type="image/png" href="../../../assets/icons/favicon-trilha.png">
+  <link rel="stylesheet" href="../../../src/styles/cores.css">   <!-- paleta única de cores -->
   <link rel="stylesheet" href="../commons.css">
   <link rel="stylesheet" href="analitico.css">
   <!-- Sessão (login, domínio corporativo e ociosidade) + fonte de dados. Ver /src/scripts/core e /src/scripts/services -->
@@ -26,10 +27,10 @@
       </a>
       <nav class="abas" aria-label="Controle de ativos">
         <a href="../../hub/hub.html">Início</a>
-        <a href="../composicao/composicao.html">Composição geral</a>
+        <a href="../composicao/composicao.html" data-recurso="controle_ativos">Composição geral</a>
         <a aria-current="page">Analítico</a>
-        <a href="../peps/peps.html">PEPs</a>
-        <a href="../ordens/ordens_inv.html">Ordens de investimento</a>
+        <a href="../peps/peps.html" data-recurso="controle_ativos">PEPs</a>
+        <a href="../ordens/ordens_inv.html" data-recurso="controle_ativos">Ordens de investimento</a>
       </nav>
     </div>
   </header>

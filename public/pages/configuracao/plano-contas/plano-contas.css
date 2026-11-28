@@ -1,0 +1,15 @@
+/* Configurações › Plano de contas — só o que é desta página (o comum está em ../commons.css) */
+
+.cta-pendencias { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 12px; margin-bottom: 14px; align-items: start; }
+.cta-saldo { font-style: normal; font-size: .7rem; font-weight: 600; color: var(--alerta); background: var(--alerta-bg); padding: 1px 6px; border-radius: 999px; }
+.cta-dem { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: .7rem; font-weight: 700; }
+.cta-dem.BP { background: var(--rail-soft); color: var(--rail-dark); }
+.cta-dem.DR { background: var(--destaque-bg); color: var(--destaque); }
+.cta-sem { font-size: .78rem; color: var(--alerta); font-weight: 500; }
+.modal-card.modal-conta { max-width: 760px; }
+.cta-sugestao { margin: 0 0 10px; padding: 8px 12px; border-radius: 8px; background: var(--rail-soft); color: var(--rail-dark); font-size: .8rem; line-height: 1.45; }
+.cta-cascata select:disabled { background: var(--surface-2); color: var(--ink-3); }
+.cta-lista .cta-acoes { display: flex; gap: 6px; flex: 0 0 auto; }
+.cta-descartar { color: var(--neg); }
+.cta-pend-qtd { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; background: var(--alerta-bg); color: var(--alerta); font-size: .72rem; font-weight: 700; }
+.cta-pendencia .cta-lista { max-height: 150px; overflow-y: auto; }

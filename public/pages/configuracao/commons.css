@@ -1,0 +1,81 @@
+/* Configurações — estilos COMUNS a todas as páginas (tabela, filtros, formulários, painéis, avisos).
+   Usa a barra, os botões, os filtros e o popup de ../demonstracoes/commons.css. */
+
+.cad-filtros { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cad-busca input {
+  width: 260px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--surface); font: inherit; font-size: .85rem; color: var(--ink);
+}
+.cad-busca input:focus { outline: none; border-color: var(--rail); }
+.btn-novo-colab svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.cad-tabela-area { overflow: auto; }
+.cad-tabela th { z-index: 2; }
+.cad-tabela { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.cad-tabela th {
+  position: sticky; top: 0; padding: 11px 14px; background: var(--surface-2); text-align: left;
+  font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-2);
+  border-bottom: 1px solid var(--line); white-space: nowrap;
+}
+.cad-tabela td { padding: 10px 14px; border-bottom: 1px solid var(--line); color: var(--ink); vertical-align: middle; }
+.cad-tabela td small { display: block; font-size: .74rem; color: var(--ink-3); }
+.cad-tabela tbody tr { cursor: pointer; transition: background-color .15s ease; }
+.cad-tabela tbody tr:hover, .cad-tabela tbody tr:focus-visible { background: var(--surface-2); outline: none; }
+.cad-tabela tbody tr.inativo td { color: var(--ink-3); }
+.cad-tabela tbody tr:last-child td { border-bottom: 0; }
+.cad-vazio { text-align: center; color: var(--ink-3); padding: 28px 14px !important; cursor: default; }
+.cad-rodape { margin: 0; padding: 10px 14px; border-top: 1px solid var(--line); font-size: .78rem; color: var(--ink-3); }
+.modal-card.modal-cadastro { max-width: 720px; }
+.cad-form { padding: 6px 20px 4px; overflow-y: auto; background: var(--surface); }
+.btn-close-modal svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.cad-form fieldset { margin: 0; padding: 12px 0 10px; border: 0; border-bottom: 1px solid var(--line); }
+.cad-form fieldset:last-child { border-bottom: 0; }
+.cad-form legend { padding: 0; margin-bottom: 8px; font-size: .74rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--rail-dark); }
+.cad-grade { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
+.cad-grade label { display: flex; flex-direction: column; gap: 4px; font-size: .78rem; font-weight: 500; color: var(--ink-2); }
+.cad-grade .cad-largo { grid-column: 1 / -1; }
+.cad-grade input, .cad-grade select {
+  padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface);
+  font: inherit; font-size: .86rem; color: var(--ink);
+}
+.cad-grade input:focus, .cad-grade select:focus { outline: none; border-color: var(--rail); box-shadow: 0 0 0 3px var(--rail-soft); }
+.cad-form .invalido { border-color: var(--perigo) !important; }
+.cad-grade small { font-size: .74rem; color: var(--alerta); min-height: 0; }
+.cad-check { display: flex; align-items: center; gap: 8px; font-size: .86rem; color: var(--ink); cursor: pointer; }
+.cad-check input { width: 16px; height: 16px; accent-color: var(--rail); }
+.cad-check small { color: var(--ink-3); font-size: .76rem; }
+.cad-check:has(input:disabled) { cursor: not-allowed; opacity: .7; }
+.cad-login { margin: 8px 0 0; font-size: .78rem; color: var(--ink-3); line-height: 1.5; }
+.cad-acoes { align-items: center; }
+.cad-feedback { margin-right: auto; font-size: .8rem; color: var(--ink-3); }
+.cad-feedback.erro { color: var(--neg); }
+@media (max-width: 700px) {
+  .cad-grade { grid-template-columns: 1fr; }
+  .cad-busca input { width: 100%; }
+}
+.cad-aviso {
+  position: fixed; left: 50%; bottom: 28px; z-index: 2000; transform: translate(-50%, 12px);
+  padding: 10px 18px; border-radius: 10px; background: var(--rail-dark); color: var(--branco); font-size: .85rem; font-weight: 500;
+  box-shadow: 0 10px 28px -8px rgba(var(--ink-rgb), .45); opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease;
+}
+.cad-aviso.visivel { opacity: 1; transform: translate(-50%, 0); }
+.cad-tabela th.num, .cad-tabela td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.cad-grade small.cad-ajuda { color: var(--ink-3); }
+.cad-grade input[readonly] { background: var(--surface-2); color: var(--ink-3); cursor: not-allowed; }
+.cad-ajuda-metodo { margin: 0; font-size: .78rem; color: var(--ink-3); line-height: 1.45; }
+.modal-card.modal-empresa { max-width: 600px; }
+.cta-pendencia { padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius, 14px); min-width: 0; }
+.cta-pend-topo { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .9rem; color: var(--ink); }
+.cta-pend-texto { margin: 6px 0 0; font-size: .8rem; color: var(--ink-3); line-height: 1.45; }
+.cta-pend-texto.ok { color: var(--pos); font-weight: 600; }
+.cta-pend-texto.erro { color: var(--neg); }
+.cta-pend-texto b { color: var(--ink); }
+.cta-link { border: 0; background: none; padding: 0; font: inherit; font-size: .78rem; font-weight: 600; color: var(--rail); cursor: pointer; }
+.cta-link:hover { text-decoration: underline; }
+.cta-arquivo { cursor: pointer; }
+.cta-lista { list-style: none; margin: 8px 0 0; padding: 0; }
+.cta-lista li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); font-size: .82rem; color: var(--ink); }
+.cta-lista li span { min-width: 0; }
+.cta-lista small { display: block; margin-top: 2px; font-size: .74rem; color: var(--rail-dark); }
+.cta-lista .btn-action { flex: 0 0 auto; padding: 5px 10px; font-size: .76rem; }
+.aud-select { padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font: inherit; font-size: .84rem; color: var(--ink); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

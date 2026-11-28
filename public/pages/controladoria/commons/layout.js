@@ -49,6 +49,8 @@ function renderizarTopbar() {
 }
 
 function executarAcaoAba() {
+  const paginaDaAba = PAGINAS.find(p => p.id === ABA_ATUAL_ID) || PAGINAS[0];
+  if (window.Permissoes && !Permissoes.podeEditar(paginaDaAba.recurso)) return;   // só quem edita o recurso
   if (abaAtual === 'kanban') abrirModalNovaTarefa();
   else if (abaAtual === 'ferias') abrirModalNovasFerias();
   else if (abaAtual === 'equipe') alert('Em breve: cadastro de novos membros da equipe.');

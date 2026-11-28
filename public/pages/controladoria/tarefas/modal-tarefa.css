@@ -41,7 +41,7 @@
 
 .modal-section textarea:focus {
   border-color: var(--brand-blue);
-  background: #fff;
+  background: var(--surface);
 }
 
 /* Checklist / Subtarefas */
@@ -88,7 +88,7 @@
 .btn-del-sub {
   background: transparent;
   border: none;
-  color: #dc2626;
+  color: var(--perigo);
   font-size: 1.1rem;
   cursor: pointer;
   margin-left: auto;
@@ -148,8 +148,8 @@
 .btn-danger-outline {
   width: 100%;
   background: transparent;
-  border: 1px solid #fecaca;
-  color: #dc2626;
+  border: 1px solid var(--neg-borda);
+  color: var(--perigo);
   padding: 8px;
   border-radius: 6px;
   font-size: 0.8rem;
@@ -159,7 +159,7 @@
 }
 
 .btn-danger-outline:hover {
-  background: #fef2f2;
+  background: var(--neg-bg);
 }
 
 /* Anexos e Comentários */
@@ -218,9 +218,9 @@
   font-weight: 600;
   padding: 2px 8px;
   border-radius: 12px;
-  background: var(--bg-subtle, #f1f5f9);
-  color: var(--text-secondary, #475569);
-  border: 1px solid var(--border-light, #e2e8f0);
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -236,19 +236,19 @@
 
 .btn-add-tag-modal {
   background: transparent;
-  border: 1px dashed var(--border-light, #cbd5e1);
+  border: 1px dashed var(--border-light);
   padding: 3px 8px;
   border-radius: 12px;
   font-size: 0.72rem;
   cursor: pointer;
-  color: var(--text-muted, #64748b);
+  color: var(--text-muted);
   transition: all 0.15s ease;
 }
 
 .btn-add-tag-modal:hover {
-  border-color: var(--brand-blue, #2563eb);
-  color: var(--brand-blue, #2563eb);
-  background: #eff6ff;
+  border-color: var(--brand-blue);
+  color: var(--brand-blue);
+  background: var(--rail-soft);
 }
 
 /* Competência, prazo (data ou dias úteis) e recorrência */
@@ -256,7 +256,7 @@
 .modal-prazo-campos { display: grid; gap: 4px; margin-top: 8px; }
 .modal-prazo-campos[hidden] { display: none; }
 .modal-prazo-campos label { font-size: 0.72rem; font-weight: 600; color: var(--text-secondary); text-transform: none; letter-spacing: 0; margin-top: 4px; }
-.modal-du-data { font-size: 0.76rem; color: #1d5fa0; font-weight: 600; min-height: 1em; }
-.modal-prazo-aviso { display: block; margin-top: 4px; font-size: 0.76rem; color: #b91c1c; }
+.modal-du-data { font-size: 0.76rem; color: var(--rail-dark); font-weight: 600; min-height: 1em; }
+.modal-prazo-aviso { display: block; margin-top: 4px; font-size: 0.76rem; color: var(--neg); }
 .modal-recorrente { display: flex !important; align-items: center; gap: 8px; font-size: 0.86rem !important; font-weight: 600; color: var(--text-primary) !important; text-transform: none !important; letter-spacing: 0 !important; cursor: pointer; }
 .modal-recorrente input { accent-color: var(--brand-blue); width: 16px; height: 16px; }
